@@ -14,7 +14,6 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     env:
-      MOON_HOME: ${{ runner.temp }}/moon-edf
       PYTHONDONTWRITEBYTECODE: '1'
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
@@ -27,8 +26,11 @@ jobs:
         with:
           python-version: '3.12'
       - name: Install and verify pinned official MoonBit
+        env:
+          MOON_HOME: ${{ runner.temp }}/moon-edf
         run: |
           python ci/install-moonbit.py --home "$MOON_HOME" --download-cache "$RUNNER_TEMP/edf-downloads"
+          echo "MOON_HOME=$MOON_HOME" >> "$GITHUB_ENV"
           echo "$MOON_HOME/bin" >> "$GITHUB_PATH"
       - name: Record tools and source commit
         run: |
