@@ -49,10 +49,13 @@ moon test --target wasm-gc --deny-warn
 moon build --target js --release --deny-warn
 python tools/check-psd.py --output NEW.json --work-dir NEW_CASE_DIRECTORY
 python tools/check-psd-scale.py --output NEW_SCALE.json --work-dir NEW_SCALE_CASES
+python tools/check-psd-metadata.py --output NEW_METADATA.json --work-dir NEW_METADATA_CASES
 ```
 
 验证器从独立定宽字节构造EDF，以Fraction解释时钟/标定，小N使用独立O(N²)直接DFT，并逐bin比较SciPy的显式窗数组、detrend=False、相同noverlap/nfft、density/mean/one-sided。覆盖解析单/双音、DC/Nyquist/零、能量与幅度缩放、两类窗、重叠/尾样本、多采样率、gap、不均匀/短窗/非有限/预算及精确JSON时间词法。
 
 小量级验证对矩形恒幅谱使用解析DC公式及其余bin精确为0的正交关系；其余场景用100位Decimal直接DFT、N=4/8代数单位根和N=4对称Hann精确权重，不借生产缩放算法或FFT给出预期。正密度按相对3e-12或2 ULP核对，预期0要求0，避免绝对1e-9误收全零谱。覆盖DC平方尺度律、Nyquist、零、非恒样本、段均值/尾部、次正规密度、最终真下溢与阈值两侧合法对照，并实际回读原JSON/CSV每bin及元数据。原普通范围DFT/SciPy和错误验收保留。
+
+元数据消费者验证独立构造两记录的plain EDF和BDF（BDF包含超出Int16的正负24位样本），每个文件含3个不同采样率及标定的普通通道；包括空单位、混合单位和含逗号/多个引号的合法ASCII字段。对同一未对齐采样点的`[0.1,2.9)`请求，分别按原通道时钟选择，不换算单位或重采样。N=4的DFT单位根为`1,-i,-1,i`，两类窗均以Fraction解析公式给出预期，逐bin核对真实JSON/CSV、原SHA、标定文本、单位标记、精确采样率/首末样本/分析端点与尾样本计数。标准CSV读回还核对原16列和每个字段；非法通道/短窗不产生输出，已存在的JSON、CSV及用户文件保持原字节。该门增加原有消费者合同的独立覆盖，未声称修复已发生的生产缺陷；生成的输入、options和输出均保留，可用既有`examples/edf-psd.mjs`单独重放。
 
 如有既有固定S001R03.edf，可增加`--public-input PATH --consumer-dir NEW_OUTPUT_DIRECTORY`：仅接受源码工具钉住的SHA256，分析通道0的[0,4)秒并回读真实JSON/CSV。输出附数据来源/署名/许可文件，原始数据不随源码分发。消费者的一般调用为`node examples/edf-psd.mjs INPUT.edf NEW_OUTPUT_DIRECTORY examples/psd.json`，输出目录必须不存在。

@@ -83,6 +83,8 @@ jobs:
           python -c "import json; p=json.load(open('work/psd-verification.json')); print(json.dumps({'cases':p['numerical'],'rejected':len(p['rejected']),'scipy':p['scipy'],'numpy':p['numpy'],'source':p['publicConsumer']['source']}))"
       - name: Small physical-scale Decimal and JSON/CSV consumers
         run: python tools/check-psd-scale.py --output work/psd-scale-verification.json --work-dir work/psd-scale-cases
+      - name: Native-channel PSD metadata and output protection
+        run: python tools/check-psd-metadata.py --output work/psd-metadata-verification.json --work-dir work/psd-metadata-cases
       - name: Original public recording and event exports
         run: |
           "$RUNNER_TEMP/edf-legacy-reference/bin/python" tools/verify-public-eeg.py work/S001R03.edf --output work/public-eeg-report.json

@@ -43,6 +43,8 @@ JSON记录源通道/标签、请求时段、实际首/末采样时刻、完整�
 
 完整API、预算和独立验证命令见[docs/PSD.md](docs/PSD.md)。若用`moon --target-dir`在其它磁盘构建，可显式设置`MOON_EDF_BRIDGE`为该目录下`js/release/build/cmd/bridge/bridge.js`的绝对路径；默认仍使用本项目`_build`。
 
+`python tools/check-psd-metadata.py --output NEW.json --work-dir NEW_CASES`生成可运行的16位EDF/24位BDF多通道样例，逐通道调用上述文件消费者。标准CSV读者回读含逗号/引号的标签和单位、空单位及各自`16/3`、`8`、`32/3` Hz时钟，并以独立有理数四点DFT逐bin核对两类窗；同时检查错误不创建输出、既有导出目录不被覆盖。单位按源文本保留，空单位的JSON为`unit=""`、`unit_specified=false`，显示为`(unspecified)^2/Hz`；不推断uV或自动换算单位，不重采样。验证器仅用Python标准库，运行库仍无需Python。
+
 ### 微小幅度的密度范围（0.9.0）
 
 当物理幅度和采样率都很小时，原始FFT幅值先平方可能下溢为0，即使最终`unit²/Hz`密度可表示。0.9.0对非零峰值不超过`2^-512`的完整窗口做二进制预缩放，以内部1 Hz调用同一个上游Welch，再分离尾数/指数还原实际密度。例如8个`1e-180`恒幅样本、记录时长`1e200`，DC密度可约为`1e-160`。这是旧合同允许下溢基础上的数值可用范围提升。
