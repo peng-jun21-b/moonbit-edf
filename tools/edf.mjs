@@ -95,6 +95,18 @@ export function psdFromSnapshot(data,options) {
   return JSON.parse(report(data,JSON.stringify(exact.options)));
 }
 
+// Compose the existing exact epoch and native-window CSV APIs on one snapshot.
+export function epochCsvFromSnapshot(data,options) {
+  const exact=exactOptions(options,'epoch');
+  const request={...exact.options,command:'epoch'};
+  const result=JSON.parse(report(data,JSON.stringify(request)));
+  const csvOptions={command:'window-csv',signals:result.channels.map(c=>c.signal),start:result.start,end:result.end};
+  for(const key of ['max_samples','time_tolerance','physical'])
+    if(Object.hasOwn(exact.options,key))csvOptions[key]=exact.options[key];
+  const csv=JSON.parse(report(data,JSON.stringify(csvOptions))).text;
+  return {result,csv,request,csvPhysical:csvOptions.physical??true};
+}
+
 const writes=new Set(['copy','select','crop','plus','create','crop-time','annotations-set','annotation-add','annotation-remove','annotations-remove','annotation-update','annotation-signal','rename','calibrate']);
 const reads=new Set(['inspect','validate','stats','annotations','annotations-exact','annotations-window','gaps','flat','csv','channel','window','window-exact','window-csv','epoch','epoch-exact','psd']);
 function main(args) {

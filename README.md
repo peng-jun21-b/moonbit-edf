@@ -66,6 +66,22 @@ node tools/edf.mjs csv RENAMED.edf examples/csv.json
 
 0.7.2修复共享CSV转义只处理第一个双引号的问题；采用[RFC 4180字段引号规则](https://www.rfc-editor.org/rfc/rfc4180)将每个内部双引号翻倍。仅修正字段编码，不改变允许的头字段、分隔符、现有LF行结束或源EDF/BDF数据。
 
+## 将自己的文件中一个事件交付为CSV
+
+`export-epoch.mjs`接受已有注释的受支持EDF/BDF文件，从同一个只读字节快照调用现有`epoch`和`window-csv`，写出`epoch.json`与`samples.csv`。它按调用者指定的注释索引工作，不推断T1等文本的含义，也不要求公开数据SHA。
+
+```sh
+node tools/edf.mjs annotations INPUT.edf
+node examples/export-epoch.mjs INPUT.edf NEW_OUTPUT_DIRECTORY examples/export-epoch.json
+python tools/check-epoch-export.py --output NEW.json --work-dir NEW_CASES
+```
+
+options沿用`epoch`的`annotation`、`signals`、`before/after`、`include_duration`、`allow_partial`、共享`max_samples`及读取策略`time_tolerance`。索引属于同一未改动文件；`signals`须为互异普通通道。时间支持十进制/有理数字符串，Node 24裸JSON数字保留源词法；消费者不自行做浮点边界运算。默认包含事件原时长、拒绝缺失覆盖；显式`allow_partial=true`才保留部分窗口，JSON继续标记`complete=false`及各通道的gaps。窗口完全在gap内时CSV只有表头，不补零、不重采样。缺省事件时长与显式`"0"`保留原JSON表示。
+
+CSV复用原`window-csv`九列及原始record/sample编号，按请求通道顺序保留各自时钟；`time_seconds`也可能为`1/3`这样的精确有理数文本，精确分子/分母列同时保留。默认`value`为物理值、单位原样保留，空单位仍为空；可用`physical=false`输出数字值并将CSV单位写为`digital`，JSON仍含原单位与两类样本值。不会自动换算单位或增加事件相对浮点时间列。
+
+JSON附源路径/字节数/SHA、实际请求、原`EventWindow`结果和CSV SHA。原API完成全部校验后才创建输出目录；既有目录会拒绝覆盖，参数/窗口校验失败不创建输出。`MOON_EDF_BRIDGE`与其它文件消费者相同，未指定时采用默认构建。库接口、文件格式、原CSV列与固定公开T1消费者保持。
+
 ## 将固定公开EEG的T1事件导出为CSV
 
 `examples/run-public-epochs.mjs`提供可回读的公开数据消费者：仅接受SHA钉住的[PhysioNet EEG Motor Movement/Imagery 1.0.0](https://physionet.org/content/eegmmidb/1.0.0/)中`S001R03.edf`，为其中8个T1事件导出通道0/8/32、前后各0.25秒的CSV及带来源/署名的manifest。它不将其它文件中的T1标签解释成相同任务。

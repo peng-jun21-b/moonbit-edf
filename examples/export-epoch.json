@@ -1,0 +1,10 @@
+{
+  "annotation": 0,
+  "signals": [0],
+  "before": "0.25",
+  "after": "0.25",
+  "include_duration": true,
+  "allow_partial": false,
+  "max_samples": 100000,
+  "physical": true
+}
