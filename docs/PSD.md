@@ -37,6 +37,10 @@ JSON保留信号索引/标签、unit、精确sample_rate、Double sample_rate_hz
 
 非法参数、短窗、缺失覆盖和非均匀时钟返回Invalid；不支持的nfft返回Unsupported；采样/分段/计算预算、物理标定溢出、不可表示的采样率/归一化/谱/频带功率返回Limit。Double的舍入和下溢仍遵循浮点运算，精确时钟不意味着谱浮点精确。只检查当前有限窗口，未认证任意大数或任意EDF/BDF文件的科学适用性。
 
+0.9.0增加有限的小量级预条件，不将0.8.0允许下溢的行为改称旧契约回归。若完整物理窗口的非零峰值`M <= 2^-512`，选择整数`e=floor(log2(M))`，通过`scalbn(x,-e)`逐样本放大，再调用原MoonSpectrum Welch（内部sample_rate=1）。数学单位还原为`P=P_unit*2^(2e)/fs`；实现将P_unit与fs分离成量级为1的尾数和整数指数，避免先形成会下溢的幅度平方或会溢出的1/fs。log2只选择尺度，数值关系由scalbn完成。上游窗、重叠、完整段均值、尾部策略均保持，没有裁幅、丢弃额外样本或重写FFT/Welch。
+
+输出仍按原`k*fs/N`计算实际Hz格，精确/近似采样率、物理单位、原标定、JSON结构和CSV列不变。零窗口与峰值大于阈值时保持旧路径；原准入条件、预算与fs/df/N*fs、窗归一化、非有限检查不变。这是保护微小信号整体量级的有限策略，不保证极大动态跨度中的细微分量或接近零的抵消项。最终Double舍入/下溢仍存在：例如上述1e-160密度可表示，积分的1e-360功率仍不能表示；不会将其冒称为非零精确功率。物理标定已舍入为0的信息也无法恢复。
+
 独立验收（开发环境固定numpy==2.3.4、scipy==1.16.2，不用于运行时）：
 
 ```sh
@@ -44,8 +48,11 @@ moon test --target js --deny-warn
 moon test --target wasm-gc --deny-warn
 moon build --target js --release --deny-warn
 python tools/check-psd.py --output NEW.json --work-dir NEW_CASE_DIRECTORY
+python tools/check-psd-scale.py --output NEW_SCALE.json --work-dir NEW_SCALE_CASES
 ```
 
 验证器从独立定宽字节构造EDF，以Fraction解释时钟/标定，小N使用独立O(N²)直接DFT，并逐bin比较SciPy的显式窗数组、detrend=False、相同noverlap/nfft、density/mean/one-sided。覆盖解析单/双音、DC/Nyquist/零、能量与幅度缩放、两类窗、重叠/尾样本、多采样率、gap、不均匀/短窗/非有限/预算及精确JSON时间词法。
+
+小量级验证对矩形恒幅谱使用解析DC公式及其余bin精确为0的正交关系；其余场景用100位Decimal直接DFT、N=4/8代数单位根和N=4对称Hann精确权重，不借生产缩放算法或FFT给出预期。正密度按相对3e-12或2 ULP核对，预期0要求0，避免绝对1e-9误收全零谱。覆盖DC平方尺度律、Nyquist、零、非恒样本、段均值/尾部、次正规密度、最终真下溢与阈值两侧合法对照，并实际回读原JSON/CSV每bin及元数据。原普通范围DFT/SciPy和错误验收保留。
 
 如有既有固定S001R03.edf，可增加`--public-input PATH --consumer-dir NEW_OUTPUT_DIRECTORY`：仅接受源码工具钉住的SHA256，分析通道0的[0,4)秒并回读真实JSON/CSV。输出附数据来源/署名/许可文件，原始数据不随源码分发。消费者的一般调用为`node examples/edf-psd.mjs INPUT.edf NEW_OUTPUT_DIRECTORY examples/psd.json`，输出目录必须不存在。

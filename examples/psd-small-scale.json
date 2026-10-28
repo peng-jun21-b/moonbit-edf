@@ -1,0 +1,13 @@
+{
+  "signal": 0,
+  "start": "0",
+  "end": "1e200",
+  "segment_length": 8,
+  "overlap_samples": 0,
+  "window": "rectangular",
+  "nfft": 8,
+  "detrend": "none",
+  "scaling": "density",
+  "average": "mean",
+  "sides": "one-sided"
+}

@@ -96,6 +96,55 @@ pub extend PsdResult with ToJson::{to_json}
 pub extend PsdResult with @debug.Debug::{to_repr}
 
 ///|
+// A narrow conditioning path for very small finite physical amplitudes.
+// The upstream implementation still owns FFT, windowing and Welch averaging.
+fn psd_physical_welch(
+  physical : Array[Double],
+  fs : Double,
+  segment_length : Int,
+  overlap : Double,
+  kind : @spectrum.WindowKind,
+) -> @spectrum.WelchResult raise @spectrum.SpectrumError {
+  let peak = physical.fold(init=0.0, (m, x) => m.max(x.abs()))
+  if peak == 0.0 || peak > @math.scalbn(1.0, -512) {
+    return @spectrum.welch_psd(
+      physical[:],
+      sample_rate=fs,
+      segment_length~,
+      overlap~,
+      window_kind=kind,
+    )
+  }
+  // log2 only chooses an integer scale. The inverse relation uses scalbn,
+  // so a last-bit log2 error at a power of two does not change the identity.
+  let amplitude_exp = @math.log2(peak).floor().to_int()
+  let conditioned = physical.map(x => @math.scalbn(x, -amplitude_exp))
+  let result = @spectrum.welch_psd(
+    conditioned[:],
+    sample_rate=1.0,
+    segment_length~,
+    overlap~,
+    window_kind=kind,
+  )
+  let rate_exp = @math.log2(fs).floor().to_int()
+  let rate_mantissa = @math.scalbn(fs, -rate_exp)
+  for i in 0..<result.psd.length() {
+    let value = result.psd[i]
+    if value > 0.0 && finite(value) {
+      let density_exp = @math.log2(value).floor().to_int()
+      let density_mantissa = @math.scalbn(value, -density_exp)
+      result.psd[i] = @math.scalbn(
+        density_mantissa / rate_mantissa,
+        density_exp + 2 * amplitude_exp - rate_exp,
+      )
+    }
+    // Keep the original physical-Hz grid and its evaluation order.
+    result.frequencies[i] = i.to_double() * fs / segment_length.to_double()
+  }
+  result
+}
+
+///|
 /// Welch density for one complete, uniform, finite physical window [start,end).
 /// Reuses MoonSpectrum's FFT/Welch implementation; no detrending or zero padding.
 /// Budgets can only lower the hard limits: 1,048,576 samples, 8,192 segments,
@@ -223,12 +272,12 @@ pub fn[A : TimeInput, B : TimeInput] Recording::welch_psd(
   let physical = selected.samples.map(s => s.physical)
   // Power-of-two N makes overlap/N exactly representable, so upstream's
   // floor(N*(1-overlap)) is exactly the requested integer step.
-  let spectrum = @spectrum.welch_psd(
-    physical[:],
-    sample_rate=fs,
-    segment_length~,
-    overlap=overlap_samples.to_double() / segment_length.to_double(),
-    window_kind=kind,
+  let spectrum = psd_physical_welch(
+    physical,
+    fs,
+    segment_length,
+    overlap_samples.to_double() / segment_length.to_double(),
+    kind,
   ) catch {
     e => raise Invalid("MoonSpectrum Welch: " + @debug.to_string(e))
   }

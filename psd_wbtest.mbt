@@ -196,3 +196,178 @@ test "PSD preserves source rate and accepts a continuous EDF D island only" {
     },
   )
 }
+
+///|
+fn psd_tiny_close(actual : Double, expected : Double) -> Unit raise {
+  assert_true(actual > 0.0)
+  assert_true((actual / expected - 1.0).abs() <= 2.0e-11)
+}
+
+///|
+fn psd_small_record(
+  values : Array[Int],
+  low : Double,
+  high : Double,
+  digital_low : Int,
+  digital_high : Int,
+  duration : String,
+) -> Recording raise EdfError {
+  let s = {
+    ..psd_identity_signal(values.length()),
+    physical_min: low,
+    physical_max: high,
+    digital_min: digital_low,
+    digital_max: digital_high,
+  }
+  create([s], [{ onset: "0", samples: [values], events: [], }], duration)
+}
+
+///|
+test "small physical DC density and amplitude square law remain representable" {
+  let r = psd_small_record(
+    [1, 1, 1, 1, 1, 1, 1, 1],
+    0.0,
+    1.0e-180,
+    0,
+    1,
+    "1e200",
+  )
+  let p = r.welch_psd(
+    0,
+    "0",
+    "1e200",
+    segment_length=8,
+    overlap_samples=0,
+    window=Rectangular,
+    bands=[{ name: "all", low_hz: 0.0, high_hz: 4.0e-200, }],
+  )
+  // Independent constant-signal formula: N*A^2/fs = A^2*duration.
+  psd_tiny_close(p.density[0], 1.0e-160)
+  for i in 1..<p.density.length() {
+    assert_eq(p.density[i], 0.0)
+  }
+  assert_eq(p.sample_rate, r.sample_rate(0))
+  assert_eq(p.frequencies_hz[1], 1.0e-200)
+  assert_eq(p.psd_unit, "(uV)^2/Hz")
+  // Density is representable, but its integrated 1e-360 power is not.
+  assert_eq(p.bands[0].power, 0.0)
+  let twice = psd_small_record(
+    [1, 1, 1, 1, 1, 1, 1, 1],
+    0.0,
+    2.0e-180,
+    0,
+    1,
+    "1e200",
+  ).welch_psd(
+    0,
+    "0",
+    "1e200",
+    segment_length=8,
+    overlap_samples=0,
+    window=Rectangular,
+  )
+  psd_tiny_close(twice.density[0], 4.0e-160)
+  psd_tiny_close(twice.density[0] / p.density[0], 4.0)
+}
+
+///|
+test "small Nyquist periodic nonconstant and zero keep one sided semantics" {
+  for
+    (values, bin, expected) in [
+      ([1, -1, 1, -1, 1, -1, 1, -1], 4, 1.0e-160),
+      ([1, 0, -1, 0, 1, 0, -1, 0], 2, 5.0e-161),
+    ] {
+    let r = psd_small_record(values, -1.0e-180, 1.0e-180, -1, 1, "1e200")
+    let p = r.welch_psd(
+      0,
+      "0",
+      "1e200",
+      segment_length=8,
+      overlap_samples=0,
+      window=Rectangular,
+    )
+    for i in 0..<p.density.length() {
+      if i == bin {
+        psd_tiny_close(p.density[i], expected)
+      } else {
+        assert_eq(p.density[i], 0.0)
+      }
+    }
+  }
+  let zero = psd_small_record(
+    [0, 0, 0, 0, 0, 0, 0, 0],
+    0.0,
+    1.0e-180,
+    0,
+    1,
+    "1e200",
+  ).welch_psd(
+    0,
+    "0",
+    "1e200",
+    segment_length=8,
+    overlap_samples=0,
+    window=Rectangular,
+  )
+  assert_eq(zero.density, [0.0, 0.0, 0.0, 0.0, 0.0])
+}
+
+///|
+test "small symmetric Hann uses exact four point analytical window control" {
+  let p = psd_small_record([1, 2, -1, 3], -1.0e-180, 3.0e-180, -1, 3, "1e200").welch_psd(
+    0,
+    "0",
+    "1e200",
+    segment_length=4,
+    overlap_samples=0,
+    window=HannSymmetric,
+  )
+  // w=[0,3/4,3/4,0], sum(w^2)=9/8; independent exact DFT powers.
+  let expected = [1.25e-161, 1.25e-160, 1.125e-160]
+  for i in 0..<expected.length() {
+    psd_tiny_close(p.density[i], expected[i])
+  }
+}
+
+///|
+test "small subnormal result final underflow and conditioning threshold controls" {
+  for
+    (amplitude, duration, expected) in [
+      (1.0e-310, "1e308", 1.0e-312),
+      (7.4e-155, "1e200", 5.476e-109),
+      (7.5e-155, "1e200", 5.625e-109),
+    ] {
+    let p = psd_small_record(
+      [1, 1, 1, 1, 1, 1, 1, 1],
+      0.0,
+      amplitude,
+      0,
+      1,
+      duration,
+    ).welch_psd(
+      0,
+      "0",
+      duration,
+      segment_length=8,
+      overlap_samples=0,
+      window=Rectangular,
+    )
+    psd_tiny_close(p.density[0], expected)
+  }
+  let p = psd_small_record(
+    [1, 1, 1, 1, 1, 1, 1, 1],
+    0.0,
+    1.0e-320,
+    0,
+    1,
+    "1e308",
+  ).welch_psd(
+    0,
+    "0",
+    "1e308",
+    segment_length=8,
+    overlap_samples=0,
+    window=Rectangular,
+  )
+  assert_eq(p.density, [0.0, 0.0, 0.0, 0.0, 0.0])
+}

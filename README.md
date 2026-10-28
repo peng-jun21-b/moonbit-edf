@@ -1,4 +1,4 @@
-# MoonEDF 0.8.0
+# MoonEDF 0.9.0
 
 [项目仓库](https://github.com/peng-jun21-b/moonbit-edf) · [GitHub Actions](https://github.com/peng-jun21-b/moonbit-edf/actions/workflows/ci.yml)。模块名保留`peng-jun21/edf`，源码许可证及上游归属保持。
 
@@ -42,6 +42,12 @@ node examples/edf-psd.mjs INPUT.edf NEW_OUTPUT_DIRECTORY examples/psd.json
 JSON记录源通道/标签、请求时段、实际首/末采样时刻、完整段终点、精确及近似采样率、原始标定文本、物理/PSD单位、参数、频率格和尾样本数。空单位标为unspecified。频带按bin中心`[low,high)`选取，`high=fs/2`时含Nyquist，计算`sum(density*df)`；无插值或临床频带默认值。消费者从同一输入快照输出`psd.json`与逐bin的`psd.csv`，JSON带源文件SHA256，CSV完整转义名称与单位。
 
 完整API、预算和独立验证命令见[docs/PSD.md](docs/PSD.md)。若用`moon --target-dir`在其它磁盘构建，可显式设置`MOON_EDF_BRIDGE`为该目录下`js/release/build/cmd/bridge/bridge.js`的绝对路径；默认仍使用本项目`_build`。
+
+### 微小幅度的密度范围（0.9.0）
+
+当物理幅度和采样率都很小时，原始FFT幅值先平方可能下溢为0，即使最终`unit²/Hz`密度可表示。0.9.0对非零峰值不超过`2^-512`的完整窗口做二进制预缩放，以内部1 Hz调用同一个上游Welch，再分离尾数/指数还原实际密度。例如8个`1e-180`恒幅样本、记录时长`1e200`，DC密度可约为`1e-160`。这是旧合同允许下溢基础上的数值可用范围提升。
+
+普通幅度保持原路径；没有裁幅、删样本、替换FFT/Welch或新增输入限制。原始采样率、精确时间、单位、标定和CSV列保持。最终密度或频带功率不可表示时仍可下溢；极大动态跨度或接近零的谱抵消项不在全Double准确性保证内。`python tools/check-psd-scale.py --output NEW.json --work-dir NEW_CASES`以独立Decimal直接DFT核对实际JSON/CSV，保留可运行的合成EDF与输出；生成的`dc.edf`还可配合[examples/psd-small-scale.json](examples/psd-small-scale.json)调用既有消费者。
 
 ## 带引号的通道名称与CSV
 

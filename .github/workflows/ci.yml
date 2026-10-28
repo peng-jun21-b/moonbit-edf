@@ -81,6 +81,8 @@ jobs:
           python tools/fetch-public-eeg.py work/S001R03.edf
           python tools/check-psd.py --output work/psd-verification.json --work-dir work/psd-cases --public-input work/S001R03.edf --consumer-dir work/public-psd
           python -c "import json; p=json.load(open('work/psd-verification.json')); print(json.dumps({'cases':p['numerical'],'rejected':len(p['rejected']),'scipy':p['scipy'],'numpy':p['numpy'],'source':p['publicConsumer']['source']}))"
+      - name: Small physical-scale Decimal and JSON/CSV consumers
+        run: python tools/check-psd-scale.py --output work/psd-scale-verification.json --work-dir work/psd-scale-cases
       - name: Original public recording and event exports
         run: |
           "$RUNNER_TEMP/edf-legacy-reference/bin/python" tools/verify-public-eeg.py work/S001R03.edf --output work/public-eeg-report.json
