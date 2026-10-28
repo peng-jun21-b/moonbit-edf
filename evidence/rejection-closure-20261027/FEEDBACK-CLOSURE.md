@@ -1,0 +1,14 @@
+# 原反馈处理清单 · edf
+
+仅核对原意见与已有修复。本轮未重跑构建、测试或独立参考，也未改评委材料。ID为本次追踪编号，并非原评审编号。
+
+| ID | 原反馈 | 改动／已有处理 | 证据 | 结论 |
+|---|---|---|---|---|
+| EDF-01 | decode仍用Double/100ns容差，合法长跨度/高精度TAL被限 | 0.4.0主decode/记录关系采用精确时间，默认Strict或显式Tolerance；保留5001位/长跨度验证。 | [recording.mbt](D:/CodexLocal/ban/work/portfolio-progress-20261027/projects/moonbit-edf/recording.mbt)、[pkg.generated.mbti](D:/CodexLocal/ban/work/portfolio-progress-20261027/projects/moonbit-edf/pkg.generated.mbti)、[independent.json](D:/CodexLocal/ban/work/portfolio-progress-20261027/projects/moonbit-edf/evidence/deep-20261020/independent.json) | historically-fixed-and-verified |
+| EDF-02 | _exact与有损主API割裂 | 主annotations/starts/sample_time/gaps/window等统一精确时钟；_exact为兼容alias。 | [pkg.generated.mbti](D:/CodexLocal/ban/work/portfolio-progress-20261027/projects/moonbit-edf/pkg.generated.mbti)、[README.md](D:/CodexLocal/ban/work/portfolio-progress-20261027/projects/moonbit-edf/README.md)、[CHECKS.json](D:/CodexLocal/ban/work/portfolio-progress-20261027/projects/moonbit-edf/evidence/deep-20261020/CHECKS.json) | historically-fixed-and-verified |
+| EDF-03 | 多注释通道未完整处理 | 首注释通道首TAL计时；其他通道事件合并/编辑保留record与signal身份。 | [README.md](D:/CodexLocal/ban/work/portfolio-progress-20261027/projects/moonbit-edf/README.md)、[pkg.generated.mbti](D:/CodexLocal/ban/work/portfolio-progress-20261027/projects/moonbit-edf/pkg.generated.mbti)、[independent.json](D:/CodexLocal/ban/work/portfolio-progress-20261027/projects/moonbit-edf/evidence/deep-20261020/independent.json) | historically-fixed-and-verified |
+| EDF-04 | 仅整record裁剪，缺任意窗与实用编辑 | 新增crop_time_window、注释CRUD/扩容、rename_signal、map_physical。 | [pkg.generated.mbti](D:/CodexLocal/ban/work/portfolio-progress-20261027/projects/moonbit-edf/pkg.generated.mbti)、[independent.json](D:/CodexLocal/ban/work/portfolio-progress-20261027/projects/moonbit-edf/evidence/deep-20261020/independent.json) | historically-fixed-and-verified；EDF共同记录时长/整样本数无法表达的跨通道相位窗明确拒绝，不以重采样伪造无损输出。 |
+| EDF-05 | 需要独立精确时间与写回验证 | 已有Fraction+pyEDFlib：24类/13产品；亚100ns精度由Fraction核对，不冒称pyEDFlib认证精度。 | [independent.json](D:/CodexLocal/ban/work/portfolio-progress-20261027/projects/moonbit-edf/evidence/deep-20261020/independent.json)、[CHECKS.json](D:/CodexLocal/ban/work/portfolio-progress-20261027/projects/moonbit-edf/evidence/deep-20261020/CHECKS.json) | historically-fixed-and-verified |
+| EDF-06 | 成熟工具重叠、单采集记录不能证明诊断或采用 | 主张事件身份/精确多速率时间与编辑，保留公开EEG/BDF层次和非诊断边界。 | [README.md](D:/CodexLocal/ban/work/portfolio-progress-20261027/projects/moonbit-edf/README.md)、[PUBLIC-EEG.md](D:/CodexLocal/ban/work/portfolio-progress-20261027/projects/moonbit-edf/docs/PUBLIC-EEG.md)、[EXTERNAL-BDF.md](D:/CodexLocal/ban/work/portfolio-progress-20261027/projects/moonbit-edf/docs/EXTERNAL-BDF.md) | scope-response-with-residual-external-risk；外部采用、临床验证和正式比赛认可未建立。 |
+
+历史源归档逐成员读回、当前代码身份和原回执哈希见 [RECEIPT.json](RECEIPT.json)。本地处理完成不等于正式复审通过；没有新增外部采用证据。

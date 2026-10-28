@@ -1,0 +1,131 @@
+{
+  "utc": "2026-09-27T07:54:52.182997+00:00",
+  "version": "0.2.1",
+  "checks": [
+    {
+      "name": "format",
+      "command": [
+        "C:\\Users\\uiwcv\\Documents\\Codex\\2026-09-10\\ban\\work\\moon\\bin\\moon.exe",
+        "fmt"
+      ],
+      "exitCode": 0
+    },
+    {
+      "name": "info",
+      "command": [
+        "C:\\Users\\uiwcv\\Documents\\Codex\\2026-09-10\\ban\\work\\moon\\bin\\moon.exe",
+        "info"
+      ],
+      "exitCode": 0
+    },
+    {
+      "name": "check",
+      "command": [
+        "C:\\Users\\uiwcv\\Documents\\Codex\\2026-09-10\\ban\\work\\moon\\bin\\moon.exe",
+        "check",
+        "--target",
+        "all",
+        "--deny-warn"
+      ],
+      "exitCode": 0
+    },
+    {
+      "name": "js",
+      "command": [
+        "C:\\Users\\uiwcv\\Documents\\Codex\\2026-09-10\\ban\\work\\moon\\bin\\moon.exe",
+        "test",
+        "--target",
+        "js",
+        "--deny-warn"
+      ],
+      "exitCode": 0
+    },
+    {
+      "name": "wasm",
+      "command": [
+        "C:\\Users\\uiwcv\\Documents\\Codex\\2026-09-10\\ban\\work\\moon\\bin\\moon.exe",
+        "test",
+        "--target",
+        "wasm-gc",
+        "--deny-warn"
+      ],
+      "exitCode": 0
+    },
+    {
+      "name": "build",
+      "command": [
+        "C:\\Users\\uiwcv\\Documents\\Codex\\2026-09-10\\ban\\work\\moon\\bin\\moon.exe",
+        "build",
+        "--target",
+        "js",
+        "--release",
+        "--deny-warn"
+      ],
+      "exitCode": 0
+    },
+    {
+      "name": "external-bdf",
+      "command": [
+        "C:\\Users\\uiwcv\\Documents\\Codex\\2026-09-10\\ban\\work\\five-reference312\\Scripts\\python.exe",
+        "tools/verify-external-bdf.py",
+        "C:\\Users\\uiwcv\\Documents\\Codex\\2026-09-10\\ban\\work\\task-value-20260927\\bdf",
+        "--output",
+        "C:\\Users\\uiwcv\\Documents\\Codex\\2026-09-10\\ban\\outputs\\repos\\moonbit-edf\\evidence\\external-bdf-20260927\\reference.json"
+      ],
+      "exitCode": 0
+    },
+    {
+      "name": "synthetic-reference",
+      "command": [
+        "C:\\Users\\uiwcv\\Documents\\Codex\\2026-09-10\\ban\\work\\five-reference312\\Scripts\\python.exe",
+        "tools/differential.py",
+        "--output",
+        "C:\\Users\\uiwcv\\Documents\\Codex\\2026-09-10\\ban\\outputs\\repos\\moonbit-edf\\evidence\\external-bdf-20260927\\differential.json"
+      ],
+      "exitCode": 0
+    }
+  ],
+  "sources": {
+    "adversarial_wbtest.mbt": "55e97a6ae592e768a3f8917da9a0c258159dc1a349af9845bb03e45f1a7f54e7",
+    "analysis.mbt": "53c3ce7b847a422c640913319954986887413c790163beef613df8d0394ee528",
+    "calendar.mbt": "e7638976c6356e69558b98e1428064ee00175c7ce2bb980f224a6695a5d10c06",
+    "event_window.mbt": "34790e9196ae1af1169639be772fc742fdfb2b495810375b7b2feb26aa82f847",
+    "event_window_test.mbt": "0c1aaa03998c12d280ccd19b38d760470dbef87b8d2a5b63cedea2f9ee54e6d2",
+    "header.mbt": "b1ec8a8f6eb979735bb45bc76d4e60245d33c3e1a1ff26d12f6cd149f647c61d",
+    "moon.mod": "506d89c2b1a37b56f1066df2a914cd6c500614419e207504418f28e0a99380c6",
+    "moon.pkg": "9519df84328a7f52990fd984ac29ce08a20e89edfe11442a788d6b758288d52e",
+    "pkg.generated.mbti": "645c9ed399d2d45446ddd6e3ad776e2f87d3d543192d71f439b6c55090218d4f",
+    "recording.mbt": "ec2da7f03aadc2ba2161c7934da690324c525cdbda40d7fdc7a852c1b99d8052",
+    "recording_test.mbt": "54b94e1ad70844963ae6d7ff222553b127e59ce6251109b67e84da2399a7b25f",
+    "tal.mbt": "bac477499c87303720f8fe209d813a2be166bfedb2c24b7836fa7b37f995ead6",
+    "time_window.mbt": "a1bd62c8989b573995da8edf8ef8439ac40304375499d68758734d691a51d6fd",
+    "time_window_test.mbt": "3cea38d47708796d5a8d4474eb07a425c967117c37a113c261cf9fd92f673eef",
+    "trait_methods.mbt": "0bfafd73d5a78d01251983c65cf893c2ff7819e3b4807418ff66a76197447292",
+    "transform.mbt": "1a75bc58dc1aad4969543ea6aeba02f9d81dbf77b5939130cc9bfbd348ec41ff",
+    "types.mbt": "ab5d0b9a3f788a81b6e5f7366cccb21f1cbddf98020af5cc1086749d511ca818",
+    "examples/run-public-epochs.mjs": "d4a9d5d4e3d0fecf6b1ca3ae5f51acb400430b9d3cdf66a33fe7ae7b5f1818f0",
+    "tools/differential.py": "0db28c053176ab8f0f0cbb5c9059bc3f6b23164a72849452182288a33f81cade",
+    "tools/edf.mjs": "5ae8a2e55535238c91fa173bd28b689e93ad954d485c1e936075960fcb34762b",
+    "tools/example-smoke.py": "0bb4cd8fd45f2ef651114e723065360f8e45b3e00d2f1426441157c45d3b072e",
+    "tools/fetch-external-bdf.py": "4c171dfd98d0f0070d1929964af79018ae0a4f829486d5222cc019145f00b401",
+    "tools/fetch-public-eeg.py": "3f4babbd6ddaabffa7faa5c004f6386f7669335aa2314eedb322251b6b3d00d2",
+    "tools/reference-batch.mjs": "557a4761d68337178f08d616d6e034d9aaf273547f5ea3f5f10375edadff4fe3",
+    "tools/test-host-input.mjs": "3ec73aa63f323f77c52544e20c56b2db635151204b357192aef713ea152cf339",
+    "tools/test-time-window.py": "748ddb66a1d88976f876fff1fbdddf8cd53971661f7ef47cf6e53e0fdc55a9e0",
+    "tools/verify-external-bdf.py": "45cec25e3e82c95c596caa676c1ede55ccab519ff7f04ad69ede38a7eb766842",
+    "tools/verify-public-eeg.py": "dd20c0465291f5186c773e187cc3ba375560e4ad2c8b5f5afc2d238de20afdfb",
+    "tools/fixtures/mutate-after-stat.mjs": "798bb2e58edfcbdb17d554ef7f38ca9be93324d4eec679b7c17358adf1034cb4",
+    "examples/time_window/main.mbt": "181100898c3fd0057fe4db16cb7af320c9f947cc1e1f6eb360ef07840c94fd1e",
+    "examples/time_window/moon.pkg": "08527b2303668091d0a3b24a8438b8b80d897b48d3ef297462ea6aa939157503",
+    "examples/time_window/pkg.generated.mbti": "4d1cd0e1e1bd9462142677ccbc723efb9e93bfb036f40436481848068b8b69e3",
+    "cmd/bridge/main.mbt": "fe75080b8098c37c0fe2170e2f9a77dc198266cb971bd94f7df405283019f780",
+    "cmd/bridge/moon.pkg": "f6731d87258562777aae8b0a2aeda658752923e98cabea92d0f6ad855223009a"
+  },
+  "bridgeSha256": "805ab62503ce2cd92ff469775644a1c1ec9e1460539df5001f974206e81750b9",
+  "limitations": [
+    "Local Windows validation only; no remote CI, publication or accepted submission",
+    "Prior receipts remain versioned historical evidence"
+  ],
+  "priorFailure": "Unmodified external BDF promoted to BDF+ was rejected by pyEDFlib because the plain patient identity was copied; normalized unknown fields now pass",
+  "sourceHashPolicy": "SHA-256 after LF normalization of CRLF; bridge hash is raw bytes"
+}

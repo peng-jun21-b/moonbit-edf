@@ -1,0 +1,83 @@
+{
+  "repository": "https://github.com/chgttyyr/MoonSpectrum",
+  "version": "0.2.2",
+  "commit": "d4ca4a2cb138897476a048b271dde0bbb2a302b4",
+  "license": "Apache-2.0",
+  "releaseSha256": "024ebf8c9dfec27a237706e31508df244c668e247ac4ea0bdae9dad8cd01f971",
+  "integration": "Published package dependency; no vendored algorithm",
+  "apisUsed": [
+    "welch_psd",
+    "window"
+  ],
+  "upstreamTransitiveModule": "moonbitlang/x@0.4.45",
+  "sourceFiles": [
+    {
+      "path": "moon.mod",
+      "releaseSha256": "e8364c2dabe8ed5d8abb8b7cc2d0acd3323a5ff50ad979c6d0c35dcf7404ea69",
+      "gitBlobSha": "3f1b1a194e49e4f3c62bb3c362b5c7604dd527eb",
+      "exactMatchesPinnedGitSource": false,
+      "normalizedLfMatches": true
+    },
+    {
+      "path": "moon.pkg",
+      "releaseSha256": "15f0ce29ac604fb0a533967bded38e5af1a4c5d7e0233f1522ebb16da029e8a4",
+      "gitBlobSha": "c0851a662b32d909cc2cb836bd7f0ce556823edd",
+      "exactMatchesPinnedGitSource": true,
+      "normalizedLfMatches": true
+    },
+    {
+      "path": "LICENSE",
+      "releaseSha256": "176aa4b7e431659b19c8fe50810510b7d22634ba3520a88281b3b80f66441020",
+      "gitBlobSha": "f5429eaf92ada802dca9d7e7648ff8913f4a60f1",
+      "exactMatchesPinnedGitSource": false,
+      "normalizedLfMatches": true
+    },
+    {
+      "path": "psd.mbt",
+      "releaseSha256": "b94440adab82fc5ee5c97197b6fcd07757d218be74e39d0e5fc25a6359233bd6",
+      "gitBlobSha": "22ee1bd2789f2dac89a116e4d80986cc9b762102",
+      "exactMatchesPinnedGitSource": true,
+      "normalizedLfMatches": true
+    },
+    {
+      "path": "windows.mbt",
+      "releaseSha256": "a27a5200d81a32e9514448382c9f4573570a6c96403276d255920e03f174d1be",
+      "gitBlobSha": "99c8153dbb4a1878fe87889f6ab48bf35b9b6920",
+      "exactMatchesPinnedGitSource": true,
+      "normalizedLfMatches": true
+    },
+    {
+      "path": "types.mbt",
+      "releaseSha256": "32f8971a8cf9d852a6b76d4985c63d63179a6c05955cd7d200bc6472eb68a6b6",
+      "gitBlobSha": "03d263d09ac353df05de8af12fe869d933b63e82",
+      "exactMatchesPinnedGitSource": false,
+      "normalizedLfMatches": true
+    },
+    {
+      "path": "fft.mbt",
+      "releaseSha256": "89b76deb0e6ec8957374cad0f2d0f022cc80c9c3b44dcfb55735145e05f97f1b",
+      "gitBlobSha": "5e04efe72af3ec8c0332d3b86f2ca42f2a385e1a",
+      "exactMatchesPinnedGitSource": true,
+      "normalizedLfMatches": true
+    },
+    {
+      "path": "complex.mbt",
+      "releaseSha256": "1e9fa395f30da7fbe2261bed90d019b927bd95158fca951acc06dde931f3c76c",
+      "gitBlobSha": "caa99e43d3ab34c03e4147a16a254f9c8ccd30ba",
+      "exactMatchesPinnedGitSource": true,
+      "normalizedLfMatches": true
+    },
+    {
+      "path": "welch.mbt",
+      "releaseSha256": "b8ecbe6771b0f9b7ee28bf772cf23e11ee8069d6b6004759e7bb4962ea55ba18",
+      "gitBlobSha": "4dbf4da3ad204f767605401ad8365cca770dd9dd",
+      "exactMatchesPinnedGitSource": false,
+      "normalizedLfMatches": true
+    }
+  ],
+  "toolchain": "0.10.14+7d59c7ec9",
+  "validatedBackends": [
+    "js",
+    "wasm-gc"
+  ]
+}

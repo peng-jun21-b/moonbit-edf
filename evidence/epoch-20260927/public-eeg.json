@@ -1,0 +1,21 @@
+{
+  "utc": "2026-09-26T19:29:32.569370+00:00",
+  "inputSha256": "3427c8d01bff1380bc9ab9f27a35ece2af5dfadf3e291bbc05eb66e4dadbfe2e",
+  "inputBytes": 2596896,
+  "dataset": "PhysioNet EEG Motor Movement/Imagery 1.0.0 S001/S001R03.edf",
+  "license": "ODC-By-1.0",
+  "source": "https://physionet.org/content/eegmmidb/1.0.0/",
+  "doi": "10.13026/C28G6P",
+  "reference": "pyEDFlib 0.1.42",
+  "signals": 64,
+  "records": 125,
+  "durationSeconds": 125.0,
+  "annotations": 30,
+  "digitalValuesCompared": 1280000,
+  "physicalValuesCompared": 60000,
+  "eventWindowsCompared": 30,
+  "eventSamplesCompared": 66840,
+  "rejections": 6,
+  "checks": 105,
+  "scope": "Public deidentified research file, not user adoption or diagnostic validation; no filtering/classification; raw source not bundled"
+}

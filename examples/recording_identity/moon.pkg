@@ -1,0 +1,6 @@
+import {
+  "peng-jun21/edf",
+  "moonbitlang/core/encoding/utf8",
+}
+
+pkgtype(kind: "executable")

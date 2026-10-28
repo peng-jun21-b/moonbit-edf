@@ -1,0 +1,26 @@
+{
+  "version": "0.3.0",
+  "utc": "2026-10-19T16:24:24.023528+00:00",
+  "published": false,
+  "fullStandardConformance": false,
+  "scope": "Documented current profile; complete endpoint remains explicit future acceptance criteria.",
+  "primarySource": {
+    "url": "https://www.edfplus.info/specs/edfplus.html",
+    "readViaWebTool": true,
+    "keySection": "2.2.2 arbitrary accuracy of TAL fractions"
+  },
+  "sourceAcquisition": "Original web-search service returned 503; user explicitly authorized fallback for primary standards/upstream only.",
+  "standardRedistributed": false,
+  "syntheticDataLicense": "MIT; original fixed-width vectors and independent Python algorithms",
+  "toolchain": "0.10.14+7d59c7ec9",
+  "node": "24.11.0",
+  "allOldPublicFunctionsPreserved": 63,
+  "publicApiCaution": "Legacy Double fields remain approximate views; use explicit exact methods for full decimal precision.",
+  "notVerified": [
+    "remote CI for these revisions",
+    "publication",
+    "submission form update",
+    "organizer acceptance",
+    "external adoption"
+  ]
+}

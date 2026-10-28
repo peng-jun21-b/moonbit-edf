@@ -1,0 +1,59 @@
+{
+  "status": "passed",
+  "oracle": "original Python fixed-width/TAL parser and exhaustive fractions.Fraction",
+  "not_an_edflib_subtick_validation": true,
+  "engineSha256": "c84589eaa23cd2cf261ec11ee47de5db7d3a5bf632bc3d8be9cd55d51c0efe77",
+  "cases": [
+    {
+      "name": "edf_beyond_double_boundary",
+      "products": 5,
+      "queries": 3,
+      "legacy_queries": 1,
+      "rejected": 4,
+      "sourceSha256": "7f5f4c7c2b45bdcc393d0641a5ab0fbddb786f0ec5c343f602647e3703cc8496"
+    },
+    {
+      "name": "bdf_fractional_crop_multirate",
+      "products": 5,
+      "queries": 2,
+      "legacy_queries": 0,
+      "rejected": 0,
+      "sourceSha256": "c31fc77989f2ee650a6ffd8a053757de0b4fb6ed3cd8cafd6fd4d0b89256b9d7"
+    },
+    {
+      "name": "edf_sub_tick_gap",
+      "products": 5,
+      "queries": 2,
+      "legacy_queries": 1,
+      "rejected": 2,
+      "sourceSha256": "97a0d89b1eee3593d1192075e0aa924120d44b8591734ad559ab3d582c1cc628"
+    },
+    {
+      "name": "edf_rational_sample_grid",
+      "products": 5,
+      "queries": 2,
+      "legacy_queries": 0,
+      "rejected": 0,
+      "sourceSha256": "1fb7c233f0cafb69ab3f8f1145638cdb4d36ee94d8699b567971b60b4ff1160f"
+    },
+    {
+      "name": "edf_long_fraction",
+      "products": 5,
+      "queries": 1,
+      "legacy_queries": 1,
+      "rejected": 0,
+      "sourceSha256": "a88b34bef8e5d505301519ebe4690f20b7dd5fdedf0941dff324bbf958b60f8a"
+    },
+    {
+      "name": "edf_crop_annotation_growth",
+      "products": 5,
+      "queries": 1,
+      "legacy_queries": 0,
+      "rejected": 0,
+      "sourceSha256": "431928e58ab2a9b1b9ccae2dc88242de3df69a036b43ec3db0309b7aa37001f5"
+    }
+  ],
+  "products": 30,
+  "queries": 14,
+  "cliChecks": 5
+}

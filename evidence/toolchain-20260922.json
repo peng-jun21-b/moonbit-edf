@@ -1,0 +1,41 @@
+{
+  "recorded_utc": "2026-09-22T06:14:20.519Z",
+  "host": "Windows 11",
+  "toolchain": "moon 0.1.20260920; moonc 0.10.14+7d59c7ec9; Node 24.11.0",
+  "change": "Explicit existing trait method promotion for warning 0079; no algorithms changed; NIfTI unused json import removed.",
+  "original_revision": "dbcdda1497de3510ad3e90dcd83d43206a621e2d",
+  "historical_evidence": "local-checks.json is the pre-upgrade 2026-09-21 snapshot, not the current source hash authority.",
+  "checks": {
+    "all_target_deny_warn": true,
+    "js_tests": 8,
+    "wasm_gc_tests": 8,
+    "release_build_deny_warn": true,
+    "moon_info": true,
+    "format": true,
+    "differential": "rerun; see differential.json",
+    "documented_examples": "rerun; independent file read passed"
+  },
+  "remote_ci_run": false,
+  "hash_normalization": "CRLF -> LF",
+  "source_sha256": {
+    "adversarial_wbtest.mbt": "55e97a6ae592e768a3f8917da9a0c258159dc1a349af9845bb03e45f1a7f54e7",
+    "analysis.mbt": "53c3ce7b847a422c640913319954986887413c790163beef613df8d0394ee528",
+    "calendar.mbt": "e7638976c6356e69558b98e1428064ee00175c7ce2bb980f224a6695a5d10c06",
+    "cmd/bridge/main.mbt": "9f9d5165b91854bbc4b907d51490b7e2da703515ec76ac1de7e96e606c944f55",
+    "cmd/bridge/moon.pkg": "f6731d87258562777aae8b0a2aeda658752923e98cabea92d0f6ad855223009a",
+    "header.mbt": "b1ec8a8f6eb979735bb45bc76d4e60245d33c3e1a1ff26d12f6cd149f647c61d",
+    "moon.mod": "ba1295fe668d7b83aff7791fe486cdf4ccdafa30f617b864ebefa0c1e85bf632",
+    "moon.pkg": "9519df84328a7f52990fd984ac29ce08a20e89edfe11442a788d6b758288d52e",
+    "recording.mbt": "ec2da7f03aadc2ba2161c7934da690324c525cdbda40d7fdc7a852c1b99d8052",
+    "recording_test.mbt": "b38cf0f5ee320d56507b937b120ef874087f6a778a7011a7fa917b0b4f0f2b9f",
+    "tal.mbt": "bac477499c87303720f8fe209d813a2be166bfedb2c24b7836fa7b37f995ead6",
+    "tools/differential.py": "a62361648370a52730586a55d767c3a8c7483ad598ee84c68e636a24012bca4c",
+    "tools/edf.mjs": "a6ae1eba7ed2f3a96265ed63671200f8c1e6b564b445e74053c7991c3778a2f1",
+    "tools/example-smoke.py": "cdd953af5aefacd4c5d06ea97403143ad1e94125c9ad5705b4193732b1ed0adf",
+    "tools/reference-batch.mjs": "557a4761d68337178f08d616d6e034d9aaf273547f5ea3f5f10375edadff4fe3",
+    "tools/requirements.txt": "909b0622f8da761d9e75e66e8dfb19c4181b8b09bee59be7d9530080ad34399f",
+    "trait_methods.mbt": "0bfafd73d5a78d01251983c65cf893c2ff7819e3b4807418ff66a76197447292",
+    "transform.mbt": "fed1804740ede181e6754f7707526e5d384c88207e011462b25a87fc29731ffc",
+    "types.mbt": "ab5d0b9a3f788a81b6e5f7366cccb21f1cbddf98020af5cc1086749d511ca818"
+  }
+}

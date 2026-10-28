@@ -1,0 +1,115 @@
+{
+  "utc": "2026-09-26T19:29:33.020742+00:00",
+  "version": "0.2.0",
+  "checks": [
+    {
+      "name": "format",
+      "command": [
+        "moon",
+        "fmt"
+      ],
+      "exitCode": 0
+    },
+    {
+      "name": "info",
+      "command": [
+        "moon",
+        "info"
+      ],
+      "exitCode": 0
+    },
+    {
+      "name": "check",
+      "command": [
+        "moon",
+        "check",
+        "--target",
+        "all"
+      ],
+      "exitCode": 0
+    },
+    {
+      "name": "js",
+      "command": [
+        "moon",
+        "test",
+        "--target",
+        "js"
+      ],
+      "exitCode": 0
+    },
+    {
+      "name": "wasm",
+      "command": [
+        "moon",
+        "test",
+        "--target",
+        "wasm-gc"
+      ],
+      "exitCode": 0
+    },
+    {
+      "name": "build",
+      "command": [
+        "moon",
+        "build",
+        "--target",
+        "js",
+        "--release"
+      ],
+      "exitCode": 0
+    },
+    {
+      "name": "public-eeg",
+      "command": [
+        "C:\\Users\\uiwcv\\Documents\\Codex\\2026-09-10\\ban\\work\\five-reference312\\Scripts\\python.exe",
+        "tools/verify-public-eeg.py",
+        "C:\\Users\\uiwcv\\Documents\\Codex\\2026-09-10\\ban\\work\\reassessment-20260927\\public-inputs\\eegmmidb-S001R03-complete.edf",
+        "--output",
+        "C:\\Users\\uiwcv\\Documents\\Codex\\2026-09-10\\ban\\outputs\\repos\\moonbit-edf\\evidence\\epoch-20260927\\public-eeg.json"
+      ],
+      "exitCode": 0
+    },
+    {
+      "name": "public-export",
+      "command": [
+        "node",
+        "examples/run-public-epochs.mjs",
+        "C:\\Users\\uiwcv\\Documents\\Codex\\2026-09-10\\ban\\work\\reassessment-20260927\\public-inputs\\eegmmidb-S001R03-complete.edf",
+        "C:\\Users\\uiwcv\\AppData\\Local\\Temp\\edf-epoch-final-xbz4xwra\\export"
+      ],
+      "exitCode": 0
+    },
+    {
+      "name": "CSV integrity and half-open endpoints",
+      "rows": 17664,
+      "epochs": 8,
+      "exitCode": 0
+    }
+  ],
+  "sources": {
+    "event_window.mbt": "34790e9196ae1af1169639be772fc742fdfb2b495810375b7b2feb26aa82f847",
+    "event_window_test.mbt": "0c1aaa03998c12d280ccd19b38d760470dbef87b8d2a5b63cedea2f9ee54e6d2",
+    "time_window.mbt": "a1bd62c8989b573995da8edf8ef8439ac40304375499d68758734d691a51d6fd",
+    "tal.mbt": "bac477499c87303720f8fe209d813a2be166bfedb2c24b7836fa7b37f995ead6",
+    "cmd/bridge/main.mbt": "fe75080b8098c37c0fe2170e2f9a77dc198266cb971bd94f7df405283019f780",
+    "tools/edf.mjs": "5ae8a2e55535238c91fa173bd28b689e93ad954d485c1e936075960fcb34762b",
+    "tools/verify-public-eeg.py": "dd20c0465291f5186c773e187cc3ba375560e4ad2c8b5f5afc2d238de20afdfb",
+    "tools/fetch-public-eeg.py": "3f4babbd6ddaabffa7faa5c004f6386f7669335aa2314eedb322251b6b3d00d2",
+    "examples/run-public-epochs.mjs": "d4a9d5d4e3d0fecf6b1ca3ae5f51acb400430b9d3cdf66a33fe7ae7b5f1818f0",
+    "pkg.generated.mbti": "645c9ed399d2d45446ddd6e3ad776e2f87d3d543192d71f439b6c55090218d4f",
+    "moon.mod": "c2445d283d2b2965a36d16c76bf9ff7afd4ecad72a8579174dac233e3e3e5538"
+  },
+  "bridgeSha256": "b424c7e198d4664f0c34732fa226f704be8a9ad2331080e4631ced370559f7e2",
+  "priorFindings": [
+    "Initial new-test syntax required try/catch correction",
+    "Regression fixture initially violated first-record time restriction; corrected to a valid recording",
+    "Initial float-sum boundaries admitted 15 extra samples across the public 30-window comparison; Decimal independent oracle now rejects that behavior and integer tick fix passes"
+  ],
+  "limitations": [
+    "Public research sample, no users or diagnosis claim",
+    "No live remote CI",
+    "Prior full EDF/BDF synthetic oracle not rerun: existing codec unchanged",
+    "Raw public data and generated CSV are not bundled; hashes and reproduction commands retained"
+  ]
+}

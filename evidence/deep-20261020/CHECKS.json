@@ -1,0 +1,173 @@
+{
+  "version": "0.4.0",
+  "started": "2026-10-20T07:59:07.819910+00:00",
+  "baseline": {
+    "commit": "c7e256c7e3d05ece53e86e401991af79e8a36ea1",
+    "proposals": {
+      "PROPOSAL.md": "b48ed40c6e5d3fcda2bfa1a6fe335510543334305d49c59cef70e01b585d5914",
+      "peng-jun21-edf-\u7533\u62a5\u4e66.md": "b48ed40c6e5d3fcda2bfa1a6fe335510543334305d49c59cef70e01b585d5914"
+    }
+  },
+  "complete": true,
+  "checks": [
+    {
+      "name": "format",
+      "command": [
+        "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\moon\\bin\\moon.exe",
+        "fmt",
+        "--check"
+      ],
+      "exitCode": 0,
+      "seconds": 0.68
+    },
+    {
+      "name": "info",
+      "command": [
+        "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\moon\\bin\\moon.exe",
+        "info"
+      ],
+      "exitCode": 0,
+      "seconds": 0.23
+    },
+    {
+      "name": "check",
+      "command": [
+        "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\moon\\bin\\moon.exe",
+        "check",
+        "--deny-warn"
+      ],
+      "exitCode": 0,
+      "seconds": 0.83
+    },
+    {
+      "name": "check-all",
+      "command": [
+        "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\moon\\bin\\moon.exe",
+        "check",
+        "--target",
+        "all",
+        "--deny-warn"
+      ],
+      "exitCode": 0,
+      "seconds": 1.11
+    },
+    {
+      "name": "js",
+      "command": [
+        "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\moon\\bin\\moon.exe",
+        "test",
+        "--target",
+        "js",
+        "--deny-warn"
+      ],
+      "exitCode": 0,
+      "seconds": 2.04
+    },
+    {
+      "name": "wasm-gc",
+      "command": [
+        "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\moon\\bin\\moon.exe",
+        "test",
+        "--target",
+        "wasm-gc",
+        "--deny-warn"
+      ],
+      "exitCode": 0,
+      "seconds": 1.8
+    },
+    {
+      "name": "release",
+      "command": [
+        "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\moon\\bin\\moon.exe",
+        "build",
+        "--target",
+        "js",
+        "--release",
+        "--deny-warn"
+      ],
+      "exitCode": 0,
+      "seconds": 0.96
+    },
+    {
+      "name": "deep-oracle",
+      "command": [
+        "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\py312-edf\\Scripts\\python.exe",
+        "tools/check-deep-features.py",
+        "--output",
+        "D:\\CodexLocal\\ban\\outputs\\repos\\moonbit-edf\\evidence\\deep-20261020\\independent.json"
+      ],
+      "exitCode": 0,
+      "seconds": 1.51
+    },
+    {
+      "name": "host",
+      "command": [
+        "node",
+        "tools/test-host-input.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 1.83
+    },
+    {
+      "name": "example",
+      "command": [
+        "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\py312-edf\\Scripts\\python.exe",
+        "tools/example-smoke.py"
+      ],
+      "exitCode": 0,
+      "seconds": 2.97
+    },
+    {
+      "name": "example-js",
+      "command": [
+        "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\moon\\bin\\moon.exe",
+        "run",
+        "examples/time_window",
+        "--target",
+        "js"
+      ],
+      "exitCode": 0,
+      "seconds": 1.17
+    },
+    {
+      "name": "example-wasm",
+      "command": [
+        "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\moon\\bin\\moon.exe",
+        "run",
+        "examples/time_window",
+        "--target",
+        "wasm-gc"
+      ],
+      "exitCode": 0,
+      "seconds": 1.08
+    },
+    {
+      "name": "actionlint",
+      "command": [
+        "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\actionlint\\actionlint.exe",
+        ".github/workflows/ci.yml"
+      ],
+      "exitCode": 0,
+      "seconds": 0.45
+    },
+    {
+      "name": "whitespace",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exitCode": 0,
+      "seconds": 0.23
+    }
+  ],
+  "previousIndependentPassed": [
+    "differential:190+2 CLI",
+    "window:898+5 CLI",
+    "exact:30 products 14 queries 5 CLI",
+    "public EEG:105",
+    "external BDF:25"
+  ],
+  "proposalsUnchanged": true,
+  "finished": "2026-10-20T07:59:24.752683+00:00"
+}

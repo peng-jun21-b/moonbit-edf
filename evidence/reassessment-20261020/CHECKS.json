@@ -1,0 +1,265 @@
+{
+  "version": "0.3.0",
+  "startedUtc": "2026-10-19T16:19:40.603572+00:00",
+  "checks": [
+    {
+      "label": "format",
+      "command": [
+        "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\moon\\bin\\moon.exe",
+        "fmt",
+        "--check"
+      ],
+      "exitCode": 0,
+      "seconds": 10.779
+    },
+    {
+      "label": "check-all",
+      "command": [
+        "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\moon\\bin\\moon.exe",
+        "check",
+        "--target",
+        "all",
+        "--deny-warn"
+      ],
+      "exitCode": 0,
+      "seconds": 6.668
+    },
+    {
+      "label": "test-js",
+      "command": [
+        "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\moon\\bin\\moon.exe",
+        "test",
+        "--target",
+        "js",
+        "--deny-warn"
+      ],
+      "exitCode": 0,
+      "seconds": 6.53
+    },
+    {
+      "label": "test-wasm-gc",
+      "command": [
+        "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\moon\\bin\\moon.exe",
+        "test",
+        "--target",
+        "wasm-gc",
+        "--deny-warn"
+      ],
+      "exitCode": 0,
+      "seconds": 4.756
+    },
+    {
+      "label": "build-js",
+      "command": [
+        "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\moon\\bin\\moon.exe",
+        "build",
+        "--target",
+        "js",
+        "--release",
+        "--deny-warn"
+      ],
+      "exitCode": 0,
+      "seconds": 2.643
+    },
+    {
+      "label": "public-api",
+      "command": [
+        "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\moon\\bin\\moon.exe",
+        "info"
+      ],
+      "exitCode": 0,
+      "seconds": 1.758
+    },
+    {
+      "label": "actionlint",
+      "command": [
+        "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\actionlint\\actionlint.exe",
+        ".github/workflows/ci.yml"
+      ],
+      "exitCode": 0,
+      "seconds": 1.51
+    },
+    {
+      "label": "fixture-determinism",
+      "command": [
+        "C:\\Users\\uiwcv\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "tools/generate-exact-time.py",
+        "--check"
+      ],
+      "exitCode": 0,
+      "seconds": 0.358
+    },
+    {
+      "label": "exact-workflow",
+      "command": [
+        "node",
+        "tools/run-exact-time.mjs",
+        "D:\\CodexLocal\\ban\\work\\rejections-20261020\\edf-exact-final"
+      ],
+      "exitCode": 0,
+      "seconds": 2.513
+    },
+    {
+      "label": "exact-oracle",
+      "command": [
+        "C:\\Users\\uiwcv\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "tools/verify-exact-time.py",
+        "D:\\CodexLocal\\ban\\work\\rejections-20261020\\edf-exact-final",
+        "--report",
+        "D:\\CodexLocal\\ban\\outputs\\repos\\moonbit-edf\\evidence\\exact-time-20261020.json"
+      ],
+      "exitCode": 0,
+      "seconds": 1.803
+    },
+    {
+      "label": "host-input",
+      "command": [
+        "node",
+        "tools/test-host-input.mjs"
+      ],
+      "exitCode": 0,
+      "seconds": 5.38
+    },
+    {
+      "label": "example-js",
+      "command": [
+        "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\moon\\bin\\moon.exe",
+        "run",
+        "examples/time_window",
+        "--target",
+        "js",
+        "--deny-warn"
+      ],
+      "exitCode": 0,
+      "seconds": 3.67
+    },
+    {
+      "label": "example-wasm-gc",
+      "command": [
+        "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\moon\\bin\\moon.exe",
+        "run",
+        "examples/time_window",
+        "--target",
+        "wasm-gc",
+        "--deny-warn"
+      ],
+      "exitCode": 0,
+      "seconds": 3.85
+    },
+    {
+      "label": "pyedflib-matrix",
+      "command": [
+        "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\py312-edf\\Scripts\\python.exe",
+        "tools/differential.py",
+        "--output",
+        "D:\\CodexLocal\\ban\\outputs\\repos\\moonbit-edf\\evidence\\reassessment-20261020\\differential.json"
+      ],
+      "exitCode": 0,
+      "seconds": 29.158
+    },
+    {
+      "label": "window-reference",
+      "command": [
+        "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\py312-edf\\Scripts\\python.exe",
+        "tools/test-time-window.py"
+      ],
+      "exitCode": 0,
+      "seconds": 12.561
+    },
+    {
+      "label": "example-smoke",
+      "command": [
+        "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\py312-edf\\Scripts\\python.exe",
+        "tools/example-smoke.py"
+      ],
+      "exitCode": 0,
+      "seconds": 3.055
+    },
+    {
+      "label": "external-bdf",
+      "command": [
+        "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\py312-edf\\Scripts\\python.exe",
+        "tools/verify-external-bdf.py",
+        "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\edf-external-bdf",
+        "--output",
+        "D:\\CodexLocal\\ban\\outputs\\repos\\moonbit-edf\\evidence\\reassessment-20261020\\external-bdf.json"
+      ],
+      "exitCode": 0,
+      "seconds": 1.516
+    },
+    {
+      "label": "public-eeg",
+      "command": [
+        "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\py312-edf\\Scripts\\python.exe",
+        "tools/verify-public-eeg.py",
+        "D:\\CodexLocal\\ban\\work\\reassessment-20260927\\public-inputs\\eegmmidb-S001R03-complete.edf",
+        "--output",
+        "D:\\CodexLocal\\ban\\outputs\\repos\\moonbit-edf\\evidence\\reassessment-20261020\\public-eeg.json"
+      ],
+      "exitCode": 0,
+      "seconds": 3.862
+    },
+    {
+      "label": "public-export",
+      "command": [
+        "node",
+        "examples/run-public-epochs.mjs",
+        "D:\\CodexLocal\\ban\\work\\reassessment-20260927\\public-inputs\\eegmmidb-S001R03-complete.edf",
+        "D:\\CodexLocal\\ban\\work\\rejections-20261020\\edf-public-export"
+      ],
+      "exitCode": 0,
+      "seconds": 0.532
+    },
+    {
+      "label": "package",
+      "command": [
+        "D:\\CodexLocal\\ban\\work\\acceptance-20260928\\moon\\bin\\moon.exe",
+        "package",
+        "--frozen"
+      ],
+      "exitCode": 0,
+      "seconds": 2.0
+    }
+  ],
+  "allRequiredChecksPassed": true,
+  "scope": "local Windows, pinned compiler, no remote CI/publish/submission",
+  "baseline": {
+    "commit": "a0c22c1bb3c2b92eb241cb482e39c4f56775d932",
+    "proposals": {
+      "PROPOSAL.md": "b48ed40c6e5d3fcda2bfa1a6fe335510543334305d49c59cef70e01b585d5914",
+      "peng-jun21-edf-\u7533\u62a5\u4e66.md": "b48ed40c6e5d3fcda2bfa1a6fe335510543334305d49c59cef70e01b585d5914"
+    }
+  },
+  "historicalReportsPreserved": [
+    {
+      "file": "evidence/window-reference.json",
+      "sha256": "259dd465ad63ebf2749f883259b162e602578ddc013d3f523e09123a27ff7497",
+      "newReport": "evidence/reassessment-20261020/replayed-window-reference.json"
+    }
+  ],
+  "proposalsUnchanged": true,
+  "sourceSha256": {
+    "adversarial_wbtest.mbt": "10222690f14c37d37e8a7770b7b125b9fc82345e6253be85638ad2c09a044d73",
+    "analysis.mbt": "f5704c296c56bf2bd0c4fa26fcf2fd9e52541ac07fc07312d0bb34d2dc500d24",
+    "calendar.mbt": "e7638976c6356e69558b98e1428064ee00175c7ce2bb980f224a6695a5d10c06",
+    "crop_exact.mbt": "47b60e749db498bd59cfdea580b921e24815cb5dd93f61cabfe9fccffa4256ab",
+    "event_window.mbt": "87849442692164c930fe6791d0264c8b4bbcb967be0d5817572e32fa4c982dbc",
+    "event_window_test.mbt": "79395a68e27d125014b0ba92dafa66861b85748110be6c5a1f8749163153b4a1",
+    "exact_create.mbt": "d1ab04933544cbe7843ba2a570104d20b8a436d240b68219d6d679dcd8fbba10",
+    "exact_time.mbt": "3d19a1d1e2d42bdfdf87477af438e648f3bac79a0e83198d65a06993058b9b0f",
+    "exact_time_test.mbt": "342b903411dbdaa518376f53a4a2a8c5fed2eaf8533345f253ed12a3b7cd089c",
+    "exact_window.mbt": "3deb6c587072d24cbe5e9d3fa836925f36b37cbef87fd79945269ca7683dc879",
+    "header.mbt": "89c9b9d657b1db84a021031bc97ed0d4fa2b5256a274fa29b03c6de83464ddd5",
+    "recording.mbt": "cdd0214e6239bd4add88e2fd6917fbed5f5b853efa5cdcfa315cc8190b0b89a6",
+    "recording_test.mbt": "54b94e1ad70844963ae6d7ff222553b127e59ce6251109b67e84da2399a7b25f",
+    "tal.mbt": "ac78cd705994d2e85476917522df7124f980fad4591bdccb0d53fa1cb63b4919",
+    "time_window.mbt": "2ab391a489070398996aae2b5d6e27e1d4e902639cbdcb9ab7b7ea1f55a02964",
+    "time_window_test.mbt": "3cea38d47708796d5a8d4474eb07a425c967117c37a113c261cf9fd92f673eef",
+    "trait_methods.mbt": "0bfafd73d5a78d01251983c65cf893c2ff7819e3b4807418ff66a76197447292",
+    "transform.mbt": "006d46baf7618f477401f87d2bcae99a35f96de155a3b89c6d41054a00aa1ec3",
+    "types.mbt": "0939fde841d08acfb47d3e84945e81d4ac08be5f9a658462e8844add35d2006c",
+    "examples/time_window/main.mbt": "181100898c3fd0057fe4db16cb7af320c9f947cc1e1f6eb360ef07840c94fd1e",
+    "cmd/bridge/main.mbt": "29366623c6ea552d89e52f79a85fce933d1d1225e1ccfb57955f84be9b53a62e"
+  },
+  "finishedUtc": "2026-10-19T16:21:25.819126+00:00"
+}

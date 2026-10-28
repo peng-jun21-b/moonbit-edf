@@ -1,0 +1,39 @@
+{
+  "utc": "2026-09-27T07:54:50.396579+00:00",
+  "reference": "pyEDFlib 0.1.42",
+  "sources": {
+    "test_bdf_stim_channel.bdf": {
+      "bytes": 61280,
+      "sha256": "d555c9550069c0402835092ac3b2136ac238c8b8996069e11594350826d765a3",
+      "url": "https://raw.githubusercontent.com/mne-tools/mne-python/47d5be239f12eb310e7799b5119baf24bed89d05/mne/io/edf/tests/data/test_bdf_stim_channel.bdf"
+    },
+    "test.bdf": {
+      "bytes": 467456,
+      "sha256": "d97eb2809b8314bf097493b8e2b04140b86722e0de749a563fa6bab2bc63554a",
+      "url": "https://raw.githubusercontent.com/mne-tools/mne-python/47d5be239f12eb310e7799b5119baf24bed89d05/mne/io/edf/tests/data/test.bdf"
+    }
+  },
+  "sourceModified": false,
+  "externalDigitalSamples": 20000,
+  "externalPhysicalSamples": 15000,
+  "timeWindows": 12,
+  "windowSamples": 2012,
+  "transformations": 4,
+  "transformedDigitalSamples": 56000,
+  "copyByteIdentical": true,
+  "statusRawPreserved": true,
+  "checks": 25,
+  "referenceRejection": {
+    "file": "test.bdf",
+    "error": "test.bdf: the file is not EDF(+) or BDF(+) compliant (Number of Datarecords)",
+    "headerDataRecords": "b'  1     '",
+    "candidateAccepted": true,
+    "countedAsReferencePass": false
+  },
+  "limits": [
+    "MNE upstream test corpus; acquisition provenance and clinical validity not established",
+    "No negative digital samples in this external fixture; signed extremes retain prior synthetic coverage",
+    "Status is preserved as raw channel data; no BioSemi trigger-bit interpretation",
+    "No external discontinuous BDF coverage; inputs not redistributed"
+  ]
+}

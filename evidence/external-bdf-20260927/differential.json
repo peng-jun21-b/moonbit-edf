@@ -1,0 +1,123 @@
+{
+  "status": "passed",
+  "utc": "2026-09-27T07:54:51.759841+00:00",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "pyedflib": "0.1.42",
+  "numpy": "2.5.3",
+  "generated_cases": 16,
+  "checks": 190,
+  "cli_checks": 2,
+  "discontinuous_oracle": "pyedflib rejects EDF+D as discontinuous; independent struct timeline oracle used",
+  "duration_seconds": 1.0111348628997803,
+  "matrix": [
+    {
+      "filetype": 0,
+      "negative_gain": false,
+      "duration": 1.0,
+      "sha256": "b338d1a7bd379f6855eb67a153e0f1faeaf90ef8270e25dfa19be8e4add4eca6"
+    },
+    {
+      "filetype": 0,
+      "negative_gain": false,
+      "duration": 0.5,
+      "sha256": "4aea842255cc3a4a9de123e421288dfc63974f92b0b0b92f132ba45186f8ffa1"
+    },
+    {
+      "filetype": 0,
+      "negative_gain": true,
+      "duration": 1.0,
+      "sha256": "5be312abd2e1b0e67de052d87f14559cc844e2e5d5d43f008faf772795de619b"
+    },
+    {
+      "filetype": 0,
+      "negative_gain": true,
+      "duration": 0.5,
+      "sha256": "497ad0fa7862a5c04899b5378bef508380bcd4dce962ffcf5769546a11991742"
+    },
+    {
+      "filetype": 1,
+      "negative_gain": false,
+      "duration": 1.0,
+      "sha256": "0cfde8f6c8921885fb411e375d268d68fda9b8eb4ee7f54424ccafab25e0a549"
+    },
+    {
+      "filetype": 1,
+      "negative_gain": false,
+      "duration": 0.5,
+      "sha256": "4ffb4243815f7135d9c3897a9915f6510142d05977163de65b8457e5a508964a"
+    },
+    {
+      "filetype": 1,
+      "negative_gain": true,
+      "duration": 1.0,
+      "sha256": "dfb81bda4fde89c5510bb6f13dd6d55d65f96e472e0ff02f9513d28e087096f1"
+    },
+    {
+      "filetype": 1,
+      "negative_gain": true,
+      "duration": 0.5,
+      "sha256": "8aceb79fc443f583e2a94d6797b956edfcdf6295fc541bfe250f3a3a8a92be6d"
+    },
+    {
+      "filetype": 2,
+      "negative_gain": false,
+      "duration": 1.0,
+      "sha256": "85f542f890ef1154190966aa5d91b00f4ba16b372524c9209f0779cf508ec3ca"
+    },
+    {
+      "filetype": 2,
+      "negative_gain": false,
+      "duration": 0.5,
+      "sha256": "da4353e3661e8d72dbe070c98c8a1fc6ea49507075d1ca051fbd0a37eff00096"
+    },
+    {
+      "filetype": 2,
+      "negative_gain": true,
+      "duration": 1.0,
+      "sha256": "c6d77f4bd3214def9a867ade039d063e3217cf8046b3c3ee50ad7439692dd0a5"
+    },
+    {
+      "filetype": 2,
+      "negative_gain": true,
+      "duration": 0.5,
+      "sha256": "3b726ff871980a227069ac314f129f930636bc2d94328681b8536d0ad7b94849"
+    },
+    {
+      "filetype": 3,
+      "negative_gain": false,
+      "duration": 1.0,
+      "sha256": "3462c655c5cdf11bb7f4362f51d02d615f366dce22ba23477f9ca6b15a050b25"
+    },
+    {
+      "filetype": 3,
+      "negative_gain": false,
+      "duration": 0.5,
+      "sha256": "131350967a78ddbb7e35a77a481b18b833bf6a18ce6e8644ac858433d7bd1f4b"
+    },
+    {
+      "filetype": 3,
+      "negative_gain": true,
+      "duration": 1.0,
+      "sha256": "6bf20c6a2e404c4ff9433c49478eb03dc3a6f3e1b12425d9fbcc5f1b6556ef9d"
+    },
+    {
+      "filetype": 3,
+      "negative_gain": true,
+      "duration": 0.5,
+      "sha256": "f7730f42db0c7d199cf080ae87919ba93051be5a8b4aadbd10ae189c5216a381"
+    }
+  ],
+  "benchmarks": [
+    {
+      "samples": 4096,
+      "file_bytes": 8704,
+      "parse_and_stats_ms": 1.814799999999991
+    },
+    {
+      "samples": 262144,
+      "file_bytes": 524800,
+      "parse_and_stats_ms": 16.076100000000025
+    }
+  ]
+}

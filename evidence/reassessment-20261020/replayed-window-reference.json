@@ -1,0 +1,72 @@
+{
+  "status": "passed",
+  "utc": "2026-10-19T16:21:14.207809+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "oracle": "independent fixed-width bytes and exhaustive enumeration",
+  "reference_scope": "not pyedflib validation of discontinuous files",
+  "fixtures": [
+    {
+      "name": "case-0.edf",
+      "mode": "plain",
+      "duration": 1,
+      "sha256": "ecc55f792279593fbf2c3d543dc2c96c250c4e22af80afe3809fbae2c16fae3d"
+    },
+    {
+      "name": "case-1.edf",
+      "mode": "continuous",
+      "duration": 0.7,
+      "sha256": "47cb6feef9948c55c241205075b170f8a28a0f45eb4bb7f3af272f175752c991"
+    },
+    {
+      "name": "case-2.edf",
+      "mode": "discontinuous",
+      "duration": 1,
+      "sha256": "9b0a28d2040ba3d440392f80bddd770c993b2de00b43caec6c604f820fb9f3b8"
+    },
+    {
+      "name": "case-3.edf",
+      "mode": "discontinuous",
+      "duration": 0,
+      "sha256": "63e4a114ac197869da10a557cca55d8b02ae68df25074575be347b5814f78259"
+    },
+    {
+      "name": "case-4.edf",
+      "mode": "discontinuous",
+      "duration": 0,
+      "sha256": "b9c7da0065bca56a7c89a725abfc66d69f4391445870a8ce56f773a79a6b53c6"
+    },
+    {
+      "name": "case-5.bdf",
+      "mode": "plain",
+      "duration": 1,
+      "sha256": "d1d8fadbd443293edd2ccf12658ef4cbbde1e6151816cbfc89e4d069cf7eecb0"
+    },
+    {
+      "name": "case-6.bdf",
+      "mode": "continuous",
+      "duration": 0.7,
+      "sha256": "0f834810bacaf7fd4e52690a02dca9fc2db2e6349e4a76c2aa18b5a9655afe9a"
+    },
+    {
+      "name": "case-7.bdf",
+      "mode": "discontinuous",
+      "duration": 1,
+      "sha256": "d34d4d3e375fe85f5dfd8c4693ad8b16d034816c994c4bd3f64201a0b9cd8bfe"
+    },
+    {
+      "name": "case-8.bdf",
+      "mode": "discontinuous",
+      "duration": 0,
+      "sha256": "3adabd883d2cbb49b5581a3877e6182143c502c136b6fe44367eb1fa7b825a05"
+    },
+    {
+      "name": "case-9.bdf",
+      "mode": "discontinuous",
+      "duration": 0,
+      "sha256": "aab7b60199b430211f504fd109ea36a340a386e3edb9037001820ba9bcf59cbf"
+    }
+  ],
+  "additional_large_fixture_samples": 65537,
+  "checks": 1008,
+  "cli_checks": 5
+}

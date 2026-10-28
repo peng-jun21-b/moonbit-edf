@@ -1,0 +1,7 @@
+_build/
+.mooncakes/
+.venv/
+evidence/generated/
+work/
+__pycache__/
+*.pyc

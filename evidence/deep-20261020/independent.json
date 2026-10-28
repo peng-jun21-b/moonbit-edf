@@ -1,0 +1,100 @@
+{
+  "status": "passed",
+  "utc": "2026-10-20T07:59:16.868869+00:00",
+  "oracle": "Original fixed-width writer and Fraction reader; pyEDFlib 0.1.42",
+  "checks": 24,
+  "cases": [
+    "edf-multi",
+    "edf-partial-crop",
+    "edf-add-capacity",
+    "edf-rename",
+    "edf-calibration",
+    "edf-remove",
+    "edf-gap-strict",
+    "edf-gap-tolerant",
+    "edf-overlap-strict",
+    "edf-overlap-tolerant",
+    "edf-gap-crop",
+    "bdf-multi",
+    "bdf-partial-crop",
+    "bdf-add-capacity",
+    "bdf-rename",
+    "bdf-calibration",
+    "bdf-remove",
+    "bdf-gap-strict",
+    "bdf-gap-tolerant",
+    "bdf-overlap-strict",
+    "bdf-overlap-tolerant",
+    "bdf-gap-crop",
+    "long-span-and-5001-digits",
+    "future-date"
+  ],
+  "products": [
+    {
+      "name": "cropped.edf",
+      "bytes": 1452,
+      "sha256": "4b6945b7e6a6f4518a583f073b58f3e93720e586b8a100a1149678ad3a1c6c9d"
+    },
+    {
+      "name": "edited.edf",
+      "bytes": 5872,
+      "sha256": "60ee8351956a5f92f3a583807b6d575e589dfb675638d774f5e6ccc9e27955e8"
+    },
+    {
+      "name": "renamed.edf",
+      "bytes": 5872,
+      "sha256": "ebef2933650155380950aa00f5d750813ab94031511c7c59743a2989bef48f84"
+    },
+    {
+      "name": "cal.edf",
+      "bytes": 5872,
+      "sha256": "eabe9b9f28e5bc103a85e2998d83dd338822679153f98386580619858e41254c"
+    },
+    {
+      "name": "remove.edf",
+      "bytes": 5872,
+      "sha256": "cc1ad58e08b5694de65c547ab652e282dc5e8f760f5a6a3bf2c6c9fe52a74b97"
+    },
+    {
+      "name": "disc-crop.edf",
+      "bytes": 1330,
+      "sha256": "d47d44b4f2b85df7f5515661fccf0136fe8d19bb8a8987a7c579f44c94ffc455"
+    },
+    {
+      "name": "cropped.bdf",
+      "bytes": 1460,
+      "sha256": "74937d8d6193153a9a6059cbc5350afdf4870b2268ae7e069f83d285fef85510"
+    },
+    {
+      "name": "edited.bdf",
+      "bytes": 6140,
+      "sha256": "aee6b2e5756c3f64835b1e4ccd5a8d15e8cb6c95f8c18af65b88407094588e0d"
+    },
+    {
+      "name": "renamed.bdf",
+      "bytes": 6140,
+      "sha256": "edae4f004921d8019bb9402d492142c20500b26c8bcf8316ef14c159099da866"
+    },
+    {
+      "name": "cal.bdf",
+      "bytes": 6140,
+      "sha256": "26b4f41c067bd5b0e8670ec994b3c9c7111f793c6a82a2e95c73593339048860"
+    },
+    {
+      "name": "remove.bdf",
+      "bytes": 6140,
+      "sha256": "b15a2f6a88f7b5428cad7e672324515443401da85ee3d4a320bb025a50acf25c"
+    },
+    {
+      "name": "disc-crop.bdf",
+      "bytes": 1334,
+      "sha256": "e9ed7f7d8bdce6e9efc651b07c5f0d4ca5a571782c154b472d1d36faeedb63c3"
+    },
+    {
+      "name": "future-crop.edf",
+      "bytes": 1036,
+      "sha256": "d176bb31d930c62b22dfba8b5e3cf8dedde4026741a159ef3f35f2a160e0cd15"
+    }
+  ],
+  "edflib_acceptance": "Partial crops, channel edits and calibration on EDF+C and BDF+C; exact sub-tick values checked only with Fraction"
+}

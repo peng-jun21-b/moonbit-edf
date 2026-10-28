@@ -1,0 +1,90 @@
+name: EDF contracts
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: EDF format, time and PSD contracts
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      MOON_HOME: ${{ runner.temp }}/moon-edf
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '24.11.0'
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.12'
+      - name: Install and verify pinned official MoonBit
+        run: |
+          python ci/install-moonbit.py --home "$MOON_HOME" --download-cache "$RUNNER_TEMP/edf-downloads"
+          echo "$MOON_HOME/bin" >> "$GITHUB_PATH"
+      - name: Record tools and source commit
+        run: |
+          moon version --all
+          node --version
+          python --version
+          git rev-parse HEAD
+      - name: Formatting and all supported target checks
+        run: |
+          moon fmt --check
+          moon update
+          moon check --target all --deny-warn
+          moon tree
+          python ci/check-dependency.py
+      - name: JS tests
+        run: moon test --target js --deny-warn
+      - name: Wasm-GC tests
+        run: moon test --target wasm-gc --deny-warn
+      - name: Generated public interfaces
+        run: |
+          moon info --target all
+          git diff --exit-code -- '**/pkg.generated.mbti'
+      - name: Build real JS file bridge
+        run: moon build --target js --release --deny-warn
+      - name: Host input and independent exact-time consumers
+        run: |
+          python -c "from pathlib import Path; Path('work').mkdir(exist_ok=True)"
+          node tools/test-host-input.mjs
+          python tools/generate-exact-time.py --check
+          node tools/run-exact-time.mjs "$RUNNER_TEMP/edf-exact-time"
+          python tools/verify-exact-time.py "$RUNNER_TEMP/edf-exact-time" --report work/exact-time-report.json
+          moon run examples/time_window --target js
+          moon run examples/time_window --target wasm-gc
+      - name: Install original differential references in a separate environment
+        run: |
+          python -m venv "$RUNNER_TEMP/edf-legacy-reference"
+          "$RUNNER_TEMP/edf-legacy-reference/bin/python" -m pip install --disable-pip-version-check -r tools/requirements.txt
+      - name: Original format and file consumers
+        run: |
+          "$RUNNER_TEMP/edf-legacy-reference/bin/python" tools/check-deep-features.py --output work/deep-features.json
+          "$RUNNER_TEMP/edf-legacy-reference/bin/python" tools/differential.py
+          "$RUNNER_TEMP/edf-legacy-reference/bin/python" tools/test-time-window.py
+          "$RUNNER_TEMP/edf-legacy-reference/bin/python" tools/example-smoke.py
+      - name: Install fixed numerical reference
+        run: python -m pip install --disable-pip-version-check -r ci/reference-requirements.txt
+      - name: Independent EDF, DFT and SciPy PSD plus real JSON/CSV consumer
+        run: |
+          python tools/fetch-public-eeg.py work/S001R03.edf
+          python tools/check-psd.py --output work/psd-verification.json --work-dir work/psd-cases --public-input work/S001R03.edf --consumer-dir work/public-psd
+          python -c "import json; p=json.load(open('work/psd-verification.json')); print(json.dumps({'cases':p['numerical'],'rejected':len(p['rejected']),'scipy':p['scipy'],'numpy':p['numpy'],'source':p['publicConsumer']['source']}))"
+      - name: Original public recording and event exports
+        run: |
+          "$RUNNER_TEMP/edf-legacy-reference/bin/python" tools/verify-public-eeg.py work/S001R03.edf --output work/public-eeg-report.json
+          node examples/run-public-epochs.mjs work/S001R03.edf work/eeg-epochs
+          python tools/verify-public-export.py work/S001R03.edf work/eeg-epochs --output work/public-epochs-readback.json
+      - name: Legacy exact-time and CSV CLI consumers
+        run: python tools/check-cli-time-input.py --output work/legacy-window.json --only window-
+      - name: Independent append and rejection consumers
+        run: python tools/check-append.py --output work/append-verification.json

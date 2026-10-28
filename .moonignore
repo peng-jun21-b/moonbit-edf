@@ -1,0 +1,9 @@
+# Publication policy: preserve repository exclusions, plus required hidden fixtures.
+_build/
+.mooncakes/
+.venv/
+evidence/generated/
+
+# Toolchain instructions in TOOLCHAIN.md must remain runnable from the archive.
+!/.moonbit-version
+!/.moonignore

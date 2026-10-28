@@ -1,0 +1,371 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "peng-jun21/edf"
+
+import {
+  "moonbitlang/core/debug",
+  "moonbitlang/core/json",
+}
+
+// Values
+#alias(create_exact)
+pub fn[T : TimeInput] create(Array[Signal], Array[Record[T]], T, format? : Format, continuity? : Continuity, start? : DateTime, patient? : String) -> Recording raise EdfError
+
+pub fn decode(Bytes, time_policy? : TimePolicy) -> Recording raise EdfError
+
+pub fn encode_tals(Array[Tal], Int) -> Bytes raise EdfError
+
+pub fn parse_datetime(String, String) -> DateTime raise EdfError
+
+pub fn parse_header(Bytes) -> Header raise EdfError
+
+pub fn parse_tals(Bytes) -> Array[Tal] raise EdfError
+
+// Errors
+pub suberror EdfError {
+  Invalid(String)
+  Unsupported(String)
+  Limit(String)
+} derive(@debug.Debug)
+pub fn EdfError::to_repr(Self) -> @debug.Repr
+
+// Types and methods
+pub(all) struct Annotation {
+  record : Int
+  signal : Int
+  onset : String
+  duration : String?
+  text : String
+} derive(ToJson, @debug.Debug, @json.FromJson)
+pub fn Annotation::from_json(Json, @json.JsonPath) -> Self raise @json.JsonDecodeError
+pub fn Annotation::to_json(Self) -> Json
+pub fn Annotation::to_repr(Self) -> @debug.Repr
+
+pub struct AnnotationMatch {
+  annotation_index : Int
+  annotation : Annotation
+} derive(ToJson, @debug.Debug)
+pub fn AnnotationMatch::to_json(Self) -> Json
+pub fn AnnotationMatch::to_repr(Self) -> @debug.Repr
+
+pub(all) enum Continuity {
+  Plain
+  Continuous
+  Discontinuous
+} derive(Eq, ToJson, @debug.Debug)
+pub fn Continuity::equal(Self, Self) -> Bool
+pub fn Continuity::not_equal(Self, Self) -> Bool
+pub fn Continuity::to_json(Self) -> Json
+pub fn Continuity::to_repr(Self) -> @debug.Repr
+
+pub(all) struct DateTime {
+  year : Int
+  month : Int
+  day : Int
+  hour : Int
+  minute : Int
+  second : Int
+} derive(ToJson, @debug.Debug)
+pub fn DateTime::advance(Self, Int) -> Self raise EdfError
+pub fn DateTime::advance_seconds(Self, String) -> Self raise EdfError
+pub fn DateTime::date_field(Self) -> String raise EdfError
+pub fn DateTime::time_field(Self) -> String raise EdfError
+pub fn DateTime::to_json(Self) -> Json
+pub fn DateTime::to_repr(Self) -> @debug.Repr
+
+pub(all) struct Event[T] {
+  onset : T
+  duration : T?
+  text : String
+} derive(ToJson, @debug.Debug, @json.FromJson)
+pub fn[T : @json.FromJson] Event::from_json(Json, @json.JsonPath) -> Self[T] raise @json.JsonDecodeError
+pub fn[T : ToJson] Event::to_json(Self[T]) -> Json
+pub fn[T : @debug.Debug] Event::to_repr(Self[T]) -> @debug.Repr
+
+pub struct EventWindow {
+  annotation_index : Int
+  annotation : Annotation
+  start : String
+  end : String
+  complete : Bool
+  samples : Int
+  channels : Array[SignalWindow]
+} derive(ToJson, @debug.Debug)
+pub fn EventWindow::to_json(Self) -> Json
+pub fn EventWindow::to_repr(Self) -> @debug.Repr
+
+pub struct FlatRun {
+  first_sample : Int
+  samples : Int
+  digital_value : Int
+  start : Time
+  end : Time
+} derive(ToJson, @debug.Debug)
+pub fn FlatRun::to_json(Self) -> Json
+pub fn FlatRun::to_repr(Self) -> @debug.Repr
+
+pub(all) enum Format {
+  Edf
+  Bdf
+} derive(Eq, ToJson, @debug.Debug)
+pub fn Format::equal(Self, Self) -> Bool
+pub fn Format::not_equal(Self, Self) -> Bool
+pub fn Format::to_json(Self) -> Json
+pub fn Format::to_repr(Self) -> @debug.Repr
+pub fn Format::width(Self) -> Int
+
+pub struct Gap {
+  after_record : Int
+  start : String
+  end : String
+} derive(ToJson, @debug.Debug)
+pub fn Gap::to_json(Self) -> Json
+pub fn Gap::to_repr(Self) -> @debug.Repr
+
+pub struct Header {
+  format : Format
+  continuity : Continuity
+  patient : String
+  recording : String
+  date : String
+  time : String
+  start : DateTime
+  reserved : String
+  declared_records : Int
+  duration : String
+  signals : Array[Signal]
+  bytes : Int
+  record_bytes : Int
+  offsets : Array[Int]
+} derive(@debug.Debug)
+pub fn Header::to_repr(Self) -> @debug.Repr
+
+pub(all) struct PsdBand {
+  name : String
+  low_hz : Double
+  high_hz : Double
+} derive(@debug.Debug)
+pub fn PsdBand::to_repr(Self) -> @debug.Repr
+
+pub struct PsdBandPower {
+  name : String
+  low_hz : Double
+  high_hz : Double
+  bins : Int
+  power : Double
+} derive(ToJson, @debug.Debug)
+pub fn PsdBandPower::to_json(Self) -> Json
+pub fn PsdBandPower::to_repr(Self) -> @debug.Repr
+
+pub struct PsdCalibration {
+  physical_min_text : String
+  physical_max_text : String
+  digital_min : Int
+  digital_max : Int
+} derive(ToJson, @debug.Debug)
+pub fn PsdCalibration::to_json(Self) -> Json
+pub fn PsdCalibration::to_repr(Self) -> @debug.Repr
+
+pub struct PsdResult {
+  signal : Int
+  label : String
+  unit : String
+  unit_specified : Bool
+  psd_unit : String
+  power_unit : String
+  start : String
+  end : String
+  first_sample_time : Time
+  last_selected_sample_time : Time
+  analyzed_end : Time
+  sample_rate : Time
+  sample_rate_hz : Double
+  calibration : PsdCalibration
+  selected_samples : Int
+  used_samples : Int
+  dropped_tail_samples : Int
+  segments : Int
+  segment_length : Int
+  overlap_samples : Int
+  nfft : Int
+  window : String
+  window_definition : String
+  detrend : String
+  scaling : String
+  sides : String
+  average : String
+  endpoint_policy : String
+  band_policy : String
+  engine : String
+  bin_width_hz : Double
+  frequencies_hz : Array[Double]
+  density : Array[Double]
+  bands : Array[PsdBandPower]
+} derive(ToJson, @debug.Debug)
+pub fn PsdResult::to_json(Self) -> Json
+pub fn PsdResult::to_repr(Self) -> @debug.Repr
+
+pub(all) enum PsdWindow {
+  Rectangular
+  HannSymmetric
+} derive(Eq, @debug.Debug)
+pub fn PsdWindow::equal(Self, Self) -> Bool
+pub fn PsdWindow::not_equal(Self, Self) -> Bool
+pub fn PsdWindow::to_repr(Self) -> @debug.Repr
+
+pub(all) struct Record[T] {
+  onset : T
+  samples : Array[Array[Int]]
+  events : Array[Event[T]]
+} derive(@debug.Debug)
+pub fn[T : @debug.Debug] Record::to_repr(Self[T]) -> @debug.Repr
+
+pub struct Recording {
+  header : Header
+  data : Bytes
+  records : Int
+  starts : Array[String]
+  annotations : Array[Annotation]
+  // private fields
+} derive(@debug.Debug)
+pub fn Recording::add_annotation(Self, String, String, duration? : String, record? : Int, signal? : Int) -> Self raise EdfError
+pub fn Recording::add_annotation_signal(Self) -> Self raise EdfError
+#alias(annotations_exact)
+pub fn Recording::annotation_info(Self) -> Array[Annotation]
+pub fn Recording::append(Self, Self, offset? : String) -> Self raise EdfError
+pub fn Recording::crop(Self, Int, Int) -> Self raise EdfError
+pub fn Recording::crop_time_window(Self, String, String) -> Self raise EdfError
+pub fn Recording::csv(Self, Array[Int], first_record? : Int, records? : Int, physical? : Bool) -> String raise EdfError
+pub fn Recording::digital(Self, Int, Int, Int) -> Int raise EdfError
+pub fn Recording::encode(Self) -> Bytes raise EdfError
+#alias(event_window_exact)
+pub fn[A : TimeInput, B : TimeInput] Recording::event_window(Self, Int, Array[Int], before~ : A, after~ : B, include_duration? : Bool, allow_partial? : Bool, max_samples? : Int) -> EventWindow raise EdfError
+pub fn[A : TimeInput, B : TimeInput] Recording::find_annotations(Self, A, B, include_duration? : Bool, max_annotations? : Int) -> Array[AnnotationMatch] raise EdfError
+#alias(flat_runs_exact)
+pub fn Recording::flat_runs(Self, Int, Int) -> Array[FlatRun] raise EdfError
+#alias(gaps_exact)
+pub fn Recording::gaps(Self) -> Array[Gap]
+pub fn Recording::map_physical(Self, Int, Double, offset? : Double, unit? : String) -> Self raise EdfError
+pub fn Recording::physical(Self, Int, Int, Int) -> Double raise EdfError
+#alias(record_onset_exact)
+pub fn Recording::record_onset(Self, Int) -> String raise EdfError
+pub fn Recording::remove_annotation(Self, Int) -> Self raise EdfError
+pub fn Recording::remove_annotations(Self, Array[Int]) -> Self raise EdfError
+pub fn Recording::rename_signal(Self, Int, String) -> Self raise EdfError
+pub fn Recording::sample_rate(Self, Int) -> Time raise EdfError
+#alias(sample_time_exact)
+pub fn Recording::sample_time(Self, Int, Int, Int) -> Time raise EdfError
+pub fn Recording::select(Self, Array[Int]) -> Self raise EdfError
+pub fn Recording::statistics(Self, Int) -> SignalStatistics raise EdfError
+#alias(time_window_exact)
+pub fn[A : TimeInput, B : TimeInput] Recording::time_window(Self, Int, A, B, max_samples? : Int) -> SignalWindow raise EdfError
+pub fn Recording::to_plus(Self) -> Self raise EdfError
+pub fn Recording::to_repr(Self) -> @debug.Repr
+pub fn Recording::update_annotation(Self, Int, Annotation) -> Self raise EdfError
+pub fn[A : TimeInput, B : TimeInput] Recording::welch_psd(Self, Int, A, B, segment_length~ : Int, overlap_samples~ : Int, window~ : PsdWindow, nfft? : Int, bands? : Array[PsdBand], max_samples? : Int, max_segments? : Int) -> PsdResult raise EdfError
+#alias(window_csv_exact)
+pub fn[A : TimeInput, B : TimeInput] Recording::window_csv(Self, Array[Int], A, B, physical? : Bool, max_samples? : Int) -> String raise EdfError
+pub fn Recording::with_annotations(Self, Array[Annotation]) -> Self raise EdfError
+
+pub(all) struct Signal {
+  label : String
+  transducer : String
+  unit : String
+  physical_min : Double
+  physical_max : Double
+  digital_min : Int
+  digital_max : Int
+  prefilter : String
+  samples_per_record : Int
+  reserved : String
+} derive(ToJson, @debug.Debug)
+pub fn Signal::is_annotation(Self) -> Bool
+pub fn Signal::to_digital(Self, Double) -> Int raise EdfError
+pub fn Signal::to_json(Self) -> Json
+pub fn Signal::to_physical(Self, Int) -> Double raise EdfError
+pub fn Signal::to_repr(Self) -> @debug.Repr
+
+pub struct SignalStatistics {
+  samples : Int
+  minimum : Double?
+  maximum : Double?
+  mean : Double?
+  variance : Double?
+  rms : Double?
+  below_range : Int
+  above_range : Int
+  at_minimum : Int
+  at_maximum : Int
+} derive(ToJson, @debug.Debug)
+pub fn SignalStatistics::to_json(Self) -> Json
+pub fn SignalStatistics::to_repr(Self) -> @debug.Repr
+
+pub struct SignalWindow {
+  signal : Int
+  label : String
+  unit : String
+  start : String
+  end : String
+  samples : Array[TimedSample]
+  gaps : Array[Gap]
+} derive(ToJson, @debug.Debug)
+pub fn SignalWindow::to_json(Self) -> Json
+pub fn SignalWindow::to_repr(Self) -> @debug.Repr
+
+pub(all) struct Tal {
+  onset : String
+  duration : String?
+  texts : Array[String]
+} derive(ToJson, @debug.Debug)
+pub fn Tal::to_json(Self) -> Json
+pub fn Tal::to_repr(Self) -> @debug.Repr
+
+pub struct Time {
+  numerator : String
+  denominator : String
+} derive(ToJson, @debug.Debug)
+pub fn Time::add(Self, Self) -> Self
+pub fn Time::compare(Self, Self) -> Int
+pub fn Time::equal(Self, Self) -> Bool
+pub fn Time::not_equal(Self, Self) -> Bool
+pub fn Time::op_ge(Self, Self) -> Bool
+pub fn Time::op_gt(Self, Self) -> Bool
+pub fn Time::op_le(Self, Self) -> Bool
+pub fn Time::op_lt(Self, Self) -> Bool
+pub fn Time::parse(String) -> Self raise EdfError
+pub fn Time::scale(Self, Int, denominator? : Int) -> Self raise EdfError
+pub fn Time::sub(Self, Self) -> Self
+pub fn Time::text(Self) -> String
+pub fn Time::to_double(Self) -> Double
+pub fn Time::to_json(Self) -> Json
+pub fn Time::to_repr(Self) -> @debug.Repr
+pub fn Time::to_time_text(Self) -> String raise EdfError
+pub impl Compare for Time
+pub impl Eq for Time
+pub impl TimeInput for Time
+
+pub(all) enum TimePolicy {
+  Strict
+  Tolerance(String)
+} derive(@debug.Debug)
+pub fn TimePolicy::to_repr(Self) -> @debug.Repr
+
+pub struct TimedSample {
+  record : Int
+  sample : Int
+  time : Time
+  time_numerator : String
+  time_denominator : String
+  digital : Int
+  physical : Double
+} derive(ToJson, @debug.Debug)
+pub fn TimedSample::to_json(Self) -> Json
+pub fn TimedSample::to_repr(Self) -> @debug.Repr
+
+// Type aliases
+
+// Traits
+pub trait TimeInput {
+  fn to_time_text(Self) -> String raise EdfError
+}
+pub impl TimeInput for Double
+pub impl TimeInput for String

@@ -1,0 +1,14 @@
+{
+  "signal": 0,
+  "start": "0",
+  "end": "4",
+  "segment_length": 256,
+  "overlap_samples": 128,
+  "window": "hann_symmetric",
+  "nfft": 256,
+  "detrend": "none",
+  "scaling": "density",
+  "average": "mean",
+  "sides": "one-sided",
+  "bands": [{"name": "requested-8-12-Hz", "low_hz": 8, "high_hz": 12}]
+}

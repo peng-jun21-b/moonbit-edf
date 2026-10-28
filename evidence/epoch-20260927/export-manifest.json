@@ -1,0 +1,226 @@
+{
+  "source": "https://physionet.org/content/eegmmidb/1.0.0/",
+  "doi": "10.13026/C28G6P",
+  "license": "ODC-By-1.0",
+  "attribution": "EEG Motor Movement/Imagery Dataset, Gerwin Schalk and colleagues, PhysioNet",
+  "inputSha256": "3427c8d01bff1380bc9ab9f27a35ece2af5dfadf3e291bbc05eb66e4dadbfe2e",
+  "files": [
+    {
+      "file": "epoch-3.csv",
+      "sha256": "ee8e10872e90179adc7f795012418c740198a40f44dc9ff95755de36cca66e3c",
+      "options": {
+        "command": "epoch",
+        "annotation": 3,
+        "signals": [
+          0,
+          8,
+          32
+        ],
+        "before": 0.25,
+        "after": 0.25,
+        "max_samples": 10000
+      },
+      "annotation": {
+        "record": 12,
+        "signal": 64,
+        "onset": 12.5,
+        "duration": 4.1,
+        "text": "T1"
+      },
+      "start": 12.25,
+      "end": 16.85,
+      "samples": 2208,
+      "complete": true
+    },
+    {
+      "file": "epoch-5.csv",
+      "sha256": "21a81d45fceded63ec39b5b13c421e9104b52c2f67c1dab42a8da4c297a01384",
+      "options": {
+        "command": "epoch",
+        "annotation": 5,
+        "signals": [
+          0,
+          8,
+          32
+        ],
+        "before": 0.25,
+        "after": 0.25,
+        "max_samples": 10000
+      },
+      "annotation": {
+        "record": 20,
+        "signal": 64,
+        "onset": 20.8,
+        "duration": 4.1,
+        "text": "T1"
+      },
+      "start": 20.55,
+      "end": 25.15,
+      "samples": 2208,
+      "complete": true
+    },
+    {
+      "file": "epoch-11.csv",
+      "sha256": "c9c4ca69875522b9c796abfda57f2203e76268589f7bd9e7aedd52fed9b4b0f1",
+      "options": {
+        "command": "epoch",
+        "annotation": 11,
+        "signals": [
+          0,
+          8,
+          32
+        ],
+        "before": 0.25,
+        "after": 0.25,
+        "max_samples": 10000
+      },
+      "annotation": {
+        "record": 45,
+        "signal": 64,
+        "onset": 45.7,
+        "duration": 4.1,
+        "text": "T1"
+      },
+      "start": 45.45,
+      "end": 50.05,
+      "samples": 2208,
+      "complete": true
+    },
+    {
+      "file": "epoch-13.csv",
+      "sha256": "561825f5a3221859ec9fca28dff00ab87590c9299ba032b27126dd746cac2c98",
+      "options": {
+        "command": "epoch",
+        "annotation": 13,
+        "signals": [
+          0,
+          8,
+          32
+        ],
+        "before": 0.25,
+        "after": 0.25,
+        "max_samples": 10000
+      },
+      "annotation": {
+        "record": 54,
+        "signal": 64,
+        "onset": 54,
+        "duration": 4.1,
+        "text": "T1"
+      },
+      "start": 53.75,
+      "end": 58.35,
+      "samples": 2208,
+      "complete": true
+    },
+    {
+      "file": "epoch-17.csv",
+      "sha256": "243bcf209d78a742ca4670fd3d9768d89b0c32aa028724022f740ee91dd17a23",
+      "options": {
+        "command": "epoch",
+        "annotation": 17,
+        "signals": [
+          0,
+          8,
+          32
+        ],
+        "before": 0.25,
+        "after": 0.25,
+        "max_samples": 10000
+      },
+      "annotation": {
+        "record": 70,
+        "signal": 64,
+        "onset": 70.6,
+        "duration": 4.1,
+        "text": "T1"
+      },
+      "start": 70.35,
+      "end": 74.95,
+      "samples": 2208,
+      "complete": true
+    },
+    {
+      "file": "epoch-23.csv",
+      "sha256": "8af1d3e62e4aef2ff19e993a2ad43fcc1c6c82ef2459b56cd1f1777baaf19584",
+      "options": {
+        "command": "epoch",
+        "annotation": 23,
+        "signals": [
+          0,
+          8,
+          32
+        ],
+        "before": 0.25,
+        "after": 0.25,
+        "max_samples": 10000
+      },
+      "annotation": {
+        "record": 95,
+        "signal": 64,
+        "onset": 95.5,
+        "duration": 4.1,
+        "text": "T1"
+      },
+      "start": 95.25,
+      "end": 99.85,
+      "samples": 2208,
+      "complete": true
+    },
+    {
+      "file": "epoch-25.csv",
+      "sha256": "2cf4c4453e8298688eeb2969bca759a4354e281845bf0e380a6b7eaa1d3588cd",
+      "options": {
+        "command": "epoch",
+        "annotation": 25,
+        "signals": [
+          0,
+          8,
+          32
+        ],
+        "before": 0.25,
+        "after": 0.25,
+        "max_samples": 10000
+      },
+      "annotation": {
+        "record": 103,
+        "signal": 64,
+        "onset": 103.8,
+        "duration": 4.1,
+        "text": "T1"
+      },
+      "start": 103.55,
+      "end": 108.15,
+      "samples": 2208,
+      "complete": true
+    },
+    {
+      "file": "epoch-29.csv",
+      "sha256": "d0420034605b736be7e43c0e9cfb8051374c7431a2b4ad9908c3fdce1d010a03",
+      "options": {
+        "command": "epoch",
+        "annotation": 29,
+        "signals": [
+          0,
+          8,
+          32
+        ],
+        "before": 0.25,
+        "after": 0.25,
+        "max_samples": 10000
+      },
+      "annotation": {
+        "record": 120,
+        "signal": 64,
+        "onset": 120.4,
+        "duration": 4.1,
+        "text": "T1"
+      },
+      "start": 120.15,
+      "end": 124.75,
+      "samples": 2208,
+      "complete": true
+    }
+  ],
+  "scope": "T1 annotations in S001R03 only; no clinical interpretation, resampling, filtering or inference of labels for other runs"
+}

@@ -1,0 +1,24 @@
+{
+  "version": "0.10.14+7d59c7ec9",
+  "officialInstallationDocumentation": "https://www.moonbitlang.com/download/",
+  "distributionBase": "https://cli.moonbitlang.com",
+  "windows": {
+    "url": "https://cli.moonbitlang.com/binaries/0.10.14%2B7d59c7ec9/moonbit-windows-x86_64.zip",
+    "sha256": "faae225a8287d0ce69e44b5b3f754af988e97f4446056d8f32ceb3ddb998fce7",
+    "publishedChecksumVerified": true,
+    "cacheFile": "windows.zip"
+  },
+  "linux": {
+    "url": "https://cli.moonbitlang.com/binaries/0.10.14%2B7d59c7ec9/moonbit-linux-x86_64.tar.gz",
+    "sha256": "9226694de9ff978db1ecf820b7710c4224e84ec7a76b19a222d96f0cd4e31b6a",
+    "publishedChecksumVerified": true,
+    "cacheFile": "linux.tar.gz"
+  },
+  "core": {
+    "url": "https://cli.moonbitlang.com/cores/core-0.10.14%2B7d59c7ec9.tar.gz",
+    "sha256": "6f18b8fdea18f85e628a75e4a1bd3977c5a5c9c6a836fd8824192b0e6bd91b14",
+    "publishedChecksumVerified": false,
+    "checksumProvenance": "SHA256 measured from the official versioned archive; adjacent .sha256 endpoint returned 404",
+    "cacheFile": "core.tar.gz"
+  }
+}
