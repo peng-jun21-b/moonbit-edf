@@ -20,7 +20,7 @@
 项目将“精确时钟→原身份事件查询→编辑→保真文件重构→事件窗口”连成可组合的库与文件工作流；不依赖把原记录整体改造成连续分析数组，也不把近似物理统计当成精确数字样本。
 
 **最短使用方式**
-`moon run examples/appended_event --target js`运行随包示例；对自己的文件可用`node examples/remove-window.mjs INPUT.edf NEW.edf 0 10`查询指定时间窗的标记、写出删除后的新文件并复查，原文件不变。安装、完整参数和双端示例见README。
+`moon run examples/appended_event --target js`运行随包示例；对自己的文件可用`node examples/remove-window.mjs INPUT.edf NEW.edf 0 10`查询指定时间窗的标记、写出删除后的新文件并复查，原文件不变。文件示例支持用`MOON_EDF_BRIDGE`指定其它构建目录，事件删除/公开导出无需默认构建。安装、完整参数和双端示例见README。
 
 **完成度与支持边界**
 已通过多采样率、间断、事件编辑、裁剪、拼接和统计的实际消费者验证；公开记录事件CSV有独立原字节/有理数回读。PSD以解析信号/直接DFT及显式SciPy参数逐bin核对并回读真实EEG；另用原始16/24位多通道文件和独立有理数DFT验收JSON/CSV的混合/空单位、引号字段、各自时钟及既有输出保护，不换算单位或重采样。

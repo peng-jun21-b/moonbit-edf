@@ -1,8 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {createHash} from 'node:crypto';
-import {readFile} from '../tools/edf.mjs';
-import {report} from '../_build/js/release/build/cmd/bridge/bridge.js';
+import {readFile,report} from '../tools/edf.mjs';
 
 // This is a specific public-data workflow, not an interpretation of arbitrary T1 labels.
 const [input,output,...extra]=process.argv.slice(2);

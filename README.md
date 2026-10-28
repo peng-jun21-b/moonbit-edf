@@ -41,7 +41,9 @@ node examples/edf-psd.mjs INPUT.edf NEW_OUTPUT_DIRECTORY examples/psd.json
 
 JSON记录源通道/标签、请求时段、实际首/末采样时刻、完整段终点、精确及近似采样率、原始标定文本、物理/PSD单位、参数、频率格和尾样本数。空单位标为unspecified。频带按bin中心`[low,high)`选取，`high=fs/2`时含Nyquist，计算`sum(density*df)`；无插值或临床频带默认值。消费者从同一输入快照输出`psd.json`与逐bin的`psd.csv`，JSON带源文件SHA256，CSV完整转义名称与单位。
 
-完整API、预算和独立验证命令见[docs/PSD.md](docs/PSD.md)。若用`moon --target-dir`在其它磁盘构建，可显式设置`MOON_EDF_BRIDGE`为该目录下`js/release/build/cmd/bridge/bridge.js`的绝对路径；默认仍使用本项目`_build`。
+完整API、预算和独立验证命令见[docs/PSD.md](docs/PSD.md)。若用`moon --target-dir`在其它磁盘构建，可向Node进程设置`MOON_EDF_BRIDGE`为该目录下`js/release/build/cmd/bridge/bridge.js`的路径；绝对路径和相对当前工作目录的路径均可，支持空格和`#`。CLI、PSD导出、`remove-window.mjs`和`run-public-epochs.mjs`使用同一选择，即使没有默认`_build`也可运行后两个文件示例。未设置时仍使用本项目`_build`；显式路径无效会报错，不静默换用其它产物。
+
+`python tools/check-file-bridge.py --bridge PATH_TO_REAL_BRIDGE.js --public-input work/S001R03.edf --output NEW.json --work-dir NEW_CASES`可验证这条路径；公开输入须为既有SHA钉住的文件。它在无默认构建的独立目录运行真实事件删除/公开导出，以原始样本、TAL与Fraction核对产品，再对照默认构建产物字节，并检查无效路径、已有输出与公开输入校验。输入、输出和回执保留，既有数值与文件合同保持。
 
 `python tools/check-psd-metadata.py --output NEW.json --work-dir NEW_CASES`生成可运行的16位EDF/24位BDF多通道样例，逐通道调用上述文件消费者。标准CSV读者回读含逗号/引号的标签和单位、空单位及各自`16/3`、`8`、`32/3` Hz时钟，并以独立有理数四点DFT逐bin核对两类窗；同时检查错误不创建输出、既有导出目录不被覆盖。单位按源文本保留，空单位的JSON为`unit=""`、`unit_specified=false`，显示为`(unspecified)^2/Hz`；不推断uV或自动换算单位，不重采样。验证器仅用Python标准库，运行库仍无需Python。
 

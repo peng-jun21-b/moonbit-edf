@@ -8,6 +8,8 @@ const bridgeUrl=process.env.MOON_EDF_BRIDGE
   ? pathToFileURL(path.resolve(process.env.MOON_EDF_BRIDGE))
   : new URL('../_build/js/release/build/cmd/bridge/bridge.js',import.meta.url);
 const { report, transform, append_recordings }=await import(bridgeUrl.href);
+// Snapshot consumers share the same selected bridge as the CLI and file APIs.
+export { report, transform };
 
 function readBounded(filename,limit) {
   const fd=fs.openSync(filename,'r');

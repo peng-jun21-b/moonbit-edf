@@ -1,7 +1,6 @@
 // Query one byte snapshot, delete selected original indices, then re-query.
 import fs from 'node:fs';
-import { readFile } from '../tools/edf.mjs';
-import { report, transform } from '../_build/js/release/build/cmd/bridge/bridge.js';
+import { readFile, report, transform } from '../tools/edf.mjs';
 
 try {
   const [input,output,start,end,...tail]=process.argv.slice(2);

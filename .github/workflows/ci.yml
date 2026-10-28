@@ -92,5 +92,7 @@ jobs:
           python tools/verify-public-export.py work/S001R03.edf work/eeg-epochs --output work/public-epochs-readback.json
       - name: Legacy exact-time and CSV CLI consumers
         run: python tools/check-cli-time-input.py --output work/legacy-window.json --only window-
+      - name: Alternate bridge file consumers without a default build
+        run: python tools/check-file-bridge.py --bridge _build/js/release/build/cmd/bridge/bridge.js --public-input work/S001R03.edf --output work/file-bridge-verification.json --work-dir work/file-bridge-cases
       - name: Independent append and rejection consumers
         run: python tools/check-append.py --output work/append-verification.json
