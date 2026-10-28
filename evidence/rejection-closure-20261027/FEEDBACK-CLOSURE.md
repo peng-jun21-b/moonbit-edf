@@ -11,4 +11,4 @@
 | EDF-05 | 需要独立精确时间与写回验证 | 已有Fraction+pyEDFlib：24类/13产品；亚100ns精度由Fraction核对，不冒称pyEDFlib认证精度。 | [independent.json](D:/CodexLocal/ban/work/portfolio-progress-20261027/projects/moonbit-edf/evidence/deep-20261020/independent.json)、[CHECKS.json](D:/CodexLocal/ban/work/portfolio-progress-20261027/projects/moonbit-edf/evidence/deep-20261020/CHECKS.json) | historically-fixed-and-verified |
 | EDF-06 | 成熟工具重叠、单采集记录不能证明诊断或采用 | 主张事件身份/精确多速率时间与编辑，保留公开EEG/BDF层次和非诊断边界。 | [README.md](D:/CodexLocal/ban/work/portfolio-progress-20261027/projects/moonbit-edf/README.md)、[PUBLIC-EEG.md](D:/CodexLocal/ban/work/portfolio-progress-20261027/projects/moonbit-edf/docs/PUBLIC-EEG.md)、[EXTERNAL-BDF.md](D:/CodexLocal/ban/work/portfolio-progress-20261027/projects/moonbit-edf/docs/EXTERNAL-BDF.md) | scope-response-with-residual-external-risk；外部采用、临床验证和正式比赛认可未建立。 |
 
-历史源归档逐成员读回、当前代码身份和原回执哈希见 [RECEIPT.json](RECEIPT.json)。本地处理完成不等于正式复审通过；没有新增外部采用证据。
+历史源归档和控制回执仅保留于本项目本地封存；旧控制回执含跨项目元数据，已从当前发布树隔离。本地处理完成不等于正式复审通过；没有新增外部采用证据。
