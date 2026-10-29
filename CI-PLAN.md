@@ -7,6 +7,17 @@ third-party dependency identities or source fixture expectations.
 
 The required workflow is `.github/workflows/ci.yml`, job **EDF format, time and PSD contracts**. All existing named steps remain required; the recording inventory adds **Single-snapshot recording inventory public-package and file receivers**. A result is tied to the exact final push head, not an earlier commit or a separately rerun auxiliary workflow.
 
+The signal composition gate **Lossless signal composition public-package and real file receivers** runs both public backends, receives complete output bytes and native contexts, and reads the two new plain outputs through the independently installed EDFlib:
+
+```sh
+moon run examples/signal_merge --target js --deny-warn > work/signal-merge-public-js.json
+moon run examples/signal_merge --target wasm-gc --deny-warn > work/signal-merge-public-wasm-gc.json
+python tools/check-signal-merge.py --output work/signal-merge-verification.json --work-dir work/signal-merge-cases --public-output work/signal-merge-public-js.json --public-output work/signal-merge-public-wasm-gc.json
+"$RUNNER_TEMP/edf-legacy-reference/bin/python" tools/check-signal-merge-reference.py --receipt work/signal-merge-verification.json --output work/signal-merge-reference.json
+```
+
+Nine independently frozen full output files cover EDF/BDF, exact gaps and fractional clocks, unequal sample rates, duplicate labels, raw calibration and TAL spelling, plain/plus promotion in both directions, empty and annotation-only inputs, and explicit tolerant reading. The receiver checks every original signal header column and complete data/TAL block, source immutability, output receipt and exact rational sample clock. Thirteen invalid pair/options paths plus occupied output and missing-parent controls must fail; tiny unequal starts remain unequal even under tolerant admission. C-library readback covers digital samples of the two new plain files only. The inputs and complete expectations in `tools/fixtures/signal-merge` precede product execution; the oracle never invokes the product writer or merger.
+
 The exact annotation revision gate **Exact annotation revision public-package and full file receivers** runs both complete public consumers, then receives all actual two-source file bundles against pre-implementation hand tables:
 
 ```sh

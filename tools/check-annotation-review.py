@@ -159,7 +159,7 @@ def main():
         assert manifest.keys()=={'sources','frame','status','totals','read_options_sha256','implementation','files'}
         for field in ('frame','status','totals'):same(manifest[field],review[field])
         assert manifest['read_options_sha256']==sha(before[2])
-        same(manifest['implementation'],dict(module='peng-jun21-b/edf',version='0.13.0',bridge_sha256=bridge_hash))
+        same(manifest['implementation'],dict(module='peng-jun21-b/edf',version='0.14.0',bridge_sha256=bridge_hash))
         assert len(manifest['files'])==5 and {r['file'] for r in manifest['files']}=={p.name for p in output.iterdir()}-{'manifest.json'}
         for item in manifest['files']:
             data=(output/item['file']).read_bytes();assert len(data)==item['bytes'] and sha(data)==item['sha256'];sidecars+=1

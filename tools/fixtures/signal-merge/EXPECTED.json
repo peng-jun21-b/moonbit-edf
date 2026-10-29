@@ -1,0 +1,1287 @@
+{
+  "origin": "Independent fixed-width/TAL declarative recipes, full expected bytes and Fraction native context frozen before implementation; no product writer/comparator used",
+  "cases": [
+    {
+      "name": "gaps-edf",
+      "left": "gaps-edf-left.edf",
+      "right": "gaps-edf-right.edf",
+      "expected": "gaps-edf-expected.edf",
+      "readOptions": "gaps-edf-read.json",
+      "leftTolerance": null,
+      "rightTolerance": null,
+      "commonClock": true,
+      "native": {
+        "records": 2,
+        "signals": 5,
+        "starts": [
+          "+0.25",
+          "+3.25"
+        ],
+        "gaps": [
+          {
+            "after_record": 0,
+            "start": "1.25",
+            "end": "3.25"
+          }
+        ],
+        "annotations": [
+          {
+            "record": 0,
+            "signal": 1,
+            "onset": "+0.50",
+            "text": "dup"
+          },
+          {
+            "record": 0,
+            "signal": 1,
+            "onset": "+0.50",
+            "text": "dup"
+          },
+          {
+            "record": 0,
+            "signal": 1,
+            "onset": "+1.5",
+            "text": "gap",
+            "duration": "0"
+          },
+          {
+            "record": 0,
+            "signal": 3,
+            "onset": "+0.25",
+            "text": "R anchor"
+          },
+          {
+            "record": 0,
+            "signal": 3,
+            "onset": "+0.50",
+            "text": "dup",
+            "duration": "0"
+          },
+          {
+            "record": 0,
+            "signal": 3,
+            "onset": "+0.75",
+            "text": "﻿观察🐉",
+            "duration": "0.50"
+          },
+          {
+            "record": 1,
+            "signal": 1,
+            "onset": "+4.5",
+            "text": "post"
+          },
+          {
+            "record": 1,
+            "signal": 3,
+            "onset": "+3.50",
+            "text": "late"
+          }
+        ],
+        "samples": [
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 0,
+            "digital": -32768,
+            "time": {
+              "numerator": "1",
+              "denominator": "4"
+            }
+          },
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 1,
+            "digital": 0,
+            "time": {
+              "numerator": "3",
+              "denominator": "4"
+            }
+          },
+          {
+            "signal": 2,
+            "record": 0,
+            "sample": 0,
+            "digital": -2,
+            "time": {
+              "numerator": "1",
+              "denominator": "4"
+            }
+          },
+          {
+            "signal": 4,
+            "record": 0,
+            "sample": 0,
+            "digital": 10,
+            "time": {
+              "numerator": "1",
+              "denominator": "4"
+            }
+          },
+          {
+            "signal": 4,
+            "record": 0,
+            "sample": 1,
+            "digital": 20,
+            "time": {
+              "numerator": "7",
+              "denominator": "12"
+            }
+          },
+          {
+            "signal": 4,
+            "record": 0,
+            "sample": 2,
+            "digital": 30,
+            "time": {
+              "numerator": "11",
+              "denominator": "12"
+            }
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 0,
+            "digital": 1,
+            "time": {
+              "numerator": "13",
+              "denominator": "4"
+            }
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 1,
+            "digital": 32767,
+            "time": {
+              "numerator": "15",
+              "denominator": "4"
+            }
+          },
+          {
+            "signal": 2,
+            "record": 1,
+            "sample": 0,
+            "digital": 2,
+            "time": {
+              "numerator": "13",
+              "denominator": "4"
+            }
+          },
+          {
+            "signal": 4,
+            "record": 1,
+            "sample": 0,
+            "digital": -10,
+            "time": {
+              "numerator": "13",
+              "denominator": "4"
+            }
+          },
+          {
+            "signal": 4,
+            "record": 1,
+            "sample": 1,
+            "digital": -20,
+            "time": {
+              "numerator": "43",
+              "denominator": "12"
+            }
+          },
+          {
+            "signal": 4,
+            "record": 1,
+            "sample": 2,
+            "digital": -30,
+            "time": {
+              "numerator": "47",
+              "denominator": "12"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "plain-edf",
+      "left": "plain-edf-left.edf",
+      "right": "plain-edf-right.edf",
+      "expected": "plain-edf-expected.edf",
+      "readOptions": "plain-edf-read.json",
+      "leftTolerance": null,
+      "rightTolerance": null,
+      "commonClock": true,
+      "native": {
+        "records": 2,
+        "signals": 2,
+        "starts": [
+          "+0",
+          "+1"
+        ],
+        "gaps": [],
+        "annotations": [],
+        "samples": [
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 0,
+            "digital": 1,
+            "time": {
+              "numerator": "0",
+              "denominator": "1"
+            }
+          },
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 1,
+            "digital": 2,
+            "time": {
+              "numerator": "1",
+              "denominator": "2"
+            }
+          },
+          {
+            "signal": 1,
+            "record": 0,
+            "sample": 0,
+            "digital": 5,
+            "time": {
+              "numerator": "0",
+              "denominator": "1"
+            }
+          },
+          {
+            "signal": 1,
+            "record": 0,
+            "sample": 1,
+            "digital": 6,
+            "time": {
+              "numerator": "1",
+              "denominator": "3"
+            }
+          },
+          {
+            "signal": 1,
+            "record": 0,
+            "sample": 2,
+            "digital": 7,
+            "time": {
+              "numerator": "2",
+              "denominator": "3"
+            }
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 0,
+            "digital": 3,
+            "time": {
+              "numerator": "1",
+              "denominator": "1"
+            }
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 1,
+            "digital": 4,
+            "time": {
+              "numerator": "3",
+              "denominator": "2"
+            }
+          },
+          {
+            "signal": 1,
+            "record": 1,
+            "sample": 0,
+            "digital": 8,
+            "time": {
+              "numerator": "1",
+              "denominator": "1"
+            }
+          },
+          {
+            "signal": 1,
+            "record": 1,
+            "sample": 1,
+            "digital": 9,
+            "time": {
+              "numerator": "4",
+              "denominator": "3"
+            }
+          },
+          {
+            "signal": 1,
+            "record": 1,
+            "sample": 2,
+            "digital": 10,
+            "time": {
+              "numerator": "5",
+              "denominator": "3"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "gaps-bdf",
+      "left": "gaps-bdf-left.bdf",
+      "right": "gaps-bdf-right.bdf",
+      "expected": "gaps-bdf-expected.bdf",
+      "readOptions": "gaps-bdf-read.json",
+      "leftTolerance": null,
+      "rightTolerance": null,
+      "commonClock": true,
+      "native": {
+        "records": 2,
+        "signals": 5,
+        "starts": [
+          "+0.25",
+          "+3.25"
+        ],
+        "gaps": [
+          {
+            "after_record": 0,
+            "start": "1.25",
+            "end": "3.25"
+          }
+        ],
+        "annotations": [
+          {
+            "record": 0,
+            "signal": 1,
+            "onset": "+0.50",
+            "text": "dup"
+          },
+          {
+            "record": 0,
+            "signal": 1,
+            "onset": "+0.50",
+            "text": "dup"
+          },
+          {
+            "record": 0,
+            "signal": 1,
+            "onset": "+1.5",
+            "text": "gap",
+            "duration": "0"
+          },
+          {
+            "record": 0,
+            "signal": 3,
+            "onset": "+0.25",
+            "text": "R anchor"
+          },
+          {
+            "record": 0,
+            "signal": 3,
+            "onset": "+0.50",
+            "text": "dup",
+            "duration": "0"
+          },
+          {
+            "record": 0,
+            "signal": 3,
+            "onset": "+0.75",
+            "text": "﻿观察🐉",
+            "duration": "0.50"
+          },
+          {
+            "record": 1,
+            "signal": 1,
+            "onset": "+4.5",
+            "text": "post"
+          },
+          {
+            "record": 1,
+            "signal": 3,
+            "onset": "+3.50",
+            "text": "late"
+          }
+        ],
+        "samples": [
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 0,
+            "digital": -8388608,
+            "time": {
+              "numerator": "1",
+              "denominator": "4"
+            }
+          },
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 1,
+            "digital": 0,
+            "time": {
+              "numerator": "3",
+              "denominator": "4"
+            }
+          },
+          {
+            "signal": 2,
+            "record": 0,
+            "sample": 0,
+            "digital": -2,
+            "time": {
+              "numerator": "1",
+              "denominator": "4"
+            }
+          },
+          {
+            "signal": 4,
+            "record": 0,
+            "sample": 0,
+            "digital": 10,
+            "time": {
+              "numerator": "1",
+              "denominator": "4"
+            }
+          },
+          {
+            "signal": 4,
+            "record": 0,
+            "sample": 1,
+            "digital": 20,
+            "time": {
+              "numerator": "7",
+              "denominator": "12"
+            }
+          },
+          {
+            "signal": 4,
+            "record": 0,
+            "sample": 2,
+            "digital": 30,
+            "time": {
+              "numerator": "11",
+              "denominator": "12"
+            }
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 0,
+            "digital": 1,
+            "time": {
+              "numerator": "13",
+              "denominator": "4"
+            }
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 1,
+            "digital": 8388607,
+            "time": {
+              "numerator": "15",
+              "denominator": "4"
+            }
+          },
+          {
+            "signal": 2,
+            "record": 1,
+            "sample": 0,
+            "digital": 2,
+            "time": {
+              "numerator": "13",
+              "denominator": "4"
+            }
+          },
+          {
+            "signal": 4,
+            "record": 1,
+            "sample": 0,
+            "digital": -10,
+            "time": {
+              "numerator": "13",
+              "denominator": "4"
+            }
+          },
+          {
+            "signal": 4,
+            "record": 1,
+            "sample": 1,
+            "digital": -20,
+            "time": {
+              "numerator": "43",
+              "denominator": "12"
+            }
+          },
+          {
+            "signal": 4,
+            "record": 1,
+            "sample": 2,
+            "digital": -30,
+            "time": {
+              "numerator": "47",
+              "denominator": "12"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "plain-bdf",
+      "left": "plain-bdf-left.bdf",
+      "right": "plain-bdf-right.bdf",
+      "expected": "plain-bdf-expected.bdf",
+      "readOptions": "plain-bdf-read.json",
+      "leftTolerance": null,
+      "rightTolerance": null,
+      "commonClock": true,
+      "native": {
+        "records": 2,
+        "signals": 2,
+        "starts": [
+          "+0",
+          "+1"
+        ],
+        "gaps": [],
+        "annotations": [],
+        "samples": [
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 0,
+            "digital": 1,
+            "time": {
+              "numerator": "0",
+              "denominator": "1"
+            }
+          },
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 1,
+            "digital": 2,
+            "time": {
+              "numerator": "1",
+              "denominator": "2"
+            }
+          },
+          {
+            "signal": 1,
+            "record": 0,
+            "sample": 0,
+            "digital": 5,
+            "time": {
+              "numerator": "0",
+              "denominator": "1"
+            }
+          },
+          {
+            "signal": 1,
+            "record": 0,
+            "sample": 1,
+            "digital": 6,
+            "time": {
+              "numerator": "1",
+              "denominator": "3"
+            }
+          },
+          {
+            "signal": 1,
+            "record": 0,
+            "sample": 2,
+            "digital": 7,
+            "time": {
+              "numerator": "2",
+              "denominator": "3"
+            }
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 0,
+            "digital": 3,
+            "time": {
+              "numerator": "1",
+              "denominator": "1"
+            }
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 1,
+            "digital": 4,
+            "time": {
+              "numerator": "3",
+              "denominator": "2"
+            }
+          },
+          {
+            "signal": 1,
+            "record": 1,
+            "sample": 0,
+            "digital": 8,
+            "time": {
+              "numerator": "1",
+              "denominator": "1"
+            }
+          },
+          {
+            "signal": 1,
+            "record": 1,
+            "sample": 1,
+            "digital": 9,
+            "time": {
+              "numerator": "4",
+              "denominator": "3"
+            }
+          },
+          {
+            "signal": 1,
+            "record": 1,
+            "sample": 2,
+            "digital": 10,
+            "time": {
+              "numerator": "5",
+              "denominator": "3"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "plain-left-promotion",
+      "left": "plain-left-promotion-left.edf",
+      "right": "plain-left-promotion-right.edf",
+      "expected": "plain-left-promotion-expected.edf",
+      "readOptions": "plain-left-promotion-read.json",
+      "leftTolerance": null,
+      "rightTolerance": null,
+      "commonClock": true,
+      "native": {
+        "records": 2,
+        "signals": 4,
+        "starts": [
+          "+0",
+          "+1"
+        ],
+        "gaps": [],
+        "annotations": [
+          {
+            "record": 0,
+            "signal": 1,
+            "onset": "+0",
+            "text": "Original recording ID: session L"
+          },
+          {
+            "record": 0,
+            "signal": 1,
+            "onset": "+0",
+            "text": "Original patient ID: Free L"
+          },
+          {
+            "record": 0,
+            "signal": 3,
+            "onset": "+0.5",
+            "text": "right point"
+          }
+        ],
+        "samples": [
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 0,
+            "digital": 1,
+            "time": {
+              "numerator": "0",
+              "denominator": "1"
+            }
+          },
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 1,
+            "digital": 2,
+            "time": {
+              "numerator": "1",
+              "denominator": "2"
+            }
+          },
+          {
+            "signal": 2,
+            "record": 0,
+            "sample": 0,
+            "digital": 5,
+            "time": {
+              "numerator": "0",
+              "denominator": "1"
+            }
+          },
+          {
+            "signal": 2,
+            "record": 0,
+            "sample": 1,
+            "digital": 6,
+            "time": {
+              "numerator": "1",
+              "denominator": "3"
+            }
+          },
+          {
+            "signal": 2,
+            "record": 0,
+            "sample": 2,
+            "digital": 7,
+            "time": {
+              "numerator": "2",
+              "denominator": "3"
+            }
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 0,
+            "digital": 3,
+            "time": {
+              "numerator": "1",
+              "denominator": "1"
+            }
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 1,
+            "digital": 4,
+            "time": {
+              "numerator": "3",
+              "denominator": "2"
+            }
+          },
+          {
+            "signal": 2,
+            "record": 1,
+            "sample": 0,
+            "digital": 8,
+            "time": {
+              "numerator": "1",
+              "denominator": "1"
+            }
+          },
+          {
+            "signal": 2,
+            "record": 1,
+            "sample": 1,
+            "digital": 9,
+            "time": {
+              "numerator": "4",
+              "denominator": "3"
+            }
+          },
+          {
+            "signal": 2,
+            "record": 1,
+            "sample": 2,
+            "digital": 10,
+            "time": {
+              "numerator": "5",
+              "denominator": "3"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "plain-right-promotion",
+      "left": "plain-right-promotion-left.bdf",
+      "right": "plain-right-promotion-right.bdf",
+      "expected": "plain-right-promotion-expected.bdf",
+      "readOptions": "plain-right-promotion-read.json",
+      "leftTolerance": null,
+      "rightTolerance": null,
+      "commonClock": true,
+      "native": {
+        "records": 2,
+        "signals": 4,
+        "starts": [
+          "+0",
+          "+1"
+        ],
+        "gaps": [],
+        "annotations": [
+          {
+            "record": 0,
+            "signal": 1,
+            "onset": "+0.5",
+            "text": "right point"
+          },
+          {
+            "record": 0,
+            "signal": 3,
+            "onset": "+0",
+            "text": "Original recording ID: session R"
+          },
+          {
+            "record": 0,
+            "signal": 3,
+            "onset": "+0",
+            "text": "Original patient ID: Free R"
+          }
+        ],
+        "samples": [
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 0,
+            "digital": 1,
+            "time": {
+              "numerator": "0",
+              "denominator": "1"
+            }
+          },
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 1,
+            "digital": 2,
+            "time": {
+              "numerator": "1",
+              "denominator": "2"
+            }
+          },
+          {
+            "signal": 2,
+            "record": 0,
+            "sample": 0,
+            "digital": 5,
+            "time": {
+              "numerator": "0",
+              "denominator": "1"
+            }
+          },
+          {
+            "signal": 2,
+            "record": 0,
+            "sample": 1,
+            "digital": 6,
+            "time": {
+              "numerator": "1",
+              "denominator": "3"
+            }
+          },
+          {
+            "signal": 2,
+            "record": 0,
+            "sample": 2,
+            "digital": 7,
+            "time": {
+              "numerator": "2",
+              "denominator": "3"
+            }
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 0,
+            "digital": 3,
+            "time": {
+              "numerator": "1",
+              "denominator": "1"
+            }
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 1,
+            "digital": 4,
+            "time": {
+              "numerator": "3",
+              "denominator": "2"
+            }
+          },
+          {
+            "signal": 2,
+            "record": 1,
+            "sample": 0,
+            "digital": 8,
+            "time": {
+              "numerator": "1",
+              "denominator": "1"
+            }
+          },
+          {
+            "signal": 2,
+            "record": 1,
+            "sample": 1,
+            "digital": 9,
+            "time": {
+              "numerator": "4",
+              "denominator": "3"
+            }
+          },
+          {
+            "signal": 2,
+            "record": 1,
+            "sample": 2,
+            "digital": 10,
+            "time": {
+              "numerator": "5",
+              "denominator": "3"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "annotation-only",
+      "left": "annotation-only-left.edf",
+      "right": "annotation-only-right.edf",
+      "expected": "annotation-only-expected.edf",
+      "readOptions": "annotation-only-read.json",
+      "leftTolerance": null,
+      "rightTolerance": null,
+      "commonClock": true,
+      "native": {
+        "records": 2,
+        "signals": 2,
+        "starts": [
+          "+0.25",
+          "+3.25"
+        ],
+        "gaps": [
+          {
+            "after_record": 0,
+            "start": "0.25",
+            "end": "3.25"
+          }
+        ],
+        "annotations": [
+          {
+            "record": 0,
+            "signal": 0,
+            "onset": "+0.25",
+            "text": "L definition"
+          },
+          {
+            "record": 0,
+            "signal": 1,
+            "onset": "+0.25",
+            "text": "R definition"
+          },
+          {
+            "record": 1,
+            "signal": 0,
+            "onset": "+3.25",
+            "text": "L second"
+          },
+          {
+            "record": 1,
+            "signal": 1,
+            "onset": "+3.25",
+            "text": "R second"
+          }
+        ],
+        "samples": []
+      }
+    },
+    {
+      "name": "empty",
+      "left": "empty-left.edf",
+      "right": "empty-right.edf",
+      "expected": "empty-expected.edf",
+      "readOptions": "empty-read.json",
+      "leftTolerance": null,
+      "rightTolerance": null,
+      "commonClock": true,
+      "native": {
+        "records": 0,
+        "signals": 5,
+        "starts": [],
+        "gaps": [],
+        "annotations": [],
+        "samples": []
+      }
+    },
+    {
+      "name": "tolerant",
+      "left": "tolerant-left.edf",
+      "right": "tolerant-right.edf",
+      "expected": "tolerant-expected.edf",
+      "readOptions": "tolerant-read.json",
+      "leftTolerance": "0.0001",
+      "rightTolerance": "0.00010000",
+      "commonClock": true,
+      "native": {
+        "records": 2,
+        "signals": 4,
+        "starts": [
+          "+0.25",
+          "+1.2501"
+        ],
+        "gaps": [
+          {
+            "after_record": 0,
+            "start": "1.25",
+            "end": "1.2501"
+          }
+        ],
+        "annotations": [
+          {
+            "record": 0,
+            "signal": 1,
+            "onset": "+0.5",
+            "text": "right point"
+          },
+          {
+            "record": 0,
+            "signal": 3,
+            "onset": "+0.5",
+            "text": "right point"
+          }
+        ],
+        "samples": [
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 0,
+            "digital": 1,
+            "time": {
+              "numerator": "1",
+              "denominator": "4"
+            }
+          },
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 1,
+            "digital": 2,
+            "time": {
+              "numerator": "3",
+              "denominator": "4"
+            }
+          },
+          {
+            "signal": 2,
+            "record": 0,
+            "sample": 0,
+            "digital": 5,
+            "time": {
+              "numerator": "1",
+              "denominator": "4"
+            }
+          },
+          {
+            "signal": 2,
+            "record": 0,
+            "sample": 1,
+            "digital": 6,
+            "time": {
+              "numerator": "7",
+              "denominator": "12"
+            }
+          },
+          {
+            "signal": 2,
+            "record": 0,
+            "sample": 2,
+            "digital": 7,
+            "time": {
+              "numerator": "11",
+              "denominator": "12"
+            }
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 0,
+            "digital": 3,
+            "time": {
+              "numerator": "12501",
+              "denominator": "10000"
+            }
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 1,
+            "digital": 4,
+            "time": {
+              "numerator": "17501",
+              "denominator": "10000"
+            }
+          },
+          {
+            "signal": 2,
+            "record": 1,
+            "sample": 0,
+            "digital": 8,
+            "time": {
+              "numerator": "12501",
+              "denominator": "10000"
+            }
+          },
+          {
+            "signal": 2,
+            "record": 1,
+            "sample": 1,
+            "digital": 9,
+            "time": {
+              "numerator": "47503",
+              "denominator": "30000"
+            }
+          },
+          {
+            "signal": 2,
+            "record": 1,
+            "sample": 2,
+            "digital": 10,
+            "time": {
+              "numerator": "57503",
+              "denominator": "30000"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [
+    {
+      "name": "clock-unconfirmed",
+      "left": "clock-unconfirmed-left.edf",
+      "right": "clock-unconfirmed-right.edf",
+      "readOptions": "clock-unconfirmed-read.json",
+      "error": "merge signals requires confirmed common clock",
+      "commonClock": false,
+      "leftTolerance": null,
+      "rightTolerance": null,
+      "public": true
+    },
+    {
+      "name": "format",
+      "left": "format-left.edf",
+      "right": "format-right.bdf",
+      "readOptions": "format-read.json",
+      "error": "merge signals requires the same EDF/BDF format",
+      "commonClock": true,
+      "leftTolerance": null,
+      "rightTolerance": null,
+      "public": true
+    },
+    {
+      "name": "header-zero",
+      "left": "header-zero-left.edf",
+      "right": "header-zero-right.edf",
+      "readOptions": "header-zero-read.json",
+      "error": "merge signals header zeros differ",
+      "commonClock": true,
+      "leftTolerance": null,
+      "rightTolerance": null,
+      "public": true
+    },
+    {
+      "name": "record-count",
+      "left": "record-count-left.edf",
+      "right": "record-count-right.edf",
+      "readOptions": "record-count-read.json",
+      "error": "merge signals record counts differ",
+      "commonClock": true,
+      "leftTolerance": null,
+      "rightTolerance": null,
+      "public": true
+    },
+    {
+      "name": "duration",
+      "left": "duration-left.edf",
+      "right": "duration-right.edf",
+      "readOptions": "duration-read.json",
+      "error": "merge signals record durations differ",
+      "commonClock": true,
+      "leftTolerance": null,
+      "rightTolerance": null,
+      "public": true
+    },
+    {
+      "name": "exact-start",
+      "left": "exact-start-left.edf",
+      "right": "exact-start-right.edf",
+      "readOptions": "exact-start-read.json",
+      "error": "merge signals record starts differ at 1",
+      "commonClock": true,
+      "leftTolerance": null,
+      "rightTolerance": null,
+      "public": true
+    },
+    {
+      "name": "record-size",
+      "left": "record-size-left.edf",
+      "right": "record-size-right.edf",
+      "readOptions": "record-size-read.json",
+      "error": "EDF+ data record exceeds 61440 bytes",
+      "commonClock": true,
+      "leftTolerance": null,
+      "rightTolerance": null,
+      "public": true
+    },
+    {
+      "name": "negative-policy",
+      "left": "negative-policy-left.edf",
+      "right": "negative-policy-right.edf",
+      "readOptions": "negative-policy-read.json",
+      "error": "negative time tolerance",
+      "commonClock": true,
+      "leftTolerance": "-1",
+      "rightTolerance": null,
+      "public": true
+    },
+    {
+      "name": "unknown-offset",
+      "left": "unknown-offset-left.edf",
+      "right": "unknown-offset-right.edf",
+      "readOptions": "unknown-offset-read.json",
+      "error": "unsupported merge option: offset",
+      "commonClock": true,
+      "leftTolerance": null,
+      "rightTolerance": null,
+      "public": false
+    },
+    {
+      "name": "missing-consent",
+      "left": "missing-consent-left.edf",
+      "right": "missing-consent-right.edf",
+      "readOptions": "missing-consent-read.json",
+      "error": "merge signals requires confirmed common clock",
+      "commonClock": true,
+      "leftTolerance": null,
+      "rightTolerance": null,
+      "public": false
+    },
+    {
+      "name": "bad-side-options",
+      "left": "bad-side-options-left.edf",
+      "right": "bad-side-options-right.edf",
+      "readOptions": "bad-side-options-read.json",
+      "error": "left read options must be an object",
+      "commonClock": true,
+      "leftTolerance": null,
+      "rightTolerance": null,
+      "public": false
+    },
+    {
+      "name": "partial-left",
+      "left": "partial.edf",
+      "right": "gaps-edf-right.edf",
+      "readOptions": "gaps-edf-read.json",
+      "error": "partial trailing data record",
+      "commonClock": true,
+      "leftTolerance": null,
+      "rightTolerance": null,
+      "public": true
+    },
+    {
+      "name": "partial-right",
+      "left": "gaps-edf-left.edf",
+      "right": "partial.edf",
+      "readOptions": "gaps-edf-read.json",
+      "error": "partial trailing data record",
+      "commonClock": true,
+      "leftTolerance": null,
+      "rightTolerance": null,
+      "public": true
+    }
+  ]
+}

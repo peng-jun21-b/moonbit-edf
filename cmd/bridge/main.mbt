@@ -542,6 +542,39 @@ pub fn review_annotations(
 }
 
 ///|
+fn do_merge_recordings(
+  left : Bytes,
+  right : Bytes,
+  text : String,
+) -> Bytes raise {
+  let options = object(text)
+  for key, _ in options {
+    if key != "common_clock" && key != "left" && key != "right" {
+      raise Failure("unsupported merge option: " + key)
+    }
+  }
+  let left_policy = review_policy(options, "left")
+  let right_policy = review_policy(options, "right")
+  let left = @lib.decode(left, time_policy=left_policy) catch {
+    e => raise Failure("left: " + @debug.to_string(e))
+  }
+  let right = @lib.decode(right, time_policy=right_policy) catch {
+    e => raise Failure("right: " + @debug.to_string(e))
+  }
+  left
+  .merge_signals(right, common_clock=optional(options, "common_clock", false))
+  .encode()
+}
+
+///|
+pub fn merge_recordings(left : Bytes, right : Bytes, options : String) -> Bytes {
+  do_merge_recordings(left, right, options) catch {
+    Failure(message) => fail_bytes(message)
+    e => fail_bytes(@debug.to_string(e))
+  }
+}
+
+///|
 fn main {
 
 }

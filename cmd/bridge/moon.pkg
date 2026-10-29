@@ -16,6 +16,7 @@ options(
         "transform",
         "append_recordings",
         "review_annotations",
+        "merge_recordings",
       ],
       "format": "esm",
     },

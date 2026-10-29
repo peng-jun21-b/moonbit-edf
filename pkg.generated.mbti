@@ -318,6 +318,7 @@ pub fn Recording::flat_runs(Self, Int, Int) -> Array[FlatRun] raise EdfError
 #alias(gaps_exact)
 pub fn Recording::gaps(Self) -> Array[Gap]
 pub fn Recording::map_physical(Self, Int, Double, offset? : Double, unit? : String) -> Self raise EdfError
+pub fn Recording::merge_signals(Self, Self, common_clock~ : Bool) -> Self raise EdfError
 pub fn Recording::physical(Self, Int, Int, Int) -> Double raise EdfError
 #alias(record_onset_exact)
 pub fn Recording::record_onset(Self, Int) -> String raise EdfError

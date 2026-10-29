@@ -2,7 +2,7 @@
   "project": "edf",
   "title": "MoonEDF：精确生理记录时间窗与编辑库",
   "module": "peng-jun21-b/edf",
-  "version": "0.13.0",
+  "version": "0.14.0",
   "repository": "https://github.com/peng-jun21-b/moonbit-edf",
   "repositoryOwner": "peng-jun21-b",
   "currentMaintainer": "peng-jun21-b",

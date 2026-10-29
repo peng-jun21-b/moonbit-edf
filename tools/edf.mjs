@@ -8,7 +8,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 const bridgeUrl=process.env.MOON_EDF_BRIDGE
   ? pathToFileURL(path.resolve(process.env.MOON_EDF_BRIDGE))
   : new URL('../_build/js/release/build/cmd/bridge/bridge.js',import.meta.url);
-const { report, transform, append_recordings, review_annotations }=await import(bridgeUrl.href);
+const { report, transform, append_recordings, review_annotations, merge_recordings }=await import(bridgeUrl.href);
 // Snapshot consumers share the same selected bridge as the CLI and file APIs.
 export { report, transform };
 
@@ -28,7 +28,7 @@ export function annotationReviewFromSnapshots(left,right,options='{}') {
   const raw=typeof options==='string'?options:JSON.stringify(options);
   const exact=JSON.parse(raw,(key,value,context)=>key==='time_tolerance'&&typeof value==='number'?context.source:value);
   const result=JSON.parse(review_annotations(left,right,JSON.stringify(exact)));
-  const implementation={module:'peng-jun21-b/edf',version:'0.13.0',
+  const implementation={module:'peng-jun21-b/edf',version:'0.14.0',
     bridge_sha256:createHash('sha256').update(readFile(fileURLToPath(bridgeUrl))).digest('hex')};
   return {result,implementation};
 }
@@ -84,6 +84,7 @@ function exactOptions(options,command=null) {
   if (['epoch','epoch-exact'].includes(cmd)) times(exact,['before','after']);
   if (cmd==='annotation-add') times(exact,['onset','duration']);
   if (cmd==='append') times(exact,['offset']);
+  if (cmd==='merge-signals') for(const side of ['left','right'])times(exact[side],['time_tolerance']);
   if (cmd==='create') {
     times(exact,['duration']);
     if (Array.isArray(exact.records)) for (const record of exact.records) {
@@ -110,6 +111,19 @@ export function writeAppend(input,next,output,options='{}') {
   const result=append_recordings(readFile(input),readFile(next),exact.text);
   fs.writeFileSync(output,result,{flag:'wx'});
   return {output,bytes:result.length};
+}
+
+export function writeMerge(input,next,output,options='{}') {
+  if(fs.existsSync(output))throw Error('output exists; choose a new path');
+  const left=readFile(input),right=readFile(next);
+  const exact=exactOptions(options,'merge-signals');
+  const result=merge_recordings(left,right,exact.text);
+  fs.writeFileSync(output,result,{flag:'wx'});
+  const sha256=data=>createHash('sha256').update(data).digest('hex');
+  const source=(file,data)=>({path:path.resolve(file),bytes:data.length,sha256:sha256(data)});
+  return {output:path.resolve(output),bytes:result.length,sha256:sha256(result),
+    left:source(input,left),right:source(next,right),common_clock:true,
+    read_policy:{left:exact.options.left??{},right:exact.options.right??{},output:exact.options.left??{}}};
 }
 
 export function psdFromSnapshot(data,options) {
@@ -150,9 +164,14 @@ const writes=new Set(['copy','samples-set','identification-set','select','crop',
 const reads=new Set(['inspect','validate','stats','annotations','annotations-exact','annotations-window','gaps','flat','csv','channel','window','window-exact','window-csv','window-stats','epoch','epoch-exact','psd']);
 function main(args) {
   if (!args.length || args[0]==='--help') {
-    console.log('MoonEDF\n  inspect|validate|stats|annotations|annotations-exact|annotations-window|gaps|flat|csv|channel|window|window-exact|window-csv|window-stats|epoch|epoch-exact|psd INPUT [OPTIONS.json]\n  copy|samples-set|identification-set|select|crop|crop-time|plus|annotations-set|annotation-add|annotation-remove|annotations-remove|annotation-update|annotation-signal|rename|calibrate INPUT OUTPUT [OPTIONS.json]\n  append INPUT NEXT OUTPUT [OPTIONS.json]\n  create OUTPUT OPTIONS.json\nOn Node 24, supported numeric JSON time fields retain their source lexemes; decimal/rational time strings remain supported. Channel indices and physical calibration stay numeric. Annotation onset sign rules still apply. Sample CSV includes rational numerators and denominators. PSD requires explicit segment_length, overlap_samples and window (see examples/psd.json). Existing files are never overwritten.'); return;
+    console.log('MoonEDF\n  inspect|validate|stats|annotations|annotations-exact|annotations-window|gaps|flat|csv|channel|window|window-exact|window-csv|window-stats|epoch|epoch-exact|psd INPUT [OPTIONS.json]\n  copy|samples-set|identification-set|select|crop|crop-time|plus|annotations-set|annotation-add|annotation-remove|annotations-remove|annotation-update|annotation-signal|rename|calibrate INPUT OUTPUT [OPTIONS.json]\n  append INPUT NEXT OUTPUT [OPTIONS.json]\n  merge-signals LEFT RIGHT OUTPUT OPTIONS.json\n  create OUTPUT OPTIONS.json\nOn Node 24, supported numeric JSON time fields retain their source lexemes; decimal/rational time strings remain supported. Channel indices and physical calibration stay numeric. Annotation onset sign rules still apply. Sample CSV includes rational numerators and denominators. PSD requires explicit segment_length, overlap_samples and window (see examples/psd.json). Existing files are never overwritten.'); return;
   }
   const [command,...rest]=args;
+  if (command==='merge-signals') {
+    if(rest.length<3||rest.length>4)throw Error('wrong argument count; use --help');
+    const options=rest[3]?readFile(rest[3]).toString('utf8').trim():'{}';
+    console.log(JSON.stringify(writeMerge(rest[0],rest[1],rest[2],options)));return;
+  }
   if (command==='append') {
     if (rest.length<3 || rest.length>4) throw new Error('wrong argument count; use --help');
     const text=rest[3]?readBounded(rest[3],2147483646).toString('utf8').trim():'{}';

@@ -1,4 +1,4 @@
-# MoonEDF 0.13.0
+# MoonEDF 0.14.0
 
 [项目仓库](https://github.com/peng-jun21-b/moonbit-edf) · [GitHub Actions](https://github.com/peng-jun21-b/moonbit-edf/actions/workflows/ci.yml)。模块为 `peng-jun21-b/edf`，当前维护与申报归属为 `peng-jun21-b`；原源码版权、Git 作者历史和上游许可证保持。
 
@@ -33,6 +33,26 @@ import {
 CI在普通Ubuntu 24.04 runner上运行原有格式、全目标check、JS/Wasm-GC测试、文件输入、精确时钟、差分/时间窗和文档示例消费者，并增加固定MoonSpectrum来源检查、独立DFT/SciPy PSD与真实公开EDF的JSON/CSV回读、旧CLI及拼接回归。公开数据仍按既有SHA获取并保留署名，不随源码分发。
 
 工具链使用固定官方发行包和匹配core的SHA256，在隔离目录安装；不依赖本机SDK。原PyEDFlib/NumPy参考与PSD的SciPy/NumPy参考分别安装，保留各自固定版本；版本、来源和命令见[ci/README.md](ci/README.md)。每次运行的真实结果以对应提交的Actions jobs为准。
+
+## 相同原生记录网格的无损通道合并（0.14.0）
+
+同一采集的通道分存在两个文件时，`Recording::merge_signals(other, common_clock=true)` 可将全部左通道、全部右通道依次组成一个记录。调用者必须先确认两份文件使用同一时钟；相同头时间只是一项必要检查，不能证明同步或来自同一次采集。
+
+两份输入必须有相同 EDF/BDF 样本宽度、解析后的头起始 civil 秒、实际记录数、精确记录时长及每条记录的精确起点。通道采样率、数量、标签及标识字段可不同；同名通道仍分别保留。拒绝不兼容的配对，不意味着这些单个文件不合法。该操作不提供偏移、记录切分、自动标签匹配、时钟校正或重采样。
+
+```sh
+moon run examples/signal_merge --target js
+moon run examples/signal_merge --target wasm-gc
+node tools/edf.mjs merge-signals LEFT.edf RIGHT.edf NEW.edf examples/merge-signals.json
+```
+
+选项必须显式包含 `{"common_clock":true}`，也可加 `left` / `right` 的 `time_tolerance`。容差只参与各自读取准入；合并仍逐条比较精确起点，不将微小偏差吸附到网格。Node 24 保留 JSON 文件中的数值容差词法；精确程序调用可使用字符串。
+
+原通道每一列头字段（包括标定词法和reserved）与每条完整数字样本/TAL块逐字节复制，保留负增益、重复标注、原时间文本和所有标注通道。两份都为普通格式时仍为普通格式；混合普通/plus时对普通一侧复用既有 `to_plus` 提升，保留其新增时钟、原标识注释和匿名plus头行为。既有plus通道不重建。合并头采用有效左侧头，仅更新头长度、通道数、最终实际记录数及必要的 C/D 标记；任一侧为D时结果为D，标记后的39字节保留。右侧全局头标识不替换左侧，右侧各通道与TAL仍完整交付。
+
+结果继承原左侧读取策略；使用容差准入的细微非连续时钟仍原样保留，后续读取结果应使用回执中的 `read_policy.output`。仍执行已有头字段、运行时地址空间及 EDF+ 每记录61,440字节限制，不另行声称认证BDF+的15MB约定。零记录和纯标注记录可以在相同网格下参与。
+
+文件入口各读一次输入，在完整解析与合并成功后以独占新路径写出，并返回双方实际字节快照及输出的路径、字节数、SHA256、读取策略。两个输入缓冲区不构成同步的原子抓取；独占写入不保证写入失败时没有部分文件。仍采用整文件内存处理。`tools/check-signal-merge.py` 用实现前冻结的完整原始输入、独立预期输出字节及 Fraction/TAL解析接收两种公共后端和真实文件结果；独立EDFlib读取仅覆盖新普通EDF/BDF输出的数字样本。
 
 ## 两份标注版本的完整复核（0.13.0）
 
@@ -445,7 +465,7 @@ MoonBit 解码入口是 `decode(data : Bytes, time_policy? : TimePolicy) -> Reco
 ## CLI
 
 读命令：`node tools/edf.mjs COMMAND INPUT [OPTIONS.json]`。
-写命令：`COMMAND INPUT OUTPUT [OPTIONS.json]`；拼接：`append INPUT NEXT OUTPUT [OPTIONS.json]`；新建：`create OUTPUT OPTIONS.json`。
+写命令：`COMMAND INPUT OUTPUT [OPTIONS.json]`；拼接：`append INPUT NEXT OUTPUT [OPTIONS.json]`；通道合并：`merge-signals LEFT RIGHT OUTPUT OPTIONS.json`；新建：`create OUTPUT OPTIONS.json`。
 
 读命令包括 inspect、validate、annotations、annotations-window、gaps、stats、channel、flat、csv、window、window-csv、epoch。写命令见上表，另有 copy、plus。CLI中已有数字时间参数在Node24入口保留原词法，也接受原来的字符串；具体字段与TAL符号要求见上节。输出必须是新路径，失败退出 2。
 
