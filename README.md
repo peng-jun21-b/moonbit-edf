@@ -1,4 +1,4 @@
-# MoonEDF 0.10.0
+# MoonEDF 0.11.0
 
 [项目仓库](https://github.com/peng-jun21-b/moonbit-edf) · [GitHub Actions](https://github.com/peng-jun21-b/moonbit-edf/actions/workflows/ci.yml)。模块名保留`peng-jun21/edf`，源码许可证及上游归属保持。
 
@@ -52,6 +52,22 @@ JSON记录源通道/标签、请求时段、实际首/末采样时刻、完整�
 当物理幅度和采样率都很小时，原始FFT幅值先平方可能下溢为0，即使最终`unit²/Hz`密度可表示。0.9.0对非零峰值不超过`2^-512`的完整窗口做二进制预缩放，以内部1 Hz调用同一个上游Welch，再分离尾数/指数还原实际密度。例如8个`1e-180`恒幅样本、记录时长`1e200`，DC密度可约为`1e-160`。这是旧合同允许下溢基础上的数值可用范围提升。
 
 普通幅度保持原路径；没有裁幅、删样本、替换FFT/Welch或新增输入限制。原始采样率、精确时间、单位、标定和CSV列保持。最终密度或频带功率不可表示时仍可下溢；极大动态跨度或接近零的谱抵消项不在全Double准确性保证内。`python tools/check-psd-scale.py --output NEW.json --work-dir NEW_CASES`以独立Decimal直接DFT核对实际JSON/CSV，保留可运行的合成EDF与输出；生成的`dc.edf`还可配合[examples/psd-small-scale.json](examples/psd-small-scale.json)调用既有消费者。
+
+## 更正既有文件的标识字段（0.11.0）
+
+`Recording::with_identification(patient?=..., recording?=...)`和文件命令`identification-set`只替换调用者给出的原始patient / recording字段。字段遵循既有头写入策略：最多80个可打印ASCII字符，空字符串写为空格，不截断；未提供的字段保持原字节。两个参数都省略时是原字节no-op，包括未知记录数`-1`和原有空格。
+
+```sh
+node tools/edf.mjs identification-set INPUT.edf NEW.edf examples/identification-set.json
+moon run examples/identification --target js
+moon run examples/identification --target wasm-gc
+```
+
+原输入保持，输出路径必须不存在。返回Recording的`data`和新命令输出保留其它全部字节，包括日期/时刻、标定原文、记录数原文、TAL和16/24位样本；调用原`encode()`仍按旧合同将未知记录数写为实际值。读取时指定的`time_tolerance`沿用到编辑后解码，未放宽严格读取。字段错误或源解码错误不创建输出，两个字段一起设置时不会交付部分编辑。
+
+EDF+/BDF+的recording字段承载起始日期，因此替换值须保留原字段前两个非空子字段的原值（通常为`Startdate`及日期或`X`）；仅更正其后会话/设备等标识，不借此改变绝对时间。无法解释这种前缀的旧字段可继续读取或更正patient；本命令不修复其recording前缀。依据见[EDF头布局](https://www.edfplus.info/specs/edf.html)及[EDF+标识约定](https://www.edfplus.info/specs/edfplus.html#additionalspecs)。
+
+这是原始字段编辑，不解析或认证完整人口学子字段，也不承诺完整匿名化：注释、文件名和其它字段可能仍含身份信息。`python tools/check-identification.py --help`说明完整接收验证；随包独立原始输入/预期文件核对所有输出字节，并实际重新打开文件读取头与注释。自编公开包接收示例不代表第三方采用。
 
 ## 带引号的通道名称与CSV
 

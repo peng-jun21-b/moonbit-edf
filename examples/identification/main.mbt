@@ -1,0 +1,147 @@
+///|
+fn main {
+  let results = [
+    receive(
+      "patient-only",
+      raw_plain_edf(),
+      Some("ID_007 F X Corrected_Name"),
+      None,
+      None,
+    ),
+    receive(
+      "recording-only",
+      raw_plain_bdf(),
+      None,
+      Some("Lab note, \"session-2\""),
+      None,
+    ),
+    receive(
+      "both-gaps",
+      raw_gaps_edf(),
+      Some("P020 X X Corrected_Name"),
+      Some("Startdate 07-MAR-2024 SESSION_NEW TECH GEAR"),
+      None,
+    ),
+    receive(
+      "exact-eighty",
+      raw_continuous_bdf(),
+      Some(
+        "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP",
+      ),
+      Some(
+        "Startdate 07-MAR-2024 RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR",
+      ),
+      None,
+    ),
+    receive(
+      "future-prefix",
+      raw_future_edf(),
+      None,
+      Some("Startdate 07-MAR-2095 FUTURE_NEW TECH GEAR"),
+      None,
+    ),
+    receive(
+      "unknown-date-prefix",
+      raw_unknown_date_edf(),
+      None,
+      Some("Startdate X SESSION_NEW TECH GEAR"),
+      None,
+    ),
+    receive(
+      "retained-tolerance",
+      raw_tolerant_edf(),
+      Some("JITTER_REVIEWED X X X"),
+      None,
+      Some("0.01"),
+    ),
+    receive("raw-noop", raw_plain_bdf(), None, None, None),
+    receive("blank-patient", raw_continuous_bdf(), Some(""), None, None),
+    receive("blank-plain-recording", raw_plain_edf(), None, Some(""), None),
+    receive(
+      "annotation-only",
+      raw_annotation_only_edf(),
+      Some("ANNOTATION_REVIEW X X X"),
+      None,
+      None,
+    ),
+    receive(
+      "no-records",
+      raw_empty_edf(),
+      Some("EMPTY X X X"),
+      Some("Corrected empty session"),
+      None,
+    ),
+    receive(
+      "legacy-patient",
+      raw_legacy_id_edf(),
+      Some("LEGACY_REVIEW X X X"),
+      None,
+      None,
+    ),
+    receive(
+      "same-text-padding",
+      raw_plain_edf(),
+      Some("P001 X X Original_Name"),
+      None,
+      None,
+    ),
+    receive(
+      "patient-too-wide",
+      raw_plain_edf(),
+      Some(
+        "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      ),
+      None,
+      None,
+    ),
+    receive(
+      "recording-too-wide",
+      raw_plain_bdf(),
+      None,
+      Some(
+        "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      ),
+      None,
+    ),
+    receive("patient-unicode", raw_plain_edf(), Some("René"), None, None),
+    receive("recording-control", raw_plain_bdf(), None, Some("bad\nline"), None),
+    receive(
+      "atomic-invalid-second",
+      raw_gaps_edf(),
+      Some("VALID X X X"),
+      Some("Startdate 07-MAR-2024 invalid_é X X"),
+      None,
+    ),
+    receive(
+      "future-date-change",
+      raw_future_edf(),
+      None,
+      Some("Startdate 07-MAR-2096 NEW X X"),
+      None,
+    ),
+    receive(
+      "normal-date-change",
+      raw_gaps_edf(),
+      None,
+      Some("Startdate 07-MAR-2025 NEW X X"),
+      None,
+    ),
+    receive("blank-plus-recording", raw_continuous_bdf(), None, Some(""), None),
+    receive(
+      "legacy-recording",
+      raw_legacy_id_edf(),
+      None,
+      Some("fixed legacy"),
+      None,
+    ),
+    receive("partial-source", raw_partial_edf(), None, None, None),
+    receive(
+      "strict-jitter",
+      raw_tolerant_edf(),
+      Some("STRICT_REJECT X X X"),
+      None,
+      None,
+    ),
+  ]
+  println(results.to_json().stringify())
+}

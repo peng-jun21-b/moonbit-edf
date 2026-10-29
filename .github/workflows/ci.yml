@@ -103,3 +103,8 @@ jobs:
           python tools/check-window-statistics.py --output work/window-statistics-verification.json --work-dir work/window-statistics-cases --public-output work/window-statistics-public-js.json --public-output work/window-statistics-public-wasm-gc.json
       - name: Independent append and rejection consumers
         run: python tools/check-append.py --output work/append-verification.json
+      - name: Lossless identification public-package and real file receivers
+        run: |
+          moon run examples/identification --target js --deny-warn > work/identification-public-js.json
+          moon run examples/identification --target wasm-gc --deny-warn > work/identification-public-wasm-gc.json
+          python tools/check-identification.py --output work/identification-verification.json --work-dir work/identification-cases --public-output work/identification-public-js.json --public-output work/identification-public-wasm-gc.json

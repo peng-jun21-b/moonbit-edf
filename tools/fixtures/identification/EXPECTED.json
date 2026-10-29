@@ -1,0 +1,2072 @@
+{
+  "frozenBeforeProductEdits": true,
+  "oracle": "Independent complete raw-byte fields and full expected binary files; fixed-width/TAL/Fraction views; no producer use",
+  "cases": [
+    {
+      "name": "patient-only",
+      "source": "plain.edf",
+      "options": "patient-only.json",
+      "expected": "patient-only.expected.edf",
+      "encoded": "patient-only.encoded.edf",
+      "model": {
+        "inspect": {
+          "format": "edf",
+          "continuity": "plain",
+          "records": 2,
+          "declared_records": -1,
+          "duration": "0075e-2",
+          "date": "07.03.24",
+          "time": "12.34.56",
+          "patient": "ID_007 F X Corrected_Name",
+          "recording": "Startdate 07-MAR-2024 SESSION_OLD TECH_OLD GEAR",
+          "signals": [
+            {
+              "label": "A,\"raw\"",
+              "transducer": "unchanged transducer",
+              "unit": "",
+              "physical_min": 0.0,
+              "physical_max": 1.0,
+              "digital_min": -32768,
+              "digital_max": 32767,
+              "prefilter": "HP:0.1 LP:40",
+              "samples_per_record": 3,
+              "reserved": "signal keep"
+            },
+            {
+              "label": "slow",
+              "transducer": "other",
+              "unit": "mV",
+              "physical_min": 123.5,
+              "physical_max": -2.5,
+              "digital_min": -32768,
+              "digital_max": 32767,
+              "prefilter": "",
+              "samples_per_record": 2,
+              "reserved": "second"
+            }
+          ],
+          "starts": [
+            "+0",
+            "+0.75"
+          ],
+          "annotations": 0,
+          "gaps": []
+        },
+        "annotations": [],
+        "points": [
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 0,
+            "digital": -32768,
+            "time": "0"
+          },
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 1,
+            "digital": -1,
+            "time": "1/4"
+          },
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 2,
+            "digital": 32767,
+            "time": "1/2"
+          },
+          {
+            "signal": 1,
+            "record": 0,
+            "sample": 0,
+            "digital": 32767,
+            "time": "0"
+          },
+          {
+            "signal": 1,
+            "record": 0,
+            "sample": 1,
+            "digital": -32768,
+            "time": "3/8"
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 0,
+            "digital": 17,
+            "time": "3/4"
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 1,
+            "digital": 0,
+            "time": "1"
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 2,
+            "digital": -23,
+            "time": "5/4"
+          },
+          {
+            "signal": 1,
+            "record": 1,
+            "sample": 0,
+            "digital": 91,
+            "time": "3/4"
+          },
+          {
+            "signal": 1,
+            "record": 1,
+            "sample": 1,
+            "digital": -67,
+            "time": "9/8"
+          }
+        ],
+        "start": {
+          "year": 2024,
+          "month": 3,
+          "day": 7,
+          "hour": 12,
+          "minute": 34,
+          "second": 56
+        }
+      }
+    },
+    {
+      "name": "recording-only",
+      "source": "plain.bdf",
+      "options": "recording-only.json",
+      "expected": "recording-only.expected.bdf",
+      "encoded": "recording-only.encoded.bdf",
+      "model": {
+        "inspect": {
+          "format": "bdf",
+          "continuity": "plain",
+          "records": 2,
+          "declared_records": -1,
+          "duration": "0075e-2",
+          "date": "07.03.24",
+          "time": "12.34.56",
+          "patient": "P001 X X Original_Name",
+          "recording": "Lab note, \"session-2\"",
+          "signals": [
+            {
+              "label": "A,\"raw\"",
+              "transducer": "unchanged transducer",
+              "unit": "",
+              "physical_min": 0.0,
+              "physical_max": 1.0,
+              "digital_min": -8388608,
+              "digital_max": 8388607,
+              "prefilter": "HP:0.1 LP:40",
+              "samples_per_record": 3,
+              "reserved": "signal keep"
+            },
+            {
+              "label": "slow",
+              "transducer": "other",
+              "unit": "mV",
+              "physical_min": 123.5,
+              "physical_max": -2.5,
+              "digital_min": -8388608,
+              "digital_max": 8388607,
+              "prefilter": "",
+              "samples_per_record": 2,
+              "reserved": "second"
+            }
+          ],
+          "starts": [
+            "+0",
+            "+0.75"
+          ],
+          "annotations": 0,
+          "gaps": []
+        },
+        "annotations": [],
+        "points": [
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 0,
+            "digital": -8388608,
+            "time": "0"
+          },
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 1,
+            "digital": -1,
+            "time": "1/4"
+          },
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 2,
+            "digital": 8388607,
+            "time": "1/2"
+          },
+          {
+            "signal": 1,
+            "record": 0,
+            "sample": 0,
+            "digital": 8388607,
+            "time": "0"
+          },
+          {
+            "signal": 1,
+            "record": 0,
+            "sample": 1,
+            "digital": -8388608,
+            "time": "3/8"
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 0,
+            "digital": 17,
+            "time": "3/4"
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 1,
+            "digital": 0,
+            "time": "1"
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 2,
+            "digital": -23,
+            "time": "5/4"
+          },
+          {
+            "signal": 1,
+            "record": 1,
+            "sample": 0,
+            "digital": 91,
+            "time": "3/4"
+          },
+          {
+            "signal": 1,
+            "record": 1,
+            "sample": 1,
+            "digital": -67,
+            "time": "9/8"
+          }
+        ],
+        "start": {
+          "year": 2024,
+          "month": 3,
+          "day": 7,
+          "hour": 12,
+          "minute": 34,
+          "second": 56
+        }
+      }
+    },
+    {
+      "name": "both-gaps",
+      "source": "gaps.edf",
+      "options": "both-gaps.json",
+      "expected": "both-gaps.expected.edf",
+      "encoded": "both-gaps.encoded.edf",
+      "model": {
+        "inspect": {
+          "format": "edf",
+          "continuity": "discontinuous",
+          "records": 2,
+          "declared_records": -1,
+          "duration": "0075e-2",
+          "date": "07.03.24",
+          "time": "12.34.56",
+          "patient": "P020 X X Corrected_Name",
+          "recording": "Startdate 07-MAR-2024 SESSION_NEW TECH GEAR",
+          "signals": [
+            {
+              "label": "A,\"raw\"",
+              "transducer": "unchanged transducer",
+              "unit": "",
+              "physical_min": 0.0,
+              "physical_max": 1.0,
+              "digital_min": -32768,
+              "digital_max": 32767,
+              "prefilter": "HP:0.1 LP:40",
+              "samples_per_record": 3,
+              "reserved": "signal keep"
+            },
+            {
+              "label": "slow",
+              "transducer": "other",
+              "unit": "mV",
+              "physical_min": 123.5,
+              "physical_max": -2.5,
+              "digital_min": -32768,
+              "digital_max": 32767,
+              "prefilter": "",
+              "samples_per_record": 2,
+              "reserved": "second"
+            },
+            {
+              "label": "EDF Annotations",
+              "transducer": "",
+              "unit": "",
+              "physical_min": -1.0,
+              "physical_max": 1.0,
+              "digital_min": -32768,
+              "digital_max": 32767,
+              "prefilter": "",
+              "samples_per_record": 96,
+              "reserved": "tal keep"
+            }
+          ],
+          "starts": [
+            "+0.25",
+            "+2"
+          ],
+          "annotations": 3,
+          "gaps": [
+            {
+              "after_record": 0,
+              "start": "1",
+              "end": "2"
+            }
+          ]
+        },
+        "annotations": [
+          {
+            "record": 0,
+            "signal": 2,
+            "onset": "-0.500",
+            "text": "review, \"门\"",
+            "duration": "1.250"
+          },
+          {
+            "record": 0,
+            "signal": 2,
+            "onset": "-0.500",
+            "text": "second",
+            "duration": "1.250"
+          },
+          {
+            "record": 1,
+            "signal": 2,
+            "onset": "+2.000",
+            "text": "unchanged"
+          }
+        ],
+        "points": [
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 0,
+            "digital": -32768,
+            "time": "1/4"
+          },
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 1,
+            "digital": -1,
+            "time": "1/2"
+          },
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 2,
+            "digital": 32767,
+            "time": "3/4"
+          },
+          {
+            "signal": 1,
+            "record": 0,
+            "sample": 0,
+            "digital": 32767,
+            "time": "1/4"
+          },
+          {
+            "signal": 1,
+            "record": 0,
+            "sample": 1,
+            "digital": -32768,
+            "time": "5/8"
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 0,
+            "digital": 17,
+            "time": "2"
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 1,
+            "digital": 0,
+            "time": "9/4"
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 2,
+            "digital": -23,
+            "time": "5/2"
+          },
+          {
+            "signal": 1,
+            "record": 1,
+            "sample": 0,
+            "digital": 91,
+            "time": "2"
+          },
+          {
+            "signal": 1,
+            "record": 1,
+            "sample": 1,
+            "digital": -67,
+            "time": "19/8"
+          }
+        ],
+        "start": {
+          "year": 2024,
+          "month": 3,
+          "day": 7,
+          "hour": 12,
+          "minute": 34,
+          "second": 56
+        }
+      }
+    },
+    {
+      "name": "exact-eighty",
+      "source": "continuous.bdf",
+      "options": "exact-eighty.json",
+      "expected": "exact-eighty.expected.bdf",
+      "encoded": "exact-eighty.encoded.bdf",
+      "model": {
+        "inspect": {
+          "format": "bdf",
+          "continuity": "continuous",
+          "records": 2,
+          "declared_records": 2,
+          "duration": "0075e-2",
+          "date": "07.03.24",
+          "time": "12.34.56",
+          "patient": "PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP",
+          "recording": "Startdate 07-MAR-2024 RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR",
+          "signals": [
+            {
+              "label": "A,\"raw\"",
+              "transducer": "unchanged transducer",
+              "unit": "",
+              "physical_min": 0.0,
+              "physical_max": 1.0,
+              "digital_min": -8388608,
+              "digital_max": 8388607,
+              "prefilter": "HP:0.1 LP:40",
+              "samples_per_record": 3,
+              "reserved": "signal keep"
+            },
+            {
+              "label": "slow",
+              "transducer": "other",
+              "unit": "mV",
+              "physical_min": 123.5,
+              "physical_max": -2.5,
+              "digital_min": -8388608,
+              "digital_max": 8388607,
+              "prefilter": "",
+              "samples_per_record": 2,
+              "reserved": "second"
+            },
+            {
+              "label": "BDF Annotations",
+              "transducer": "",
+              "unit": "",
+              "physical_min": -1.0,
+              "physical_max": 1.0,
+              "digital_min": -8388608,
+              "digital_max": 8388607,
+              "prefilter": "",
+              "samples_per_record": 96,
+              "reserved": "tal keep"
+            }
+          ],
+          "starts": [
+            "+0.125",
+            "+0.875"
+          ],
+          "annotations": 3,
+          "gaps": []
+        },
+        "annotations": [
+          {
+            "record": 0,
+            "signal": 2,
+            "onset": "-0.500",
+            "text": "review, \"门\"",
+            "duration": "1.250"
+          },
+          {
+            "record": 0,
+            "signal": 2,
+            "onset": "-0.500",
+            "text": "second",
+            "duration": "1.250"
+          },
+          {
+            "record": 1,
+            "signal": 2,
+            "onset": "+0.8750",
+            "text": "unchanged"
+          }
+        ],
+        "points": [
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 0,
+            "digital": -8388608,
+            "time": "1/8"
+          },
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 1,
+            "digital": -1,
+            "time": "3/8"
+          },
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 2,
+            "digital": 8388607,
+            "time": "5/8"
+          },
+          {
+            "signal": 1,
+            "record": 0,
+            "sample": 0,
+            "digital": 8388607,
+            "time": "1/8"
+          },
+          {
+            "signal": 1,
+            "record": 0,
+            "sample": 1,
+            "digital": -8388608,
+            "time": "1/2"
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 0,
+            "digital": 17,
+            "time": "7/8"
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 1,
+            "digital": 0,
+            "time": "9/8"
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 2,
+            "digital": -23,
+            "time": "11/8"
+          },
+          {
+            "signal": 1,
+            "record": 1,
+            "sample": 0,
+            "digital": 91,
+            "time": "7/8"
+          },
+          {
+            "signal": 1,
+            "record": 1,
+            "sample": 1,
+            "digital": -67,
+            "time": "5/4"
+          }
+        ],
+        "start": {
+          "year": 2024,
+          "month": 3,
+          "day": 7,
+          "hour": 12,
+          "minute": 34,
+          "second": 56
+        }
+      }
+    },
+    {
+      "name": "future-prefix",
+      "source": "future.edf",
+      "options": "future-prefix.json",
+      "expected": "future-prefix.expected.edf",
+      "encoded": "future-prefix.encoded.edf",
+      "model": {
+        "inspect": {
+          "format": "edf",
+          "continuity": "discontinuous",
+          "records": 2,
+          "declared_records": 2,
+          "duration": "0075e-2",
+          "date": "07.03.yy",
+          "time": "12.34.56",
+          "patient": "P001 X X Original_Name",
+          "recording": "Startdate 07-MAR-2095 FUTURE_NEW TECH GEAR",
+          "signals": [
+            {
+              "label": "A,\"raw\"",
+              "transducer": "unchanged transducer",
+              "unit": "",
+              "physical_min": 0.0,
+              "physical_max": 1.0,
+              "digital_min": -32768,
+              "digital_max": 32767,
+              "prefilter": "HP:0.1 LP:40",
+              "samples_per_record": 3,
+              "reserved": "signal keep"
+            },
+            {
+              "label": "slow",
+              "transducer": "other",
+              "unit": "mV",
+              "physical_min": 123.5,
+              "physical_max": -2.5,
+              "digital_min": -32768,
+              "digital_max": 32767,
+              "prefilter": "",
+              "samples_per_record": 2,
+              "reserved": "second"
+            },
+            {
+              "label": "EDF Annotations",
+              "transducer": "",
+              "unit": "",
+              "physical_min": -1.0,
+              "physical_max": 1.0,
+              "digital_min": -32768,
+              "digital_max": 32767,
+              "prefilter": "",
+              "samples_per_record": 96,
+              "reserved": "tal keep"
+            }
+          ],
+          "starts": [
+            "+0.25",
+            "+2"
+          ],
+          "annotations": 3,
+          "gaps": [
+            {
+              "after_record": 0,
+              "start": "1",
+              "end": "2"
+            }
+          ]
+        },
+        "annotations": [
+          {
+            "record": 0,
+            "signal": 2,
+            "onset": "-0.500",
+            "text": "review, \"门\"",
+            "duration": "1.250"
+          },
+          {
+            "record": 0,
+            "signal": 2,
+            "onset": "-0.500",
+            "text": "second",
+            "duration": "1.250"
+          },
+          {
+            "record": 1,
+            "signal": 2,
+            "onset": "+2.000",
+            "text": "unchanged"
+          }
+        ],
+        "points": [
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 0,
+            "digital": -32768,
+            "time": "1/4"
+          },
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 1,
+            "digital": -1,
+            "time": "1/2"
+          },
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 2,
+            "digital": 32767,
+            "time": "3/4"
+          },
+          {
+            "signal": 1,
+            "record": 0,
+            "sample": 0,
+            "digital": 32767,
+            "time": "1/4"
+          },
+          {
+            "signal": 1,
+            "record": 0,
+            "sample": 1,
+            "digital": -32768,
+            "time": "5/8"
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 0,
+            "digital": 17,
+            "time": "2"
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 1,
+            "digital": 0,
+            "time": "9/4"
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 2,
+            "digital": -23,
+            "time": "5/2"
+          },
+          {
+            "signal": 1,
+            "record": 1,
+            "sample": 0,
+            "digital": 91,
+            "time": "2"
+          },
+          {
+            "signal": 1,
+            "record": 1,
+            "sample": 1,
+            "digital": -67,
+            "time": "19/8"
+          }
+        ],
+        "start": {
+          "year": 2095,
+          "month": 3,
+          "day": 7,
+          "hour": 12,
+          "minute": 34,
+          "second": 56
+        }
+      }
+    },
+    {
+      "name": "unknown-date-prefix",
+      "source": "unknown-date.edf",
+      "options": "unknown-date-prefix.json",
+      "expected": "unknown-date-prefix.expected.edf",
+      "encoded": "unknown-date-prefix.encoded.edf",
+      "model": {
+        "inspect": {
+          "format": "edf",
+          "continuity": "continuous",
+          "records": 2,
+          "declared_records": 2,
+          "duration": "0075e-2",
+          "date": "07.03.24",
+          "time": "12.34.56",
+          "patient": "P001 X X Original_Name",
+          "recording": "Startdate X SESSION_NEW TECH GEAR",
+          "signals": [
+            {
+              "label": "A,\"raw\"",
+              "transducer": "unchanged transducer",
+              "unit": "",
+              "physical_min": 0.0,
+              "physical_max": 1.0,
+              "digital_min": -32768,
+              "digital_max": 32767,
+              "prefilter": "HP:0.1 LP:40",
+              "samples_per_record": 3,
+              "reserved": "signal keep"
+            },
+            {
+              "label": "slow",
+              "transducer": "other",
+              "unit": "mV",
+              "physical_min": 123.5,
+              "physical_max": -2.5,
+              "digital_min": -32768,
+              "digital_max": 32767,
+              "prefilter": "",
+              "samples_per_record": 2,
+              "reserved": "second"
+            },
+            {
+              "label": "EDF Annotations",
+              "transducer": "",
+              "unit": "",
+              "physical_min": -1.0,
+              "physical_max": 1.0,
+              "digital_min": -32768,
+              "digital_max": 32767,
+              "prefilter": "",
+              "samples_per_record": 96,
+              "reserved": "tal keep"
+            }
+          ],
+          "starts": [
+            "+0",
+            "+0.75"
+          ],
+          "annotations": 3,
+          "gaps": []
+        },
+        "annotations": [
+          {
+            "record": 0,
+            "signal": 2,
+            "onset": "-0.500",
+            "text": "review, \"门\"",
+            "duration": "1.250"
+          },
+          {
+            "record": 0,
+            "signal": 2,
+            "onset": "-0.500",
+            "text": "second",
+            "duration": "1.250"
+          },
+          {
+            "record": 1,
+            "signal": 2,
+            "onset": "+0.7500",
+            "text": "unchanged"
+          }
+        ],
+        "points": [
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 0,
+            "digital": -32768,
+            "time": "0"
+          },
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 1,
+            "digital": -1,
+            "time": "1/4"
+          },
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 2,
+            "digital": 32767,
+            "time": "1/2"
+          },
+          {
+            "signal": 1,
+            "record": 0,
+            "sample": 0,
+            "digital": 32767,
+            "time": "0"
+          },
+          {
+            "signal": 1,
+            "record": 0,
+            "sample": 1,
+            "digital": -32768,
+            "time": "3/8"
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 0,
+            "digital": 17,
+            "time": "3/4"
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 1,
+            "digital": 0,
+            "time": "1"
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 2,
+            "digital": -23,
+            "time": "5/4"
+          },
+          {
+            "signal": 1,
+            "record": 1,
+            "sample": 0,
+            "digital": 91,
+            "time": "3/4"
+          },
+          {
+            "signal": 1,
+            "record": 1,
+            "sample": 1,
+            "digital": -67,
+            "time": "9/8"
+          }
+        ],
+        "start": {
+          "year": 2024,
+          "month": 3,
+          "day": 7,
+          "hour": 12,
+          "minute": 34,
+          "second": 56
+        }
+      }
+    },
+    {
+      "name": "retained-tolerance",
+      "source": "tolerant.edf",
+      "options": "retained-tolerance.json",
+      "expected": "retained-tolerance.expected.edf",
+      "encoded": "retained-tolerance.encoded.edf",
+      "model": {
+        "inspect": {
+          "format": "edf",
+          "continuity": "continuous",
+          "records": 2,
+          "declared_records": 2,
+          "duration": "0075e-2",
+          "date": "07.03.24",
+          "time": "12.34.56",
+          "patient": "JITTER_REVIEWED X X X",
+          "recording": "Startdate 07-MAR-2024 SESSION_OLD TECH_OLD GEAR",
+          "signals": [
+            {
+              "label": "A,\"raw\"",
+              "transducer": "unchanged transducer",
+              "unit": "",
+              "physical_min": 0.0,
+              "physical_max": 1.0,
+              "digital_min": -32768,
+              "digital_max": 32767,
+              "prefilter": "HP:0.1 LP:40",
+              "samples_per_record": 3,
+              "reserved": "signal keep"
+            },
+            {
+              "label": "slow",
+              "transducer": "other",
+              "unit": "mV",
+              "physical_min": 123.5,
+              "physical_max": -2.5,
+              "digital_min": -32768,
+              "digital_max": 32767,
+              "prefilter": "",
+              "samples_per_record": 2,
+              "reserved": "second"
+            },
+            {
+              "label": "EDF Annotations",
+              "transducer": "",
+              "unit": "",
+              "physical_min": -1.0,
+              "physical_max": 1.0,
+              "digital_min": -32768,
+              "digital_max": 32767,
+              "prefilter": "",
+              "samples_per_record": 96,
+              "reserved": "tal keep"
+            }
+          ],
+          "starts": [
+            "+0",
+            "+0.751"
+          ],
+          "annotations": 3,
+          "gaps": [
+            {
+              "after_record": 0,
+              "start": "0.75",
+              "end": "0.751"
+            }
+          ]
+        },
+        "annotations": [
+          {
+            "record": 0,
+            "signal": 2,
+            "onset": "-0.500",
+            "text": "review, \"门\"",
+            "duration": "1.250"
+          },
+          {
+            "record": 0,
+            "signal": 2,
+            "onset": "-0.500",
+            "text": "second",
+            "duration": "1.250"
+          },
+          {
+            "record": 1,
+            "signal": 2,
+            "onset": "+0.751",
+            "text": "unchanged"
+          }
+        ],
+        "points": [
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 0,
+            "digital": -32768,
+            "time": "0"
+          },
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 1,
+            "digital": -1,
+            "time": "1/4"
+          },
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 2,
+            "digital": 32767,
+            "time": "1/2"
+          },
+          {
+            "signal": 1,
+            "record": 0,
+            "sample": 0,
+            "digital": 32767,
+            "time": "0"
+          },
+          {
+            "signal": 1,
+            "record": 0,
+            "sample": 1,
+            "digital": -32768,
+            "time": "3/8"
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 0,
+            "digital": 17,
+            "time": "751/1000"
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 1,
+            "digital": 0,
+            "time": "1001/1000"
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 2,
+            "digital": -23,
+            "time": "1251/1000"
+          },
+          {
+            "signal": 1,
+            "record": 1,
+            "sample": 0,
+            "digital": 91,
+            "time": "751/1000"
+          },
+          {
+            "signal": 1,
+            "record": 1,
+            "sample": 1,
+            "digital": -67,
+            "time": "563/500"
+          }
+        ],
+        "start": {
+          "year": 2024,
+          "month": 3,
+          "day": 7,
+          "hour": 12,
+          "minute": 34,
+          "second": 56
+        }
+      }
+    },
+    {
+      "name": "raw-noop",
+      "source": "plain.bdf",
+      "options": "raw-noop.json",
+      "expected": "raw-noop.expected.bdf",
+      "encoded": "raw-noop.encoded.bdf",
+      "model": {
+        "inspect": {
+          "format": "bdf",
+          "continuity": "plain",
+          "records": 2,
+          "declared_records": -1,
+          "duration": "0075e-2",
+          "date": "07.03.24",
+          "time": "12.34.56",
+          "patient": "P001 X X Original_Name",
+          "recording": "Startdate 07-MAR-2024 SESSION_OLD TECH_OLD GEAR",
+          "signals": [
+            {
+              "label": "A,\"raw\"",
+              "transducer": "unchanged transducer",
+              "unit": "",
+              "physical_min": 0.0,
+              "physical_max": 1.0,
+              "digital_min": -8388608,
+              "digital_max": 8388607,
+              "prefilter": "HP:0.1 LP:40",
+              "samples_per_record": 3,
+              "reserved": "signal keep"
+            },
+            {
+              "label": "slow",
+              "transducer": "other",
+              "unit": "mV",
+              "physical_min": 123.5,
+              "physical_max": -2.5,
+              "digital_min": -8388608,
+              "digital_max": 8388607,
+              "prefilter": "",
+              "samples_per_record": 2,
+              "reserved": "second"
+            }
+          ],
+          "starts": [
+            "+0",
+            "+0.75"
+          ],
+          "annotations": 0,
+          "gaps": []
+        },
+        "annotations": [],
+        "points": [
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 0,
+            "digital": -8388608,
+            "time": "0"
+          },
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 1,
+            "digital": -1,
+            "time": "1/4"
+          },
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 2,
+            "digital": 8388607,
+            "time": "1/2"
+          },
+          {
+            "signal": 1,
+            "record": 0,
+            "sample": 0,
+            "digital": 8388607,
+            "time": "0"
+          },
+          {
+            "signal": 1,
+            "record": 0,
+            "sample": 1,
+            "digital": -8388608,
+            "time": "3/8"
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 0,
+            "digital": 17,
+            "time": "3/4"
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 1,
+            "digital": 0,
+            "time": "1"
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 2,
+            "digital": -23,
+            "time": "5/4"
+          },
+          {
+            "signal": 1,
+            "record": 1,
+            "sample": 0,
+            "digital": 91,
+            "time": "3/4"
+          },
+          {
+            "signal": 1,
+            "record": 1,
+            "sample": 1,
+            "digital": -67,
+            "time": "9/8"
+          }
+        ],
+        "start": {
+          "year": 2024,
+          "month": 3,
+          "day": 7,
+          "hour": 12,
+          "minute": 34,
+          "second": 56
+        }
+      }
+    },
+    {
+      "name": "blank-patient",
+      "source": "continuous.bdf",
+      "options": "blank-patient.json",
+      "expected": "blank-patient.expected.bdf",
+      "encoded": "blank-patient.encoded.bdf",
+      "model": {
+        "inspect": {
+          "format": "bdf",
+          "continuity": "continuous",
+          "records": 2,
+          "declared_records": 2,
+          "duration": "0075e-2",
+          "date": "07.03.24",
+          "time": "12.34.56",
+          "patient": "",
+          "recording": "Startdate 07-MAR-2024 SESSION_OLD TECH_OLD GEAR",
+          "signals": [
+            {
+              "label": "A,\"raw\"",
+              "transducer": "unchanged transducer",
+              "unit": "",
+              "physical_min": 0.0,
+              "physical_max": 1.0,
+              "digital_min": -8388608,
+              "digital_max": 8388607,
+              "prefilter": "HP:0.1 LP:40",
+              "samples_per_record": 3,
+              "reserved": "signal keep"
+            },
+            {
+              "label": "slow",
+              "transducer": "other",
+              "unit": "mV",
+              "physical_min": 123.5,
+              "physical_max": -2.5,
+              "digital_min": -8388608,
+              "digital_max": 8388607,
+              "prefilter": "",
+              "samples_per_record": 2,
+              "reserved": "second"
+            },
+            {
+              "label": "BDF Annotations",
+              "transducer": "",
+              "unit": "",
+              "physical_min": -1.0,
+              "physical_max": 1.0,
+              "digital_min": -8388608,
+              "digital_max": 8388607,
+              "prefilter": "",
+              "samples_per_record": 96,
+              "reserved": "tal keep"
+            }
+          ],
+          "starts": [
+            "+0.125",
+            "+0.875"
+          ],
+          "annotations": 3,
+          "gaps": []
+        },
+        "annotations": [
+          {
+            "record": 0,
+            "signal": 2,
+            "onset": "-0.500",
+            "text": "review, \"门\"",
+            "duration": "1.250"
+          },
+          {
+            "record": 0,
+            "signal": 2,
+            "onset": "-0.500",
+            "text": "second",
+            "duration": "1.250"
+          },
+          {
+            "record": 1,
+            "signal": 2,
+            "onset": "+0.8750",
+            "text": "unchanged"
+          }
+        ],
+        "points": [
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 0,
+            "digital": -8388608,
+            "time": "1/8"
+          },
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 1,
+            "digital": -1,
+            "time": "3/8"
+          },
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 2,
+            "digital": 8388607,
+            "time": "5/8"
+          },
+          {
+            "signal": 1,
+            "record": 0,
+            "sample": 0,
+            "digital": 8388607,
+            "time": "1/8"
+          },
+          {
+            "signal": 1,
+            "record": 0,
+            "sample": 1,
+            "digital": -8388608,
+            "time": "1/2"
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 0,
+            "digital": 17,
+            "time": "7/8"
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 1,
+            "digital": 0,
+            "time": "9/8"
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 2,
+            "digital": -23,
+            "time": "11/8"
+          },
+          {
+            "signal": 1,
+            "record": 1,
+            "sample": 0,
+            "digital": 91,
+            "time": "7/8"
+          },
+          {
+            "signal": 1,
+            "record": 1,
+            "sample": 1,
+            "digital": -67,
+            "time": "5/4"
+          }
+        ],
+        "start": {
+          "year": 2024,
+          "month": 3,
+          "day": 7,
+          "hour": 12,
+          "minute": 34,
+          "second": 56
+        }
+      }
+    },
+    {
+      "name": "blank-plain-recording",
+      "source": "plain.edf",
+      "options": "blank-plain-recording.json",
+      "expected": "blank-plain-recording.expected.edf",
+      "encoded": "blank-plain-recording.encoded.edf",
+      "model": {
+        "inspect": {
+          "format": "edf",
+          "continuity": "plain",
+          "records": 2,
+          "declared_records": -1,
+          "duration": "0075e-2",
+          "date": "07.03.24",
+          "time": "12.34.56",
+          "patient": "P001 X X Original_Name",
+          "recording": "",
+          "signals": [
+            {
+              "label": "A,\"raw\"",
+              "transducer": "unchanged transducer",
+              "unit": "",
+              "physical_min": 0.0,
+              "physical_max": 1.0,
+              "digital_min": -32768,
+              "digital_max": 32767,
+              "prefilter": "HP:0.1 LP:40",
+              "samples_per_record": 3,
+              "reserved": "signal keep"
+            },
+            {
+              "label": "slow",
+              "transducer": "other",
+              "unit": "mV",
+              "physical_min": 123.5,
+              "physical_max": -2.5,
+              "digital_min": -32768,
+              "digital_max": 32767,
+              "prefilter": "",
+              "samples_per_record": 2,
+              "reserved": "second"
+            }
+          ],
+          "starts": [
+            "+0",
+            "+0.75"
+          ],
+          "annotations": 0,
+          "gaps": []
+        },
+        "annotations": [],
+        "points": [
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 0,
+            "digital": -32768,
+            "time": "0"
+          },
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 1,
+            "digital": -1,
+            "time": "1/4"
+          },
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 2,
+            "digital": 32767,
+            "time": "1/2"
+          },
+          {
+            "signal": 1,
+            "record": 0,
+            "sample": 0,
+            "digital": 32767,
+            "time": "0"
+          },
+          {
+            "signal": 1,
+            "record": 0,
+            "sample": 1,
+            "digital": -32768,
+            "time": "3/8"
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 0,
+            "digital": 17,
+            "time": "3/4"
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 1,
+            "digital": 0,
+            "time": "1"
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 2,
+            "digital": -23,
+            "time": "5/4"
+          },
+          {
+            "signal": 1,
+            "record": 1,
+            "sample": 0,
+            "digital": 91,
+            "time": "3/4"
+          },
+          {
+            "signal": 1,
+            "record": 1,
+            "sample": 1,
+            "digital": -67,
+            "time": "9/8"
+          }
+        ],
+        "start": {
+          "year": 2024,
+          "month": 3,
+          "day": 7,
+          "hour": 12,
+          "minute": 34,
+          "second": 56
+        }
+      }
+    },
+    {
+      "name": "annotation-only",
+      "source": "annotation-only.edf",
+      "options": "annotation-only.json",
+      "expected": "annotation-only.expected.edf",
+      "encoded": "annotation-only.encoded.edf",
+      "model": {
+        "inspect": {
+          "format": "edf",
+          "continuity": "discontinuous",
+          "records": 2,
+          "declared_records": 2,
+          "duration": "0",
+          "date": "07.03.24",
+          "time": "12.34.56",
+          "patient": "ANNOTATION_REVIEW X X X",
+          "recording": "Startdate 07-MAR-2024 SESSION_OLD TECH_OLD GEAR",
+          "signals": [
+            {
+              "label": "EDF Annotations",
+              "transducer": "",
+              "unit": "",
+              "physical_min": -1.0,
+              "physical_max": 1.0,
+              "digital_min": -32768,
+              "digital_max": 32767,
+              "prefilter": "",
+              "samples_per_record": 96,
+              "reserved": "tal keep"
+            }
+          ],
+          "starts": [
+            "+0",
+            "+2"
+          ],
+          "annotations": 2,
+          "gaps": [
+            {
+              "after_record": 0,
+              "start": "0",
+              "end": "2"
+            }
+          ]
+        },
+        "annotations": [
+          {
+            "record": 0,
+            "signal": 0,
+            "onset": "+0",
+            "text": "score_0"
+          },
+          {
+            "record": 1,
+            "signal": 0,
+            "onset": "+2",
+            "text": "score_1"
+          }
+        ],
+        "points": [],
+        "start": {
+          "year": 2024,
+          "month": 3,
+          "day": 7,
+          "hour": 12,
+          "minute": 34,
+          "second": 56
+        }
+      }
+    },
+    {
+      "name": "no-records",
+      "source": "empty.edf",
+      "options": "no-records.json",
+      "expected": "no-records.expected.edf",
+      "encoded": "no-records.encoded.edf",
+      "model": {
+        "inspect": {
+          "format": "edf",
+          "continuity": "plain",
+          "records": 0,
+          "declared_records": 0,
+          "duration": "0075e-2",
+          "date": "07.03.24",
+          "time": "12.34.56",
+          "patient": "EMPTY X X X",
+          "recording": "Corrected empty session",
+          "signals": [
+            {
+              "label": "A,\"raw\"",
+              "transducer": "unchanged transducer",
+              "unit": "",
+              "physical_min": 0.0,
+              "physical_max": 1.0,
+              "digital_min": -32768,
+              "digital_max": 32767,
+              "prefilter": "HP:0.1 LP:40",
+              "samples_per_record": 3,
+              "reserved": "signal keep"
+            },
+            {
+              "label": "slow",
+              "transducer": "other",
+              "unit": "mV",
+              "physical_min": 123.5,
+              "physical_max": -2.5,
+              "digital_min": -32768,
+              "digital_max": 32767,
+              "prefilter": "",
+              "samples_per_record": 2,
+              "reserved": "second"
+            }
+          ],
+          "starts": [],
+          "annotations": 0,
+          "gaps": []
+        },
+        "annotations": [],
+        "points": [],
+        "start": {
+          "year": 2024,
+          "month": 3,
+          "day": 7,
+          "hour": 12,
+          "minute": 34,
+          "second": 56
+        }
+      }
+    },
+    {
+      "name": "legacy-patient",
+      "source": "legacy-id.edf",
+      "options": "legacy-patient.json",
+      "expected": "legacy-patient.expected.edf",
+      "encoded": "legacy-patient.encoded.edf",
+      "model": {
+        "inspect": {
+          "format": "edf",
+          "continuity": "continuous",
+          "records": 2,
+          "declared_records": 2,
+          "duration": "0075e-2",
+          "date": "07.03.24",
+          "time": "12.34.56",
+          "patient": "LEGACY_REVIEW X X X",
+          "recording": "legacy",
+          "signals": [
+            {
+              "label": "A,\"raw\"",
+              "transducer": "unchanged transducer",
+              "unit": "",
+              "physical_min": 0.0,
+              "physical_max": 1.0,
+              "digital_min": -32768,
+              "digital_max": 32767,
+              "prefilter": "HP:0.1 LP:40",
+              "samples_per_record": 3,
+              "reserved": "signal keep"
+            },
+            {
+              "label": "slow",
+              "transducer": "other",
+              "unit": "mV",
+              "physical_min": 123.5,
+              "physical_max": -2.5,
+              "digital_min": -32768,
+              "digital_max": 32767,
+              "prefilter": "",
+              "samples_per_record": 2,
+              "reserved": "second"
+            },
+            {
+              "label": "EDF Annotations",
+              "transducer": "",
+              "unit": "",
+              "physical_min": -1.0,
+              "physical_max": 1.0,
+              "digital_min": -32768,
+              "digital_max": 32767,
+              "prefilter": "",
+              "samples_per_record": 96,
+              "reserved": "tal keep"
+            }
+          ],
+          "starts": [
+            "+0",
+            "+0.75"
+          ],
+          "annotations": 3,
+          "gaps": []
+        },
+        "annotations": [
+          {
+            "record": 0,
+            "signal": 2,
+            "onset": "-0.500",
+            "text": "review, \"门\"",
+            "duration": "1.250"
+          },
+          {
+            "record": 0,
+            "signal": 2,
+            "onset": "-0.500",
+            "text": "second",
+            "duration": "1.250"
+          },
+          {
+            "record": 1,
+            "signal": 2,
+            "onset": "+0.7500",
+            "text": "unchanged"
+          }
+        ],
+        "points": [
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 0,
+            "digital": -32768,
+            "time": "0"
+          },
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 1,
+            "digital": -1,
+            "time": "1/4"
+          },
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 2,
+            "digital": 32767,
+            "time": "1/2"
+          },
+          {
+            "signal": 1,
+            "record": 0,
+            "sample": 0,
+            "digital": 32767,
+            "time": "0"
+          },
+          {
+            "signal": 1,
+            "record": 0,
+            "sample": 1,
+            "digital": -32768,
+            "time": "3/8"
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 0,
+            "digital": 17,
+            "time": "3/4"
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 1,
+            "digital": 0,
+            "time": "1"
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 2,
+            "digital": -23,
+            "time": "5/4"
+          },
+          {
+            "signal": 1,
+            "record": 1,
+            "sample": 0,
+            "digital": 91,
+            "time": "3/4"
+          },
+          {
+            "signal": 1,
+            "record": 1,
+            "sample": 1,
+            "digital": -67,
+            "time": "9/8"
+          }
+        ],
+        "start": {
+          "year": 2024,
+          "month": 3,
+          "day": 7,
+          "hour": 12,
+          "minute": 34,
+          "second": 56
+        }
+      }
+    },
+    {
+      "name": "same-text-padding",
+      "source": "plain.edf",
+      "options": "same-text-padding.json",
+      "expected": "same-text-padding.expected.edf",
+      "encoded": "same-text-padding.encoded.edf",
+      "model": {
+        "inspect": {
+          "format": "edf",
+          "continuity": "plain",
+          "records": 2,
+          "declared_records": -1,
+          "duration": "0075e-2",
+          "date": "07.03.24",
+          "time": "12.34.56",
+          "patient": "P001 X X Original_Name",
+          "recording": "Startdate 07-MAR-2024 SESSION_OLD TECH_OLD GEAR",
+          "signals": [
+            {
+              "label": "A,\"raw\"",
+              "transducer": "unchanged transducer",
+              "unit": "",
+              "physical_min": 0.0,
+              "physical_max": 1.0,
+              "digital_min": -32768,
+              "digital_max": 32767,
+              "prefilter": "HP:0.1 LP:40",
+              "samples_per_record": 3,
+              "reserved": "signal keep"
+            },
+            {
+              "label": "slow",
+              "transducer": "other",
+              "unit": "mV",
+              "physical_min": 123.5,
+              "physical_max": -2.5,
+              "digital_min": -32768,
+              "digital_max": 32767,
+              "prefilter": "",
+              "samples_per_record": 2,
+              "reserved": "second"
+            }
+          ],
+          "starts": [
+            "+0",
+            "+0.75"
+          ],
+          "annotations": 0,
+          "gaps": []
+        },
+        "annotations": [],
+        "points": [
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 0,
+            "digital": -32768,
+            "time": "0"
+          },
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 1,
+            "digital": -1,
+            "time": "1/4"
+          },
+          {
+            "signal": 0,
+            "record": 0,
+            "sample": 2,
+            "digital": 32767,
+            "time": "1/2"
+          },
+          {
+            "signal": 1,
+            "record": 0,
+            "sample": 0,
+            "digital": 32767,
+            "time": "0"
+          },
+          {
+            "signal": 1,
+            "record": 0,
+            "sample": 1,
+            "digital": -32768,
+            "time": "3/8"
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 0,
+            "digital": 17,
+            "time": "3/4"
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 1,
+            "digital": 0,
+            "time": "1"
+          },
+          {
+            "signal": 0,
+            "record": 1,
+            "sample": 2,
+            "digital": -23,
+            "time": "5/4"
+          },
+          {
+            "signal": 1,
+            "record": 1,
+            "sample": 0,
+            "digital": 91,
+            "time": "3/4"
+          },
+          {
+            "signal": 1,
+            "record": 1,
+            "sample": 1,
+            "digital": -67,
+            "time": "9/8"
+          }
+        ],
+        "start": {
+          "year": 2024,
+          "month": 3,
+          "day": 7,
+          "hour": 12,
+          "minute": 34,
+          "second": 56
+        }
+      }
+    }
+  ],
+  "errors": [
+    {
+      "name": "patient-too-wide",
+      "source": "plain.edf",
+      "options": "patient-too-wide.json",
+      "errorContains": "header text exceeds field width 80",
+      "hostOnly": false
+    },
+    {
+      "name": "recording-too-wide",
+      "source": "plain.bdf",
+      "options": "recording-too-wide.json",
+      "errorContains": "header text exceeds field width 80",
+      "hostOnly": false
+    },
+    {
+      "name": "patient-unicode",
+      "source": "plain.edf",
+      "options": "patient-unicode.json",
+      "errorContains": "header text must be printable ASCII",
+      "hostOnly": false
+    },
+    {
+      "name": "recording-control",
+      "source": "plain.bdf",
+      "options": "recording-control.json",
+      "errorContains": "header text must be printable ASCII",
+      "hostOnly": false
+    },
+    {
+      "name": "atomic-invalid-second",
+      "source": "gaps.edf",
+      "options": "atomic-invalid-second.json",
+      "errorContains": "header text must be printable ASCII",
+      "hostOnly": false
+    },
+    {
+      "name": "future-date-change",
+      "source": "future.edf",
+      "options": "future-date-change.json",
+      "errorContains": "plus recording identification must retain its start-date prefix",
+      "hostOnly": false
+    },
+    {
+      "name": "normal-date-change",
+      "source": "gaps.edf",
+      "options": "normal-date-change.json",
+      "errorContains": "plus recording identification must retain its start-date prefix",
+      "hostOnly": false
+    },
+    {
+      "name": "blank-plus-recording",
+      "source": "continuous.bdf",
+      "options": "blank-plus-recording.json",
+      "errorContains": "plus recording identification must retain its start-date prefix",
+      "hostOnly": false
+    },
+    {
+      "name": "legacy-recording",
+      "source": "legacy-id.edf",
+      "options": "legacy-recording.json",
+      "errorContains": "plus recording identification must retain its start-date prefix",
+      "hostOnly": false
+    },
+    {
+      "name": "partial-source",
+      "source": "partial.edf",
+      "options": "partial-source.json",
+      "errorContains": "partial trailing data record",
+      "hostOnly": false
+    },
+    {
+      "name": "strict-jitter",
+      "source": "tolerant.edf",
+      "options": "strict-jitter.json",
+      "errorContains": "continuous marker contradicts exact timekeeping TALs",
+      "hostOnly": false
+    },
+    {
+      "name": "host-patient-number",
+      "source": "plain.edf",
+      "options": "host-patient-number.json",
+      "errorContains": "",
+      "hostOnly": true
+    },
+    {
+      "name": "host-recording-null",
+      "source": "plain.bdf",
+      "options": "host-recording-null.json",
+      "errorContains": "",
+      "hostOnly": true
+    }
+  ]
+}

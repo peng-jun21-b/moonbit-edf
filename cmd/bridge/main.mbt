@@ -348,6 +348,18 @@ fn do_transform(data : Bytes, text : String) -> Bytes raise {
     let r = @lib.decode(data, time_policy=policy(o))
     match cmd {
       "copy" => r
+      "identification-set" =>
+        // Preserve unknown count spelling and every non-target byte.
+        return r.with_identification(
+            patient?=match o.get("patient") {
+              None => None
+              Some(v) => Some(@json.from_json(v))
+            },
+            recording?=match o.get("recording") {
+              None => None
+              Some(v) => Some(@json.from_json(v))
+            },
+          ).data
       "select" => r.select(required(o, "signals"))
       "crop" => r.crop(required(o, "first_record"), required(o, "records"))
       "plus" => r.to_plus()
