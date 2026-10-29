@@ -96,6 +96,22 @@ export function psdFromSnapshot(data,options) {
   return JSON.parse(report(data,JSON.stringify(exact.options)));
 }
 
+// Receive existing inspection, annotations and all native channel summaries together.
+export function inventoryFromSnapshot(data,minimum,options='{}') {
+  if(!Number.isInteger(minimum)||minimum<1||minimum>2147483647)
+    throw Error('minimum_samples must be a positive Int');
+  const exact=exactOptions(options,'inspect'),readPolicy={};
+  if(Object.hasOwn(exact.options,'time_tolerance'))readPolicy.time_tolerance=exact.options.time_tolerance;
+  const query=(command,extra={})=>JSON.parse(report(data,JSON.stringify({...readPolicy,command,...extra})));
+  const inspection=query('inspect'),annotations=query('annotations'),channels=[];
+  for(let signal=0;signal<inspection.signals.length;signal++) {
+    const label=inspection.signals[signal].label;
+    if(label==='EDF Annotations'||label==='BDF Annotations')continue;
+    channels.push({signal,statistics:query('stats',{signal}),flat_runs:query('flat',{signal,minimum_samples:minimum})});
+  }
+  return {result:{inspection,annotations,channels},readPolicy};
+}
+
 // Compose the existing exact epoch and native-window CSV APIs on one snapshot.
 export function epochCsvFromSnapshot(data,options) {
   const exact=exactOptions(options,'epoch');

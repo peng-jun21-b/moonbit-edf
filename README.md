@@ -1,4 +1,4 @@
-# MoonEDF 0.12.0
+# MoonEDF 0.12.1
 
 [项目仓库](https://github.com/peng-jun21-b/moonbit-edf) · [GitHub Actions](https://github.com/peng-jun21-b/moonbit-edf/actions/workflows/ci.yml)。模块名保留`peng-jun21/edf`，源码许可证及上游归属保持。
 
@@ -52,6 +52,23 @@ JSON记录源通道/标签、请求时段、实际首/末采样时刻、完整�
 当物理幅度和采样率都很小时，原始FFT幅值先平方可能下溢为0，即使最终`unit²/Hz`密度可表示。0.9.0对非零峰值不超过`2^-512`的完整窗口做二进制预缩放，以内部1 Hz调用同一个上游Welch，再分离尾数/指数还原实际密度。例如8个`1e-180`恒幅样本、记录时长`1e200`，DC密度可约为`1e-160`。这是旧合同允许下溢基础上的数值可用范围提升。
 
 普通幅度保持原路径；没有裁幅、删样本、替换FFT/Welch或新增输入限制。原始采样率、精确时间、单位、标定和CSV列保持。最终密度或频带功率不可表示时仍可下溢；极大动态跨度或接近零的谱抵消项不在全Double准确性保证内。`python tools/check-psd-scale.py --output NEW.json --work-dir NEW_CASES`以独立Decimal直接DFT核对实际JSON/CSV，保留可运行的合成EDF与输出；生成的`dc.edf`还可配合[examples/psd-small-scale.json](examples/psd-small-scale.json)调用既有消费者。
+
+## 从一个快照交付逐通道清单（0.12.1）
+
+`recording-inventory.mjs`只读一次源文件，将同一字节快照的既有检查、完整注释、各普通通道总体统计及重复数字值段交付为JSON。它组合现有API，不新增科学指标、共同采样网格或质量评分。已有API仍可由调用者自行组合；此入口补齐源SHA绑定、全部查询后落盘和完整读回的文件交付。
+
+```sh
+node examples/recording-inventory.mjs INPUT.edf NEW_DIRECTORY 2
+node examples/recording-inventory.mjs INPUT.edf NEW_DIRECTORY 4 examples/inventory-read-options.json
+moon run examples/recording_inventory --target js
+moon run examples/recording_inventory --target wasm-gc
+```
+
+第三个参数是调用者明确指定的正Int样本数阈值，不是秒数，不对不同原生速率通道推断相同持续时间。`READ_OPTIONS`仅使用既有`time_tolerance`，保留裸JSON数字词法。输出目录须不存在：所有参数、解码和各通道查询全部成功后才创建目录；其中一个通道统计溢出也不会交付半份分析清单。源文件不改，不调用encode规范化记录数。
+
+`inspect.json`、`annotations.json`及每个普通通道的`channel-N-statistics.json` / `channel-N-flat.json`直接保留既有JSON模型、原单位、总体方差/N、空集省略字段及有理数FlatRun端点。`manifest.json`仅记录源路径/字节数/SHA、实际读取策略、阈值及上述文件的路径/哈希，不添加判定字段。注释通道不当作数字通道；纯注释文件可交付空通道列表，零记录普通通道保留原空结果。
+
+这份清单不判断临床有效性或平坦段是否异常，当前仍是整文件内存处理。`python tools/check-recording-inventory.py --help`说明全量独立接收；相同提交所需CI与验证边界见[CI-PLAN.md](CI-PLAN.md)。自编消费者证明接入，不代表外部采用。
 
 ## 替换普通通道的数字样本区间（0.12.0）
 

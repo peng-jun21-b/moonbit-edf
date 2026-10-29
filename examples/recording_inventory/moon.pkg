@@ -1,0 +1,6 @@
+import {
+  "peng-jun21/edf",
+  "moonbitlang/core/debug",
+}
+
+pkgtype(kind: "executable")

@@ -113,3 +113,8 @@ jobs:
           moon run examples/digital_edit --target js --deny-warn > work/digital-edit-public-js.json
           moon run examples/digital_edit --target wasm-gc --deny-warn > work/digital-edit-public-wasm-gc.json
           python tools/check-digital-edit.py --output work/digital-edit-verification.json --work-dir work/digital-edit-cases --public-output work/digital-edit-public-js.json --public-output work/digital-edit-public-wasm-gc.json
+      - name: Single-snapshot recording inventory public-package and file receivers
+        run: |
+          moon run examples/recording_inventory --target js --deny-warn > work/inventory-public-js.json
+          moon run examples/recording_inventory --target wasm-gc --deny-warn > work/inventory-public-wasm-gc.json
+          python tools/check-recording-inventory.py --output work/inventory-verification.json --work-dir work/inventory-cases --public-output work/inventory-public-js.json --public-output work/inventory-public-wasm-gc.json

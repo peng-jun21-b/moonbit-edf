@@ -1,0 +1,910 @@
+{
+  "frozenBeforeProductExecution": true,
+  "oracle": "Independent raw fixed-width/TAL/signed-byte parsing; Fraction calibration/population moments and native flat-run adjacency; 100-digit Decimal final RMS",
+  "numericTolerance": "Nonzero physical numeric fields max(5e-12 relative,8ULP); exact zero, integers, absent fields and rational times",
+  "cases": [
+    {
+      "name": "continuous",
+      "source": "continuous.edf",
+      "minimum_samples": 2,
+      "options": "continuous-read.json",
+      "policyText": null,
+      "expected": {
+        "inspection": {
+          "format": "edf",
+          "continuity": "plain",
+          "records": 2,
+          "declared_records": -1,
+          "duration": "1",
+          "date": "07.03.24",
+          "time": "12.34.56",
+          "patient": "P001 X X Original_Name",
+          "recording": "Startdate 07-MAR-2024 SESSION TECH GEAR",
+          "signals": [
+            {
+              "label": "fast,\"native\"",
+              "transducer": "original fast",
+              "unit": "mV",
+              "physical_min": 0.0,
+              "physical_max": 2.0,
+              "digital_min": 0,
+              "digital_max": 2,
+              "prefilter": "none",
+              "samples_per_record": 3,
+              "reserved": "fast keep"
+            },
+            {
+              "label": "slow",
+              "transducer": "original slow",
+              "unit": "",
+              "physical_min": 4.0,
+              "physical_max": -4.0,
+              "digital_min": -2,
+              "digital_max": 2,
+              "prefilter": "",
+              "samples_per_record": 2,
+              "reserved": "slow keep"
+            }
+          ],
+          "starts": [
+            "+0",
+            "+1"
+          ],
+          "annotations": 0,
+          "gaps": []
+        },
+        "annotations": [],
+        "channels": [
+          {
+            "signal": 0,
+            "statistics": {
+              "counters": {
+                "samples": 6,
+                "below_range": 0,
+                "above_range": 0,
+                "at_minimum": 0,
+                "at_maximum": 2
+              },
+              "moments": {
+                "minimum": "1",
+                "maximum": "2",
+                "mean": "4/3",
+                "variance": "2/9"
+              },
+              "rms": {
+                "square": "2",
+                "decimal": "1.414213562373095048801688724209698078569671875376948073176679737990732478462107038850387534327641573"
+              }
+            },
+            "flat_runs": [
+              {
+                "first_sample": 0,
+                "samples": 4,
+                "digital_value": 1,
+                "start": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "end": {
+                  "numerator": "4",
+                  "denominator": "3"
+                }
+              },
+              {
+                "first_sample": 4,
+                "samples": 2,
+                "digital_value": 2,
+                "start": {
+                  "numerator": "4",
+                  "denominator": "3"
+                },
+                "end": {
+                  "numerator": "2",
+                  "denominator": "1"
+                }
+              }
+            ]
+          },
+          {
+            "signal": 1,
+            "statistics": {
+              "counters": {
+                "samples": 4,
+                "below_range": 0,
+                "above_range": 0,
+                "at_minimum": 0,
+                "at_maximum": 4
+              },
+              "moments": {
+                "minimum": "-4",
+                "maximum": "-4",
+                "mean": "-4",
+                "variance": "0"
+              },
+              "rms": {
+                "square": "16",
+                "decimal": "4"
+              }
+            },
+            "flat_runs": [
+              {
+                "first_sample": 0,
+                "samples": 4,
+                "digital_value": 2,
+                "start": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "end": {
+                  "numerator": "2",
+                  "denominator": "1"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "longer-threshold",
+      "source": "continuous.edf",
+      "minimum_samples": 4,
+      "options": "longer-threshold-read.json",
+      "policyText": null,
+      "expected": {
+        "inspection": {
+          "format": "edf",
+          "continuity": "plain",
+          "records": 2,
+          "declared_records": -1,
+          "duration": "1",
+          "date": "07.03.24",
+          "time": "12.34.56",
+          "patient": "P001 X X Original_Name",
+          "recording": "Startdate 07-MAR-2024 SESSION TECH GEAR",
+          "signals": [
+            {
+              "label": "fast,\"native\"",
+              "transducer": "original fast",
+              "unit": "mV",
+              "physical_min": 0.0,
+              "physical_max": 2.0,
+              "digital_min": 0,
+              "digital_max": 2,
+              "prefilter": "none",
+              "samples_per_record": 3,
+              "reserved": "fast keep"
+            },
+            {
+              "label": "slow",
+              "transducer": "original slow",
+              "unit": "",
+              "physical_min": 4.0,
+              "physical_max": -4.0,
+              "digital_min": -2,
+              "digital_max": 2,
+              "prefilter": "",
+              "samples_per_record": 2,
+              "reserved": "slow keep"
+            }
+          ],
+          "starts": [
+            "+0",
+            "+1"
+          ],
+          "annotations": 0,
+          "gaps": []
+        },
+        "annotations": [],
+        "channels": [
+          {
+            "signal": 0,
+            "statistics": {
+              "counters": {
+                "samples": 6,
+                "below_range": 0,
+                "above_range": 0,
+                "at_minimum": 0,
+                "at_maximum": 2
+              },
+              "moments": {
+                "minimum": "1",
+                "maximum": "2",
+                "mean": "4/3",
+                "variance": "2/9"
+              },
+              "rms": {
+                "square": "2",
+                "decimal": "1.414213562373095048801688724209698078569671875376948073176679737990732478462107038850387534327641573"
+              }
+            },
+            "flat_runs": [
+              {
+                "first_sample": 0,
+                "samples": 4,
+                "digital_value": 1,
+                "start": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "end": {
+                  "numerator": "4",
+                  "denominator": "3"
+                }
+              }
+            ]
+          },
+          {
+            "signal": 1,
+            "statistics": {
+              "counters": {
+                "samples": 4,
+                "below_range": 0,
+                "above_range": 0,
+                "at_minimum": 0,
+                "at_maximum": 4
+              },
+              "moments": {
+                "minimum": "-4",
+                "maximum": "-4",
+                "mean": "-4",
+                "variance": "0"
+              },
+              "rms": {
+                "square": "16",
+                "decimal": "4"
+              }
+            },
+            "flat_runs": [
+              {
+                "first_sample": 0,
+                "samples": 4,
+                "digital_value": 2,
+                "start": {
+                  "numerator": "0",
+                  "denominator": "1"
+                },
+                "end": {
+                  "numerator": "2",
+                  "denominator": "1"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "gaps",
+      "source": "gaps.bdf",
+      "minimum_samples": 2,
+      "options": "gaps-read.json",
+      "policyText": null,
+      "expected": {
+        "inspection": {
+          "format": "bdf",
+          "continuity": "discontinuous",
+          "records": 2,
+          "declared_records": -1,
+          "duration": "1",
+          "date": "07.03.24",
+          "time": "12.34.56",
+          "patient": "P001 X X Original_Name",
+          "recording": "Startdate 07-MAR-2024 SESSION TECH GEAR",
+          "signals": [
+            {
+              "label": "fast,\"native\"",
+              "transducer": "original fast",
+              "unit": "mV",
+              "physical_min": -8388608.0,
+              "physical_max": 8388607.0,
+              "digital_min": -8388608,
+              "digital_max": 8388607,
+              "prefilter": "none",
+              "samples_per_record": 3,
+              "reserved": "fast keep"
+            },
+            {
+              "label": "BDF Annotations",
+              "transducer": "",
+              "unit": "",
+              "physical_min": -1.0,
+              "physical_max": 1.0,
+              "digital_min": -8388608,
+              "digital_max": 8388607,
+              "prefilter": "",
+              "samples_per_record": 64,
+              "reserved": "TAL keep"
+            },
+            {
+              "label": "slow",
+              "transducer": "original slow",
+              "unit": "",
+              "physical_min": 8388607.0,
+              "physical_max": -8388608.0,
+              "digital_min": -8388608,
+              "digital_max": 8388607,
+              "prefilter": "",
+              "samples_per_record": 2,
+              "reserved": "slow keep"
+            },
+            {
+              "label": "BDF Annotations",
+              "transducer": "",
+              "unit": "",
+              "physical_min": -1.0,
+              "physical_max": 1.0,
+              "digital_min": -8388608,
+              "digital_max": 8388607,
+              "prefilter": "",
+              "samples_per_record": 64,
+              "reserved": "TAL keep"
+            }
+          ],
+          "starts": [
+            "+0.125",
+            "+2.125"
+          ],
+          "annotations": 6,
+          "gaps": [
+            {
+              "after_record": 0,
+              "start": "1.125",
+              "end": "2.125"
+            }
+          ]
+        },
+        "annotations": [
+          {
+            "record": 0,
+            "signal": 1,
+            "onset": "-0.500",
+            "text": "review, \"门\"",
+            "duration": "0.250"
+          },
+          {
+            "record": 0,
+            "signal": 1,
+            "onset": "-0.500",
+            "text": "grouped",
+            "duration": "0.250"
+          },
+          {
+            "record": 0,
+            "signal": 3,
+            "onset": "+0.500",
+            "text": "﻿second\nchannel"
+          },
+          {
+            "record": 1,
+            "signal": 1,
+            "onset": "-0.500",
+            "text": "review, \"门\"",
+            "duration": "0.250"
+          },
+          {
+            "record": 1,
+            "signal": 1,
+            "onset": "-0.500",
+            "text": "grouped",
+            "duration": "0.250"
+          },
+          {
+            "record": 1,
+            "signal": 3,
+            "onset": "+0.500",
+            "text": "﻿second\nchannel"
+          }
+        ],
+        "channels": [
+          {
+            "signal": 0,
+            "statistics": {
+              "counters": {
+                "samples": 6,
+                "below_range": 0,
+                "above_range": 0,
+                "at_minimum": 0,
+                "at_maximum": 0
+              },
+              "moments": {
+                "minimum": "7",
+                "maximum": "7",
+                "mean": "7",
+                "variance": "0"
+              },
+              "rms": {
+                "square": "49",
+                "decimal": "7"
+              }
+            },
+            "flat_runs": [
+              {
+                "first_sample": 0,
+                "samples": 3,
+                "digital_value": 7,
+                "start": {
+                  "numerator": "1",
+                  "denominator": "8"
+                },
+                "end": {
+                  "numerator": "9",
+                  "denominator": "8"
+                }
+              },
+              {
+                "first_sample": 3,
+                "samples": 3,
+                "digital_value": 7,
+                "start": {
+                  "numerator": "17",
+                  "denominator": "8"
+                },
+                "end": {
+                  "numerator": "25",
+                  "denominator": "8"
+                }
+              }
+            ]
+          },
+          {
+            "signal": 2,
+            "statistics": {
+              "counters": {
+                "samples": 4,
+                "below_range": 0,
+                "above_range": 0,
+                "at_minimum": 2,
+                "at_maximum": 2
+              },
+              "moments": {
+                "minimum": "-8388608",
+                "maximum": "8388607",
+                "mean": "-1/2",
+                "variance": "281474943156225/4"
+              },
+              "rms": {
+                "square": "140737471578113/2",
+                "decimal": "8388607.500000014901162082026115654795423745068419641220453949160677377715775729583950725291010434318"
+              }
+            },
+            "flat_runs": [
+              {
+                "first_sample": 0,
+                "samples": 2,
+                "digital_value": -8388608,
+                "start": {
+                  "numerator": "1",
+                  "denominator": "8"
+                },
+                "end": {
+                  "numerator": "9",
+                  "denominator": "8"
+                }
+              },
+              {
+                "first_sample": 2,
+                "samples": 2,
+                "digital_value": 8388607,
+                "start": {
+                  "numerator": "17",
+                  "denominator": "8"
+                },
+                "end": {
+                  "numerator": "25",
+                  "denominator": "8"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "tolerant",
+      "source": "tolerant.edf",
+      "minimum_samples": 2,
+      "options": "tolerant-read.json",
+      "policyText": "0.010000000000000000002",
+      "expected": {
+        "inspection": {
+          "format": "edf",
+          "continuity": "continuous",
+          "records": 2,
+          "declared_records": -1,
+          "duration": "1",
+          "date": "07.03.24",
+          "time": "12.34.56",
+          "patient": "P001 X X Original_Name",
+          "recording": "Startdate 07-MAR-2024 SESSION TECH GEAR",
+          "signals": [
+            {
+              "label": "fast,\"native\"",
+              "transducer": "original fast",
+              "unit": "mV",
+              "physical_min": 0.0,
+              "physical_max": 2.0,
+              "digital_min": 0,
+              "digital_max": 2,
+              "prefilter": "none",
+              "samples_per_record": 3,
+              "reserved": "fast keep"
+            },
+            {
+              "label": "EDF Annotations",
+              "transducer": "",
+              "unit": "",
+              "physical_min": -1.0,
+              "physical_max": 1.0,
+              "digital_min": -32768,
+              "digital_max": 32767,
+              "prefilter": "",
+              "samples_per_record": 64,
+              "reserved": "TAL keep"
+            },
+            {
+              "label": "slow",
+              "transducer": "original slow",
+              "unit": "",
+              "physical_min": 4.0,
+              "physical_max": -4.0,
+              "digital_min": -2,
+              "digital_max": 2,
+              "prefilter": "",
+              "samples_per_record": 2,
+              "reserved": "slow keep"
+            }
+          ],
+          "starts": [
+            "+0.25",
+            "+1.251"
+          ],
+          "annotations": 4,
+          "gaps": [
+            {
+              "after_record": 0,
+              "start": "1.25",
+              "end": "1.251"
+            }
+          ]
+        },
+        "annotations": [
+          {
+            "record": 0,
+            "signal": 1,
+            "onset": "-0.500",
+            "text": "review, \"门\"",
+            "duration": "0.250"
+          },
+          {
+            "record": 0,
+            "signal": 1,
+            "onset": "-0.500",
+            "text": "grouped",
+            "duration": "0.250"
+          },
+          {
+            "record": 1,
+            "signal": 1,
+            "onset": "-0.500",
+            "text": "review, \"门\"",
+            "duration": "0.250"
+          },
+          {
+            "record": 1,
+            "signal": 1,
+            "onset": "-0.500",
+            "text": "grouped",
+            "duration": "0.250"
+          }
+        ],
+        "channels": [
+          {
+            "signal": 0,
+            "statistics": {
+              "counters": {
+                "samples": 6,
+                "below_range": 0,
+                "above_range": 0,
+                "at_minimum": 6,
+                "at_maximum": 0
+              },
+              "moments": {
+                "minimum": "0",
+                "maximum": "0",
+                "mean": "0",
+                "variance": "0"
+              },
+              "rms": {
+                "square": "0",
+                "decimal": "0"
+              }
+            },
+            "flat_runs": [
+              {
+                "first_sample": 0,
+                "samples": 3,
+                "digital_value": 0,
+                "start": {
+                  "numerator": "1",
+                  "denominator": "4"
+                },
+                "end": {
+                  "numerator": "5",
+                  "denominator": "4"
+                }
+              },
+              {
+                "first_sample": 3,
+                "samples": 3,
+                "digital_value": 0,
+                "start": {
+                  "numerator": "1251",
+                  "denominator": "1000"
+                },
+                "end": {
+                  "numerator": "2251",
+                  "denominator": "1000"
+                }
+              }
+            ]
+          },
+          {
+            "signal": 2,
+            "statistics": {
+              "counters": {
+                "samples": 4,
+                "below_range": 0,
+                "above_range": 0,
+                "at_minimum": 0,
+                "at_maximum": 0
+              },
+              "moments": {
+                "minimum": "-2",
+                "maximum": "2",
+                "mean": "0",
+                "variance": "4"
+              },
+              "rms": {
+                "square": "4",
+                "decimal": "2"
+              }
+            },
+            "flat_runs": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "empty",
+      "source": "empty.edf",
+      "minimum_samples": 1,
+      "options": "empty-read.json",
+      "policyText": null,
+      "expected": {
+        "inspection": {
+          "format": "edf",
+          "continuity": "plain",
+          "records": 0,
+          "declared_records": 0,
+          "duration": "1",
+          "date": "07.03.24",
+          "time": "12.34.56",
+          "patient": "P001 X X Original_Name",
+          "recording": "Startdate 07-MAR-2024 SESSION TECH GEAR",
+          "signals": [
+            {
+              "label": "fast,\"native\"",
+              "transducer": "original fast",
+              "unit": "mV",
+              "physical_min": 0.0,
+              "physical_max": 2.0,
+              "digital_min": 0,
+              "digital_max": 2,
+              "prefilter": "none",
+              "samples_per_record": 3,
+              "reserved": "fast keep"
+            },
+            {
+              "label": "slow",
+              "transducer": "original slow",
+              "unit": "",
+              "physical_min": 4.0,
+              "physical_max": -4.0,
+              "digital_min": -2,
+              "digital_max": 2,
+              "prefilter": "",
+              "samples_per_record": 2,
+              "reserved": "slow keep"
+            }
+          ],
+          "starts": [],
+          "annotations": 0,
+          "gaps": []
+        },
+        "annotations": [],
+        "channels": [
+          {
+            "signal": 0,
+            "statistics": {
+              "counters": {
+                "samples": 0,
+                "below_range": 0,
+                "above_range": 0,
+                "at_minimum": 0,
+                "at_maximum": 0
+              },
+              "moments": {},
+              "rms": null
+            },
+            "flat_runs": []
+          },
+          {
+            "signal": 1,
+            "statistics": {
+              "counters": {
+                "samples": 0,
+                "below_range": 0,
+                "above_range": 0,
+                "at_minimum": 0,
+                "at_maximum": 0
+              },
+              "moments": {},
+              "rms": null
+            },
+            "flat_runs": []
+          }
+        ]
+      }
+    },
+    {
+      "name": "annotation-only",
+      "source": "annotation-only.edf",
+      "minimum_samples": 3,
+      "options": "annotation-only-read.json",
+      "policyText": null,
+      "expected": {
+        "inspection": {
+          "format": "edf",
+          "continuity": "discontinuous",
+          "records": 2,
+          "declared_records": -1,
+          "duration": "0",
+          "date": "07.03.24",
+          "time": "12.34.56",
+          "patient": "P001 X X Original_Name",
+          "recording": "Startdate 07-MAR-2024 SESSION TECH GEAR",
+          "signals": [
+            {
+              "label": "EDF Annotations",
+              "transducer": "",
+              "unit": "",
+              "physical_min": -1.0,
+              "physical_max": 1.0,
+              "digital_min": -32768,
+              "digital_max": 32767,
+              "prefilter": "",
+              "samples_per_record": 64,
+              "reserved": "TAL keep"
+            }
+          ],
+          "starts": [
+            "+0.5",
+            "+2.5"
+          ],
+          "annotations": 2,
+          "gaps": [
+            {
+              "after_record": 0,
+              "start": "0.5",
+              "end": "2.5"
+            }
+          ]
+        },
+        "annotations": [
+          {
+            "record": 0,
+            "signal": 0,
+            "onset": "+0.5000",
+            "text": "score_0"
+          },
+          {
+            "record": 1,
+            "signal": 0,
+            "onset": "+2.5000",
+            "text": "score_1"
+          }
+        ],
+        "channels": []
+      }
+    }
+  ],
+  "errors": [
+    {
+      "name": "zero-threshold",
+      "source": "continuous.edf",
+      "minimum_samples": 0,
+      "options": "zero-threshold-read.json",
+      "policyText": null,
+      "errorContains": "minimum_samples must be a positive Int",
+      "hostOnly": false
+    },
+    {
+      "name": "negative-threshold",
+      "source": "annotation-only.edf",
+      "minimum_samples": -1,
+      "options": "negative-threshold-read.json",
+      "policyText": null,
+      "errorContains": "minimum_samples must be a positive Int",
+      "hostOnly": false
+    },
+    {
+      "name": "physical-overflow",
+      "source": "overflow.edf",
+      "minimum_samples": 2,
+      "options": "physical-overflow-read.json",
+      "policyText": null,
+      "errorContains": "physical calibration overflow",
+      "hostOnly": false
+    },
+    {
+      "name": "partial-source",
+      "source": "partial.edf",
+      "minimum_samples": 2,
+      "options": "partial-source-read.json",
+      "policyText": null,
+      "errorContains": "partial trailing data record",
+      "hostOnly": false
+    },
+    {
+      "name": "strict-jitter",
+      "source": "tolerant.edf",
+      "minimum_samples": 2,
+      "options": "strict-jitter-read.json",
+      "policyText": null,
+      "errorContains": "continuous marker contradicts exact timekeeping TALs",
+      "hostOnly": false
+    },
+    {
+      "name": "negative-tolerance",
+      "source": "continuous.edf",
+      "minimum_samples": 2,
+      "options": "negative-tolerance-read.json",
+      "policyText": "-1",
+      "errorContains": "negative time tolerance",
+      "hostOnly": false
+    },
+    {
+      "name": "fractional-threshold",
+      "source": "continuous.edf",
+      "minimum_arg": "1.5",
+      "options": "fractional-threshold-read.json",
+      "errorContains": "minimum_samples must be a positive Int",
+      "hostOnly": true
+    },
+    {
+      "name": "text-threshold",
+      "source": "continuous.edf",
+      "minimum_arg": "x",
+      "options": "text-threshold-read.json",
+      "errorContains": "minimum_samples must be a positive Int",
+      "hostOnly": true
+    },
+    {
+      "name": "large-threshold",
+      "source": "continuous.edf",
+      "minimum_arg": "2147483648",
+      "options": "large-threshold-read.json",
+      "errorContains": "minimum_samples must be a positive Int",
+      "hostOnly": true
+    },
+    {
+      "name": "nonobject-options",
+      "source": "continuous.edf",
+      "minimum_arg": "2",
+      "options": "nonobject-options-read.json",
+      "errorContains": "options must be an object",
+      "hostOnly": true
+    }
+  ]
+}

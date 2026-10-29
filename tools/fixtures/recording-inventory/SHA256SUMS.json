@@ -1,0 +1,98 @@
+{
+  "annotation-only-read.json": {
+    "bytes": 3,
+    "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+  },
+  "annotation-only.edf": {
+    "bytes": 768,
+    "sha256": "107affbd235393bba714c3186f131efc8d03712d7784b59adbbdddd1d0a380b9"
+  },
+  "continuous-read.json": {
+    "bytes": 3,
+    "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+  },
+  "continuous.edf": {
+    "bytes": 788,
+    "sha256": "996b9b04a130adb50a43c8079ba3e7f1011401a0a4ae9f2bfd666bdbbcb59628"
+  },
+  "empty-read.json": {
+    "bytes": 3,
+    "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+  },
+  "empty.edf": {
+    "bytes": 768,
+    "sha256": "bc078d532c16c9b808e9dd64d7a1bfc0fa2ff18d4e3a5bf10026c8614bd14291"
+  },
+  "EXPECTED.json": {
+    "bytes": 25401,
+    "sha256": "23fa9e6a3a34fafb6c1794b56ce5c4ff4d37877704ae1b89d529be22b6ad330d"
+  },
+  "fractional-threshold-read.json": {
+    "bytes": 3,
+    "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+  },
+  "gaps-read.json": {
+    "bytes": 3,
+    "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+  },
+  "gaps.bdf": {
+    "bytes": 2078,
+    "sha256": "3d7f0e1c617b48882f6478dfe0173b27d3a4dc252c50ad17a8179b4fd24d1f57"
+  },
+  "large-threshold-read.json": {
+    "bytes": 3,
+    "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+  },
+  "longer-threshold-read.json": {
+    "bytes": 3,
+    "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+  },
+  "negative-threshold-read.json": {
+    "bytes": 3,
+    "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+  },
+  "negative-tolerance-read.json": {
+    "bytes": 29,
+    "sha256": "85560a10b5ef5cac29b6406dc9d97e51b3ffa900671a264601bd3f15a411ec8e"
+  },
+  "nonobject-options-read.json": {
+    "bytes": 3,
+    "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+  },
+  "overflow.edf": {
+    "bytes": 788,
+    "sha256": "5997e02e11fb2dcd319614cb84179c6c940eb6c0427ca9bdb9de7df4988f13e9"
+  },
+  "partial-source-read.json": {
+    "bytes": 3,
+    "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+  },
+  "partial.edf": {
+    "bytes": 787,
+    "sha256": "4604468f8168c9e8f2b399b9187ed2da481e3f89f9bbb3b75efc5a270ecf623a"
+  },
+  "physical-overflow-read.json": {
+    "bytes": 3,
+    "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+  },
+  "strict-jitter-read.json": {
+    "bytes": 3,
+    "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+  },
+  "text-threshold-read.json": {
+    "bytes": 3,
+    "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+  },
+  "tolerant-read.json": {
+    "bytes": 43,
+    "sha256": "c634cc06d46b2f8b672a257b4a67e2894a8f78a49c0735fb350c4efce860d09e"
+  },
+  "tolerant.edf": {
+    "bytes": 1300,
+    "sha256": "15dbff995464419dac5221b53a261ba44c2089c2c3f6128913867444a7af075f"
+  },
+  "zero-threshold-read.json": {
+    "bytes": 3,
+    "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+  }
+}
