@@ -264,6 +264,7 @@ pub fn Recording::update_annotation(Self, Int, Annotation) -> Self raise EdfErro
 pub fn[A : TimeInput, B : TimeInput] Recording::welch_psd(Self, Int, A, B, segment_length~ : Int, overlap_samples~ : Int, window~ : PsdWindow, nfft? : Int, bands? : Array[PsdBand], max_samples? : Int, max_segments? : Int) -> PsdResult raise EdfError
 #alias(window_csv_exact)
 pub fn[A : TimeInput, B : TimeInput] Recording::window_csv(Self, Array[Int], A, B, physical? : Bool, max_samples? : Int) -> String raise EdfError
+pub fn[A : TimeInput, B : TimeInput] Recording::window_statistics(Self, Int, A, B, max_samples? : Int) -> WindowStatistics raise EdfError
 pub fn Recording::with_annotations(Self, Array[Annotation]) -> Self raise EdfError
 
 pub(all) struct Signal {
@@ -360,6 +361,18 @@ pub struct TimedSample {
 } derive(ToJson, @debug.Debug)
 pub fn TimedSample::to_json(Self) -> Json
 pub fn TimedSample::to_repr(Self) -> @debug.Repr
+
+pub struct WindowStatistics {
+  signal : Int
+  label : String
+  unit : String
+  start : String
+  end : String
+  gaps : Array[Gap]
+  statistics : SignalStatistics
+} derive(ToJson, @debug.Debug)
+pub fn WindowStatistics::to_json(Self) -> Json
+pub fn WindowStatistics::to_repr(Self) -> @debug.Repr
 
 // Type aliases
 

@@ -138,6 +138,15 @@ fn do_report(data : Bytes, text : String) -> String raise {
         "gaps": recording.gaps().to_json(),
       }
     "stats" => recording.statistics(required(o, "signal")).to_json()
+    "window-stats" =>
+      recording
+      .window_statistics(
+        required(o, "signal"),
+        time_option(o, "start"),
+        time_option(o, "end"),
+        max_samples=optional(o, "max_samples", 2147483647),
+      )
+      .to_json()
     "psd" => psd_report(recording, o)
     "epoch" =>
       recording

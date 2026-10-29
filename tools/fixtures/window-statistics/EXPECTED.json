@@ -1,0 +1,1050 @@
+{
+  "scope": "round-05-r01/RESUME-SCOPE.json",
+  "frozenBeforeProductionEdits": true,
+  "oracle": "Raw fixed-width bytes + Fraction sample membership/calibration and population statistics; 100-digit final square root; no MoonBit writer/reducer/crop",
+  "tolerance": "Nonzero numeric fields: max(5e-12 relative, 8 ULP); expected zeros exact; fields/integers/fractions/None omission exact",
+  "cases": [
+    {
+      "name": "fractional",
+      "input": "identity.edf",
+      "options": "fractional.json",
+      "request": {
+        "signal": 0,
+        "start": "1/4",
+        "end": "3/4",
+        "max_samples": 100
+      },
+      "expected": {
+        "signal": 0,
+        "label": "Window scope",
+        "unit": "mV",
+        "start": "1/4",
+        "end": "3/4",
+        "gaps": [],
+        "statistics": {
+          "samples": 2,
+          "below_range": 0,
+          "above_range": 0,
+          "at_minimum": 0,
+          "at_maximum": 1,
+          "minimum": 10.0,
+          "maximum": 20.0,
+          "mean": 15.0,
+          "variance": 25.0,
+          "rms": 15.811388300841896
+        }
+      },
+      "exact": {
+        "minimum": "10",
+        "maximum": "20",
+        "mean": "15",
+        "variance": "25",
+        "rmsSquared": "250",
+        "rmsDecimal": "15.81138830084189665999446772216359266859777569662608413428752426396297219319619110672124054189650148"
+      },
+      "selected": [
+        {
+          "record": 0,
+          "sample": 1,
+          "time": "1/3",
+          "digital": 10,
+          "physicalExact": "10"
+        },
+        {
+          "record": 0,
+          "sample": 2,
+          "time": "2/3",
+          "digital": 20,
+          "physicalExact": "20"
+        }
+      ]
+    },
+    {
+      "name": "singleton",
+      "input": "identity.edf",
+      "options": "singleton.json",
+      "request": {
+        "signal": 0,
+        "start": "1/3",
+        "end": "2/3",
+        "max_samples": 100
+      },
+      "expected": {
+        "signal": 0,
+        "label": "Window scope",
+        "unit": "mV",
+        "start": "1/3",
+        "end": "2/3",
+        "gaps": [],
+        "statistics": {
+          "samples": 1,
+          "below_range": 0,
+          "above_range": 0,
+          "at_minimum": 0,
+          "at_maximum": 0,
+          "minimum": 10.0,
+          "maximum": 10.0,
+          "mean": 10.0,
+          "variance": 0.0,
+          "rms": 10.0
+        }
+      },
+      "exact": {
+        "minimum": "10",
+        "maximum": "10",
+        "mean": "10",
+        "variance": "0",
+        "rmsSquared": "100",
+        "rmsDecimal": "10"
+      },
+      "selected": [
+        {
+          "record": 0,
+          "sample": 1,
+          "time": "1/3",
+          "digital": 10,
+          "physicalExact": "10"
+        }
+      ]
+    },
+    {
+      "name": "whole",
+      "input": "identity.edf",
+      "options": "whole.json",
+      "request": {
+        "signal": 0,
+        "start": "0",
+        "end": "1",
+        "max_samples": 100
+      },
+      "expected": {
+        "signal": 0,
+        "label": "Window scope",
+        "unit": "mV",
+        "start": "0",
+        "end": "1",
+        "gaps": [],
+        "statistics": {
+          "samples": 3,
+          "below_range": 0,
+          "above_range": 0,
+          "at_minimum": 1,
+          "at_maximum": 1,
+          "minimum": 0.0,
+          "maximum": 20.0,
+          "mean": 10.0,
+          "variance": 66.66666666666667,
+          "rms": 12.909944487358056
+        }
+      },
+      "exact": {
+        "minimum": "0",
+        "maximum": "20",
+        "mean": "10",
+        "variance": "200/3",
+        "rmsSquared": "500/3",
+        "rmsDecimal": "12.90994448735805628393088466594133203610973901763863608862524588704494363978993011173095792286224506"
+      },
+      "selected": [
+        {
+          "record": 0,
+          "sample": 0,
+          "time": "0",
+          "digital": 0,
+          "physicalExact": "0"
+        },
+        {
+          "record": 0,
+          "sample": 1,
+          "time": "1/3",
+          "digital": 10,
+          "physicalExact": "10"
+        },
+        {
+          "record": 0,
+          "sample": 2,
+          "time": "2/3",
+          "digital": 20,
+          "physicalExact": "20"
+        }
+      ]
+    },
+    {
+      "name": "equal",
+      "input": "identity.edf",
+      "options": "equal.json",
+      "request": {
+        "signal": 0,
+        "start": "1/3",
+        "end": "1/3",
+        "max_samples": 100
+      },
+      "expected": {
+        "signal": 0,
+        "label": "Window scope",
+        "unit": "mV",
+        "start": "1/3",
+        "end": "1/3",
+        "gaps": [],
+        "statistics": {
+          "samples": 0,
+          "below_range": 0,
+          "above_range": 0,
+          "at_minimum": 0,
+          "at_maximum": 0
+        }
+      },
+      "exact": {},
+      "selected": []
+    },
+    {
+      "name": "between",
+      "input": "identity.edf",
+      "options": "between.json",
+      "request": {
+        "signal": 0,
+        "start": "1/100",
+        "end": "1/4",
+        "max_samples": 100
+      },
+      "expected": {
+        "signal": 0,
+        "label": "Window scope",
+        "unit": "mV",
+        "start": "1/100",
+        "end": "1/4",
+        "gaps": [],
+        "statistics": {
+          "samples": 0,
+          "below_range": 0,
+          "above_range": 0,
+          "at_minimum": 0,
+          "at_maximum": 0
+        }
+      },
+      "exact": {},
+      "selected": []
+    },
+    {
+      "name": "outside",
+      "input": "identity.edf",
+      "options": "outside.json",
+      "request": {
+        "signal": 0,
+        "start": "-1",
+        "end": "0",
+        "max_samples": 100
+      },
+      "expected": {
+        "signal": 0,
+        "label": "Window scope",
+        "unit": "mV",
+        "start": "-1",
+        "end": "0",
+        "gaps": [],
+        "statistics": {
+          "samples": 0,
+          "below_range": 0,
+          "above_range": 0,
+          "at_minimum": 0,
+          "at_maximum": 0
+        }
+      },
+      "exact": {},
+      "selected": []
+    },
+    {
+      "name": "partial-outside",
+      "input": "identity.edf",
+      "options": "partial-outside.json",
+      "request": {
+        "signal": 0,
+        "start": "-1/2",
+        "end": "1/2",
+        "max_samples": 100
+      },
+      "expected": {
+        "signal": 0,
+        "label": "Window scope",
+        "unit": "mV",
+        "start": "-1/2",
+        "end": "1/2",
+        "gaps": [],
+        "statistics": {
+          "samples": 2,
+          "below_range": 0,
+          "above_range": 0,
+          "at_minimum": 1,
+          "at_maximum": 0,
+          "minimum": 0.0,
+          "maximum": 10.0,
+          "mean": 5.0,
+          "variance": 25.0,
+          "rms": 7.0710678118654755
+        }
+      },
+      "exact": {
+        "minimum": "0",
+        "maximum": "10",
+        "mean": "5",
+        "variance": "25",
+        "rmsSquared": "50",
+        "rmsDecimal": "7.071067811865475244008443621048490392848359376884740365883398689953662392310535194251937671638207864"
+      },
+      "selected": [
+        {
+          "record": 0,
+          "sample": 0,
+          "time": "0",
+          "digital": 0,
+          "physicalExact": "0"
+        },
+        {
+          "record": 0,
+          "sample": 1,
+          "time": "1/3",
+          "digital": 10,
+          "physicalExact": "10"
+        }
+      ]
+    },
+    {
+      "name": "gap-window",
+      "input": "gaps.edf",
+      "options": "gap-window.json",
+      "request": {
+        "signal": 0,
+        "start": "1/2",
+        "end": "5/2",
+        "max_samples": 100
+      },
+      "expected": {
+        "signal": 0,
+        "label": "Window scope",
+        "unit": "mV",
+        "start": "1/2",
+        "end": "5/2",
+        "gaps": [
+          {
+            "after_record": 0,
+            "start": "1",
+            "end": "2"
+          }
+        ],
+        "statistics": {
+          "samples": 3,
+          "below_range": 0,
+          "above_range": 0,
+          "at_minimum": 0,
+          "at_maximum": 0,
+          "minimum": 20.0,
+          "maximum": 40.0,
+          "mean": 30.0,
+          "variance": 66.66666666666667,
+          "rms": 31.09126351029605
+        }
+      },
+      "exact": {
+        "minimum": "20",
+        "maximum": "40",
+        "mean": "30",
+        "variance": "200/3",
+        "rmsSquared": "2900/3",
+        "rmsDecimal": "31.09126351029605015184825180773518994425413564730551557018732432815594849602416559471406854303960672"
+      },
+      "selected": [
+        {
+          "record": 0,
+          "sample": 2,
+          "time": "2/3",
+          "digital": 20,
+          "physicalExact": "20"
+        },
+        {
+          "record": 1,
+          "sample": 0,
+          "time": "2",
+          "digital": 30,
+          "physicalExact": "30"
+        },
+        {
+          "record": 1,
+          "sample": 1,
+          "time": "7/3",
+          "digital": 40,
+          "physicalExact": "40"
+        }
+      ]
+    },
+    {
+      "name": "gap-only",
+      "input": "gaps.edf",
+      "options": "gap-only.json",
+      "request": {
+        "signal": 0,
+        "start": "5/4",
+        "end": "7/4",
+        "max_samples": 100
+      },
+      "expected": {
+        "signal": 0,
+        "label": "Window scope",
+        "unit": "mV",
+        "start": "5/4",
+        "end": "7/4",
+        "gaps": [
+          {
+            "after_record": 0,
+            "start": "5/4",
+            "end": "7/4"
+          }
+        ],
+        "statistics": {
+          "samples": 0,
+          "below_range": 0,
+          "above_range": 0,
+          "at_minimum": 0,
+          "at_maximum": 0
+        }
+      },
+      "exact": {},
+      "selected": []
+    },
+    {
+      "name": "gap-equal",
+      "input": "gaps.edf",
+      "options": "gap-equal.json",
+      "request": {
+        "signal": 0,
+        "start": "1",
+        "end": "1",
+        "max_samples": 100
+      },
+      "expected": {
+        "signal": 0,
+        "label": "Window scope",
+        "unit": "mV",
+        "start": "1",
+        "end": "1",
+        "gaps": [],
+        "statistics": {
+          "samples": 0,
+          "below_range": 0,
+          "above_range": 0,
+          "at_minimum": 0,
+          "at_maximum": 0
+        }
+      },
+      "exact": {},
+      "selected": []
+    },
+    {
+      "name": "bare-number",
+      "input": "identity.edf",
+      "options": "bare-number.json",
+      "request": {
+        "signal": 0,
+        "start": "0.333333333333333333334",
+        "end": "2/3",
+        "max_samples": 100
+      },
+      "expected": {
+        "signal": 0,
+        "label": "Window scope",
+        "unit": "mV",
+        "start": "166666666666666666667/500000000000000000000",
+        "end": "2/3",
+        "gaps": [],
+        "statistics": {
+          "samples": 0,
+          "below_range": 0,
+          "above_range": 0,
+          "at_minimum": 0,
+          "at_maximum": 0
+        }
+      },
+      "exact": {},
+      "selected": []
+    },
+    {
+      "name": "bdf-negative",
+      "input": "bdf-negative.bdf",
+      "options": "bdf-negative.json",
+      "request": {
+        "signal": 0,
+        "start": "0",
+        "end": "1",
+        "max_samples": 100
+      },
+      "expected": {
+        "signal": 0,
+        "label": "Window scope",
+        "unit": "",
+        "start": "0",
+        "end": "1",
+        "gaps": [],
+        "statistics": {
+          "samples": 4,
+          "below_range": 0,
+          "above_range": 0,
+          "at_minimum": 2,
+          "at_maximum": 1,
+          "minimum": -100.0,
+          "maximum": 100.0,
+          "mean": 24.999998509883792,
+          "variance": 6875.000074505817,
+          "rms": 86.60254037844392
+        }
+      },
+      "exact": {
+        "minimum": "-100",
+        "maximum": "100",
+        "mean": "83886070/3355443",
+        "variance": "25801870068940900/3752999242083",
+        "rmsSquared": "84442482946867600/11258997726249",
+        "rmsDecimal": "86.60254037844391595538340023794775559554987715031826489445712197095437891462351504071925168600909821"
+      },
+      "selected": [
+        {
+          "record": 0,
+          "sample": 0,
+          "time": "0",
+          "digital": -8388608,
+          "physicalExact": "100"
+        },
+        {
+          "record": 0,
+          "sample": 1,
+          "time": "1/4",
+          "digital": -8388608,
+          "physicalExact": "100"
+        },
+        {
+          "record": 0,
+          "sample": 2,
+          "time": "1/2",
+          "digital": 0,
+          "physicalExact": "-20/3355443"
+        },
+        {
+          "record": 0,
+          "sample": 3,
+          "time": "3/4",
+          "digital": 8388607,
+          "physicalExact": "-100"
+        }
+      ]
+    },
+    {
+      "name": "range-counters",
+      "input": "range-counters.edf",
+      "options": "range-counters.json",
+      "request": {
+        "signal": 0,
+        "start": "0",
+        "end": "1",
+        "max_samples": 100
+      },
+      "expected": {
+        "signal": 0,
+        "label": "Window scope",
+        "unit": "mV",
+        "start": "0",
+        "end": "1",
+        "gaps": [],
+        "statistics": {
+          "samples": 5,
+          "below_range": 1,
+          "above_range": 1,
+          "at_minimum": 1,
+          "at_maximum": 1,
+          "minimum": -20.0,
+          "maximum": 20.0,
+          "mean": 0.0,
+          "variance": 200.0,
+          "rms": 14.142135623730951
+        }
+      },
+      "exact": {
+        "minimum": "-20",
+        "maximum": "20",
+        "mean": "0",
+        "variance": "200",
+        "rmsSquared": "200",
+        "rmsDecimal": "14.14213562373095048801688724209698078569671875376948073176679737990732478462107038850387534327641573"
+      },
+      "selected": [
+        {
+          "record": 0,
+          "sample": 0,
+          "time": "0",
+          "digital": -2,
+          "physicalExact": "20"
+        },
+        {
+          "record": 0,
+          "sample": 1,
+          "time": "1/5",
+          "digital": -1,
+          "physicalExact": "10"
+        },
+        {
+          "record": 0,
+          "sample": 2,
+          "time": "2/5",
+          "digital": 0,
+          "physicalExact": "0"
+        },
+        {
+          "record": 0,
+          "sample": 3,
+          "time": "3/5",
+          "digital": 1,
+          "physicalExact": "-10"
+        },
+        {
+          "record": 0,
+          "sample": 4,
+          "time": "4/5",
+          "digital": 2,
+          "physicalExact": "-20"
+        }
+      ]
+    },
+    {
+      "name": "tiny",
+      "input": "tiny.edf",
+      "options": "tiny.json",
+      "request": {
+        "signal": 0,
+        "start": "0",
+        "end": "1",
+        "max_samples": 100
+      },
+      "expected": {
+        "signal": 0,
+        "label": "Window scope",
+        "unit": "mV",
+        "start": "0",
+        "end": "1",
+        "gaps": [],
+        "statistics": {
+          "samples": 3,
+          "below_range": 0,
+          "above_range": 0,
+          "at_minimum": 3,
+          "at_maximum": 0,
+          "minimum": 1e-200,
+          "maximum": 1e-200,
+          "mean": 1e-200,
+          "variance": 0.0,
+          "rms": 1e-200
+        }
+      },
+      "exact": {
+        "minimum": "1/100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "maximum": "1/100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "mean": "1/100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "variance": "0",
+        "rmsSquared": "1/10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "rmsDecimal": "1E-200"
+      },
+      "selected": [
+        {
+          "record": 0,
+          "sample": 0,
+          "time": "0",
+          "digital": -1,
+          "physicalExact": "1/100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+          "record": 0,
+          "sample": 1,
+          "time": "1/3",
+          "digital": -1,
+          "physicalExact": "1/100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+          "record": 0,
+          "sample": 2,
+          "time": "2/3",
+          "digital": -1,
+          "physicalExact": "1/100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "name": "large",
+      "input": "large.edf",
+      "options": "large.json",
+      "request": {
+        "signal": 0,
+        "start": "0",
+        "end": "1",
+        "max_samples": 100
+      },
+      "expected": {
+        "signal": 0,
+        "label": "Window scope",
+        "unit": "mV",
+        "start": "0",
+        "end": "1",
+        "gaps": [],
+        "statistics": {
+          "samples": 3,
+          "below_range": 0,
+          "above_range": 0,
+          "at_minimum": 3,
+          "at_maximum": 0,
+          "minimum": 1e+200,
+          "maximum": 1e+200,
+          "mean": 1e+200,
+          "variance": 0.0,
+          "rms": 1e+200
+        }
+      },
+      "exact": {
+        "minimum": "100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "maximum": "100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "mean": "100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "variance": "0",
+        "rmsSquared": "10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "rmsDecimal": "1.00000000000000000000000000000000000000000000000000E+200"
+      },
+      "selected": [
+        {
+          "record": 0,
+          "sample": 0,
+          "time": "0",
+          "digital": -1,
+          "physicalExact": "100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+          "record": 0,
+          "sample": 1,
+          "time": "1/3",
+          "digital": -1,
+          "physicalExact": "100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+          "record": 0,
+          "sample": 2,
+          "time": "2/3",
+          "digital": -1,
+          "physicalExact": "100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "name": "finite-variance",
+      "input": "finite-variance.edf",
+      "options": "finite-variance.json",
+      "request": {
+        "signal": 0,
+        "start": "0",
+        "end": "1",
+        "max_samples": 100
+      },
+      "expected": {
+        "signal": 0,
+        "label": "Window scope",
+        "unit": "mV",
+        "start": "0",
+        "end": "1",
+        "gaps": [],
+        "statistics": {
+          "samples": 2,
+          "below_range": 0,
+          "above_range": 0,
+          "at_minimum": 1,
+          "at_maximum": 1,
+          "minimum": -1e+154,
+          "maximum": 1e+154,
+          "mean": 0.0,
+          "variance": 1e+308,
+          "rms": 1e+154
+        }
+      },
+      "exact": {
+        "minimum": "-10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "maximum": "10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "mean": "0",
+        "variance": "100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "rmsSquared": "100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "rmsDecimal": "1.00000000000000000000000000000000000000000000000000E+154"
+      },
+      "selected": [
+        {
+          "record": 0,
+          "sample": 0,
+          "time": "0",
+          "digital": -1,
+          "physicalExact": "-10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        },
+        {
+          "record": 0,
+          "sample": 1,
+          "time": "1/2",
+          "digital": 1,
+          "physicalExact": "10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "name": "zero",
+      "input": "zero.edf",
+      "options": "zero.json",
+      "request": {
+        "signal": 0,
+        "start": "0",
+        "end": "1",
+        "max_samples": 100
+      },
+      "expected": {
+        "signal": 0,
+        "label": "Window scope",
+        "unit": "mV",
+        "start": "0",
+        "end": "1",
+        "gaps": [],
+        "statistics": {
+          "samples": 2,
+          "below_range": 0,
+          "above_range": 0,
+          "at_minimum": 0,
+          "at_maximum": 0,
+          "minimum": 0.0,
+          "maximum": 0.0,
+          "mean": 0.0,
+          "variance": 0.0,
+          "rms": 0.0
+        }
+      },
+      "exact": {
+        "minimum": "0",
+        "maximum": "0",
+        "mean": "0",
+        "variance": "0",
+        "rmsSquared": "0",
+        "rmsDecimal": "0"
+      },
+      "selected": [
+        {
+          "record": 0,
+          "sample": 0,
+          "time": "0",
+          "digital": 0,
+          "physicalExact": "0"
+        },
+        {
+          "record": 0,
+          "sample": 1,
+          "time": "1/2",
+          "digital": 0,
+          "physicalExact": "0"
+        }
+      ]
+    },
+    {
+      "name": "no-records",
+      "input": "no-records.edf",
+      "options": "no-records.json",
+      "request": {
+        "signal": 0,
+        "start": "0",
+        "end": "1",
+        "max_samples": 100
+      },
+      "expected": {
+        "signal": 0,
+        "label": "Window scope",
+        "unit": "",
+        "start": "0",
+        "end": "1",
+        "gaps": [],
+        "statistics": {
+          "samples": 0,
+          "below_range": 0,
+          "above_range": 0,
+          "at_minimum": 0,
+          "at_maximum": 0
+        }
+      },
+      "exact": {},
+      "selected": []
+    },
+    {
+      "name": "point-records",
+      "input": "point-records.edf",
+      "options": "point-records.json",
+      "request": {
+        "signal": 0,
+        "start": "0",
+        "end": "1",
+        "max_samples": 100
+      },
+      "expected": {
+        "signal": 0,
+        "label": "Window scope",
+        "unit": "mV",
+        "start": "0",
+        "end": "1",
+        "gaps": [
+          {
+            "after_record": 0,
+            "start": "0",
+            "end": "1"
+          }
+        ],
+        "statistics": {
+          "samples": 1,
+          "below_range": 0,
+          "above_range": 0,
+          "at_minimum": 0,
+          "at_maximum": 0,
+          "minimum": 3.0,
+          "maximum": 3.0,
+          "mean": 3.0,
+          "variance": 0.0,
+          "rms": 3.0
+        }
+      },
+      "exact": {
+        "minimum": "3",
+        "maximum": "3",
+        "mean": "3",
+        "variance": "0",
+        "rmsSquared": "9",
+        "rmsDecimal": "3"
+      },
+      "selected": [
+        {
+          "record": 0,
+          "sample": 0,
+          "time": "0",
+          "digital": 3,
+          "physicalExact": "3"
+        }
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "name": "negative-signal",
+      "input": "identity.edf",
+      "options": "error-negative-signal.json",
+      "request": {
+        "signal": -1,
+        "start": "0",
+        "end": "1",
+        "max_samples": 100
+      },
+      "kind": "Invalid",
+      "message": "ordinary signal index required"
+    },
+    {
+      "name": "annotation-signal",
+      "input": "gaps.edf",
+      "options": "error-annotation-signal.json",
+      "request": {
+        "signal": 1,
+        "start": "0",
+        "end": "1",
+        "max_samples": 100
+      },
+      "kind": "Invalid",
+      "message": "ordinary signal index required"
+    },
+    {
+      "name": "annotation-empty",
+      "input": "gaps.edf",
+      "options": "error-annotation-empty.json",
+      "request": {
+        "signal": 1,
+        "start": "0",
+        "end": "0",
+        "max_samples": 100
+      },
+      "kind": "Invalid",
+      "message": "ordinary signal index required"
+    },
+    {
+      "name": "reversed",
+      "input": "identity.edf",
+      "options": "error-reversed.json",
+      "request": {
+        "signal": 0,
+        "start": "1",
+        "end": "0",
+        "max_samples": 100
+      },
+      "kind": "Invalid",
+      "message": "window requires start <= end"
+    },
+    {
+      "name": "budget-zero",
+      "input": "identity.edf",
+      "options": "error-budget-zero.json",
+      "request": {
+        "signal": 0,
+        "start": "0",
+        "end": "1",
+        "max_samples": 0
+      },
+      "kind": "Invalid",
+      "message": "sample budget must be positive"
+    },
+    {
+      "name": "budget-empty",
+      "input": "identity.edf",
+      "options": "error-budget-empty.json",
+      "request": {
+        "signal": 0,
+        "start": "0",
+        "end": "0",
+        "max_samples": 0
+      },
+      "kind": "Invalid",
+      "message": "sample budget must be positive"
+    },
+    {
+      "name": "budget-exceeded",
+      "input": "identity.edf",
+      "options": "error-budget-exceeded.json",
+      "request": {
+        "signal": 0,
+        "start": "0",
+        "end": "1",
+        "max_samples": 2
+      },
+      "kind": "Limit",
+      "message": "window exceeds requested sample limit"
+    },
+    {
+      "name": "physical-overflow",
+      "input": "physical-overflow.edf",
+      "options": "error-physical-overflow.json",
+      "request": {
+        "signal": 0,
+        "start": "0",
+        "end": "1",
+        "max_samples": 100
+      },
+      "kind": "Limit",
+      "message": "physical calibration overflow"
+    },
+    {
+      "name": "unrepresentable",
+      "input": "unrepresentable.edf",
+      "options": "error-unrepresentable.json",
+      "request": {
+        "signal": 0,
+        "start": "0",
+        "end": "1",
+        "max_samples": 100
+      },
+      "kind": "Limit",
+      "message": "signal statistics overflow"
+    }
+  ]
+}

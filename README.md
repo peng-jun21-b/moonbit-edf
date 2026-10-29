@@ -1,4 +1,4 @@
-# MoonEDF 0.9.0
+# MoonEDF 0.10.0
 
 [项目仓库](https://github.com/peng-jun21-b/moonbit-edf) · [GitHub Actions](https://github.com/peng-jun21-b/moonbit-edf/actions/workflows/ci.yml)。模块名保留`peng-jun21/edf`，源码许可证及上游归属保持。
 
@@ -228,6 +228,37 @@ python tools/check-recording-identity.py --output work/NEW-identity.json --refer
 ```
 
 独立检查先构造原始定宽EDF/BDF，再运行真实CLI，并用Fraction和Gregorian日期核对数字样本、双注释通道事件及绝对采样时刻；无需下载数据。`--reference-c`可选，仅额外回读两份连续、整秒起点输出的数字样本和日期；不认证未知日期字段的跨阅读器兼容性或历史亚秒日期问题。
+
+## 指定原生时段的统计摘要（0.10.0）
+
+`Recording::window_statistics(signal,start,end,max_samples?)`与只读CLI `window-stats`只统计精确半开区间`[start,end)`中已有的原生样本。原`statistics`/`stats`继续统计整条通道。无需先写出一个可能无法用EDF有限小数时长/起点表达的裁剪文件，也无需接收完整样本数组后自行实现统计。
+
+```moonbit
+let summary = recording.window_statistics(
+  0, "1/4", "3/4", max_samples=100000,
+)
+```
+
+```sh
+moon build --target js --release --deny-warn
+node tools/edf.mjs window-stats INPUT.edf examples/window-stats.json
+```
+
+结果含原signal/label/unit、请求start/end、裁到请求范围的已知gaps和既有`SignalStatistics`。均值、人口方差（除以N）和RMS按实际选中样本计算，不按经过时长加权；数字范围计数仍比较原数字标定边界。物理值为Double近似，沿用既有居中/缩放两遍策略与有限/溢出检查。空单位保持空串，不推断单位、补gap或重采样。
+
+查询允许`start==end`及文件覆盖外的范围；没有样本时数量/范围计数为0，五个可选数值字段保持None并在JSON中省略，不伪造零均值。完全在gap内的正窗口保留裁切后的gap。`gaps`只描述已知记录间断，不把头尾缺失变成新gap，也不提供临床健康或完整覆盖认证。反向边界、注释通道、非正预算、超预算与不能表示的物理值/统计量报错，CLI失败时无JSON结果。`max_samples`沿用时间窗的正数预算，默认2147483647；显式降低预算不会截断数据。
+
+Node 24的原始JSON时间数字沿用词法保留；也可直接使用十进制/有理数字符串或公共API的Time。调用者已舍入的Double不能恢复精度。查询只建立记录区间与摘要，不为返回值建立逐样本JSON；文件读取仍是整文件，未声称常数总内存、实测加速或全Double域准确性。
+
+公共例包仅用公开API解码预先独立构造的完整原始字节；独立接收脚本逐项消费双后端与真实文件CLI的完整结果：
+
+```sh
+moon run examples/window_statistics --target js --deny-warn > NEW_PUBLIC_JS.json
+moon run examples/window_statistics --target wasm-gc --deny-warn > NEW_PUBLIC_WASM.json
+python tools/check-window-statistics.py --output NEW.json --work-dir NEW_CASES --public-output NEW_PUBLIC_JS.json --public-output NEW_PUBLIC_WASM.json
+```
+
+验收保留独立构造的完整原始输入、19组合法期待与10组错误期待；原始定宽/Fraction选样与标定、100位最终平方根独立给出答案，覆盖16/24位、负gain、空单位、数字边界计数、微小/极大有限量级、原生1/3时刻、gap/empty/point记录和裸数字精度。输入与期待的版本/校验值保留，原非法BDF注释元数据另作拒绝对照。接收器保存源SHA与完整JSON产品；自编可运行接收方证明集成工作流，不表示真实第三方采用。
 
 ## 统计数值范围（0.5.3）
 

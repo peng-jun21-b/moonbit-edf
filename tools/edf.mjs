@@ -58,7 +58,7 @@ function exactOptions(options,command=null) {
   // Preserve number lexemes only where the command accepts a time. In
   // particular, channel.start is an Int and calibrate.offset is a Double.
   times(exact,['time_tolerance']);
-  if (['window','window-exact','window-csv','crop-time','annotations-window','psd'].includes(cmd)) times(exact,['start','end']);
+  if (['window','window-exact','window-csv','window-stats','crop-time','annotations-window','psd'].includes(cmd)) times(exact,['start','end']);
   if (['epoch','epoch-exact'].includes(cmd)) times(exact,['before','after']);
   if (cmd==='annotation-add') times(exact,['onset','duration']);
   if (cmd==='append') times(exact,['offset']);
@@ -108,10 +108,10 @@ export function epochCsvFromSnapshot(data,options) {
 }
 
 const writes=new Set(['copy','select','crop','plus','create','crop-time','annotations-set','annotation-add','annotation-remove','annotations-remove','annotation-update','annotation-signal','rename','calibrate']);
-const reads=new Set(['inspect','validate','stats','annotations','annotations-exact','annotations-window','gaps','flat','csv','channel','window','window-exact','window-csv','epoch','epoch-exact','psd']);
+const reads=new Set(['inspect','validate','stats','annotations','annotations-exact','annotations-window','gaps','flat','csv','channel','window','window-exact','window-csv','window-stats','epoch','epoch-exact','psd']);
 function main(args) {
   if (!args.length || args[0]==='--help') {
-    console.log('MoonEDF\n  inspect|validate|stats|annotations|annotations-exact|annotations-window|gaps|flat|csv|channel|window|window-exact|window-csv|epoch|epoch-exact|psd INPUT [OPTIONS.json]\n  copy|select|crop|crop-time|plus|annotations-set|annotation-add|annotation-remove|annotations-remove|annotation-update|annotation-signal|rename|calibrate INPUT OUTPUT [OPTIONS.json]\n  append INPUT NEXT OUTPUT [OPTIONS.json]\n  create OUTPUT OPTIONS.json\nOn Node 24, supported numeric JSON time fields retain their source lexemes; decimal/rational time strings remain supported. Channel indices and physical calibration stay numeric. Annotation onset sign rules still apply. Sample CSV includes rational numerators and denominators. PSD requires explicit segment_length, overlap_samples and window (see examples/psd.json). Existing files are never overwritten.'); return;
+    console.log('MoonEDF\n  inspect|validate|stats|annotations|annotations-exact|annotations-window|gaps|flat|csv|channel|window|window-exact|window-csv|window-stats|epoch|epoch-exact|psd INPUT [OPTIONS.json]\n  copy|select|crop|crop-time|plus|annotations-set|annotation-add|annotation-remove|annotations-remove|annotation-update|annotation-signal|rename|calibrate INPUT OUTPUT [OPTIONS.json]\n  append INPUT NEXT OUTPUT [OPTIONS.json]\n  create OUTPUT OPTIONS.json\nOn Node 24, supported numeric JSON time fields retain their source lexemes; decimal/rational time strings remain supported. Channel indices and physical calibration stay numeric. Annotation onset sign rules still apply. Sample CSV includes rational numerators and denominators. PSD requires explicit segment_length, overlap_samples and window (see examples/psd.json). Existing files are never overwritten.'); return;
   }
   const [command,...rest]=args;
   if (command==='append') {

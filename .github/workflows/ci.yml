@@ -96,5 +96,10 @@ jobs:
         run: python tools/check-file-bridge.py --bridge _build/js/release/build/cmd/bridge/bridge.js --public-input work/S001R03.edf --output work/file-bridge-verification.json --work-dir work/file-bridge-cases
       - name: Generic event CSV file handoff and exact native clocks
         run: python tools/check-epoch-export.py --output work/epoch-export-verification.json --work-dir work/epoch-export-cases
+      - name: Exact-window statistics public-package and real file receivers
+        run: |
+          moon run examples/window_statistics --target js --deny-warn > work/window-statistics-public-js.json
+          moon run examples/window_statistics --target wasm-gc --deny-warn > work/window-statistics-public-wasm-gc.json
+          python tools/check-window-statistics.py --output work/window-statistics-verification.json --work-dir work/window-statistics-cases --public-output work/window-statistics-public-js.json --public-output work/window-statistics-public-wasm-gc.json
       - name: Independent append and rejection consumers
         run: python tools/check-append.py --output work/append-verification.json
