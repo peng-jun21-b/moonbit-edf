@@ -118,3 +118,8 @@ jobs:
           moon run examples/recording_inventory --target js --deny-warn > work/inventory-public-js.json
           moon run examples/recording_inventory --target wasm-gc --deny-warn > work/inventory-public-wasm-gc.json
           python tools/check-recording-inventory.py --output work/inventory-verification.json --work-dir work/inventory-cases --public-output work/inventory-public-js.json --public-output work/inventory-public-wasm-gc.json
+      - name: Exact annotation revision public-package and full file receivers
+        run: |
+          moon run examples/annotation_review --target js --deny-warn > work/annotation-review-public-js.json
+          moon run examples/annotation_review --target wasm-gc --deny-warn > work/annotation-review-public-wasm-gc.json
+          python tools/check-annotation-review.py --output work/annotation-review-verification.json --work-dir work/annotation-review-cases --public-output work/annotation-review-public-js.json --public-output work/annotation-review-public-wasm-gc.json

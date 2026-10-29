@@ -7,6 +7,16 @@ third-party dependency identities or source fixture expectations.
 
 The required workflow is `.github/workflows/ci.yml`, job **EDF format, time and PSD contracts**. All existing named steps remain required; the recording inventory adds **Single-snapshot recording inventory public-package and file receivers**. A result is tied to the exact final push head, not an earlier commit or a separately rerun auxiliary workflow.
 
+The exact annotation revision gate **Exact annotation revision public-package and full file receivers** runs both complete public consumers, then receives all actual two-source file bundles against pre-implementation hand tables:
+
+```sh
+moon run examples/annotation_review --target js --deny-warn > work/annotation-review-public-js.json
+moon run examples/annotation_review --target wasm-gc --deny-warn > work/annotation-review-public-wasm-gc.json
+python tools/check-annotation-review.py --output work/annotation-review-verification.json --work-dir work/annotation-review-cases --public-output work/annotation-review-public-js.json --public-output work/annotation-review-public-wasm-gc.json
+```
+
+The 15 independent pairs cover EDF/BDF, duplicates across storage locations, exact numeric spelling, absent/zero duration, distinct Unicode normalization, gaps and outside events, mismatched header clocks, empty and annotation-only inputs, unknown count and explicit tolerant admission. Every raw annotation, rational key, witness index, count, context field, source identity and saved payload is received. Nine invalid paths, occupied/missing input/output controls and an explicitly injected write failure must not yield a successful completion manifest. The fixed input bytes and complete manual tables are in `tools/fixtures/annotation-review`; reference construction never calls the product writer/comparator.
+
 The inventory gate runs the actual separate public package on JS and Wasm-GC, then runs the real arbitrary-file entry and reads every saved sidecar:
 
 ```sh

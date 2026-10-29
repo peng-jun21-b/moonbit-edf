@@ -1,0 +1,6440 @@
+{
+  "origin": "Complete manual tables from the already-frozen feasibility plus explicitly enumerated zero/spanning/tolerant cases; no product or comparator execution",
+  "cases": [
+    {
+      "name": "primary-edf",
+      "left": "primary-edf-left.edf",
+      "right": "primary-edf-right.edf",
+      "readOptions": "primary-edf-read.json",
+      "leftTolerance": null,
+      "rightTolerance": null,
+      "expected": {
+        "frame": "file_header_relative",
+        "status": "complete_relative_comparison",
+        "header_zero_equal": true,
+        "header_civil_delta_seconds": "0",
+        "needs_clock_review": false,
+        "left": {
+          "context": {
+            "format": "edf",
+            "continuity": "discontinuous",
+            "patient": "X X X X",
+            "recording": "Startdate 29-OCT-2026 X X X",
+            "date": "29.10.26",
+            "time": "12.00.00",
+            "start": {
+              "year": 2026,
+              "month": 10,
+              "day": 29,
+              "hour": 12,
+              "minute": 0,
+              "second": 0
+            },
+            "timezone": "unspecified_local_civil",
+            "records": 2,
+            "declared_records": 2,
+            "duration": "1",
+            "signals": [
+              {
+                "label": "EEG C3",
+                "transducer": "",
+                "unit": "uV",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 2,
+                "reserved": ""
+              },
+              {
+                "label": "EDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              },
+              {
+                "label": "EDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              }
+            ],
+            "starts": [
+              "+0.25",
+              "+3.25"
+            ],
+            "gaps": [
+              {
+                "after_record": 0,
+                "start": "1.25",
+                "end": "3.25"
+              }
+            ],
+            "annotations": 12,
+            "time_tolerance": null
+          },
+          "annotations": [
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.50",
+              "duration": null,
+              "text": "dup"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.50",
+              "duration": null,
+              "text": "dup"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.50",
+              "duration": "0",
+              "text": "point"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.75",
+              "duration": "0.50",
+              "text": "Café"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+1.50",
+              "duration": null,
+              "text": "gap"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "-0.25",
+              "duration": null,
+              "text": "pre"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.5",
+              "duration": null,
+              "text": "label-A"
+            },
+            {
+              "record": 0,
+              "signal": 2,
+              "onset": "+0.50",
+              "duration": null,
+              "text": "dup"
+            },
+            {
+              "record": 0,
+              "signal": 2,
+              "onset": "+0.125",
+              "duration": null,
+              "text": "﻿观察🐉"
+            },
+            {
+              "record": 1,
+              "signal": 1,
+              "onset": "+3.50",
+              "duration": "0.25",
+              "text": "late"
+            },
+            {
+              "record": 1,
+              "signal": 1,
+              "onset": "+4.50",
+              "duration": null,
+              "text": "post"
+            },
+            {
+              "record": 1,
+              "signal": 2,
+              "onset": "+3.75",
+              "duration": null,
+              "text": "only-left"
+            }
+          ]
+        },
+        "right": {
+          "context": {
+            "format": "edf",
+            "continuity": "discontinuous",
+            "patient": "X X X X",
+            "recording": "Startdate 29-OCT-2026 X X X",
+            "date": "29.10.26",
+            "time": "12.00.00",
+            "start": {
+              "year": 2026,
+              "month": 10,
+              "day": 29,
+              "hour": 12,
+              "minute": 0,
+              "second": 0
+            },
+            "timezone": "unspecified_local_civil",
+            "records": 2,
+            "declared_records": 2,
+            "duration": "1",
+            "signals": [
+              {
+                "label": "EEG C3",
+                "transducer": "",
+                "unit": "uV",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 2,
+                "reserved": ""
+              },
+              {
+                "label": "EDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              },
+              {
+                "label": "EDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              }
+            ],
+            "starts": [
+              "+0.25",
+              "+3.25"
+            ],
+            "gaps": [
+              {
+                "after_record": 0,
+                "start": "1.25",
+                "end": "3.25"
+              }
+            ],
+            "annotations": 11,
+            "time_tolerance": null
+          },
+          "annotations": [
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.500",
+              "duration": null,
+              "text": "dup"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.50",
+              "duration": null,
+              "text": "point"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.750",
+              "duration": "0.500",
+              "text": "Café"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+1.500",
+              "duration": null,
+              "text": "gap"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "-0.250",
+              "duration": null,
+              "text": "pre"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.5",
+              "duration": null,
+              "text": "label-B"
+            },
+            {
+              "record": 0,
+              "signal": 2,
+              "onset": "+0.125",
+              "duration": null,
+              "text": "﻿观察🐉"
+            },
+            {
+              "record": 1,
+              "signal": 1,
+              "onset": "+3.500",
+              "duration": "0.250",
+              "text": "late"
+            },
+            {
+              "record": 1,
+              "signal": 1,
+              "onset": "+4.500",
+              "duration": null,
+              "text": "post"
+            },
+            {
+              "record": 1,
+              "signal": 1,
+              "onset": "+3.75",
+              "duration": null,
+              "text": "only-right"
+            },
+            {
+              "record": 1,
+              "signal": 2,
+              "onset": "+0.5",
+              "duration": null,
+              "text": "dup"
+            }
+          ]
+        },
+        "groups": [
+          {
+            "onset": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "duration": null,
+            "text": "dup",
+            "left_indices": [
+              0,
+              1,
+              7
+            ],
+            "right_indices": [
+              0,
+              10
+            ],
+            "left": 3,
+            "right": 2,
+            "retained": 2,
+            "removed": 1,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "duration": {
+              "numerator": "0",
+              "denominator": "1"
+            },
+            "text": "point",
+            "left_indices": [
+              2
+            ],
+            "right_indices": [],
+            "left": 1,
+            "right": 0,
+            "retained": 0,
+            "removed": 1,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "3",
+              "denominator": "4"
+            },
+            "duration": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "text": "Café",
+            "left_indices": [
+              3
+            ],
+            "right_indices": [],
+            "left": 1,
+            "right": 0,
+            "retained": 0,
+            "removed": 1,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "3",
+              "denominator": "2"
+            },
+            "duration": null,
+            "text": "gap",
+            "left_indices": [
+              4
+            ],
+            "right_indices": [
+              3
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "-1",
+              "denominator": "4"
+            },
+            "duration": null,
+            "text": "pre",
+            "left_indices": [
+              5
+            ],
+            "right_indices": [
+              4
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "duration": null,
+            "text": "label-A",
+            "left_indices": [
+              6
+            ],
+            "right_indices": [],
+            "left": 1,
+            "right": 0,
+            "retained": 0,
+            "removed": 1,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "1",
+              "denominator": "8"
+            },
+            "duration": null,
+            "text": "﻿观察🐉",
+            "left_indices": [
+              8
+            ],
+            "right_indices": [
+              6
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "7",
+              "denominator": "2"
+            },
+            "duration": {
+              "numerator": "1",
+              "denominator": "4"
+            },
+            "text": "late",
+            "left_indices": [
+              9
+            ],
+            "right_indices": [
+              7
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "9",
+              "denominator": "2"
+            },
+            "duration": null,
+            "text": "post",
+            "left_indices": [
+              10
+            ],
+            "right_indices": [
+              8
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "15",
+              "denominator": "4"
+            },
+            "duration": null,
+            "text": "only-left",
+            "left_indices": [
+              11
+            ],
+            "right_indices": [],
+            "left": 1,
+            "right": 0,
+            "retained": 0,
+            "removed": 1,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "duration": null,
+            "text": "point",
+            "left_indices": [],
+            "right_indices": [
+              1
+            ],
+            "left": 0,
+            "right": 1,
+            "retained": 0,
+            "removed": 0,
+            "added": 1
+          },
+          {
+            "onset": {
+              "numerator": "3",
+              "denominator": "4"
+            },
+            "duration": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "text": "Café",
+            "left_indices": [],
+            "right_indices": [
+              2
+            ],
+            "left": 0,
+            "right": 1,
+            "retained": 0,
+            "removed": 0,
+            "added": 1
+          },
+          {
+            "onset": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "duration": null,
+            "text": "label-B",
+            "left_indices": [],
+            "right_indices": [
+              5
+            ],
+            "left": 0,
+            "right": 1,
+            "retained": 0,
+            "removed": 0,
+            "added": 1
+          },
+          {
+            "onset": {
+              "numerator": "15",
+              "denominator": "4"
+            },
+            "duration": null,
+            "text": "only-right",
+            "left_indices": [],
+            "right_indices": [
+              9
+            ],
+            "left": 0,
+            "right": 1,
+            "retained": 0,
+            "removed": 0,
+            "added": 1
+          }
+        ],
+        "totals": {
+          "left": 12,
+          "right": 11,
+          "retained": 7,
+          "removed": 5,
+          "added": 4,
+          "groups": 14
+        }
+      }
+    },
+    {
+      "name": "primary-bdf",
+      "left": "primary-bdf-left.bdf",
+      "right": "primary-bdf-right.bdf",
+      "readOptions": "primary-bdf-read.json",
+      "leftTolerance": null,
+      "rightTolerance": null,
+      "expected": {
+        "frame": "file_header_relative",
+        "status": "complete_relative_comparison",
+        "header_zero_equal": true,
+        "header_civil_delta_seconds": "0",
+        "needs_clock_review": false,
+        "left": {
+          "context": {
+            "format": "bdf",
+            "continuity": "discontinuous",
+            "patient": "X X X X",
+            "recording": "Startdate 29-OCT-2026 X X X",
+            "date": "29.10.26",
+            "time": "12.00.00",
+            "start": {
+              "year": 2026,
+              "month": 10,
+              "day": 29,
+              "hour": 12,
+              "minute": 0,
+              "second": 0
+            },
+            "timezone": "unspecified_local_civil",
+            "records": 2,
+            "declared_records": 2,
+            "duration": "1",
+            "signals": [
+              {
+                "label": "EEG C3",
+                "transducer": "",
+                "unit": "uV",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -8388608,
+                "digital_max": 8388607,
+                "prefilter": "",
+                "samples_per_record": 2,
+                "reserved": ""
+              },
+              {
+                "label": "BDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -8388608,
+                "digital_max": 8388607,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              },
+              {
+                "label": "BDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -8388608,
+                "digital_max": 8388607,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              }
+            ],
+            "starts": [
+              "+0.25",
+              "+3.25"
+            ],
+            "gaps": [
+              {
+                "after_record": 0,
+                "start": "1.25",
+                "end": "3.25"
+              }
+            ],
+            "annotations": 12,
+            "time_tolerance": null
+          },
+          "annotations": [
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.50",
+              "duration": null,
+              "text": "dup"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.50",
+              "duration": null,
+              "text": "dup"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.50",
+              "duration": "0",
+              "text": "point"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.75",
+              "duration": "0.50",
+              "text": "Café"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+1.50",
+              "duration": null,
+              "text": "gap"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "-0.25",
+              "duration": null,
+              "text": "pre"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.5",
+              "duration": null,
+              "text": "label-A"
+            },
+            {
+              "record": 0,
+              "signal": 2,
+              "onset": "+0.50",
+              "duration": null,
+              "text": "dup"
+            },
+            {
+              "record": 0,
+              "signal": 2,
+              "onset": "+0.125",
+              "duration": null,
+              "text": "﻿观察🐉"
+            },
+            {
+              "record": 1,
+              "signal": 1,
+              "onset": "+3.50",
+              "duration": "0.25",
+              "text": "late"
+            },
+            {
+              "record": 1,
+              "signal": 1,
+              "onset": "+4.50",
+              "duration": null,
+              "text": "post"
+            },
+            {
+              "record": 1,
+              "signal": 2,
+              "onset": "+3.75",
+              "duration": null,
+              "text": "only-left"
+            }
+          ]
+        },
+        "right": {
+          "context": {
+            "format": "bdf",
+            "continuity": "discontinuous",
+            "patient": "X X X X",
+            "recording": "Startdate 29-OCT-2026 X X X",
+            "date": "29.10.26",
+            "time": "12.00.00",
+            "start": {
+              "year": 2026,
+              "month": 10,
+              "day": 29,
+              "hour": 12,
+              "minute": 0,
+              "second": 0
+            },
+            "timezone": "unspecified_local_civil",
+            "records": 2,
+            "declared_records": 2,
+            "duration": "1",
+            "signals": [
+              {
+                "label": "EEG C3",
+                "transducer": "",
+                "unit": "uV",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -8388608,
+                "digital_max": 8388607,
+                "prefilter": "",
+                "samples_per_record": 2,
+                "reserved": ""
+              },
+              {
+                "label": "BDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -8388608,
+                "digital_max": 8388607,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              },
+              {
+                "label": "BDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -8388608,
+                "digital_max": 8388607,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              }
+            ],
+            "starts": [
+              "+0.25",
+              "+3.25"
+            ],
+            "gaps": [
+              {
+                "after_record": 0,
+                "start": "1.25",
+                "end": "3.25"
+              }
+            ],
+            "annotations": 11,
+            "time_tolerance": null
+          },
+          "annotations": [
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.500",
+              "duration": null,
+              "text": "dup"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.50",
+              "duration": null,
+              "text": "point"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.750",
+              "duration": "0.500",
+              "text": "Café"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+1.500",
+              "duration": null,
+              "text": "gap"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "-0.250",
+              "duration": null,
+              "text": "pre"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.5",
+              "duration": null,
+              "text": "label-B"
+            },
+            {
+              "record": 0,
+              "signal": 2,
+              "onset": "+0.125",
+              "duration": null,
+              "text": "﻿观察🐉"
+            },
+            {
+              "record": 1,
+              "signal": 1,
+              "onset": "+3.500",
+              "duration": "0.250",
+              "text": "late"
+            },
+            {
+              "record": 1,
+              "signal": 1,
+              "onset": "+4.500",
+              "duration": null,
+              "text": "post"
+            },
+            {
+              "record": 1,
+              "signal": 1,
+              "onset": "+3.75",
+              "duration": null,
+              "text": "only-right"
+            },
+            {
+              "record": 1,
+              "signal": 2,
+              "onset": "+0.5",
+              "duration": null,
+              "text": "dup"
+            }
+          ]
+        },
+        "groups": [
+          {
+            "onset": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "duration": null,
+            "text": "dup",
+            "left_indices": [
+              0,
+              1,
+              7
+            ],
+            "right_indices": [
+              0,
+              10
+            ],
+            "left": 3,
+            "right": 2,
+            "retained": 2,
+            "removed": 1,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "duration": {
+              "numerator": "0",
+              "denominator": "1"
+            },
+            "text": "point",
+            "left_indices": [
+              2
+            ],
+            "right_indices": [],
+            "left": 1,
+            "right": 0,
+            "retained": 0,
+            "removed": 1,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "3",
+              "denominator": "4"
+            },
+            "duration": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "text": "Café",
+            "left_indices": [
+              3
+            ],
+            "right_indices": [],
+            "left": 1,
+            "right": 0,
+            "retained": 0,
+            "removed": 1,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "3",
+              "denominator": "2"
+            },
+            "duration": null,
+            "text": "gap",
+            "left_indices": [
+              4
+            ],
+            "right_indices": [
+              3
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "-1",
+              "denominator": "4"
+            },
+            "duration": null,
+            "text": "pre",
+            "left_indices": [
+              5
+            ],
+            "right_indices": [
+              4
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "duration": null,
+            "text": "label-A",
+            "left_indices": [
+              6
+            ],
+            "right_indices": [],
+            "left": 1,
+            "right": 0,
+            "retained": 0,
+            "removed": 1,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "1",
+              "denominator": "8"
+            },
+            "duration": null,
+            "text": "﻿观察🐉",
+            "left_indices": [
+              8
+            ],
+            "right_indices": [
+              6
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "7",
+              "denominator": "2"
+            },
+            "duration": {
+              "numerator": "1",
+              "denominator": "4"
+            },
+            "text": "late",
+            "left_indices": [
+              9
+            ],
+            "right_indices": [
+              7
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "9",
+              "denominator": "2"
+            },
+            "duration": null,
+            "text": "post",
+            "left_indices": [
+              10
+            ],
+            "right_indices": [
+              8
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "15",
+              "denominator": "4"
+            },
+            "duration": null,
+            "text": "only-left",
+            "left_indices": [
+              11
+            ],
+            "right_indices": [],
+            "left": 1,
+            "right": 0,
+            "retained": 0,
+            "removed": 1,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "duration": null,
+            "text": "point",
+            "left_indices": [],
+            "right_indices": [
+              1
+            ],
+            "left": 0,
+            "right": 1,
+            "retained": 0,
+            "removed": 0,
+            "added": 1
+          },
+          {
+            "onset": {
+              "numerator": "3",
+              "denominator": "4"
+            },
+            "duration": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "text": "Café",
+            "left_indices": [],
+            "right_indices": [
+              2
+            ],
+            "left": 0,
+            "right": 1,
+            "retained": 0,
+            "removed": 0,
+            "added": 1
+          },
+          {
+            "onset": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "duration": null,
+            "text": "label-B",
+            "left_indices": [],
+            "right_indices": [
+              5
+            ],
+            "left": 0,
+            "right": 1,
+            "retained": 0,
+            "removed": 0,
+            "added": 1
+          },
+          {
+            "onset": {
+              "numerator": "15",
+              "denominator": "4"
+            },
+            "duration": null,
+            "text": "only-right",
+            "left_indices": [],
+            "right_indices": [
+              9
+            ],
+            "left": 0,
+            "right": 1,
+            "retained": 0,
+            "removed": 0,
+            "added": 1
+          }
+        ],
+        "totals": {
+          "left": 12,
+          "right": 11,
+          "retained": 7,
+          "removed": 5,
+          "added": 4,
+          "groups": 14
+        }
+      }
+    },
+    {
+      "name": "mixed",
+      "left": "mixed-left.edf",
+      "right": "mixed-right.bdf",
+      "readOptions": "mixed-read.json",
+      "leftTolerance": null,
+      "rightTolerance": null,
+      "expected": {
+        "frame": "file_header_relative",
+        "status": "complete_relative_comparison",
+        "header_zero_equal": true,
+        "header_civil_delta_seconds": "0",
+        "needs_clock_review": false,
+        "left": {
+          "context": {
+            "format": "edf",
+            "continuity": "discontinuous",
+            "patient": "X X X X",
+            "recording": "Startdate 29-OCT-2026 X X X",
+            "date": "29.10.26",
+            "time": "12.00.00",
+            "start": {
+              "year": 2026,
+              "month": 10,
+              "day": 29,
+              "hour": 12,
+              "minute": 0,
+              "second": 0
+            },
+            "timezone": "unspecified_local_civil",
+            "records": 2,
+            "declared_records": 2,
+            "duration": "1",
+            "signals": [
+              {
+                "label": "EEG C3",
+                "transducer": "",
+                "unit": "uV",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 2,
+                "reserved": ""
+              },
+              {
+                "label": "EDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              },
+              {
+                "label": "EDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              }
+            ],
+            "starts": [
+              "+0.25",
+              "+3.25"
+            ],
+            "gaps": [
+              {
+                "after_record": 0,
+                "start": "1.25",
+                "end": "3.25"
+              }
+            ],
+            "annotations": 12,
+            "time_tolerance": null
+          },
+          "annotations": [
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.50",
+              "duration": null,
+              "text": "dup"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.50",
+              "duration": null,
+              "text": "dup"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.50",
+              "duration": "0",
+              "text": "point"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.75",
+              "duration": "0.50",
+              "text": "Café"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+1.50",
+              "duration": null,
+              "text": "gap"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "-0.25",
+              "duration": null,
+              "text": "pre"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.5",
+              "duration": null,
+              "text": "label-A"
+            },
+            {
+              "record": 0,
+              "signal": 2,
+              "onset": "+0.50",
+              "duration": null,
+              "text": "dup"
+            },
+            {
+              "record": 0,
+              "signal": 2,
+              "onset": "+0.125",
+              "duration": null,
+              "text": "﻿观察🐉"
+            },
+            {
+              "record": 1,
+              "signal": 1,
+              "onset": "+3.50",
+              "duration": "0.25",
+              "text": "late"
+            },
+            {
+              "record": 1,
+              "signal": 1,
+              "onset": "+4.50",
+              "duration": null,
+              "text": "post"
+            },
+            {
+              "record": 1,
+              "signal": 2,
+              "onset": "+3.75",
+              "duration": null,
+              "text": "only-left"
+            }
+          ]
+        },
+        "right": {
+          "context": {
+            "format": "bdf",
+            "continuity": "discontinuous",
+            "patient": "X X X X",
+            "recording": "Startdate 29-OCT-2026 X X X",
+            "date": "29.10.26",
+            "time": "12.00.00",
+            "start": {
+              "year": 2026,
+              "month": 10,
+              "day": 29,
+              "hour": 12,
+              "minute": 0,
+              "second": 0
+            },
+            "timezone": "unspecified_local_civil",
+            "records": 2,
+            "declared_records": 2,
+            "duration": "1",
+            "signals": [
+              {
+                "label": "EEG C3",
+                "transducer": "",
+                "unit": "uV",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -8388608,
+                "digital_max": 8388607,
+                "prefilter": "",
+                "samples_per_record": 2,
+                "reserved": ""
+              },
+              {
+                "label": "BDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -8388608,
+                "digital_max": 8388607,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              },
+              {
+                "label": "BDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -8388608,
+                "digital_max": 8388607,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              }
+            ],
+            "starts": [
+              "+0.25",
+              "+3.25"
+            ],
+            "gaps": [
+              {
+                "after_record": 0,
+                "start": "1.25",
+                "end": "3.25"
+              }
+            ],
+            "annotations": 11,
+            "time_tolerance": null
+          },
+          "annotations": [
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.500",
+              "duration": null,
+              "text": "dup"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.50",
+              "duration": null,
+              "text": "point"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.750",
+              "duration": "0.500",
+              "text": "Café"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+1.500",
+              "duration": null,
+              "text": "gap"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "-0.250",
+              "duration": null,
+              "text": "pre"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.5",
+              "duration": null,
+              "text": "label-B"
+            },
+            {
+              "record": 0,
+              "signal": 2,
+              "onset": "+0.125",
+              "duration": null,
+              "text": "﻿观察🐉"
+            },
+            {
+              "record": 1,
+              "signal": 1,
+              "onset": "+3.500",
+              "duration": "0.250",
+              "text": "late"
+            },
+            {
+              "record": 1,
+              "signal": 1,
+              "onset": "+4.500",
+              "duration": null,
+              "text": "post"
+            },
+            {
+              "record": 1,
+              "signal": 1,
+              "onset": "+3.75",
+              "duration": null,
+              "text": "only-right"
+            },
+            {
+              "record": 1,
+              "signal": 2,
+              "onset": "+0.5",
+              "duration": null,
+              "text": "dup"
+            }
+          ]
+        },
+        "groups": [
+          {
+            "onset": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "duration": null,
+            "text": "dup",
+            "left_indices": [
+              0,
+              1,
+              7
+            ],
+            "right_indices": [
+              0,
+              10
+            ],
+            "left": 3,
+            "right": 2,
+            "retained": 2,
+            "removed": 1,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "duration": {
+              "numerator": "0",
+              "denominator": "1"
+            },
+            "text": "point",
+            "left_indices": [
+              2
+            ],
+            "right_indices": [],
+            "left": 1,
+            "right": 0,
+            "retained": 0,
+            "removed": 1,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "3",
+              "denominator": "4"
+            },
+            "duration": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "text": "Café",
+            "left_indices": [
+              3
+            ],
+            "right_indices": [],
+            "left": 1,
+            "right": 0,
+            "retained": 0,
+            "removed": 1,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "3",
+              "denominator": "2"
+            },
+            "duration": null,
+            "text": "gap",
+            "left_indices": [
+              4
+            ],
+            "right_indices": [
+              3
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "-1",
+              "denominator": "4"
+            },
+            "duration": null,
+            "text": "pre",
+            "left_indices": [
+              5
+            ],
+            "right_indices": [
+              4
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "duration": null,
+            "text": "label-A",
+            "left_indices": [
+              6
+            ],
+            "right_indices": [],
+            "left": 1,
+            "right": 0,
+            "retained": 0,
+            "removed": 1,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "1",
+              "denominator": "8"
+            },
+            "duration": null,
+            "text": "﻿观察🐉",
+            "left_indices": [
+              8
+            ],
+            "right_indices": [
+              6
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "7",
+              "denominator": "2"
+            },
+            "duration": {
+              "numerator": "1",
+              "denominator": "4"
+            },
+            "text": "late",
+            "left_indices": [
+              9
+            ],
+            "right_indices": [
+              7
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "9",
+              "denominator": "2"
+            },
+            "duration": null,
+            "text": "post",
+            "left_indices": [
+              10
+            ],
+            "right_indices": [
+              8
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "15",
+              "denominator": "4"
+            },
+            "duration": null,
+            "text": "only-left",
+            "left_indices": [
+              11
+            ],
+            "right_indices": [],
+            "left": 1,
+            "right": 0,
+            "retained": 0,
+            "removed": 1,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "duration": null,
+            "text": "point",
+            "left_indices": [],
+            "right_indices": [
+              1
+            ],
+            "left": 0,
+            "right": 1,
+            "retained": 0,
+            "removed": 0,
+            "added": 1
+          },
+          {
+            "onset": {
+              "numerator": "3",
+              "denominator": "4"
+            },
+            "duration": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "text": "Café",
+            "left_indices": [],
+            "right_indices": [
+              2
+            ],
+            "left": 0,
+            "right": 1,
+            "retained": 0,
+            "removed": 0,
+            "added": 1
+          },
+          {
+            "onset": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "duration": null,
+            "text": "label-B",
+            "left_indices": [],
+            "right_indices": [
+              5
+            ],
+            "left": 0,
+            "right": 1,
+            "retained": 0,
+            "removed": 0,
+            "added": 1
+          },
+          {
+            "onset": {
+              "numerator": "15",
+              "denominator": "4"
+            },
+            "duration": null,
+            "text": "only-right",
+            "left_indices": [],
+            "right_indices": [
+              9
+            ],
+            "left": 0,
+            "right": 1,
+            "retained": 0,
+            "removed": 0,
+            "added": 1
+          }
+        ],
+        "totals": {
+          "left": 12,
+          "right": 11,
+          "retained": 7,
+          "removed": 5,
+          "added": 4,
+          "groups": 14
+        }
+      }
+    },
+    {
+      "name": "identical",
+      "left": "identical-left.edf",
+      "right": "identical-right.edf",
+      "readOptions": "identical-read.json",
+      "leftTolerance": null,
+      "rightTolerance": null,
+      "expected": {
+        "frame": "file_header_relative",
+        "status": "complete_relative_comparison",
+        "header_zero_equal": true,
+        "header_civil_delta_seconds": "0",
+        "needs_clock_review": false,
+        "left": {
+          "context": {
+            "format": "edf",
+            "continuity": "discontinuous",
+            "patient": "X X X X",
+            "recording": "Startdate 29-OCT-2026 X X X",
+            "date": "29.10.26",
+            "time": "12.00.00",
+            "start": {
+              "year": 2026,
+              "month": 10,
+              "day": 29,
+              "hour": 12,
+              "minute": 0,
+              "second": 0
+            },
+            "timezone": "unspecified_local_civil",
+            "records": 2,
+            "declared_records": 2,
+            "duration": "1",
+            "signals": [
+              {
+                "label": "EEG C3",
+                "transducer": "",
+                "unit": "uV",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 2,
+                "reserved": ""
+              },
+              {
+                "label": "EDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              },
+              {
+                "label": "EDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              }
+            ],
+            "starts": [
+              "+0.25",
+              "+3.25"
+            ],
+            "gaps": [
+              {
+                "after_record": 0,
+                "start": "1.25",
+                "end": "3.25"
+              }
+            ],
+            "annotations": 12,
+            "time_tolerance": null
+          },
+          "annotations": [
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.50",
+              "duration": null,
+              "text": "dup"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.50",
+              "duration": null,
+              "text": "dup"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.50",
+              "duration": "0",
+              "text": "point"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.75",
+              "duration": "0.50",
+              "text": "Café"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+1.50",
+              "duration": null,
+              "text": "gap"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "-0.25",
+              "duration": null,
+              "text": "pre"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.5",
+              "duration": null,
+              "text": "label-A"
+            },
+            {
+              "record": 0,
+              "signal": 2,
+              "onset": "+0.50",
+              "duration": null,
+              "text": "dup"
+            },
+            {
+              "record": 0,
+              "signal": 2,
+              "onset": "+0.125",
+              "duration": null,
+              "text": "﻿观察🐉"
+            },
+            {
+              "record": 1,
+              "signal": 1,
+              "onset": "+3.50",
+              "duration": "0.25",
+              "text": "late"
+            },
+            {
+              "record": 1,
+              "signal": 1,
+              "onset": "+4.50",
+              "duration": null,
+              "text": "post"
+            },
+            {
+              "record": 1,
+              "signal": 2,
+              "onset": "+3.75",
+              "duration": null,
+              "text": "only-left"
+            }
+          ]
+        },
+        "right": {
+          "context": {
+            "format": "edf",
+            "continuity": "discontinuous",
+            "patient": "X X X X",
+            "recording": "Startdate 29-OCT-2026 X X X",
+            "date": "29.10.26",
+            "time": "12.00.00",
+            "start": {
+              "year": 2026,
+              "month": 10,
+              "day": 29,
+              "hour": 12,
+              "minute": 0,
+              "second": 0
+            },
+            "timezone": "unspecified_local_civil",
+            "records": 2,
+            "declared_records": 2,
+            "duration": "1",
+            "signals": [
+              {
+                "label": "EEG C3",
+                "transducer": "",
+                "unit": "uV",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 2,
+                "reserved": ""
+              },
+              {
+                "label": "EDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              },
+              {
+                "label": "EDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              }
+            ],
+            "starts": [
+              "+0.25",
+              "+3.25"
+            ],
+            "gaps": [
+              {
+                "after_record": 0,
+                "start": "1.25",
+                "end": "3.25"
+              }
+            ],
+            "annotations": 12,
+            "time_tolerance": null
+          },
+          "annotations": [
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.50",
+              "duration": null,
+              "text": "dup"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.50",
+              "duration": null,
+              "text": "dup"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.50",
+              "duration": "0",
+              "text": "point"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.75",
+              "duration": "0.50",
+              "text": "Café"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+1.50",
+              "duration": null,
+              "text": "gap"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "-0.25",
+              "duration": null,
+              "text": "pre"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.5",
+              "duration": null,
+              "text": "label-A"
+            },
+            {
+              "record": 0,
+              "signal": 2,
+              "onset": "+0.50",
+              "duration": null,
+              "text": "dup"
+            },
+            {
+              "record": 0,
+              "signal": 2,
+              "onset": "+0.125",
+              "duration": null,
+              "text": "﻿观察🐉"
+            },
+            {
+              "record": 1,
+              "signal": 1,
+              "onset": "+3.50",
+              "duration": "0.25",
+              "text": "late"
+            },
+            {
+              "record": 1,
+              "signal": 1,
+              "onset": "+4.50",
+              "duration": null,
+              "text": "post"
+            },
+            {
+              "record": 1,
+              "signal": 2,
+              "onset": "+3.75",
+              "duration": null,
+              "text": "only-left"
+            }
+          ]
+        },
+        "groups": [
+          {
+            "left_indices": [
+              0,
+              1,
+              7
+            ],
+            "right_indices": [
+              0,
+              1,
+              7
+            ],
+            "left": 3,
+            "right": 3,
+            "retained": 3,
+            "removed": 0,
+            "added": 0,
+            "onset": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "duration": null,
+            "text": "dup"
+          },
+          {
+            "left_indices": [
+              2
+            ],
+            "right_indices": [
+              2
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0,
+            "onset": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "duration": {
+              "numerator": "0",
+              "denominator": "1"
+            },
+            "text": "point"
+          },
+          {
+            "left_indices": [
+              3
+            ],
+            "right_indices": [
+              3
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0,
+            "onset": {
+              "numerator": "3",
+              "denominator": "4"
+            },
+            "duration": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "text": "Café"
+          },
+          {
+            "left_indices": [
+              4
+            ],
+            "right_indices": [
+              4
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0,
+            "onset": {
+              "numerator": "3",
+              "denominator": "2"
+            },
+            "duration": null,
+            "text": "gap"
+          },
+          {
+            "left_indices": [
+              5
+            ],
+            "right_indices": [
+              5
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0,
+            "onset": {
+              "numerator": "-1",
+              "denominator": "4"
+            },
+            "duration": null,
+            "text": "pre"
+          },
+          {
+            "left_indices": [
+              6
+            ],
+            "right_indices": [
+              6
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0,
+            "onset": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "duration": null,
+            "text": "label-A"
+          },
+          {
+            "left_indices": [
+              8
+            ],
+            "right_indices": [
+              8
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0,
+            "onset": {
+              "numerator": "1",
+              "denominator": "8"
+            },
+            "duration": null,
+            "text": "﻿观察🐉"
+          },
+          {
+            "left_indices": [
+              9
+            ],
+            "right_indices": [
+              9
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0,
+            "onset": {
+              "numerator": "7",
+              "denominator": "2"
+            },
+            "duration": {
+              "numerator": "1",
+              "denominator": "4"
+            },
+            "text": "late"
+          },
+          {
+            "left_indices": [
+              10
+            ],
+            "right_indices": [
+              10
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0,
+            "onset": {
+              "numerator": "9",
+              "denominator": "2"
+            },
+            "duration": null,
+            "text": "post"
+          },
+          {
+            "left_indices": [
+              11
+            ],
+            "right_indices": [
+              11
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0,
+            "onset": {
+              "numerator": "15",
+              "denominator": "4"
+            },
+            "duration": null,
+            "text": "only-left"
+          }
+        ],
+        "totals": {
+          "left": 12,
+          "right": 12,
+          "retained": 12,
+          "removed": 0,
+          "added": 0,
+          "groups": 10
+        }
+      }
+    },
+    {
+      "name": "identification-context",
+      "left": "identification-context-left.edf",
+      "right": "identification-context-right.edf",
+      "readOptions": "identification-context-read.json",
+      "leftTolerance": null,
+      "rightTolerance": null,
+      "expected": {
+        "frame": "file_header_relative",
+        "status": "complete_relative_comparison",
+        "header_zero_equal": true,
+        "header_civil_delta_seconds": "0",
+        "needs_clock_review": false,
+        "left": {
+          "context": {
+            "format": "edf",
+            "continuity": "discontinuous",
+            "patient": "X X X X",
+            "recording": "Startdate 29-OCT-2026 X X X",
+            "date": "29.10.26",
+            "time": "12.00.00",
+            "start": {
+              "year": 2026,
+              "month": 10,
+              "day": 29,
+              "hour": 12,
+              "minute": 0,
+              "second": 0
+            },
+            "timezone": "unspecified_local_civil",
+            "records": 2,
+            "declared_records": 2,
+            "duration": "1",
+            "signals": [
+              {
+                "label": "EEG C3",
+                "transducer": "",
+                "unit": "uV",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 2,
+                "reserved": ""
+              },
+              {
+                "label": "EDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              },
+              {
+                "label": "EDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              }
+            ],
+            "starts": [
+              "+0.25",
+              "+3.25"
+            ],
+            "gaps": [
+              {
+                "after_record": 0,
+                "start": "1.25",
+                "end": "3.25"
+              }
+            ],
+            "annotations": 12,
+            "time_tolerance": null
+          },
+          "annotations": [
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.50",
+              "duration": null,
+              "text": "dup"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.50",
+              "duration": null,
+              "text": "dup"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.50",
+              "duration": "0",
+              "text": "point"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.75",
+              "duration": "0.50",
+              "text": "Café"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+1.50",
+              "duration": null,
+              "text": "gap"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "-0.25",
+              "duration": null,
+              "text": "pre"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.5",
+              "duration": null,
+              "text": "label-A"
+            },
+            {
+              "record": 0,
+              "signal": 2,
+              "onset": "+0.50",
+              "duration": null,
+              "text": "dup"
+            },
+            {
+              "record": 0,
+              "signal": 2,
+              "onset": "+0.125",
+              "duration": null,
+              "text": "﻿观察🐉"
+            },
+            {
+              "record": 1,
+              "signal": 1,
+              "onset": "+3.50",
+              "duration": "0.25",
+              "text": "late"
+            },
+            {
+              "record": 1,
+              "signal": 1,
+              "onset": "+4.50",
+              "duration": null,
+              "text": "post"
+            },
+            {
+              "record": 1,
+              "signal": 2,
+              "onset": "+3.75",
+              "duration": null,
+              "text": "only-left"
+            }
+          ]
+        },
+        "right": {
+          "context": {
+            "format": "edf",
+            "continuity": "discontinuous",
+            "patient": "MASKED X X X",
+            "recording": "Startdate 29-OCT-2026 REVIEW X X",
+            "date": "29.10.26",
+            "time": "12.00.00",
+            "start": {
+              "year": 2026,
+              "month": 10,
+              "day": 29,
+              "hour": 12,
+              "minute": 0,
+              "second": 0
+            },
+            "timezone": "unspecified_local_civil",
+            "records": 2,
+            "declared_records": 2,
+            "duration": "1",
+            "signals": [
+              {
+                "label": "EEG C3",
+                "transducer": "",
+                "unit": "uV",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 2,
+                "reserved": ""
+              },
+              {
+                "label": "EDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              },
+              {
+                "label": "EDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              }
+            ],
+            "starts": [
+              "+0.25",
+              "+3.25"
+            ],
+            "gaps": [
+              {
+                "after_record": 0,
+                "start": "1.25",
+                "end": "3.25"
+              }
+            ],
+            "annotations": 12,
+            "time_tolerance": null
+          },
+          "annotations": [
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.50",
+              "duration": null,
+              "text": "dup"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.50",
+              "duration": null,
+              "text": "dup"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.50",
+              "duration": "0",
+              "text": "point"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.75",
+              "duration": "0.50",
+              "text": "Café"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+1.50",
+              "duration": null,
+              "text": "gap"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "-0.25",
+              "duration": null,
+              "text": "pre"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.5",
+              "duration": null,
+              "text": "label-A"
+            },
+            {
+              "record": 0,
+              "signal": 2,
+              "onset": "+0.50",
+              "duration": null,
+              "text": "dup"
+            },
+            {
+              "record": 0,
+              "signal": 2,
+              "onset": "+0.125",
+              "duration": null,
+              "text": "﻿观察🐉"
+            },
+            {
+              "record": 1,
+              "signal": 1,
+              "onset": "+3.50",
+              "duration": "0.25",
+              "text": "late"
+            },
+            {
+              "record": 1,
+              "signal": 1,
+              "onset": "+4.50",
+              "duration": null,
+              "text": "post"
+            },
+            {
+              "record": 1,
+              "signal": 2,
+              "onset": "+3.75",
+              "duration": null,
+              "text": "only-left"
+            }
+          ]
+        },
+        "groups": [
+          {
+            "left_indices": [
+              0,
+              1,
+              7
+            ],
+            "right_indices": [
+              0,
+              1,
+              7
+            ],
+            "left": 3,
+            "right": 3,
+            "retained": 3,
+            "removed": 0,
+            "added": 0,
+            "onset": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "duration": null,
+            "text": "dup"
+          },
+          {
+            "left_indices": [
+              2
+            ],
+            "right_indices": [
+              2
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0,
+            "onset": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "duration": {
+              "numerator": "0",
+              "denominator": "1"
+            },
+            "text": "point"
+          },
+          {
+            "left_indices": [
+              3
+            ],
+            "right_indices": [
+              3
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0,
+            "onset": {
+              "numerator": "3",
+              "denominator": "4"
+            },
+            "duration": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "text": "Café"
+          },
+          {
+            "left_indices": [
+              4
+            ],
+            "right_indices": [
+              4
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0,
+            "onset": {
+              "numerator": "3",
+              "denominator": "2"
+            },
+            "duration": null,
+            "text": "gap"
+          },
+          {
+            "left_indices": [
+              5
+            ],
+            "right_indices": [
+              5
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0,
+            "onset": {
+              "numerator": "-1",
+              "denominator": "4"
+            },
+            "duration": null,
+            "text": "pre"
+          },
+          {
+            "left_indices": [
+              6
+            ],
+            "right_indices": [
+              6
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0,
+            "onset": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "duration": null,
+            "text": "label-A"
+          },
+          {
+            "left_indices": [
+              8
+            ],
+            "right_indices": [
+              8
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0,
+            "onset": {
+              "numerator": "1",
+              "denominator": "8"
+            },
+            "duration": null,
+            "text": "﻿观察🐉"
+          },
+          {
+            "left_indices": [
+              9
+            ],
+            "right_indices": [
+              9
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0,
+            "onset": {
+              "numerator": "7",
+              "denominator": "2"
+            },
+            "duration": {
+              "numerator": "1",
+              "denominator": "4"
+            },
+            "text": "late"
+          },
+          {
+            "left_indices": [
+              10
+            ],
+            "right_indices": [
+              10
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0,
+            "onset": {
+              "numerator": "9",
+              "denominator": "2"
+            },
+            "duration": null,
+            "text": "post"
+          },
+          {
+            "left_indices": [
+              11
+            ],
+            "right_indices": [
+              11
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0,
+            "onset": {
+              "numerator": "15",
+              "denominator": "4"
+            },
+            "duration": null,
+            "text": "only-left"
+          }
+        ],
+        "totals": {
+          "left": 12,
+          "right": 12,
+          "retained": 12,
+          "removed": 0,
+          "added": 0,
+          "groups": 10
+        }
+      }
+    },
+    {
+      "name": "unknown-count",
+      "left": "unknown-count-left.edf",
+      "right": "unknown-count-right.edf",
+      "readOptions": "unknown-count-read.json",
+      "leftTolerance": null,
+      "rightTolerance": null,
+      "expected": {
+        "frame": "file_header_relative",
+        "status": "complete_relative_comparison",
+        "header_zero_equal": true,
+        "header_civil_delta_seconds": "0",
+        "needs_clock_review": false,
+        "left": {
+          "context": {
+            "format": "edf",
+            "continuity": "discontinuous",
+            "patient": "X X X X",
+            "recording": "Startdate 29-OCT-2026 X X X",
+            "date": "29.10.26",
+            "time": "12.00.00",
+            "start": {
+              "year": 2026,
+              "month": 10,
+              "day": 29,
+              "hour": 12,
+              "minute": 0,
+              "second": 0
+            },
+            "timezone": "unspecified_local_civil",
+            "records": 2,
+            "declared_records": -1,
+            "duration": "1",
+            "signals": [
+              {
+                "label": "EEG C3",
+                "transducer": "",
+                "unit": "uV",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 2,
+                "reserved": ""
+              },
+              {
+                "label": "EDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              },
+              {
+                "label": "EDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              }
+            ],
+            "starts": [
+              "+0.25",
+              "+3.25"
+            ],
+            "gaps": [
+              {
+                "after_record": 0,
+                "start": "1.25",
+                "end": "3.25"
+              }
+            ],
+            "annotations": 12,
+            "time_tolerance": null
+          },
+          "annotations": [
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.50",
+              "duration": null,
+              "text": "dup"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.50",
+              "duration": null,
+              "text": "dup"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.50",
+              "duration": "0",
+              "text": "point"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.75",
+              "duration": "0.50",
+              "text": "Café"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+1.50",
+              "duration": null,
+              "text": "gap"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "-0.25",
+              "duration": null,
+              "text": "pre"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.5",
+              "duration": null,
+              "text": "label-A"
+            },
+            {
+              "record": 0,
+              "signal": 2,
+              "onset": "+0.50",
+              "duration": null,
+              "text": "dup"
+            },
+            {
+              "record": 0,
+              "signal": 2,
+              "onset": "+0.125",
+              "duration": null,
+              "text": "﻿观察🐉"
+            },
+            {
+              "record": 1,
+              "signal": 1,
+              "onset": "+3.50",
+              "duration": "0.25",
+              "text": "late"
+            },
+            {
+              "record": 1,
+              "signal": 1,
+              "onset": "+4.50",
+              "duration": null,
+              "text": "post"
+            },
+            {
+              "record": 1,
+              "signal": 2,
+              "onset": "+3.75",
+              "duration": null,
+              "text": "only-left"
+            }
+          ]
+        },
+        "right": {
+          "context": {
+            "format": "edf",
+            "continuity": "discontinuous",
+            "patient": "X X X X",
+            "recording": "Startdate 29-OCT-2026 X X X",
+            "date": "29.10.26",
+            "time": "12.00.00",
+            "start": {
+              "year": 2026,
+              "month": 10,
+              "day": 29,
+              "hour": 12,
+              "minute": 0,
+              "second": 0
+            },
+            "timezone": "unspecified_local_civil",
+            "records": 2,
+            "declared_records": -1,
+            "duration": "1",
+            "signals": [
+              {
+                "label": "EEG C3",
+                "transducer": "",
+                "unit": "uV",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 2,
+                "reserved": ""
+              },
+              {
+                "label": "EDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              },
+              {
+                "label": "EDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              }
+            ],
+            "starts": [
+              "+0.25",
+              "+3.25"
+            ],
+            "gaps": [
+              {
+                "after_record": 0,
+                "start": "1.25",
+                "end": "3.25"
+              }
+            ],
+            "annotations": 11,
+            "time_tolerance": null
+          },
+          "annotations": [
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.500",
+              "duration": null,
+              "text": "dup"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.50",
+              "duration": null,
+              "text": "point"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.750",
+              "duration": "0.500",
+              "text": "Café"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+1.500",
+              "duration": null,
+              "text": "gap"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "-0.250",
+              "duration": null,
+              "text": "pre"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.5",
+              "duration": null,
+              "text": "label-B"
+            },
+            {
+              "record": 0,
+              "signal": 2,
+              "onset": "+0.125",
+              "duration": null,
+              "text": "﻿观察🐉"
+            },
+            {
+              "record": 1,
+              "signal": 1,
+              "onset": "+3.500",
+              "duration": "0.250",
+              "text": "late"
+            },
+            {
+              "record": 1,
+              "signal": 1,
+              "onset": "+4.500",
+              "duration": null,
+              "text": "post"
+            },
+            {
+              "record": 1,
+              "signal": 1,
+              "onset": "+3.75",
+              "duration": null,
+              "text": "only-right"
+            },
+            {
+              "record": 1,
+              "signal": 2,
+              "onset": "+0.5",
+              "duration": null,
+              "text": "dup"
+            }
+          ]
+        },
+        "groups": [
+          {
+            "onset": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "duration": null,
+            "text": "dup",
+            "left_indices": [
+              0,
+              1,
+              7
+            ],
+            "right_indices": [
+              0,
+              10
+            ],
+            "left": 3,
+            "right": 2,
+            "retained": 2,
+            "removed": 1,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "duration": {
+              "numerator": "0",
+              "denominator": "1"
+            },
+            "text": "point",
+            "left_indices": [
+              2
+            ],
+            "right_indices": [],
+            "left": 1,
+            "right": 0,
+            "retained": 0,
+            "removed": 1,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "3",
+              "denominator": "4"
+            },
+            "duration": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "text": "Café",
+            "left_indices": [
+              3
+            ],
+            "right_indices": [],
+            "left": 1,
+            "right": 0,
+            "retained": 0,
+            "removed": 1,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "3",
+              "denominator": "2"
+            },
+            "duration": null,
+            "text": "gap",
+            "left_indices": [
+              4
+            ],
+            "right_indices": [
+              3
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "-1",
+              "denominator": "4"
+            },
+            "duration": null,
+            "text": "pre",
+            "left_indices": [
+              5
+            ],
+            "right_indices": [
+              4
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "duration": null,
+            "text": "label-A",
+            "left_indices": [
+              6
+            ],
+            "right_indices": [],
+            "left": 1,
+            "right": 0,
+            "retained": 0,
+            "removed": 1,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "1",
+              "denominator": "8"
+            },
+            "duration": null,
+            "text": "﻿观察🐉",
+            "left_indices": [
+              8
+            ],
+            "right_indices": [
+              6
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "7",
+              "denominator": "2"
+            },
+            "duration": {
+              "numerator": "1",
+              "denominator": "4"
+            },
+            "text": "late",
+            "left_indices": [
+              9
+            ],
+            "right_indices": [
+              7
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "9",
+              "denominator": "2"
+            },
+            "duration": null,
+            "text": "post",
+            "left_indices": [
+              10
+            ],
+            "right_indices": [
+              8
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "15",
+              "denominator": "4"
+            },
+            "duration": null,
+            "text": "only-left",
+            "left_indices": [
+              11
+            ],
+            "right_indices": [],
+            "left": 1,
+            "right": 0,
+            "retained": 0,
+            "removed": 1,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "duration": null,
+            "text": "point",
+            "left_indices": [],
+            "right_indices": [
+              1
+            ],
+            "left": 0,
+            "right": 1,
+            "retained": 0,
+            "removed": 0,
+            "added": 1
+          },
+          {
+            "onset": {
+              "numerator": "3",
+              "denominator": "4"
+            },
+            "duration": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "text": "Café",
+            "left_indices": [],
+            "right_indices": [
+              2
+            ],
+            "left": 0,
+            "right": 1,
+            "retained": 0,
+            "removed": 0,
+            "added": 1
+          },
+          {
+            "onset": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "duration": null,
+            "text": "label-B",
+            "left_indices": [],
+            "right_indices": [
+              5
+            ],
+            "left": 0,
+            "right": 1,
+            "retained": 0,
+            "removed": 0,
+            "added": 1
+          },
+          {
+            "onset": {
+              "numerator": "15",
+              "denominator": "4"
+            },
+            "duration": null,
+            "text": "only-right",
+            "left_indices": [],
+            "right_indices": [
+              9
+            ],
+            "left": 0,
+            "right": 1,
+            "retained": 0,
+            "removed": 0,
+            "added": 1
+          }
+        ],
+        "totals": {
+          "left": 12,
+          "right": 11,
+          "retained": 7,
+          "removed": 5,
+          "added": 4,
+          "groups": 14
+        }
+      }
+    },
+    {
+      "name": "clock-relative",
+      "left": "clock-relative-left.edf",
+      "right": "clock-relative-right.edf",
+      "readOptions": "clock-relative-read.json",
+      "leftTolerance": null,
+      "rightTolerance": null,
+      "expected": {
+        "frame": "file_header_relative",
+        "status": "complete_relative_comparison_clock_context_mismatch",
+        "header_zero_equal": false,
+        "header_civil_delta_seconds": "1",
+        "needs_clock_review": true,
+        "left": {
+          "context": {
+            "format": "edf",
+            "continuity": "discontinuous",
+            "patient": "X X X X",
+            "recording": "Startdate 29-OCT-2026 X X X",
+            "date": "29.10.26",
+            "time": "12.00.00",
+            "start": {
+              "year": 2026,
+              "month": 10,
+              "day": 29,
+              "hour": 12,
+              "minute": 0,
+              "second": 0
+            },
+            "timezone": "unspecified_local_civil",
+            "records": 2,
+            "declared_records": 2,
+            "duration": "1",
+            "signals": [
+              {
+                "label": "EEG C3",
+                "transducer": "",
+                "unit": "uV",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 2,
+                "reserved": ""
+              },
+              {
+                "label": "EDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              },
+              {
+                "label": "EDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              }
+            ],
+            "starts": [
+              "+0.25",
+              "+3.25"
+            ],
+            "gaps": [
+              {
+                "after_record": 0,
+                "start": "1.25",
+                "end": "3.25"
+              }
+            ],
+            "annotations": 12,
+            "time_tolerance": null
+          },
+          "annotations": [
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.50",
+              "duration": null,
+              "text": "dup"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.50",
+              "duration": null,
+              "text": "dup"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.50",
+              "duration": "0",
+              "text": "point"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.75",
+              "duration": "0.50",
+              "text": "Café"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+1.50",
+              "duration": null,
+              "text": "gap"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "-0.25",
+              "duration": null,
+              "text": "pre"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.5",
+              "duration": null,
+              "text": "label-A"
+            },
+            {
+              "record": 0,
+              "signal": 2,
+              "onset": "+0.50",
+              "duration": null,
+              "text": "dup"
+            },
+            {
+              "record": 0,
+              "signal": 2,
+              "onset": "+0.125",
+              "duration": null,
+              "text": "﻿观察🐉"
+            },
+            {
+              "record": 1,
+              "signal": 1,
+              "onset": "+3.50",
+              "duration": "0.25",
+              "text": "late"
+            },
+            {
+              "record": 1,
+              "signal": 1,
+              "onset": "+4.50",
+              "duration": null,
+              "text": "post"
+            },
+            {
+              "record": 1,
+              "signal": 2,
+              "onset": "+3.75",
+              "duration": null,
+              "text": "only-left"
+            }
+          ]
+        },
+        "right": {
+          "context": {
+            "format": "edf",
+            "continuity": "discontinuous",
+            "patient": "X X X X",
+            "recording": "Startdate 29-OCT-2026 X X X",
+            "date": "29.10.26",
+            "time": "12.00.01",
+            "start": {
+              "year": 2026,
+              "month": 10,
+              "day": 29,
+              "hour": 12,
+              "minute": 0,
+              "second": 1
+            },
+            "timezone": "unspecified_local_civil",
+            "records": 2,
+            "declared_records": 2,
+            "duration": "1",
+            "signals": [
+              {
+                "label": "EEG C3",
+                "transducer": "",
+                "unit": "uV",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 2,
+                "reserved": ""
+              },
+              {
+                "label": "EDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              },
+              {
+                "label": "EDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              }
+            ],
+            "starts": [
+              "+0.25",
+              "+3.25"
+            ],
+            "gaps": [
+              {
+                "after_record": 0,
+                "start": "1.25",
+                "end": "3.25"
+              }
+            ],
+            "annotations": 11,
+            "time_tolerance": null
+          },
+          "annotations": [
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.500",
+              "duration": null,
+              "text": "dup"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.50",
+              "duration": null,
+              "text": "point"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.750",
+              "duration": "0.500",
+              "text": "Café"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+1.500",
+              "duration": null,
+              "text": "gap"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "-0.250",
+              "duration": null,
+              "text": "pre"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.5",
+              "duration": null,
+              "text": "label-B"
+            },
+            {
+              "record": 0,
+              "signal": 2,
+              "onset": "+0.125",
+              "duration": null,
+              "text": "﻿观察🐉"
+            },
+            {
+              "record": 1,
+              "signal": 1,
+              "onset": "+3.500",
+              "duration": "0.250",
+              "text": "late"
+            },
+            {
+              "record": 1,
+              "signal": 1,
+              "onset": "+4.500",
+              "duration": null,
+              "text": "post"
+            },
+            {
+              "record": 1,
+              "signal": 1,
+              "onset": "+3.75",
+              "duration": null,
+              "text": "only-right"
+            },
+            {
+              "record": 1,
+              "signal": 2,
+              "onset": "+0.5",
+              "duration": null,
+              "text": "dup"
+            }
+          ]
+        },
+        "groups": [
+          {
+            "onset": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "duration": null,
+            "text": "dup",
+            "left_indices": [
+              0,
+              1,
+              7
+            ],
+            "right_indices": [
+              0,
+              10
+            ],
+            "left": 3,
+            "right": 2,
+            "retained": 2,
+            "removed": 1,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "duration": {
+              "numerator": "0",
+              "denominator": "1"
+            },
+            "text": "point",
+            "left_indices": [
+              2
+            ],
+            "right_indices": [],
+            "left": 1,
+            "right": 0,
+            "retained": 0,
+            "removed": 1,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "3",
+              "denominator": "4"
+            },
+            "duration": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "text": "Café",
+            "left_indices": [
+              3
+            ],
+            "right_indices": [],
+            "left": 1,
+            "right": 0,
+            "retained": 0,
+            "removed": 1,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "3",
+              "denominator": "2"
+            },
+            "duration": null,
+            "text": "gap",
+            "left_indices": [
+              4
+            ],
+            "right_indices": [
+              3
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "-1",
+              "denominator": "4"
+            },
+            "duration": null,
+            "text": "pre",
+            "left_indices": [
+              5
+            ],
+            "right_indices": [
+              4
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "duration": null,
+            "text": "label-A",
+            "left_indices": [
+              6
+            ],
+            "right_indices": [],
+            "left": 1,
+            "right": 0,
+            "retained": 0,
+            "removed": 1,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "1",
+              "denominator": "8"
+            },
+            "duration": null,
+            "text": "﻿观察🐉",
+            "left_indices": [
+              8
+            ],
+            "right_indices": [
+              6
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "7",
+              "denominator": "2"
+            },
+            "duration": {
+              "numerator": "1",
+              "denominator": "4"
+            },
+            "text": "late",
+            "left_indices": [
+              9
+            ],
+            "right_indices": [
+              7
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "9",
+              "denominator": "2"
+            },
+            "duration": null,
+            "text": "post",
+            "left_indices": [
+              10
+            ],
+            "right_indices": [
+              8
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "15",
+              "denominator": "4"
+            },
+            "duration": null,
+            "text": "only-left",
+            "left_indices": [
+              11
+            ],
+            "right_indices": [],
+            "left": 1,
+            "right": 0,
+            "retained": 0,
+            "removed": 1,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "duration": null,
+            "text": "point",
+            "left_indices": [],
+            "right_indices": [
+              1
+            ],
+            "left": 0,
+            "right": 1,
+            "retained": 0,
+            "removed": 0,
+            "added": 1
+          },
+          {
+            "onset": {
+              "numerator": "3",
+              "denominator": "4"
+            },
+            "duration": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "text": "Café",
+            "left_indices": [],
+            "right_indices": [
+              2
+            ],
+            "left": 0,
+            "right": 1,
+            "retained": 0,
+            "removed": 0,
+            "added": 1
+          },
+          {
+            "onset": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "duration": null,
+            "text": "label-B",
+            "left_indices": [],
+            "right_indices": [
+              5
+            ],
+            "left": 0,
+            "right": 1,
+            "retained": 0,
+            "removed": 0,
+            "added": 1
+          },
+          {
+            "onset": {
+              "numerator": "15",
+              "denominator": "4"
+            },
+            "duration": null,
+            "text": "only-right",
+            "left_indices": [],
+            "right_indices": [
+              9
+            ],
+            "left": 0,
+            "right": 1,
+            "retained": 0,
+            "removed": 0,
+            "added": 1
+          }
+        ],
+        "totals": {
+          "left": 12,
+          "right": 11,
+          "retained": 7,
+          "removed": 5,
+          "added": 4,
+          "groups": 14
+        }
+      }
+    },
+    {
+      "name": "clockEqualCivilInstant",
+      "left": "clockEqualCivilInstant-left.edf",
+      "right": "clockEqualCivilInstant-right.edf",
+      "readOptions": "clockEqualCivilInstant-read.json",
+      "leftTolerance": null,
+      "rightTolerance": null,
+      "expected": {
+        "frame": "file_header_relative",
+        "status": "complete_relative_comparison_clock_context_mismatch",
+        "header_zero_equal": false,
+        "header_civil_delta_seconds": "1",
+        "needs_clock_review": true,
+        "left": {
+          "context": {
+            "format": "edf",
+            "continuity": "discontinuous",
+            "patient": "X X X X",
+            "recording": "Startdate 29-OCT-2026 X X X",
+            "date": "29.10.26",
+            "time": "12.00.00",
+            "start": {
+              "year": 2026,
+              "month": 10,
+              "day": 29,
+              "hour": 12,
+              "minute": 0,
+              "second": 0
+            },
+            "timezone": "unspecified_local_civil",
+            "records": 2,
+            "declared_records": 2,
+            "duration": "1",
+            "signals": [
+              {
+                "label": "EEG C3",
+                "transducer": "",
+                "unit": "uV",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 2,
+                "reserved": ""
+              },
+              {
+                "label": "EDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              },
+              {
+                "label": "EDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              }
+            ],
+            "starts": [
+              "+0.25",
+              "+3.25"
+            ],
+            "gaps": [
+              {
+                "after_record": 0,
+                "start": "1.25",
+                "end": "3.25"
+              }
+            ],
+            "annotations": 1,
+            "time_tolerance": null
+          },
+          "annotations": [
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+1.5",
+              "duration": null,
+              "text": "clock"
+            }
+          ]
+        },
+        "right": {
+          "context": {
+            "format": "edf",
+            "continuity": "discontinuous",
+            "patient": "X X X X",
+            "recording": "Startdate 29-OCT-2026 X X X",
+            "date": "29.10.26",
+            "time": "12.00.01",
+            "start": {
+              "year": 2026,
+              "month": 10,
+              "day": 29,
+              "hour": 12,
+              "minute": 0,
+              "second": 1
+            },
+            "timezone": "unspecified_local_civil",
+            "records": 2,
+            "declared_records": 2,
+            "duration": "1",
+            "signals": [
+              {
+                "label": "EEG C3",
+                "transducer": "",
+                "unit": "uV",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 2,
+                "reserved": ""
+              },
+              {
+                "label": "EDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              },
+              {
+                "label": "EDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              }
+            ],
+            "starts": [
+              "+0.25",
+              "+3.25"
+            ],
+            "gaps": [
+              {
+                "after_record": 0,
+                "start": "1.25",
+                "end": "3.25"
+              }
+            ],
+            "annotations": 1,
+            "time_tolerance": null
+          },
+          "annotations": [
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.5",
+              "duration": null,
+              "text": "clock"
+            }
+          ]
+        },
+        "groups": [
+          {
+            "onset": {
+              "numerator": "3",
+              "denominator": "2"
+            },
+            "duration": null,
+            "text": "clock",
+            "left_indices": [
+              0
+            ],
+            "right_indices": [],
+            "left": 1,
+            "right": 0,
+            "retained": 0,
+            "removed": 1,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "duration": null,
+            "text": "clock",
+            "left_indices": [],
+            "right_indices": [
+              0
+            ],
+            "left": 0,
+            "right": 1,
+            "retained": 0,
+            "removed": 0,
+            "added": 1
+          }
+        ],
+        "totals": {
+          "left": 1,
+          "right": 1,
+          "retained": 0,
+          "removed": 1,
+          "added": 1,
+          "groups": 2
+        }
+      }
+    },
+    {
+      "name": "precision",
+      "left": "precision-left.edf",
+      "right": "precision-right.edf",
+      "readOptions": "precision-read.json",
+      "leftTolerance": null,
+      "rightTolerance": null,
+      "expected": {
+        "frame": "file_header_relative",
+        "status": "complete_relative_comparison",
+        "header_zero_equal": true,
+        "header_civil_delta_seconds": "0",
+        "needs_clock_review": false,
+        "left": {
+          "context": {
+            "format": "edf",
+            "continuity": "discontinuous",
+            "patient": "X X X X",
+            "recording": "Startdate 29-OCT-2026 X X X",
+            "date": "29.10.26",
+            "time": "12.00.00",
+            "start": {
+              "year": 2026,
+              "month": 10,
+              "day": 29,
+              "hour": 12,
+              "minute": 0,
+              "second": 0
+            },
+            "timezone": "unspecified_local_civil",
+            "records": 2,
+            "declared_records": 2,
+            "duration": "1",
+            "signals": [
+              {
+                "label": "EEG C3",
+                "transducer": "",
+                "unit": "uV",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 2,
+                "reserved": ""
+              },
+              {
+                "label": "EDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              },
+              {
+                "label": "EDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              }
+            ],
+            "starts": [
+              "+0.25",
+              "+3.25"
+            ],
+            "gaps": [
+              {
+                "after_record": 0,
+                "start": "1.25",
+                "end": "3.25"
+              }
+            ],
+            "annotations": 1,
+            "time_tolerance": null
+          },
+          "annotations": [
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.5000000000000000001",
+              "duration": null,
+              "text": "precise"
+            }
+          ]
+        },
+        "right": {
+          "context": {
+            "format": "edf",
+            "continuity": "discontinuous",
+            "patient": "X X X X",
+            "recording": "Startdate 29-OCT-2026 X X X",
+            "date": "29.10.26",
+            "time": "12.00.00",
+            "start": {
+              "year": 2026,
+              "month": 10,
+              "day": 29,
+              "hour": 12,
+              "minute": 0,
+              "second": 0
+            },
+            "timezone": "unspecified_local_civil",
+            "records": 2,
+            "declared_records": 2,
+            "duration": "1",
+            "signals": [
+              {
+                "label": "EEG C3",
+                "transducer": "",
+                "unit": "uV",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 2,
+                "reserved": ""
+              },
+              {
+                "label": "EDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              },
+              {
+                "label": "EDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              }
+            ],
+            "starts": [
+              "+0.25",
+              "+3.25"
+            ],
+            "gaps": [
+              {
+                "after_record": 0,
+                "start": "1.25",
+                "end": "3.25"
+              }
+            ],
+            "annotations": 1,
+            "time_tolerance": null
+          },
+          "annotations": [
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.5000000000000000002",
+              "duration": null,
+              "text": "precise"
+            }
+          ]
+        },
+        "groups": [
+          {
+            "onset": {
+              "numerator": "5000000000000000001",
+              "denominator": "10000000000000000000"
+            },
+            "duration": null,
+            "text": "precise",
+            "left_indices": [
+              0
+            ],
+            "right_indices": [],
+            "left": 1,
+            "right": 0,
+            "retained": 0,
+            "removed": 1,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "2500000000000000001",
+              "denominator": "5000000000000000000"
+            },
+            "duration": null,
+            "text": "precise",
+            "left_indices": [],
+            "right_indices": [
+              0
+            ],
+            "left": 0,
+            "right": 1,
+            "retained": 0,
+            "removed": 0,
+            "added": 1
+          }
+        ],
+        "totals": {
+          "left": 1,
+          "right": 1,
+          "retained": 0,
+          "removed": 1,
+          "added": 1,
+          "groups": 2
+        }
+      }
+    },
+    {
+      "name": "annotation-only",
+      "left": "annotation-only-left.edf",
+      "right": "annotation-only-right.edf",
+      "readOptions": "annotation-only-read.json",
+      "leftTolerance": null,
+      "rightTolerance": null,
+      "expected": {
+        "frame": "file_header_relative",
+        "status": "complete_relative_comparison",
+        "header_zero_equal": true,
+        "header_civil_delta_seconds": "0",
+        "needs_clock_review": false,
+        "left": {
+          "context": {
+            "format": "edf",
+            "continuity": "discontinuous",
+            "patient": "X X X X",
+            "recording": "Startdate 29-OCT-2026 X X X",
+            "date": "29.10.26",
+            "time": "12.00.00",
+            "start": {
+              "year": 2026,
+              "month": 10,
+              "day": 29,
+              "hour": 12,
+              "minute": 0,
+              "second": 0
+            },
+            "timezone": "unspecified_local_civil",
+            "records": 1,
+            "declared_records": 1,
+            "duration": "0",
+            "signals": [
+              {
+                "label": "EDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              }
+            ],
+            "starts": [
+              "+0.25"
+            ],
+            "gaps": [],
+            "annotations": 3,
+            "time_tolerance": null
+          },
+          "annotations": [
+            {
+              "record": 0,
+              "signal": 0,
+              "onset": "+0.25",
+              "duration": null,
+              "text": "definition"
+            },
+            {
+              "record": 0,
+              "signal": 0,
+              "onset": "+0.25",
+              "duration": null,
+              "text": "extra"
+            },
+            {
+              "record": 0,
+              "signal": 0,
+              "onset": "+0.25",
+              "duration": null,
+              "text": "extra"
+            }
+          ]
+        },
+        "right": {
+          "context": {
+            "format": "edf",
+            "continuity": "discontinuous",
+            "patient": "X X X X",
+            "recording": "Startdate 29-OCT-2026 X X X",
+            "date": "29.10.26",
+            "time": "12.00.00",
+            "start": {
+              "year": 2026,
+              "month": 10,
+              "day": 29,
+              "hour": 12,
+              "minute": 0,
+              "second": 0
+            },
+            "timezone": "unspecified_local_civil",
+            "records": 1,
+            "declared_records": 1,
+            "duration": "0",
+            "signals": [
+              {
+                "label": "EDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              }
+            ],
+            "starts": [
+              "+0.25"
+            ],
+            "gaps": [],
+            "annotations": 2,
+            "time_tolerance": null
+          },
+          "annotations": [
+            {
+              "record": 0,
+              "signal": 0,
+              "onset": "+0.250",
+              "duration": null,
+              "text": "definition"
+            },
+            {
+              "record": 0,
+              "signal": 0,
+              "onset": "+0.250",
+              "duration": null,
+              "text": "extra"
+            }
+          ]
+        },
+        "groups": [
+          {
+            "onset": {
+              "numerator": "1",
+              "denominator": "4"
+            },
+            "duration": null,
+            "text": "definition",
+            "left_indices": [
+              0
+            ],
+            "right_indices": [
+              0
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0
+          },
+          {
+            "onset": {
+              "numerator": "1",
+              "denominator": "4"
+            },
+            "duration": null,
+            "text": "extra",
+            "left_indices": [
+              1,
+              2
+            ],
+            "right_indices": [
+              1
+            ],
+            "left": 2,
+            "right": 1,
+            "retained": 1,
+            "removed": 1,
+            "added": 0
+          }
+        ],
+        "totals": {
+          "left": 3,
+          "right": 2,
+          "retained": 2,
+          "removed": 1,
+          "added": 0,
+          "groups": 2
+        }
+      }
+    },
+    {
+      "name": "plain-empty",
+      "left": "plain-empty-left.edf",
+      "right": "plain-empty-right.edf",
+      "readOptions": "plain-empty-read.json",
+      "leftTolerance": null,
+      "rightTolerance": null,
+      "expected": {
+        "frame": "file_header_relative",
+        "status": "complete_relative_comparison",
+        "header_zero_equal": true,
+        "header_civil_delta_seconds": "0",
+        "needs_clock_review": false,
+        "left": {
+          "context": {
+            "format": "edf",
+            "continuity": "plain",
+            "patient": "X X X X",
+            "recording": "Startdate 29-OCT-2026 X X X",
+            "date": "29.10.26",
+            "time": "12.00.00",
+            "start": {
+              "year": 2026,
+              "month": 10,
+              "day": 29,
+              "hour": 12,
+              "minute": 0,
+              "second": 0
+            },
+            "timezone": "unspecified_local_civil",
+            "records": 0,
+            "declared_records": 0,
+            "duration": "1",
+            "signals": [
+              {
+                "label": "EEG C3",
+                "transducer": "",
+                "unit": "uV",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 2,
+                "reserved": ""
+              }
+            ],
+            "starts": [],
+            "gaps": [],
+            "annotations": 0,
+            "time_tolerance": null
+          },
+          "annotations": []
+        },
+        "right": {
+          "context": {
+            "format": "edf",
+            "continuity": "plain",
+            "patient": "X X X X",
+            "recording": "Startdate 29-OCT-2026 X X X",
+            "date": "29.10.26",
+            "time": "12.00.00",
+            "start": {
+              "year": 2026,
+              "month": 10,
+              "day": 29,
+              "hour": 12,
+              "minute": 0,
+              "second": 0
+            },
+            "timezone": "unspecified_local_civil",
+            "records": 0,
+            "declared_records": 0,
+            "duration": "1",
+            "signals": [
+              {
+                "label": "EEG C3",
+                "transducer": "",
+                "unit": "uV",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 2,
+                "reserved": ""
+              }
+            ],
+            "starts": [],
+            "gaps": [],
+            "annotations": 0,
+            "time_tolerance": null
+          },
+          "annotations": []
+        },
+        "groups": [],
+        "totals": {
+          "left": 0,
+          "right": 0,
+          "retained": 0,
+          "removed": 0,
+          "added": 0,
+          "groups": 0
+        }
+      }
+    },
+    {
+      "name": "empty-to-full",
+      "left": "empty-to-full-left.edf",
+      "right": "empty-to-full-right.edf",
+      "readOptions": "empty-to-full-read.json",
+      "leftTolerance": null,
+      "rightTolerance": null,
+      "expected": {
+        "frame": "file_header_relative",
+        "status": "complete_relative_comparison",
+        "header_zero_equal": true,
+        "header_civil_delta_seconds": "0",
+        "needs_clock_review": false,
+        "left": {
+          "context": {
+            "format": "edf",
+            "continuity": "plain",
+            "patient": "X X X X",
+            "recording": "Startdate 29-OCT-2026 X X X",
+            "date": "29.10.26",
+            "time": "12.00.00",
+            "start": {
+              "year": 2026,
+              "month": 10,
+              "day": 29,
+              "hour": 12,
+              "minute": 0,
+              "second": 0
+            },
+            "timezone": "unspecified_local_civil",
+            "records": 0,
+            "declared_records": 0,
+            "duration": "1",
+            "signals": [
+              {
+                "label": "EEG C3",
+                "transducer": "",
+                "unit": "uV",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 2,
+                "reserved": ""
+              }
+            ],
+            "starts": [],
+            "gaps": [],
+            "annotations": 0,
+            "time_tolerance": null
+          },
+          "annotations": []
+        },
+        "right": {
+          "context": {
+            "format": "edf",
+            "continuity": "discontinuous",
+            "patient": "X X X X",
+            "recording": "Startdate 29-OCT-2026 X X X",
+            "date": "29.10.26",
+            "time": "12.00.00",
+            "start": {
+              "year": 2026,
+              "month": 10,
+              "day": 29,
+              "hour": 12,
+              "minute": 0,
+              "second": 0
+            },
+            "timezone": "unspecified_local_civil",
+            "records": 2,
+            "declared_records": 2,
+            "duration": "1",
+            "signals": [
+              {
+                "label": "EEG C3",
+                "transducer": "",
+                "unit": "uV",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 2,
+                "reserved": ""
+              },
+              {
+                "label": "EDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              },
+              {
+                "label": "EDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              }
+            ],
+            "starts": [
+              "+0.25",
+              "+3.25"
+            ],
+            "gaps": [
+              {
+                "after_record": 0,
+                "start": "1.25",
+                "end": "3.25"
+              }
+            ],
+            "annotations": 12,
+            "time_tolerance": null
+          },
+          "annotations": [
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.50",
+              "duration": null,
+              "text": "dup"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.50",
+              "duration": null,
+              "text": "dup"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.50",
+              "duration": "0",
+              "text": "point"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.75",
+              "duration": "0.50",
+              "text": "Café"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+1.50",
+              "duration": null,
+              "text": "gap"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "-0.25",
+              "duration": null,
+              "text": "pre"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.5",
+              "duration": null,
+              "text": "label-A"
+            },
+            {
+              "record": 0,
+              "signal": 2,
+              "onset": "+0.50",
+              "duration": null,
+              "text": "dup"
+            },
+            {
+              "record": 0,
+              "signal": 2,
+              "onset": "+0.125",
+              "duration": null,
+              "text": "﻿观察🐉"
+            },
+            {
+              "record": 1,
+              "signal": 1,
+              "onset": "+3.50",
+              "duration": "0.25",
+              "text": "late"
+            },
+            {
+              "record": 1,
+              "signal": 1,
+              "onset": "+4.50",
+              "duration": null,
+              "text": "post"
+            },
+            {
+              "record": 1,
+              "signal": 2,
+              "onset": "+3.75",
+              "duration": null,
+              "text": "only-left"
+            }
+          ]
+        },
+        "groups": [
+          {
+            "left_indices": [],
+            "right_indices": [
+              0,
+              1,
+              7
+            ],
+            "left": 0,
+            "right": 3,
+            "retained": 0,
+            "removed": 0,
+            "added": 3,
+            "onset": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "duration": null,
+            "text": "dup"
+          },
+          {
+            "left_indices": [],
+            "right_indices": [
+              2
+            ],
+            "left": 0,
+            "right": 1,
+            "retained": 0,
+            "removed": 0,
+            "added": 1,
+            "onset": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "duration": {
+              "numerator": "0",
+              "denominator": "1"
+            },
+            "text": "point"
+          },
+          {
+            "left_indices": [],
+            "right_indices": [
+              3
+            ],
+            "left": 0,
+            "right": 1,
+            "retained": 0,
+            "removed": 0,
+            "added": 1,
+            "onset": {
+              "numerator": "3",
+              "denominator": "4"
+            },
+            "duration": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "text": "Café"
+          },
+          {
+            "left_indices": [],
+            "right_indices": [
+              4
+            ],
+            "left": 0,
+            "right": 1,
+            "retained": 0,
+            "removed": 0,
+            "added": 1,
+            "onset": {
+              "numerator": "3",
+              "denominator": "2"
+            },
+            "duration": null,
+            "text": "gap"
+          },
+          {
+            "left_indices": [],
+            "right_indices": [
+              5
+            ],
+            "left": 0,
+            "right": 1,
+            "retained": 0,
+            "removed": 0,
+            "added": 1,
+            "onset": {
+              "numerator": "-1",
+              "denominator": "4"
+            },
+            "duration": null,
+            "text": "pre"
+          },
+          {
+            "left_indices": [],
+            "right_indices": [
+              6
+            ],
+            "left": 0,
+            "right": 1,
+            "retained": 0,
+            "removed": 0,
+            "added": 1,
+            "onset": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "duration": null,
+            "text": "label-A"
+          },
+          {
+            "left_indices": [],
+            "right_indices": [
+              8
+            ],
+            "left": 0,
+            "right": 1,
+            "retained": 0,
+            "removed": 0,
+            "added": 1,
+            "onset": {
+              "numerator": "1",
+              "denominator": "8"
+            },
+            "duration": null,
+            "text": "﻿观察🐉"
+          },
+          {
+            "left_indices": [],
+            "right_indices": [
+              9
+            ],
+            "left": 0,
+            "right": 1,
+            "retained": 0,
+            "removed": 0,
+            "added": 1,
+            "onset": {
+              "numerator": "7",
+              "denominator": "2"
+            },
+            "duration": {
+              "numerator": "1",
+              "denominator": "4"
+            },
+            "text": "late"
+          },
+          {
+            "left_indices": [],
+            "right_indices": [
+              10
+            ],
+            "left": 0,
+            "right": 1,
+            "retained": 0,
+            "removed": 0,
+            "added": 1,
+            "onset": {
+              "numerator": "9",
+              "denominator": "2"
+            },
+            "duration": null,
+            "text": "post"
+          },
+          {
+            "left_indices": [],
+            "right_indices": [
+              11
+            ],
+            "left": 0,
+            "right": 1,
+            "retained": 0,
+            "removed": 0,
+            "added": 1,
+            "onset": {
+              "numerator": "15",
+              "denominator": "4"
+            },
+            "duration": null,
+            "text": "only-left"
+          }
+        ],
+        "totals": {
+          "left": 0,
+          "right": 12,
+          "retained": 0,
+          "removed": 0,
+          "added": 12,
+          "groups": 10
+        }
+      }
+    },
+    {
+      "name": "zero-spelling",
+      "left": "zero-spelling-left.edf",
+      "right": "zero-spelling-right.edf",
+      "readOptions": "zero-spelling-read.json",
+      "leftTolerance": null,
+      "rightTolerance": null,
+      "expected": {
+        "frame": "file_header_relative",
+        "status": "complete_relative_comparison",
+        "header_zero_equal": true,
+        "header_civil_delta_seconds": "0",
+        "needs_clock_review": false,
+        "left": {
+          "context": {
+            "format": "edf",
+            "continuity": "discontinuous",
+            "patient": "X X X X",
+            "recording": "Startdate 29-OCT-2026 X X X",
+            "date": "29.10.26",
+            "time": "12.00.00",
+            "start": {
+              "year": 2026,
+              "month": 10,
+              "day": 29,
+              "hour": 12,
+              "minute": 0,
+              "second": 0
+            },
+            "timezone": "unspecified_local_civil",
+            "records": 2,
+            "declared_records": 2,
+            "duration": "1",
+            "signals": [
+              {
+                "label": "EEG C3",
+                "transducer": "",
+                "unit": "uV",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 2,
+                "reserved": ""
+              },
+              {
+                "label": "EDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              },
+              {
+                "label": "EDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              }
+            ],
+            "starts": [
+              "+0.25",
+              "+3.25"
+            ],
+            "gaps": [
+              {
+                "after_record": 0,
+                "start": "1.25",
+                "end": "3.25"
+              }
+            ],
+            "annotations": 1,
+            "time_tolerance": null
+          },
+          "annotations": [
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.5",
+              "duration": "0",
+              "text": "zero"
+            }
+          ]
+        },
+        "right": {
+          "context": {
+            "format": "edf",
+            "continuity": "discontinuous",
+            "patient": "X X X X",
+            "recording": "Startdate 29-OCT-2026 X X X",
+            "date": "29.10.26",
+            "time": "12.00.00",
+            "start": {
+              "year": 2026,
+              "month": 10,
+              "day": 29,
+              "hour": 12,
+              "minute": 0,
+              "second": 0
+            },
+            "timezone": "unspecified_local_civil",
+            "records": 2,
+            "declared_records": 2,
+            "duration": "1",
+            "signals": [
+              {
+                "label": "EEG C3",
+                "transducer": "",
+                "unit": "uV",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 2,
+                "reserved": ""
+              },
+              {
+                "label": "EDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              },
+              {
+                "label": "EDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              }
+            ],
+            "starts": [
+              "+0.25",
+              "+3.25"
+            ],
+            "gaps": [
+              {
+                "after_record": 0,
+                "start": "1.25",
+                "end": "3.25"
+              }
+            ],
+            "annotations": 1,
+            "time_tolerance": null
+          },
+          "annotations": [
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.500",
+              "duration": "0.000",
+              "text": "zero"
+            }
+          ]
+        },
+        "groups": [
+          {
+            "onset": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "duration": {
+              "numerator": "0",
+              "denominator": "1"
+            },
+            "text": "zero",
+            "left_indices": [
+              0
+            ],
+            "right_indices": [
+              0
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0
+          }
+        ],
+        "totals": {
+          "left": 1,
+          "right": 1,
+          "retained": 1,
+          "removed": 0,
+          "added": 0,
+          "groups": 1
+        }
+      }
+    },
+    {
+      "name": "span-gap-and-end",
+      "left": "span-gap-and-end-left.edf",
+      "right": "span-gap-and-end-right.edf",
+      "readOptions": "span-gap-and-end-read.json",
+      "leftTolerance": null,
+      "rightTolerance": null,
+      "expected": {
+        "frame": "file_header_relative",
+        "status": "complete_relative_comparison",
+        "header_zero_equal": true,
+        "header_civil_delta_seconds": "0",
+        "needs_clock_review": false,
+        "left": {
+          "context": {
+            "format": "edf",
+            "continuity": "discontinuous",
+            "patient": "X X X X",
+            "recording": "Startdate 29-OCT-2026 X X X",
+            "date": "29.10.26",
+            "time": "12.00.00",
+            "start": {
+              "year": 2026,
+              "month": 10,
+              "day": 29,
+              "hour": 12,
+              "minute": 0,
+              "second": 0
+            },
+            "timezone": "unspecified_local_civil",
+            "records": 2,
+            "declared_records": 2,
+            "duration": "1",
+            "signals": [
+              {
+                "label": "EEG C3",
+                "transducer": "",
+                "unit": "uV",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 2,
+                "reserved": ""
+              },
+              {
+                "label": "EDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              },
+              {
+                "label": "EDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              }
+            ],
+            "starts": [
+              "+0.25",
+              "+3.25"
+            ],
+            "gaps": [
+              {
+                "after_record": 0,
+                "start": "1.25",
+                "end": "3.25"
+              }
+            ],
+            "annotations": 1,
+            "time_tolerance": null
+          },
+          "annotations": [
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.75",
+              "duration": "4",
+              "text": "span"
+            }
+          ]
+        },
+        "right": {
+          "context": {
+            "format": "edf",
+            "continuity": "discontinuous",
+            "patient": "X X X X",
+            "recording": "Startdate 29-OCT-2026 X X X",
+            "date": "29.10.26",
+            "time": "12.00.00",
+            "start": {
+              "year": 2026,
+              "month": 10,
+              "day": 29,
+              "hour": 12,
+              "minute": 0,
+              "second": 0
+            },
+            "timezone": "unspecified_local_civil",
+            "records": 2,
+            "declared_records": 2,
+            "duration": "1",
+            "signals": [
+              {
+                "label": "EEG C3",
+                "transducer": "",
+                "unit": "uV",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 2,
+                "reserved": ""
+              },
+              {
+                "label": "EDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              },
+              {
+                "label": "EDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              }
+            ],
+            "starts": [
+              "+0.25",
+              "+3.25"
+            ],
+            "gaps": [
+              {
+                "after_record": 0,
+                "start": "1.25",
+                "end": "3.25"
+              }
+            ],
+            "annotations": 1,
+            "time_tolerance": null
+          },
+          "annotations": [
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.750",
+              "duration": "4.000",
+              "text": "span"
+            }
+          ]
+        },
+        "groups": [
+          {
+            "onset": {
+              "numerator": "3",
+              "denominator": "4"
+            },
+            "duration": {
+              "numerator": "4",
+              "denominator": "1"
+            },
+            "text": "span",
+            "left_indices": [
+              0
+            ],
+            "right_indices": [
+              0
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0
+          }
+        ],
+        "totals": {
+          "left": 1,
+          "right": 1,
+          "retained": 1,
+          "removed": 0,
+          "added": 0,
+          "groups": 1
+        }
+      }
+    },
+    {
+      "name": "tolerant",
+      "left": "tolerant-left.edf",
+      "right": "tolerant-right.edf",
+      "readOptions": "tolerant-read.json",
+      "leftTolerance": "0.0001",
+      "rightTolerance": "0.00010000",
+      "expected": {
+        "frame": "file_header_relative",
+        "status": "complete_relative_comparison",
+        "header_zero_equal": true,
+        "header_civil_delta_seconds": "0",
+        "needs_clock_review": false,
+        "left": {
+          "context": {
+            "format": "edf",
+            "continuity": "continuous",
+            "patient": "X X X X",
+            "recording": "Startdate 29-OCT-2026 X X X",
+            "date": "29.10.26",
+            "time": "12.00.00",
+            "start": {
+              "year": 2026,
+              "month": 10,
+              "day": 29,
+              "hour": 12,
+              "minute": 0,
+              "second": 0
+            },
+            "timezone": "unspecified_local_civil",
+            "records": 2,
+            "declared_records": 2,
+            "duration": "1",
+            "signals": [
+              {
+                "label": "EEG C3",
+                "transducer": "",
+                "unit": "uV",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 2,
+                "reserved": ""
+              },
+              {
+                "label": "EDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              },
+              {
+                "label": "EDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              }
+            ],
+            "starts": [
+              "+0.25",
+              "+1.2501"
+            ],
+            "gaps": [
+              {
+                "after_record": 0,
+                "start": "1.25",
+                "end": "1.2501"
+              }
+            ],
+            "annotations": 12,
+            "time_tolerance": "0.0001"
+          },
+          "annotations": [
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.50",
+              "duration": null,
+              "text": "dup"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.50",
+              "duration": null,
+              "text": "dup"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.50",
+              "duration": "0",
+              "text": "point"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.75",
+              "duration": "0.50",
+              "text": "Café"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+1.50",
+              "duration": null,
+              "text": "gap"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "-0.25",
+              "duration": null,
+              "text": "pre"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.5",
+              "duration": null,
+              "text": "label-A"
+            },
+            {
+              "record": 0,
+              "signal": 2,
+              "onset": "+0.50",
+              "duration": null,
+              "text": "dup"
+            },
+            {
+              "record": 0,
+              "signal": 2,
+              "onset": "+0.125",
+              "duration": null,
+              "text": "﻿观察🐉"
+            },
+            {
+              "record": 1,
+              "signal": 1,
+              "onset": "+3.50",
+              "duration": "0.25",
+              "text": "late"
+            },
+            {
+              "record": 1,
+              "signal": 1,
+              "onset": "+4.50",
+              "duration": null,
+              "text": "post"
+            },
+            {
+              "record": 1,
+              "signal": 2,
+              "onset": "+3.75",
+              "duration": null,
+              "text": "only-left"
+            }
+          ]
+        },
+        "right": {
+          "context": {
+            "format": "edf",
+            "continuity": "continuous",
+            "patient": "X X X X",
+            "recording": "Startdate 29-OCT-2026 X X X",
+            "date": "29.10.26",
+            "time": "12.00.00",
+            "start": {
+              "year": 2026,
+              "month": 10,
+              "day": 29,
+              "hour": 12,
+              "minute": 0,
+              "second": 0
+            },
+            "timezone": "unspecified_local_civil",
+            "records": 2,
+            "declared_records": 2,
+            "duration": "1",
+            "signals": [
+              {
+                "label": "EEG C3",
+                "transducer": "",
+                "unit": "uV",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 2,
+                "reserved": ""
+              },
+              {
+                "label": "EDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              },
+              {
+                "label": "EDF Annotations",
+                "transducer": "",
+                "unit": "",
+                "physical_min": -1.0,
+                "physical_max": 1.0,
+                "digital_min": -32768,
+                "digital_max": 32767,
+                "prefilter": "",
+                "samples_per_record": 128,
+                "reserved": ""
+              }
+            ],
+            "starts": [
+              "+0.25",
+              "+1.2501"
+            ],
+            "gaps": [
+              {
+                "after_record": 0,
+                "start": "1.25",
+                "end": "1.2501"
+              }
+            ],
+            "annotations": 12,
+            "time_tolerance": "0.00010000"
+          },
+          "annotations": [
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.50",
+              "duration": null,
+              "text": "dup"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.50",
+              "duration": null,
+              "text": "dup"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.50",
+              "duration": "0",
+              "text": "point"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.75",
+              "duration": "0.50",
+              "text": "Café"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+1.50",
+              "duration": null,
+              "text": "gap"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "-0.25",
+              "duration": null,
+              "text": "pre"
+            },
+            {
+              "record": 0,
+              "signal": 1,
+              "onset": "+0.5",
+              "duration": null,
+              "text": "label-A"
+            },
+            {
+              "record": 0,
+              "signal": 2,
+              "onset": "+0.50",
+              "duration": null,
+              "text": "dup"
+            },
+            {
+              "record": 0,
+              "signal": 2,
+              "onset": "+0.125",
+              "duration": null,
+              "text": "﻿观察🐉"
+            },
+            {
+              "record": 1,
+              "signal": 1,
+              "onset": "+3.50",
+              "duration": "0.25",
+              "text": "late"
+            },
+            {
+              "record": 1,
+              "signal": 1,
+              "onset": "+4.50",
+              "duration": null,
+              "text": "post"
+            },
+            {
+              "record": 1,
+              "signal": 2,
+              "onset": "+3.75",
+              "duration": null,
+              "text": "only-left"
+            }
+          ]
+        },
+        "groups": [
+          {
+            "left_indices": [
+              0,
+              1,
+              7
+            ],
+            "right_indices": [
+              0,
+              1,
+              7
+            ],
+            "left": 3,
+            "right": 3,
+            "retained": 3,
+            "removed": 0,
+            "added": 0,
+            "onset": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "duration": null,
+            "text": "dup"
+          },
+          {
+            "left_indices": [
+              2
+            ],
+            "right_indices": [
+              2
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0,
+            "onset": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "duration": {
+              "numerator": "0",
+              "denominator": "1"
+            },
+            "text": "point"
+          },
+          {
+            "left_indices": [
+              3
+            ],
+            "right_indices": [
+              3
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0,
+            "onset": {
+              "numerator": "3",
+              "denominator": "4"
+            },
+            "duration": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "text": "Café"
+          },
+          {
+            "left_indices": [
+              4
+            ],
+            "right_indices": [
+              4
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0,
+            "onset": {
+              "numerator": "3",
+              "denominator": "2"
+            },
+            "duration": null,
+            "text": "gap"
+          },
+          {
+            "left_indices": [
+              5
+            ],
+            "right_indices": [
+              5
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0,
+            "onset": {
+              "numerator": "-1",
+              "denominator": "4"
+            },
+            "duration": null,
+            "text": "pre"
+          },
+          {
+            "left_indices": [
+              6
+            ],
+            "right_indices": [
+              6
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0,
+            "onset": {
+              "numerator": "1",
+              "denominator": "2"
+            },
+            "duration": null,
+            "text": "label-A"
+          },
+          {
+            "left_indices": [
+              8
+            ],
+            "right_indices": [
+              8
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0,
+            "onset": {
+              "numerator": "1",
+              "denominator": "8"
+            },
+            "duration": null,
+            "text": "﻿观察🐉"
+          },
+          {
+            "left_indices": [
+              9
+            ],
+            "right_indices": [
+              9
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0,
+            "onset": {
+              "numerator": "7",
+              "denominator": "2"
+            },
+            "duration": {
+              "numerator": "1",
+              "denominator": "4"
+            },
+            "text": "late"
+          },
+          {
+            "left_indices": [
+              10
+            ],
+            "right_indices": [
+              10
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0,
+            "onset": {
+              "numerator": "9",
+              "denominator": "2"
+            },
+            "duration": null,
+            "text": "post"
+          },
+          {
+            "left_indices": [
+              11
+            ],
+            "right_indices": [
+              11
+            ],
+            "left": 1,
+            "right": 1,
+            "retained": 1,
+            "removed": 0,
+            "added": 0,
+            "onset": {
+              "numerator": "15",
+              "denominator": "4"
+            },
+            "duration": null,
+            "text": "only-left"
+          }
+        ],
+        "totals": {
+          "left": 12,
+          "right": 12,
+          "retained": 12,
+          "removed": 0,
+          "added": 0,
+          "groups": 10
+        }
+      }
+    }
+  ],
+  "errors": [
+    {
+      "name": "invalid-left",
+      "left": "partial.edf",
+      "right": "primary-edf-right.edf",
+      "options": {},
+      "error": "left: Invalid(\"partial trailing data record\")",
+      "public": true,
+      "readOptions": "invalid-left-read.json"
+    },
+    {
+      "name": "invalid-right",
+      "left": "primary-edf-left.edf",
+      "right": "partial.edf",
+      "options": {},
+      "error": "right: Invalid(\"partial trailing data record\")",
+      "public": true,
+      "readOptions": "invalid-right-read.json"
+    },
+    {
+      "name": "strict-timing",
+      "left": "tolerant-left.edf",
+      "right": "primary-edf-right.edf",
+      "options": {},
+      "error": "left: Invalid(\"continuous marker contradicts exact timekeeping TALs\")",
+      "public": true,
+      "readOptions": "strict-timing-read.json"
+    },
+    {
+      "name": "negative-policy",
+      "left": "primary-edf-left.edf",
+      "right": "primary-edf-right.edf",
+      "options": {
+        "left": {
+          "time_tolerance": "-1"
+        }
+      },
+      "error": "left: Invalid(\"negative time tolerance\")",
+      "public": true,
+      "readOptions": "negative-policy-read.json"
+    },
+    {
+      "name": "root-options",
+      "left": "primary-edf-left.edf",
+      "right": "primary-edf-right.edf",
+      "options": [],
+      "error": "options must be an object",
+      "public": false,
+      "readOptions": "root-options-read.json"
+    },
+    {
+      "name": "unknown-root",
+      "left": "primary-edf-left.edf",
+      "right": "primary-edf-right.edf",
+      "options": {
+        "offset": "1"
+      },
+      "error": "unsupported comparison option: offset",
+      "public": false,
+      "readOptions": "unknown-root-read.json"
+    },
+    {
+      "name": "side-options",
+      "left": "primary-edf-left.edf",
+      "right": "primary-edf-right.edf",
+      "options": {
+        "right": []
+      },
+      "error": "right read options must be an object",
+      "public": false,
+      "readOptions": "side-options-read.json"
+    },
+    {
+      "name": "unknown-side",
+      "left": "primary-edf-left.edf",
+      "right": "primary-edf-right.edf",
+      "options": {
+        "left": {
+          "start": "0"
+        }
+      },
+      "error": "unsupported left read option: start",
+      "public": false,
+      "readOptions": "unknown-side-read.json"
+    },
+    {
+      "name": "null-policy",
+      "left": "primary-edf-left.edf",
+      "right": "primary-edf-right.edf",
+      "options": {
+        "right": {
+          "time_tolerance": null
+        }
+      },
+      "error": "time requires a decimal string or number",
+      "public": false,
+      "readOptions": "null-policy-read.json"
+    }
+  ],
+  "rawIdentities": {
+    "primary-edf-left.edf": {
+      "bytes": 2056,
+      "sha256": "1b5989783e1f71ff6d4e92ff2090886e575d065fdb136ad03ace12efae133c4f"
+    },
+    "primary-edf-right.edf": {
+      "bytes": 2056,
+      "sha256": "15e5a9128f151c9ef0eae8f562ffd2002694b3f7ca7e0f7b662ed3e21dc373c7"
+    },
+    "primary-bdf-left.bdf": {
+      "bytes": 2572,
+      "sha256": "b6a287d5cb2660e743af8dd4d0d2fb2f544748aca701f8a934957736a57bfcdd"
+    },
+    "primary-bdf-right.bdf": {
+      "bytes": 2572,
+      "sha256": "b4a2e341603b5c78c0ee66843198308bb746b24814b09822070bd05ba830cbe1"
+    },
+    "mixed-left.edf": {
+      "bytes": 2056,
+      "sha256": "1b5989783e1f71ff6d4e92ff2090886e575d065fdb136ad03ace12efae133c4f"
+    },
+    "mixed-right.bdf": {
+      "bytes": 2572,
+      "sha256": "b4a2e341603b5c78c0ee66843198308bb746b24814b09822070bd05ba830cbe1"
+    },
+    "identical-left.edf": {
+      "bytes": 2056,
+      "sha256": "1b5989783e1f71ff6d4e92ff2090886e575d065fdb136ad03ace12efae133c4f"
+    },
+    "identical-right.edf": {
+      "bytes": 2056,
+      "sha256": "1b5989783e1f71ff6d4e92ff2090886e575d065fdb136ad03ace12efae133c4f"
+    },
+    "identification-context-left.edf": {
+      "bytes": 2056,
+      "sha256": "1b5989783e1f71ff6d4e92ff2090886e575d065fdb136ad03ace12efae133c4f"
+    },
+    "identification-context-right.edf": {
+      "bytes": 2056,
+      "sha256": "bf216636f4b7fe36e999dcb7669012e48aea0d94872a3368eb471068085c5f3c"
+    },
+    "unknown-count-left.edf": {
+      "bytes": 2056,
+      "sha256": "2b4d23ccf4eece0f9c756a992fd381678a72f8bf47e593dd57545df5fc775855"
+    },
+    "unknown-count-right.edf": {
+      "bytes": 2056,
+      "sha256": "bdc083989ed9daf3d16b0053150109c279bd4a40ff0ea10756b425063b8be655"
+    },
+    "clock-relative-left.edf": {
+      "bytes": 2056,
+      "sha256": "1b5989783e1f71ff6d4e92ff2090886e575d065fdb136ad03ace12efae133c4f"
+    },
+    "clock-relative-right.edf": {
+      "bytes": 2056,
+      "sha256": "d1d9c535943a3136fc477c91229a10dfde2c4e65f2174bd52756d45bb48929c2"
+    },
+    "clockEqualCivilInstant-left.edf": {
+      "bytes": 2056,
+      "sha256": "d3a06f81a6f52168fe2d792deb9f5494238bbc70ce20eb4a0c1fe310c87a4556"
+    },
+    "clockEqualCivilInstant-right.edf": {
+      "bytes": 2056,
+      "sha256": "3f314c1af504b4b21f4d7b4909a27e166abc1d01c3af69cd6472ec6be57532e1"
+    },
+    "precision-left.edf": {
+      "bytes": 2056,
+      "sha256": "a1b1d2d6e52ff0af45d459c40ff359e30e43bf6effe056a2e35b364d684a47d8"
+    },
+    "precision-right.edf": {
+      "bytes": 2056,
+      "sha256": "64d663ab7cfff1bd8fab68a9b6b05d7e0f0e52b11551d38145137cd497d447b3"
+    },
+    "annotation-only-left.edf": {
+      "bytes": 768,
+      "sha256": "3c46db9d5787a854596b23b15fe15d9e50d53cc769dcb0af937e8fb54c8ec6e2"
+    },
+    "annotation-only-right.edf": {
+      "bytes": 768,
+      "sha256": "2571003e0635b7a16a1d0171118b2ed127ad9ed921c7becb930ec1670978af00"
+    },
+    "plain-empty-left.edf": {
+      "bytes": 512,
+      "sha256": "e5cf1b9c5ad1c7cf036f9836d920f575e38a80f28dbe3563ba3c2f97a34b2351"
+    },
+    "plain-empty-right.edf": {
+      "bytes": 512,
+      "sha256": "e5cf1b9c5ad1c7cf036f9836d920f575e38a80f28dbe3563ba3c2f97a34b2351"
+    },
+    "empty-to-full-left.edf": {
+      "bytes": 512,
+      "sha256": "e5cf1b9c5ad1c7cf036f9836d920f575e38a80f28dbe3563ba3c2f97a34b2351"
+    },
+    "empty-to-full-right.edf": {
+      "bytes": 2056,
+      "sha256": "1b5989783e1f71ff6d4e92ff2090886e575d065fdb136ad03ace12efae133c4f"
+    },
+    "zero-spelling-left.edf": {
+      "bytes": 2056,
+      "sha256": "797e504b225b726e7791dc6398584553fb1a02b0b5c867ffad1d3b8e947dffd9"
+    },
+    "zero-spelling-right.edf": {
+      "bytes": 2056,
+      "sha256": "f25fe14ad6bcb2c82b4873591e0acfd49ac82baa5a850b7ba8098afb9d3c0c87"
+    },
+    "span-gap-and-end-left.edf": {
+      "bytes": 2056,
+      "sha256": "86cf8f4d210484161bb1f91cb8e442373c0059150d1207f9f08384aaa714cc27"
+    },
+    "span-gap-and-end-right.edf": {
+      "bytes": 2056,
+      "sha256": "79d6ee2ea93a68500927dc20b9315e2b88335b3f32dc06f386b394c04c95c82d"
+    },
+    "tolerant-left.edf": {
+      "bytes": 2056,
+      "sha256": "a86d4c35495421e573358c449b736498d3f5e703cacac82168a5e7727f73d3fe"
+    },
+    "tolerant-right.edf": {
+      "bytes": 2056,
+      "sha256": "a86d4c35495421e573358c449b736498d3f5e703cacac82168a5e7727f73d3fe"
+    },
+    "partial.edf": {
+      "bytes": 2055,
+      "sha256": "5ac12e59120301e3822e5dc5724d895817dc82f1e565aa7470ed3da3663b9c69"
+    }
+  }
+}

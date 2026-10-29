@@ -1,4 +1,4 @@
-# MoonEDF 0.12.1
+# MoonEDF 0.13.0
 
 [项目仓库](https://github.com/peng-jun21-b/moonbit-edf) · [GitHub Actions](https://github.com/peng-jun21-b/moonbit-edf/actions/workflows/ci.yml)。模块为 `peng-jun21-b/edf`，当前维护与申报归属为 `peng-jun21-b`；原源码版权、Git 作者历史和上游许可证保持。
 
@@ -33,6 +33,27 @@ import {
 CI在普通Ubuntu 24.04 runner上运行原有格式、全目标check、JS/Wasm-GC测试、文件输入、精确时钟、差分/时间窗和文档示例消费者，并增加固定MoonSpectrum来源检查、独立DFT/SciPy PSD与真实公开EDF的JSON/CSV回读、旧CLI及拼接回归。公开数据仍按既有SHA获取并保留署名，不随源码分发。
 
 工具链使用固定官方发行包和匹配core的SHA256，在隔离目录安装；不依赖本机SDK。原PyEDFlib/NumPy参考与PSD的SciPy/NumPy参考分别安装，保留各自固定版本；版本、来源和命令见[ci/README.md](ci/README.md)。每次运行的真实结果以对应提交的Actions jobs为准。
+
+## 两份标注版本的完整复核（0.13.0）
+
+人工修订后，`compare_annotations(left,right)` 对两份 Recording 的完整标注清单做精确多重集对照。键为相对各自文件头的精确 onset、duration 的存在性及精确值、原 Unicode 文本。缺失 duration 与显式 `0` 不同；数字拼写等值可以保留，文本不做 trim、大小写或 NFC/NFD 转换。记录/通道位置作为双方完整来源交付，不用它猜跨编辑事件身份。
+
+每组提供左右全部快照索引及新增/删除/保留数。左有三份同值条目、右有两份时，保留2、删除1，仍列全三份左来源，不任意宣称某一份被删。所有原标注、顺序、record/signal 和 onset/duration 拼写保留；不裁时间窗，不排除 gap、负 onset、长持续时间或样本覆盖外事件。
+
+```sh
+moon run examples/annotation_review --target js
+moon run examples/annotation_review --target wasm-gc
+node examples/annotation-review.mjs BEFORE.edf AFTER.edf NEW_DIRECTORY
+node examples/annotation-review.mjs BEFORE.bdf AFTER.bdf NEW_DIRECTORY READ_OPTIONS.json
+```
+
+双文件入口各读一次完整字节快照，交付左右检查/完整标注、`comparison.json` 和最后写入的 `manifest.json`。manifest 绑定两边路径/字节数/SHA、读取策略、结果计数、模块版本、观察到的所选桥接文件SHA及全部payload哈希。两边完整解析与比较成功后才建新目录，不覆盖已有目录；写入失败不宣称成功，也不留下完成manifest。两个输入缓冲区不代表正在编辑的文件被原子同步抓取。
+
+检查对象保留既有 inspect 字段，另含解析后的头起始时间、`unspecified_local_civil` 和实际 `time_tolerance`。新报告将缺失 duration 和 Strict 的容差显式写为 `null`，不改变既有 Annotation JSON 或 annotations 命令。头零点不同仍交付完整相对清单结果，状态为 `complete_relative_comparison_clock_context_mismatch`、`needs_clock_review=true`；整数 civil 秒差仅供诊断，不加到 onset。相同相对 onset 不代表相同录制时刻，相同文件头也不证明同一采集、时区或生物事件。工作流不自动对齐、不判断“改的是同一个事件”。
+
+EDF/BDF、不同标注通道布局、识别字段、记录数和头时间均按既有合法性读取；普通文件空清单与纯标注文件可参与比较。可显式给 `{"left":{"time_tolerance":"0.0001"},"right":{"time_tolerance":"0.0001"}}`，默认各自 Strict。容差仅用于既有读取准入，不参与标注键匹配。Node 24 从原 JSON 文件保留数值容差词法；程序传入的 JS Number 对象不能恢复此前已丢失的数字，精确输入可用字符串。`MOON_EDF_BRIDGE` 沿用既有构建选择。
+
+该工作流组合现有精确时间/标注语义并增加完整多重集审阅和文件交接；不认证普通样本未改变、配对文件来自同一录制、临床正确性或外部采用。仍采用整文件内存处理，结果及见证大小随全部标注数量增长。开发接收器 `tools/check-annotation-review.py` 用冻结原始EDF/BDF、完整手算表及独立 Fraction/UTF-8解析接收两个公共后端与每个真实输出文件。
 
 ## 连续物理窗口到 Welch PSD（0.8.0）
 

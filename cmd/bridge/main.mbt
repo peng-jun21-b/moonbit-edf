@@ -488,6 +488,60 @@ pub fn append_recordings(
 }
 
 ///|
+fn review_policy(
+  options : Map[String, Json],
+  side : String,
+) -> @lib.TimePolicy raise {
+  match options.get(side) {
+    None => @lib.Strict
+    Some(Object(fields)) => {
+      for key, _ in fields {
+        if key != "time_tolerance" {
+          raise Failure("unsupported " + side + " read option: " + key)
+        }
+      }
+      policy(fields)
+    }
+    _ => raise Failure(side + " read options must be an object")
+  }
+}
+
+///|
+fn do_review_annotations(
+  left : Bytes,
+  right : Bytes,
+  text : String,
+) -> String raise {
+  let options = object(text)
+  for key, _ in options {
+    if key != "left" && key != "right" {
+      raise Failure("unsupported comparison option: " + key)
+    }
+  }
+  let left_policy = review_policy(options, "left")
+  let right_policy = review_policy(options, "right")
+  let left = @lib.decode(left, time_policy=left_policy) catch {
+    e => raise Failure("left: " + @debug.to_string(e))
+  }
+  let right = @lib.decode(right, time_policy=right_policy) catch {
+    e => raise Failure("right: " + @debug.to_string(e))
+  }
+  @lib.compare_annotations(left, right).to_json().stringify()
+}
+
+///|
+pub fn review_annotations(
+  left : Bytes,
+  right : Bytes,
+  options : String,
+) -> String {
+  do_review_annotations(left, right, options) catch {
+    Failure(message) => fail_string(message)
+    e => fail_string(@debug.to_string(e))
+  }
+}
+
+///|
 fn main {
 
 }

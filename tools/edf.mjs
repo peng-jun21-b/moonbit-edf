@@ -2,14 +2,36 @@
 // The host owns file paths and process IO; binary and signal work is MoonBit.
 import fs from 'node:fs';
 import path from 'node:path';
+import {createHash} from 'node:crypto';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 // Explicit alternate build directory, useful when the source volume is small.
 const bridgeUrl=process.env.MOON_EDF_BRIDGE
   ? pathToFileURL(path.resolve(process.env.MOON_EDF_BRIDGE))
   : new URL('../_build/js/release/build/cmd/bridge/bridge.js',import.meta.url);
-const { report, transform, append_recordings }=await import(bridgeUrl.href);
+const { report, transform, append_recordings, review_annotations }=await import(bridgeUrl.href);
 // Snapshot consumers share the same selected bridge as the CLI and file APIs.
 export { report, transform };
+
+// One exact multiset review of two complete byte snapshots. Per-side read
+// policies use the same original numeric lexeme handling as the other readers.
+export function annotationReviewFromSnapshots(left,right,options='{}') {
+  const parsed=typeof options==='string'?JSON.parse(options):options;
+  if(!parsed||Array.isArray(parsed)||typeof parsed!=='object')throw Error('options must be an object');
+  for(const key of Object.keys(parsed))if(key!=='left'&&key!=='right')throw Error(`unsupported comparison option: ${key}`);
+  for(const side of ['left','right'])if(Object.hasOwn(parsed,side)) {
+    const fields=parsed[side];
+    if(!fields||Array.isArray(fields)||typeof fields!=='object')throw Error(`${side} read options must be an object`);
+    for(const key of Object.keys(fields))if(key!=='time_tolerance')throw Error(`unsupported ${side} read option: ${key}`);
+  }
+  // Decode the complete original JSON text again, preserving nested number
+  // tokens before any Number rounding can affect the effective tolerance.
+  const raw=typeof options==='string'?options:JSON.stringify(options);
+  const exact=JSON.parse(raw,(key,value,context)=>key==='time_tolerance'&&typeof value==='number'?context.source:value);
+  const result=JSON.parse(review_annotations(left,right,JSON.stringify(exact)));
+  const implementation={module:'peng-jun21-b/edf',version:'0.13.0',
+    bridge_sha256:createHash('sha256').update(readFile(fileURLToPath(bridgeUrl))).digest('hex')};
+  return {result,implementation};
+}
 
 function readBounded(filename,limit) {
   const fd=fs.openSync(filename,'r');

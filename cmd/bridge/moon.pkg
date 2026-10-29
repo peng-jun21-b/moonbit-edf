@@ -11,7 +11,12 @@ pkgtype(kind: "executable")
 options(
   link: {
     "js": {
-      "exports": [ "report", "transform", "append_recordings" ],
+      "exports": [
+        "report",
+        "transform",
+        "append_recordings",
+        "review_annotations",
+      ],
       "format": "esm",
     },
   },

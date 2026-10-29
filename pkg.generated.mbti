@@ -7,6 +7,8 @@ import {
 }
 
 // Values
+pub fn compare_annotations(Recording, Recording) -> AnnotationReview raise EdfError
+
 #alias(create_exact)
 pub fn[T : TimeInput] create(Array[Signal], Array[Record[T]], T, format? : Format, continuity? : Continuity, start? : DateTime, patient? : String) -> Recording raise EdfError
 
@@ -46,6 +48,77 @@ pub struct AnnotationMatch {
 } derive(ToJson, @debug.Debug)
 pub fn AnnotationMatch::to_json(Self) -> Json
 pub fn AnnotationMatch::to_repr(Self) -> @debug.Repr
+
+pub struct AnnotationReview {
+  frame : String
+  status : String
+  header_zero_equal : Bool
+  header_civil_delta_seconds : String
+  needs_clock_review : Bool
+  left : AnnotationReviewSource
+  right : AnnotationReviewSource
+  groups : Array[AnnotationReviewGroup]
+  totals : AnnotationReviewTotals
+} derive(ToJson, @debug.Debug)
+pub fn AnnotationReview::to_json(Self) -> Json
+pub fn AnnotationReview::to_repr(Self) -> @debug.Repr
+
+pub struct AnnotationReviewContext {
+  format : String
+  continuity : String
+  patient : String
+  recording : String
+  date : String
+  time : String
+  start : DateTime
+  timezone : String
+  records : Int
+  declared_records : Int
+  duration : String
+  signals : Array[Signal]
+  starts : Array[String]
+  gaps : Array[Gap]
+  annotations : Int
+  time_tolerance : String?
+} derive(@debug.Debug)
+pub fn AnnotationReviewContext::to_json(Self) -> Json
+pub fn AnnotationReviewContext::to_repr(Self) -> @debug.Repr
+pub impl ToJson for AnnotationReviewContext
+
+pub struct AnnotationReviewGroup {
+  onset : Time
+  duration : Time?
+  text : String
+  left_indices : Array[Int]
+  right_indices : Array[Int]
+  left : Int
+  right : Int
+  retained : Int
+  removed : Int
+  added : Int
+} derive(@debug.Debug)
+pub fn AnnotationReviewGroup::to_json(Self) -> Json
+pub fn AnnotationReviewGroup::to_repr(Self) -> @debug.Repr
+pub impl ToJson for AnnotationReviewGroup
+
+pub struct AnnotationReviewSource {
+  context : AnnotationReviewContext
+  annotations : Array[Annotation]
+} derive(@debug.Debug)
+pub fn AnnotationReviewSource::to_json(Self) -> Json
+pub fn AnnotationReviewSource::to_repr(Self) -> @debug.Repr
+pub impl ToJson for AnnotationReviewSource
+
+pub struct AnnotationReviewTotals {
+  left : Int
+  right : Int
+  retained : Int
+  removed : Int
+  added : Int
+  groups : Int
+} derive(ToJson, @debug.Debug)
+pub fn AnnotationReviewTotals::to_json(Self) -> Json
+pub fn AnnotationReviewTotals::to_repr(Self) -> @debug.Repr
 
 pub(all) enum Continuity {
   Plain
