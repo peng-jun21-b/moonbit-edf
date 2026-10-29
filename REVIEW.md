@@ -43,5 +43,5 @@ moon run examples/time_window --target wasm-gc
 ## 交付状态
 
 本地实现、可运行示例和独立参考证据与公开发布是两回事。
-模块命名空间为 peng-jun21/edf，与公开仓库及 Mooncakes 账号一致。
+当前模块命名空间为 `peng-jun21-b/edf`，维护与申报归属为 `peng-jun21-b`，代码仓库为 `peng-jun21-b/moonbit-edf`。当前正式介绍见 README.md 与 PROPOSAL.md；包发布和赛事提交不由仓库归属推定。
 仓库可匿名克隆、默认分支内容、对应SHA的CI和正式链接需在提交时核对；不能用个人主页或历史截图代替。

@@ -1,6 +1,6 @@
 # MoonEDF 0.12.1
 
-[项目仓库](https://github.com/peng-jun21-b/moonbit-edf) · [GitHub Actions](https://github.com/peng-jun21-b/moonbit-edf/actions/workflows/ci.yml)。模块名保留`peng-jun21/edf`，源码许可证及上游归属保持。
+[项目仓库](https://github.com/peng-jun21-b/moonbit-edf) · [GitHub Actions](https://github.com/peng-jun21-b/moonbit-edf/actions/workflows/ci.yml)。模块为 `peng-jun21-b/edf`，当前维护与申报归属为 `peng-jun21-b`；原源码版权、Git 作者历史和上游许可证保持。
 
 纯 MoonBit 的 EDF / EDF+C/D / BDF / BDF+C/D 读写、精确事件窗口及记录编辑库。Node 入口负责文件和参数 IO；容器、16/24 位样本、校准、TAL、日历、裁剪、拼接和时间运算都在 MoonBit 中实现。
 
@@ -17,7 +17,16 @@ node tools/edf.mjs window demo.edf examples/window.json
 node tools/edf.mjs crop-time demo.edf cut.edf examples/crop-time.json
 ```
 
-固定工具链见 `.moonbit-version`，Node 24。原始申报书和历史验收材料保留，0.4.0 的本地检查回执在 [evidence/deep-20261020](evidence/deep-20261020)。本地提交不等于远端发布或赛事录取。
+固定工具链见 `.moonbit-version`，Node 24。当前正式项目介绍见 [PROPOSAL.md](PROPOSAL.md)，当前归属元数据见 [SUBMISSION.json](SUBMISSION.json)。原始申报书 `peng-jun21-edf-申报书.md`、带日期的历史验收文档及 [evidence/deep-20261020](evidence/deep-20261020) 保留当时原文，不表示当前模块或账号；GitHub 源码、Mooncakes 包发布与赛事提交分别记录。
+
+
+公共包路径为 `peng-jun21-b/edf`。随包示例使用下列导入；在源码 checkout 中可直接运行上方构建和示例命令。仓库提供源码与 CI，命名空间更正不代表已经发布新的 Mooncakes 包或完成赛事表单提交。
+
+```moonbit
+import {
+  "peng-jun21-b/edf" @edf,
+}
+```
 
 ## 自动验收
 

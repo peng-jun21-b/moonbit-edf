@@ -1,6 +1,8 @@
 # MoonEDF：精确生理记录时间窗与编辑库
 
-项目：`peng-jun21/edf`，交付版本0.12.1；[项目仓库](https://github.com/peng-jun21-b/moonbit-edf)；MIT许可证，DSP依赖Apache-2.0。
+项目：`peng-jun21-b/edf`，交付版本0.12.1；[项目仓库](https://github.com/peng-jun21-b/moonbit-edf)；MIT许可证，DSP依赖Apache-2.0。
+
+当前维护与申报归属为 `peng-jun21-b`，与自有模块和仓库账号一致。原源码版权、贡献者作者历史及第三方来源按 LICENSE 与 THIRD-PARTY-NOTICES.md 保留；仓库归属更正不改写原创作者。
 
 面向生理记录导入、回放、标注与数据交换工具的开发者，提供以MoonBit实现的EDF/BDF读写、精确时间查询和文件编辑能力。
 真实记录常有不同通道采样率、采集中断和跨记录事件。MoonEDF保留原始样本、记录身份与时间间隙，避免先转换为连续浮点时间轴后再猜测事件位置。

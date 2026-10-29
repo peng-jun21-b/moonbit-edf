@@ -1,5 +1,5 @@
 import {
-  "peng-jun21/edf",
+  "peng-jun21-b/edf",
   "moonbitlang/core/encoding/utf8",
 }
 

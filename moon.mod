@@ -1,4 +1,4 @@
-name = "peng-jun21/edf"
+name = "peng-jun21-b/edf"
 
 version = "0.12.1"
 

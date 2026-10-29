@@ -1,5 +1,5 @@
 import {
-  "peng-jun21/edf" @lib,
+  "peng-jun21-b/edf" @lib,
   "moonbitlang/core/json",
   "moonbitlang/core/debug",
 }

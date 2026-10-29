@@ -1,5 +1,11 @@
 # Reproducible CI
 
+The current owned module is `peng-jun21-b/edf` in repository
+`peng-jun21-b/moonbit-edf`. All public example packages import that module;
+the same required workflow compiles and executes those consumers and the real
+Node bridge. Namespace changes do not rename third-party dependencies, alter
+algorithms, publish packages or rewrite historical provenance.
+
 The `EDF contracts` workflow runs on an ordinary Ubuntu 24.04 GitHub runner with
 read-only repository permission. Its checkout, Node and Python actions are pinned
 to commits in the official `actions` repositories. Node is 24.11.0; the actual

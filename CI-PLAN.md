@@ -1,4 +1,9 @@
-# Required CI and recording inventory receiving plan
+# Required CI and public-package receiving plan
+
+The owned module is `peng-jun21-b/edf`; its existing public examples and Node
+bridge are compiled from that namespace. Account alignment preserves all
+required product steps below, without changing the recording algorithms,
+third-party dependency identities or source fixture expectations.
 
 The required workflow is `.github/workflows/ci.yml`, job **EDF format, time and PSD contracts**. All existing named steps remain required; the recording inventory adds **Single-snapshot recording inventory public-package and file receivers**. A result is tied to the exact final push head, not an earlier commit or a separately rerun auxiliary workflow.
 
