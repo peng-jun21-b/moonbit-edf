@@ -108,3 +108,8 @@ jobs:
           moon run examples/identification --target js --deny-warn > work/identification-public-js.json
           moon run examples/identification --target wasm-gc --deny-warn > work/identification-public-wasm-gc.json
           python tools/check-identification.py --output work/identification-verification.json --work-dir work/identification-cases --public-output work/identification-public-js.json --public-output work/identification-public-wasm-gc.json
+      - name: Digital sample editing public-package and real file receivers
+        run: |
+          moon run examples/digital_edit --target js --deny-warn > work/digital-edit-public-js.json
+          moon run examples/digital_edit --target wasm-gc --deny-warn > work/digital-edit-public-wasm-gc.json
+          python tools/check-digital-edit.py --output work/digital-edit-verification.json --work-dir work/digital-edit-cases --public-output work/digital-edit-public-js.json --public-output work/digital-edit-public-wasm-gc.json

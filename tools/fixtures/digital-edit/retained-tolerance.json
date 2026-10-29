@@ -1,0 +1,10 @@
+{
+  "signal": 0,
+  "first_sample": 2,
+  "values": [
+    1,
+    2,
+    3
+  ],
+  "time_tolerance": 0.01
+}

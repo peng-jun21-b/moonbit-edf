@@ -266,6 +266,7 @@ pub fn[A : TimeInput, B : TimeInput] Recording::welch_psd(Self, Int, A, B, segme
 pub fn[A : TimeInput, B : TimeInput] Recording::window_csv(Self, Array[Int], A, B, physical? : Bool, max_samples? : Int) -> String raise EdfError
 pub fn[A : TimeInput, B : TimeInput] Recording::window_statistics(Self, Int, A, B, max_samples? : Int) -> WindowStatistics raise EdfError
 pub fn Recording::with_annotations(Self, Array[Annotation]) -> Self raise EdfError
+pub fn Recording::with_digital_samples(Self, Int, Int, Array[Int]) -> Self raise EdfError
 pub fn Recording::with_identification(Self, patient? : String, recording? : String) -> Self raise EdfError
 
 pub(all) struct Signal {

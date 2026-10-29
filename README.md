@@ -1,4 +1,4 @@
-# MoonEDF 0.11.0
+# MoonEDF 0.12.0
 
 [项目仓库](https://github.com/peng-jun21-b/moonbit-edf) · [GitHub Actions](https://github.com/peng-jun21-b/moonbit-edf/actions/workflows/ci.yml)。模块名保留`peng-jun21/edf`，源码许可证及上游归属保持。
 
@@ -52,6 +52,24 @@ JSON记录源通道/标签、请求时段、实际首/末采样时刻、完整�
 当物理幅度和采样率都很小时，原始FFT幅值先平方可能下溢为0，即使最终`unit²/Hz`密度可表示。0.9.0对非零峰值不超过`2^-512`的完整窗口做二进制预缩放，以内部1 Hz调用同一个上游Welch，再分离尾数/指数还原实际密度。例如8个`1e-180`恒幅样本、记录时长`1e200`，DC密度可约为`1e-160`。这是旧合同允许下溢基础上的数值可用范围提升。
 
 普通幅度保持原路径；没有裁幅、删样本、替换FFT/Welch或新增输入限制。原始采样率、精确时间、单位、标定和CSV列保持。最终密度或频带功率不可表示时仍可下溢；极大动态跨度或接近零的谱抵消项不在全Double准确性保证内。`python tools/check-psd-scale.py --output NEW.json --work-dir NEW_CASES`以独立Decimal直接DFT核对实际JSON/CSV，保留可运行的合成EDF与输出；生成的`dc.edf`还可配合[examples/psd-small-scale.json](examples/psd-small-scale.json)调用既有消费者。
+
+## 替换普通通道的数字样本区间（0.12.0）
+
+`Recording::with_digital_samples(signal, first_sample, values)`与`samples-set`将调用者给出的整数写入一个普通通道已有的样本位置。`first_sample`为该通道按记录顺序展开的零基序号；连续替换`values.length()`个样本，不插入或删除。跨记录、跨采集gap时只走过实际记录样本，不创建gap内数据，不改变采样时刻或通道速率。
+
+```sh
+node tools/edf.mjs samples-set INPUT.edf NEW.edf examples/samples-set.json
+moon run examples/digital_edit --target js
+moon run examples/digital_edit --target wasm-gc
+```
+
+新整数须位于所选通道的`digital_min..digital_max`，与现有`create`相同；不截断、绕回、裁幅或调整标定。未选中的既有越界样本保持原值。注释通道、负/越界序号、过长区间或任何无效新值均报错，后面的值失败也不交付部分编辑。空数组在校验通道/位置后保持原字节；位置可等于该通道总样本数。零记录文件只能接受位置0的空替换。
+
+文件参数的`signal`、`first_sample`及各个`values`必须为Int范围内的整数数值；拒绝非整数，包括会在浮点舍入后看似整数的小数。原JSON数字词法用于这项校验，不先截断或舍入；旧命令的解析策略保持。
+
+返回Recording的`data`和新命令输出仅允许目标16/24位样本字节变化，保留其它通道、头/标定原文、TAL、gap和记录数原文；原`encode()`仍按既有合同规范化记录数。编辑后沿用原读取`time_tolerance`，严格读取策略不变。输入不改，输出须为新路径，参数/读取/替换失败不创建文件。
+
+这是调用者指定的数字编辑，不自动发现或修复伪迹，不写物理浮点值，不进行滤波、重采样或临床解释。已有`Signal::to_digital`可由调用者显式选择做逆标定，其近似和范围策略保持。`python tools/check-digital-edit.py --help`说明独立全字节/有理时钟接收验证；自编公开包示例只证明实际接入。
 
 ## 更正既有文件的标识字段（0.11.0）
 
@@ -369,6 +387,7 @@ MoonBit 解码入口是 `decode(data : Bytes, time_policy? : TimePolicy) -> Reco
 | `add_annotation_signal` / annotation-signal | 新增标准注释通道 |
 | `rename_signal` / rename | 修改普通通道标签 |
 | `map_physical` / calibrate | 仿射映射物理标定与单位，保留数字样本字节 |
+| `with_digital_samples` / samples-set | 替换单个普通通道的既有数字样本区间，保留其它原字节和所有时钟 |
 
 `crop_time_window` 保留选中样本的原始时刻和数字值，输出 EDF+/BDF+；事件 onset 在请求区间内才保留，duration 原值保留，所有事件按头部整秒位移重定位。间断不会压平。4Hz 和 2Hz 通道的 `[0.5,1.5)` 可重切为两个 0.5 秒记录。EDF 每条记录要求各通道共用起点、固定时长与每通道固定采样数；例如同样通道的 `[0.25,0.75)` 留下不同通道起点，无法在一个普通 EDF 中无损表达，库明确报错，不能偷偷插值或移动样本。需要这类窗内全部原始时刻时，使用 `time_window`/CSV 精确表。
 

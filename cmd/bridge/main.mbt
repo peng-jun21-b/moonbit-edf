@@ -55,6 +55,37 @@ fn time_option(o : Map[String, Json], key : String) -> String raise {
 }
 
 ///|
+extern "js" fn digital_edit_options(text : String) -> String =
+  #| (text) => {
+  #|   const sources = new WeakMap();
+  #|   const options = JSON.parse(text, function(key, value, context) {
+  #|     if (typeof value === 'number') {
+  #|       let fields = sources.get(this);
+  #|       if (!fields) { fields = new Map(); sources.set(this, fields); }
+  #|       fields.set(key, context.source);
+  #|     }
+  #|     return value;
+  #|   });
+  #|   const invalid = () => { throw new Error('samples-set requires Int integers'); };
+  #|   function integer(object, key) {
+  #|     const value = object[key];
+  #|     if (!Number.isInteger(value) || value < -2147483648 || value > 2147483647) invalid();
+  #|     const source = sources.get(object)?.get(key);
+  #|     if (typeof source !== 'string') invalid();
+  #|     const [mantissa, exponent = '0'] = source.toLowerCase().split('e');
+  #|     const fraction = (mantissa.split('.')[1] ?? '').length;
+  #|     const digits = mantissa.replace('-', '').replace('.', '');
+  #|     const scale = fraction - Number(exponent);
+  #|     if (scale > 0 && /[1-9]/.test(digits.slice(-scale))) invalid();
+  #|   }
+  #|   integer(options, 'signal');
+  #|   integer(options, 'first_sample');
+  #|   if (!Array.isArray(options.values)) invalid();
+  #|   for (let i = 0; i < options.values.length; i++) integer(options.values, String(i));
+  #|   return text;
+  #| }
+
+///|
 fn policy(o : Map[String, Json]) -> @lib.TimePolicy raise {
   match o.get("time_tolerance") {
     None => @lib.Strict
@@ -342,12 +373,21 @@ fn from_options(o : Map[String, Json]) -> @lib.Recording raise {
 fn do_transform(data : Bytes, text : String) -> Bytes raise {
   let o = object(text)
   let cmd : String = required(o, "command")
+  if cmd == "samples-set" {
+    ignore(digital_edit_options(text))
+  }
   let recording = if cmd == "create" {
     from_options(o)
   } else {
     let r = @lib.decode(data, time_policy=policy(o))
     match cmd {
       "copy" => r
+      "samples-set" =>
+        return r.with_digital_samples(
+            required(o, "signal"),
+            required(o, "first_sample"),
+            required(o, "values"),
+          ).data
       "identification-set" =>
         // Preserve unknown count spelling and every non-target byte.
         return r.with_identification(

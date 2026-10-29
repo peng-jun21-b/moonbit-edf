@@ -1,0 +1,44 @@
+{
+  "frozenAfterInitialFailureBeforeFix": true,
+  "originalFrozenCasesUnchanged": true,
+  "errors": [
+    {
+      "name": "host-fractional-signal",
+      "source": "plain.edf",
+      "options": "host-fractional-signal.json",
+      "errorContains": "samples-set requires Int integers",
+      "hostOnly": true
+    },
+    {
+      "name": "host-fractional-start",
+      "source": "plain.edf",
+      "options": "host-fractional-start.json",
+      "errorContains": "samples-set requires Int integers",
+      "hostOnly": true
+    },
+    {
+      "name": "host-exact-fraction",
+      "source": "plain.edf",
+      "options": "host-exact-fraction.json",
+      "errorContains": "samples-set requires Int integers",
+      "hostOnly": true
+    }
+  ],
+  "files": [
+    {
+      "name": "host-exact-fraction.json",
+      "bytes": 65,
+      "sha256": "ca11e1cacd7b38fae3f3da9166772ce6c5fc3bd8dfd4578e3b450a0de23dce71"
+    },
+    {
+      "name": "host-fractional-signal.json",
+      "bytes": 45,
+      "sha256": "ba573058053eb1a73cbb88ea1bcdd5bcae2264689b14b584eca5043be9a3510c"
+    },
+    {
+      "name": "host-fractional-start.json",
+      "bytes": 45,
+      "sha256": "a03940b43181da2924be050ec02d0c56fb693b514158c0ca4e2f87cab0212521"
+    }
+  ]
+}
